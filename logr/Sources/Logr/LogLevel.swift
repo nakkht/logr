@@ -9,9 +9,9 @@
 import Foundation
 
 enum LogLevel: String {
+    case debug = "Debug"
     case info = "Info"
     case warn = "Warn"
-    case debug = "Debug"
     case error = "Error"
     case critical = "Critical"
 }

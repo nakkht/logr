@@ -11,7 +11,7 @@ import Foundation
 class Logr {
     
     private static let queueName = "com.neqsoft.logr"
-    private static let localLoggerQueue = DispatchQueue(label: queueName, qos: .background)
+    private static let dispatchQueue = DispatchQueue(label: queueName, qos: .background)
     
     init() {}
     
@@ -36,6 +36,10 @@ class Logr {
     }
     
     private func log(_ level: LogLevel, message: String, _ async: Bool = true) {
-       
+        if(async) {
+            Logr.dispatchQueue.async { }
+        } else {
+            Logr.dispatchQueue.sync { }
+        }
     }
 }

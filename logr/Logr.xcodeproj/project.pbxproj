@@ -52,8 +52,6 @@
 			children = (
 				F6F43C0F22DE729300D85112 /* LogLevel.swift */,
 				F6F43C1022DE729400D85112 /* Logr.swift */,
-				F6F43C0722DE727200D85112 /* Logr.h */,
-				F6F43C0822DE727200D85112 /* Info.plist */,
 			);
 			path = Logr;
 			sourceTree = "<group>";
@@ -61,9 +59,19 @@
 		F6F43C1322DE744300D85112 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				F6F43C0822DE727200D85112 /* Info.plist */,
+				F6F43C1422E513C300D85112 /* Headers */,
 				F6F43C0622DE727200D85112 /* Logr */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		F6F43C1422E513C300D85112 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				F6F43C0722DE727200D85112 /* Logr.h */,
+			);
+			path = Headers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,7 +294,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "$(SRCROOT)/Sources/Logr/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -313,7 +321,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "$(SRCROOT)/Sources/Logr/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
