@@ -10,36 +10,33 @@ import Foundation
 
 class Logr {
     
-    private static let queueName = "com.neqsoft.logr"
-    private static let dispatchQueue = DispatchQueue(label: queueName, qos: .background)
+    private let service: LogrService
     
-    init() {}
+    init() {
+        service = LogrService()
+    }
     
     func debug(_ message: String, _ async: Bool = true) {
-        log(.debug, message: message, async)
+        log(.debug, message, async)
     }
     
     func info(_ message: String, _ async: Bool = true) {
-        log(.info, message: message, async)
+        log(.info, message, async)
     }
     
     func wwarn(_ message: String, _ async: Bool = true) {
-        self.log(.warn, message: message, async)
+        self.log(.warn, message, async)
     }
     
     func error(_ message: String, _ async: Bool = true) {
-        self.log(.error, message: message, async)
+        self.log(.error, message, async)
     }
     
     func critical(_ message: String, _ async: Bool = true) {
-        self.log(.critical, message: message, async)
+        self.log(.critical, message, async)
     }
     
-    private func log(_ level: LogLevel, message: String, _ async: Bool = true) {
-        if(async) {
-            Logr.dispatchQueue.async { }
-        } else {
-            Logr.dispatchQueue.sync { }
-        }
+    private func log(_ level: LogLevel, _ message: String, _ async: Bool = true) {
+        service.log(level, message, async)
     }
 }

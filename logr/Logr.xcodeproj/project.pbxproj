@@ -10,6 +10,7 @@
 		F6F43C0922DE727200D85112 /* Logr.h in Headers */ = {isa = PBXBuildFile; fileRef = F6F43C0722DE727200D85112 /* Logr.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F6F43C1122DE729400D85112 /* LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F43C0F22DE729300D85112 /* LogLevel.swift */; };
 		F6F43C1222DE729400D85112 /* Logr.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F43C1022DE729400D85112 /* Logr.swift */; };
+		F6F43C1622E5874100D85112 /* LogrService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F43C1522E5874100D85112 /* LogrService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +19,7 @@
 		F6F43C0822DE727200D85112 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6F43C0F22DE729300D85112 /* LogLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogLevel.swift; sourceTree = "<group>"; };
 		F6F43C1022DE729400D85112 /* Logr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logr.swift; sourceTree = "<group>"; };
+		F6F43C1522E5874100D85112 /* LogrService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogrService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +54,7 @@
 			children = (
 				F6F43C0F22DE729300D85112 /* LogLevel.swift */,
 				F6F43C1022DE729400D85112 /* Logr.swift */,
+				F6F43C1522E5874100D85112 /* LogrService.swift */,
 			);
 			path = Logr;
 			sourceTree = "<group>";
@@ -127,6 +130,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = F6F43BFA22DE727200D85112;
 			productRefGroup = F6F43C0522DE727200D85112 /* Products */;
@@ -154,6 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6F43C1122DE729400D85112 /* LogLevel.swift in Sources */,
+				F6F43C1622E5874100D85112 /* LogrService.swift in Sources */,
 				F6F43C1222DE729400D85112 /* Logr.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
