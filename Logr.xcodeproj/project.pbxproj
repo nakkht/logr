@@ -74,25 +74,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F6F43C0622DE727200D85112 /* Logr */ = {
+		F6F43C1322DE744300D85112 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				F6F43C0822DE727200D85112 /* Info.plist */,
+				F6F43C1422E513C300D85112 /* Headers */,
 				F61FC50A22EE2E8500DBDB7F /* Extension */,
 				F61FC50222EE14F300DBDB7F /* Target */,
 				F6F43C0F22DE729300D85112 /* LogLevel.swift */,
 				F6F43C1022DE729400D85112 /* Logr.swift */,
 				F6F43C1522E5874100D85112 /* LogrService.swift */,
 				F61FC50D22EE37CB00DBDB7F /* Config.swift */,
-			);
-			path = Logr;
-			sourceTree = "<group>";
-		};
-		F6F43C1322DE744300D85112 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				F6F43C0822DE727200D85112 /* Info.plist */,
-				F6F43C1422E513C300D85112 /* Headers */,
-				F6F43C0622DE727200D85112 /* Logr */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
