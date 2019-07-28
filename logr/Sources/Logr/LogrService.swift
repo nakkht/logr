@@ -8,12 +8,13 @@
 
 import Foundation
 
-class LogrService {
+final class LogrService {
     
     private static let queueName = "com.neqsoft.logr_service"
     private static let dispatchQueue = DispatchQueue(label: queueName, qos: .background)
+    private static let targets = [Target]()
     
-    func log(_ level: LogLevel, _ message: String, _ async: Bool = true) {
+    func log(_ level: LogLevel, message: String, file: String = #file, function: String = #function, line: Int = #line, _ async: Bool = true) {
         if(async) {
             LogrService.dispatchQueue.async { }
         } else {

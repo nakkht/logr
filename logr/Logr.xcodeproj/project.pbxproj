@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F61FC50422EE14FD00DBDB7F /* Target.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61FC50322EE14FD00DBDB7F /* Target.swift */; };
+		F61FC50622EE157400DBDB7F /* ConsoleTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61FC50522EE157400DBDB7F /* ConsoleTarget.swift */; };
+		F61FC50C22EE2E8E00DBDB7F /* OSLogType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61FC50B22EE2E8E00DBDB7F /* OSLogType.swift */; };
 		F6F43C0922DE727200D85112 /* Logr.h in Headers */ = {isa = PBXBuildFile; fileRef = F6F43C0722DE727200D85112 /* Logr.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F6F43C1122DE729400D85112 /* LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F43C0F22DE729300D85112 /* LogLevel.swift */; };
 		F6F43C1222DE729400D85112 /* Logr.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F43C1022DE729400D85112 /* Logr.swift */; };
@@ -14,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F61FC50322EE14FD00DBDB7F /* Target.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Target.swift; sourceTree = "<group>"; };
+		F61FC50522EE157400DBDB7F /* ConsoleTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleTarget.swift; sourceTree = "<group>"; };
+		F61FC50B22EE2E8E00DBDB7F /* OSLogType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSLogType.swift; sourceTree = "<group>"; };
 		F6F43C0422DE727200D85112 /* Logr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Logr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6F43C0722DE727200D85112 /* Logr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Logr.h; sourceTree = "<group>"; };
 		F6F43C0822DE727200D85112 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -33,6 +39,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F61FC50222EE14F300DBDB7F /* Target */ = {
+			isa = PBXGroup;
+			children = (
+				F61FC50322EE14FD00DBDB7F /* Target.swift */,
+				F61FC50522EE157400DBDB7F /* ConsoleTarget.swift */,
+			);
+			path = Target;
+			sourceTree = "<group>";
+		};
+		F61FC50A22EE2E8500DBDB7F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F61FC50B22EE2E8E00DBDB7F /* OSLogType.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		F6F43BFA22DE727200D85112 = {
 			isa = PBXGroup;
 			children = (
@@ -52,6 +75,8 @@
 		F6F43C0622DE727200D85112 /* Logr */ = {
 			isa = PBXGroup;
 			children = (
+				F61FC50A22EE2E8500DBDB7F /* Extension */,
+				F61FC50222EE14F300DBDB7F /* Target */,
 				F6F43C0F22DE729300D85112 /* LogLevel.swift */,
 				F6F43C1022DE729400D85112 /* Logr.swift */,
 				F6F43C1522E5874100D85112 /* LogrService.swift */,
@@ -158,7 +183,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6F43C1122DE729400D85112 /* LogLevel.swift in Sources */,
+				F61FC50422EE14FD00DBDB7F /* Target.swift in Sources */,
 				F6F43C1622E5874100D85112 /* LogrService.swift in Sources */,
+				F61FC50622EE157400DBDB7F /* ConsoleTarget.swift in Sources */,
+				F61FC50C22EE2E8E00DBDB7F /* OSLogType.swift in Sources */,
 				F6F43C1222DE729400D85112 /* Logr.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -218,7 +246,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -276,7 +304,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
