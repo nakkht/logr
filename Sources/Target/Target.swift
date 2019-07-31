@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Target {
+public protocol Target {
     
     func send(_ level: LogLevel, message: String, file: String, function: String, line: Int)
 }

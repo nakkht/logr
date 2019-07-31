@@ -9,7 +9,7 @@
 import Foundation
 import os.log
 
-final class ConsoleTarget: Target {
+public final class ConsoleTarget: Target {
     
     @available(iOS 10.0, *)
     private lazy var osLog = OSLog(subsystem: subsystem, category: category)
@@ -17,7 +17,7 @@ final class ConsoleTarget: Target {
     var subsystem: String = ""
     var category: String = ""
     
-    func send(_ level: LogLevel, message: String, file: String = #file, function: String = #function, line: Int = #line) {
+    public func send(_ level: LogLevel, message: String, file: String = #file, function: String = #function, line: Int = #line) {
         let formattedMessage = "\(file) \(function) \(line) \(level.title) \(message)"
         if #available(iOS 10.0, *) {
             os_log("%@", log: osLog, type: OSLogType.from(level), formattedMessage)

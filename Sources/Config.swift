@@ -10,5 +10,5 @@ import Foundation
 
 public class Config {
     
-    var targets: [Target]?
+    public var targets: [Target]?
 }

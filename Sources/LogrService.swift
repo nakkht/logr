@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class LogrService {
+public final class LogrService {
     
     private static let queueName = "com.neqsoft.logr_service"
     private static let dispatchQueue = DispatchQueue(label: queueName, qos: .background)
@@ -16,7 +16,7 @@ final class LogrService {
     
     init() {}
     
-    static func `init`(with config: Config) {
+    public static func `init`(with config: Config) {
         targets = config.targets
     }
     
