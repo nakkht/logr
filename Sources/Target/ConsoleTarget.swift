@@ -14,8 +14,13 @@ public final class ConsoleTarget: Target {
     @available(iOS 10.0, *)
     private lazy var osLog = OSLog(subsystem: subsystem, category: category)
     
-    var subsystem: String = ""
-    var category: String = ""
+    let subsystem: String
+    let category: String
+    
+    public init(subsystem: String = "", category: String = "") {
+        self.subsystem = subsystem
+        self.category = category
+    }
     
     public func send(_ level: LogLevel, message: String, file: String = #file, function: String = #function, line: Int = #line) {
         let formattedMessage = "\(file) \(function) \(line) \(level.title) \(message)"

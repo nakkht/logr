@@ -14,13 +14,15 @@ public final class LogrService {
     private static let dispatchQueue = DispatchQueue(label: queueName, qos: .background)
     private static var targets: [Target]?
     
-    init() {}
+    public init() {}
     
-    public static func `init`(with config: Config) {
-        targets = config.targets
+    @discardableResult
+    public convenience init(with config: Config) {
+        self.init()
+        LogrService.targets = config.targets
     }
     
-    func log(_ level: LogLevel, message: String, file: String = #file, function: String = #function, line: Int = #line, _ async: Bool = true) {
+    public func log(_ level: LogLevel, message: String, file: String = #file, function: String = #function, line: Int = #line, _ async: Bool = true) {
         LogrService.targets?.forEach({ (target) in
             dispatch({
                 target.send(level, message: message, file: file, function: function, line: line)

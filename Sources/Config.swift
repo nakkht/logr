@@ -10,5 +10,9 @@ import Foundation
 
 public class Config {
     
-    public var targets: [Target]?
+    let targets: [Target]?
+    
+    public init(_ targets: Target...) {
+        self.targets = targets
+    }
 }
