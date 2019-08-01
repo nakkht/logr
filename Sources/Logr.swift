@@ -12,7 +12,7 @@ open class Logr {
     
     private let service: LogrService
     
-    init() {
+    public init() {
         service = LogrService()
     }
     
@@ -20,19 +20,19 @@ open class Logr {
         log(.debug, message, file, function, line, async)
     }
     
-    func info(_ message: String, file: String = #file, _ function: String = #function, line: Int = #line, _ async: Bool = true) {
+    open func info(_ message: String, file: String = #file, _ function: String = #function, line: Int = #line, _ async: Bool = true) {
         log(.info, message, file, function, line, async)
     }
     
-    func warn(_ message: String, file: String = #file, _ function: String = #function, line: Int = #line, _ async: Bool = true) {
+    open func warn(_ message: String, file: String = #file, _ function: String = #function, line: Int = #line, _ async: Bool = true) {
         self.log(.warn, message, file, function, line, async)
     }
     
-    func error(_ message: String, file: String = #file, _ function: String = #function, line: Int = #line, _ async: Bool = true) {
+    open func error(_ message: String, file: String = #file, _ function: String = #function, line: Int = #line, _ async: Bool = true) {
         self.log(.error, message, file, function, line, async)
     }
     
-    func critical(_ message: String, file: String = #file, _ function: String = #function, line: Int = #line, _ async: Bool = true) {
+    open func critical(_ message: String, file: String = #file, _ function: String = #function, line: Int = #line, _ async: Bool = true) {
         self.log(.critical, message, file, function, line, async)
     }
     
