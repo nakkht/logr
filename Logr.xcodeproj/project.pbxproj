@@ -11,17 +11,32 @@
 		F61FC50622EE157400DBDB7F /* ConsoleTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61FC50522EE157400DBDB7F /* ConsoleTarget.swift */; };
 		F61FC50C22EE2E8E00DBDB7F /* OSLogType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61FC50B22EE2E8E00DBDB7F /* OSLogType.swift */; };
 		F61FC50E22EE37CB00DBDB7F /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61FC50D22EE37CB00DBDB7F /* Config.swift */; };
+		F6A0710222F7893100455FB7 /* Logr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6F43C0422DE727200D85112 /* Logr.framework */; };
+		F6A0710A22F7899400455FB7 /* ConsoleTargetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A0710922F7899400455FB7 /* ConsoleTargetTests.swift */; };
 		F6F43C0922DE727200D85112 /* Logr.h in Headers */ = {isa = PBXBuildFile; fileRef = F6F43C0722DE727200D85112 /* Logr.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F6F43C1122DE729400D85112 /* LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F43C0F22DE729300D85112 /* LogLevel.swift */; };
 		F6F43C1222DE729400D85112 /* Logr.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F43C1022DE729400D85112 /* Logr.swift */; };
 		F6F43C1622E5874100D85112 /* LogrService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F43C1522E5874100D85112 /* LogrService.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		F6A0710322F7893100455FB7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F6F43BFB22DE727200D85112 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F6F43C0322DE727200D85112;
+			remoteInfo = Logr;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		F61FC50322EE14FD00DBDB7F /* Target.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Target.swift; sourceTree = "<group>"; };
 		F61FC50522EE157400DBDB7F /* ConsoleTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleTarget.swift; sourceTree = "<group>"; };
 		F61FC50B22EE2E8E00DBDB7F /* OSLogType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSLogType.swift; sourceTree = "<group>"; };
 		F61FC50D22EE37CB00DBDB7F /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		F6A070FD22F7893100455FB7 /* LogrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6A0710122F7893100455FB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F6A0710922F7899400455FB7 /* ConsoleTargetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleTargetTests.swift; sourceTree = "<group>"; };
 		F6F43C0422DE727200D85112 /* Logr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Logr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6F43C0722DE727200D85112 /* Logr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Logr.h; sourceTree = "<group>"; };
 		F6F43C0822DE727200D85112 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -31,6 +46,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F6A070FA22F7893100455FB7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6A0710222F7893100455FB7 /* Logr.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F6F43C0122DE727200D85112 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -58,10 +81,28 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		F6A070FE22F7893100455FB7 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				F6A0710122F7893100455FB7 /* Info.plist */,
+				F6A0710822F7897A00455FB7 /* Target */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		F6A0710822F7897A00455FB7 /* Target */ = {
+			isa = PBXGroup;
+			children = (
+				F6A0710922F7899400455FB7 /* ConsoleTargetTests.swift */,
+			);
+			path = Target;
+			sourceTree = "<group>";
+		};
 		F6F43BFA22DE727200D85112 = {
 			isa = PBXGroup;
 			children = (
 				F6F43C1322DE744300D85112 /* Sources */,
+				F6A070FE22F7893100455FB7 /* Tests */,
 				F6F43C0522DE727200D85112 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -70,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				F6F43C0422DE727200D85112 /* Logr.framework */,
+				F6A070FD22F7893100455FB7 /* LogrTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -111,6 +153,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		F6A070FC22F7893100455FB7 /* LogrTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F6A0710722F7893100455FB7 /* Build configuration list for PBXNativeTarget "LogrTests" */;
+			buildPhases = (
+				F6A070F922F7893100455FB7 /* Sources */,
+				F6A070FA22F7893100455FB7 /* Frameworks */,
+				F6A070FB22F7893100455FB7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F6A0710422F7893100455FB7 /* PBXTargetDependency */,
+			);
+			name = LogrTests;
+			productName = LogrTests;
+			productReference = F6A070FD22F7893100455FB7 /* LogrTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		F6F43C0322DE727200D85112 /* Logr */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F6F43C0C22DE727200D85112 /* Build configuration list for PBXNativeTarget "Logr" */;
@@ -135,9 +195,14 @@
 		F6F43BFB22DE727200D85112 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1030;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = neqsoft;
 				TargetAttributes = {
+					F6A070FC22F7893100455FB7 = {
+						CreatedOnToolsVersion = 10.3;
+						LastSwiftMigration = 1030;
+					};
 					F6F43C0322DE727200D85112 = {
 						CreatedOnToolsVersion = 10.2.1;
 						LastSwiftMigration = 1020;
@@ -158,11 +223,19 @@
 			projectRoot = "";
 			targets = (
 				F6F43C0322DE727200D85112 /* Logr */,
+				F6A070FC22F7893100455FB7 /* LogrTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F6A070FB22F7893100455FB7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F6F43C0222DE727200D85112 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -173,6 +246,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F6A070F922F7893100455FB7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6A0710A22F7899400455FB7 /* ConsoleTargetTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F6F43C0022DE727200D85112 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -189,7 +270,56 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		F6A0710422F7893100455FB7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F6F43C0322DE727200D85112 /* Logr */;
+			targetProxy = F6A0710322F7893100455FB7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		F6A0710522F7893100455FB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7Y489T33S3;
+				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.neqsoft.logrtests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F6A0710622F7893100455FB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7Y489T33S3;
+				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.neqsoft.logrtests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		F6F43C0A22DE727200D85112 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -370,6 +500,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F6A0710722F7893100455FB7 /* Build configuration list for PBXNativeTarget "LogrTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6A0710522F7893100455FB7 /* Debug */,
+				F6A0710622F7893100455FB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F6F43BFE22DE727200D85112 /* Build configuration list for PBXProject "Logr" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
