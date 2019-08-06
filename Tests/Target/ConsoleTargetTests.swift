@@ -25,4 +25,13 @@ class ConsoleTargetTests: XCTestCase {
         XCTAssertEqual(target.category, "")
         XCTAssertEqual(target.subsystem, "")
     }
+    
+    func testSetValues() {
+        let subsystem = "logging_subsystem"
+        let category = "logging_category"
+        let target = ConsoleTarget(subsystem: subsystem, category: category)
+        
+        XCTAssertEqual(target.category, category)
+        XCTAssertEqual(target.subsystem, subsystem)
+    }
 }
