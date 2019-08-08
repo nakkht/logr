@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import Logr
+@testable import Logr
 
 class ConsoleTargetTests: XCTestCase {
     

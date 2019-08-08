@@ -11,6 +11,7 @@
 		F61FC50622EE157400DBDB7F /* ConsoleTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61FC50522EE157400DBDB7F /* ConsoleTarget.swift */; };
 		F61FC50C22EE2E8E00DBDB7F /* OSLogType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61FC50B22EE2E8E00DBDB7F /* OSLogType.swift */; };
 		F61FC50E22EE37CB00DBDB7F /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61FC50D22EE37CB00DBDB7F /* Config.swift */; };
+		F648260C22FCC73600B712E6 /* LogrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F648260B22FCC73600B712E6 /* LogrTests.swift */; };
 		F6A0710222F7893100455FB7 /* Logr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6F43C0422DE727200D85112 /* Logr.framework */; };
 		F6A0710A22F7899400455FB7 /* ConsoleTargetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A0710922F7899400455FB7 /* ConsoleTargetTests.swift */; };
 		F6F43C0922DE727200D85112 /* Logr.h in Headers */ = {isa = PBXBuildFile; fileRef = F6F43C0722DE727200D85112 /* Logr.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -34,6 +35,7 @@
 		F61FC50522EE157400DBDB7F /* ConsoleTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleTarget.swift; sourceTree = "<group>"; };
 		F61FC50B22EE2E8E00DBDB7F /* OSLogType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSLogType.swift; sourceTree = "<group>"; };
 		F61FC50D22EE37CB00DBDB7F /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		F648260B22FCC73600B712E6 /* LogrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogrTests.swift; sourceTree = "<group>"; };
 		F6A070FD22F7893100455FB7 /* LogrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6A0710122F7893100455FB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6A0710922F7899400455FB7 /* ConsoleTargetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleTargetTests.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			children = (
 				F6A0710122F7893100455FB7 /* Info.plist */,
 				F6A0710822F7897A00455FB7 /* Target */,
+				F648260B22FCC73600B712E6 /* LogrTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6A0710A22F7899400455FB7 /* ConsoleTargetTests.swift in Sources */,
+				F648260C22FCC73600B712E6 /* LogrTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

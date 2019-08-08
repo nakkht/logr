@@ -14,8 +14,8 @@ public final class ConsoleTarget: Target {
     @available(iOS 10.0, *)
     private lazy var osLog = OSLog(subsystem: subsystem, category: category)
     
-    public let subsystem: String
-    public let category: String
+    let subsystem: String
+    let category: String
     
     public init(subsystem: String = "", category: String = "") {
         self.subsystem = subsystem

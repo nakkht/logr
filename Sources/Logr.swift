@@ -10,10 +10,10 @@ import Foundation
 
 open class Logr {
     
-    private let service: LogrService
+    let service: LogrService
     
-    public init() {
-        service = LogrService()
+    public init(_ service: LogrService? = nil) {
+        self.service = service ?? LogrService()
     }
     
     open func debug(_ message: String, file: String = #file, _ function: String = #function, line: Int = #line, _ async: Bool = true) {
@@ -36,7 +36,7 @@ open class Logr {
         self.log(.critical, message, file, function, line, async)
     }
     
-    private func log(_ level: LogLevel, _ message: String, _ file: String = #file, _ function: String = #function, _ line: Int = #line, _ async: Bool = true) {
+    func log(_ level: LogLevel, _ message: String, _ file: String = #file, _ function: String = #function, _ line: Int = #line, _ async: Bool = true) {
         service.log(level, message: message, file: file, function: function, line: line, async)
     }
 }
