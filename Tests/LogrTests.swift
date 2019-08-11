@@ -11,30 +11,26 @@ import XCTest
 
 class LogrTests: XCTestCase {
     
+    var mock: LogrServiceMock!
     var logr: Logr!
 
     override func setUp() {
-        logr = Logr()
+        mock = LogrServiceMock()
+        logr = Logr(mock)
+    
+        XCTAssertTrue(mock === logr.service)
     }
 
     override func tearDown() {
         logr = nil
     }
-
-    func testDefaulValues() {
+    
+    func testDefaultValues() {
+        logr = Logr()
         XCTAssertNotNil(logr.service)
     }
-    
-    func testCustomValues() {
-        let testService = LogrService()
-        let logr = Logr(testService)
-        
-        XCTAssertTrue(testService === logr.service)
-    }
-    
+
     func testDebug() {
-        let mock = LogrServiceMock()
-        let logr = Logr(mock)
         let message = "debug message"
         logr.debug(message)
         
@@ -44,8 +40,6 @@ class LogrTests: XCTestCase {
     }
     
     func testInfo() {
-        let mock = LogrServiceMock()
-        let logr = Logr(mock)
         let message = "info message"
         logr.info(message)
         
@@ -55,8 +49,6 @@ class LogrTests: XCTestCase {
     }
 
     func testWarn() {
-        let mock = LogrServiceMock()
-        let logr = Logr(mock)
         let message = "warn message"
         logr.warn(message)
         
@@ -66,8 +58,6 @@ class LogrTests: XCTestCase {
     }
 
     func testError() {
-        let mock = LogrServiceMock()
-        let logr = Logr(mock)
         let message = "error message"
         logr.error(message)
         
@@ -77,8 +67,6 @@ class LogrTests: XCTestCase {
     }
 
     func testCritical() {
-        let mock = LogrServiceMock()
-        let logr = Logr(mock)
         let message = "critical message"
         logr.critical(message)
         
@@ -88,10 +76,7 @@ class LogrTests: XCTestCase {
     }
 
     func testLog() {
-        let mock = LogrServiceMock()
-        let logr = Logr(mock)
         let message = "info message"
-        
         logr.log(.info, message)
         
         XCTAssertNotNil(mock.calledLogWith)
@@ -99,7 +84,6 @@ class LogrTests: XCTestCase {
         XCTAssertEqual(message, mock.calledLogWith?.message)
         XCTAssertEqual(#file, mock.calledLogWith?.file)
         XCTAssertEqual("testLog()", mock.calledLogWith?.function)
-        XCTAssertEqual(95, mock.calledLogWith?.line)
-        XCTAssertEqual(true, mock.calledLogWith?.async)
+        XCTAssertEqual(80, mock.calledLogWith?.line)
     }
 }

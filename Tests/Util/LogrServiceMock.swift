@@ -11,10 +11,10 @@ import Foundation
 
 class LogrServiceMock: LogrService {
     
-    var calledLogWith: (level: LogLevel, message: String, file: String, function: String, line: Int, async: Bool)?
+    var calledLogWith: (level: LogLevel, message: String, file: String, function: String, line: Int)?
     
-    public override func log(_ level: LogLevel, message: String, file: String = #file, function: String = #function, line: Int = #line, async: Bool = true) {
-        calledLogWith = (level, message, file, function, line, async)
+    public override func log(_ level: LogLevel, message: String, file: String = #file, function: String = #function, line: Int = #line) {
+        calledLogWith = (level, message, file, function, line)
     }
     
     deinit {

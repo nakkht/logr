@@ -15,15 +15,12 @@ class ConsoleTargetTests: XCTestCase {
 
     override func setUp() {
         target = ConsoleTarget()
+        XCTAssertEqual(target.category, "")
+        XCTAssertEqual(target.subsystem, "")
     }
 
     override func tearDown() {
         target = nil
-    }
-
-    func testDefautValues() {
-        XCTAssertEqual(target.category, "")
-        XCTAssertEqual(target.subsystem, "")
     }
     
     func testSetValues() {

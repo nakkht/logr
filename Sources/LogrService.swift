@@ -14,24 +14,23 @@ public class LogrService {
     static let dispatchQueue = DispatchQueue(label: queueName, qos: .background)
     static var targets: [Target]?
     
-    public init() {}
+    let async: Bool
     
-    @discardableResult
-    public convenience init(with config: Config) {
-        self.init()
-        LogrService.targets = config.targets
+    public init(with config: Config? = nil) {
+        self.async = config?.async ?? true
+        LogrService.targets = config?.targets
     }
     
-    public func log(_ level: LogLevel, message: String, file: String = #file, function: String = #function, line: Int = #line, async: Bool = true) {
+    public func log(_ level: LogLevel, message: String, file: String = #file, function: String = #function, line: Int = #line) {
         LogrService.targets?.forEach({ (target) in
             dispatch({
                 target.send(level, message: message, file: file, function: function, line: line)
-            }, async)
+            })
         })
         
     }
     
-    private func dispatch(_ block: @escaping () -> Void,  _ async: Bool) {
+    func dispatch(_ block: @escaping () -> Void) {
         async ? LogrService.dispatchQueue.async { block() } : LogrService.dispatchQueue.sync { block() }
     }
 }

@@ -11,8 +11,10 @@ import Foundation
 public class Config {
     
     let targets: [Target]?
+    let async: Bool
     
-    public init(_ targets: Target...) {
+    public init(_ targets: Target..., async: Bool = true) {
         self.targets = targets
+        self.async = async
     }
 }

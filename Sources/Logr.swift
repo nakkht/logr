@@ -16,27 +16,27 @@ open class Logr {
         self.service = service ?? LogrService()
     }
     
-    open func debug(_ message: String, file: String = #file, _ function: String = #function, line: Int = #line, _ async: Bool = true) {
-        self.log(.debug, message, file, function, line, async)
+    open func debug(_ message: String, file: String = #file, _ function: String = #function, line: Int = #line) {
+        self.log(.debug, message, file, function, line)
     }
     
-    open func info(_ message: String, file: String = #file, _ function: String = #function, line: Int = #line, _ async: Bool = true) {
-        self.log(.info, message, file, function, line, async)
+    open func info(_ message: String, file: String = #file, _ function: String = #function, line: Int = #line) {
+        self.log(.info, message, file, function, line)
     }
     
-    open func warn(_ message: String, file: String = #file, _ function: String = #function, line: Int = #line, _ async: Bool = true) {
-        self.log(.warn, message, file, function, line, async)
+    open func warn(_ message: String, file: String = #file, _ function: String = #function, line: Int = #line) {
+        self.log(.warn, message, file, function, line)
     }
     
-    open func error(_ message: String, file: String = #file, _ function: String = #function, line: Int = #line, _ async: Bool = true) {
-        self.log(.error, message, file, function, line, async)
+    open func error(_ message: String, file: String = #file, _ function: String = #function, line: Int = #line) {
+        self.log(.error, message, file, function, line)
     }
     
-    open func critical(_ message: String, file: String = #file, _ function: String = #function, line: Int = #line, _ async: Bool = true) {
-        self.log(.critical, message, file, function, line, async)
+    open func critical(_ message: String, file: String = #file, _ function: String = #function, line: Int = #line) {
+        self.log(.critical, message, file, function, line)
     }
     
-    func log(_ level: LogLevel, _ message: String, _ file: String = #file, _ function: String = #function, _ line: Int = #line, _ async: Bool = true) {
-        service.log(level, message: message, file: file, function: function, line: line, async: async)
+    func log(_ level: LogLevel, _ message: String, _ file: String = #file, _ function: String = #function, _ line: Int = #line) {
+        service.log(level, message: message, file: file, function: function, line: line)
     }
 }
