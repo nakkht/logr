@@ -8,11 +8,11 @@
 
 import Foundation
 
-public final class LogrService {
+public class LogrService {
     
-    private static let queueName = "com.neqsoft.logr_service"
-    private static let dispatchQueue = DispatchQueue(label: queueName, qos: .background)
-    private static var targets: [Target]?
+    static let queueName = "com.neqsoft.logr_service"
+    static let dispatchQueue = DispatchQueue(label: queueName, qos: .background)
+    static var targets: [Target]?
     
     public init() {}
     
@@ -22,7 +22,7 @@ public final class LogrService {
         LogrService.targets = config.targets
     }
     
-    public func log(_ level: LogLevel, message: String, file: String = #file, function: String = #function, line: Int = #line, _ async: Bool = true) {
+    public func log(_ level: LogLevel, message: String, file: String = #file, function: String = #function, line: Int = #line, async: Bool = true) {
         LogrService.targets?.forEach({ (target) in
             dispatch({
                 target.send(level, message: message, file: file, function: function, line: line)

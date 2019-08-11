@@ -18,6 +18,7 @@
 		F6F43C1122DE729400D85112 /* LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F43C0F22DE729300D85112 /* LogLevel.swift */; };
 		F6F43C1222DE729400D85112 /* Logr.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F43C1022DE729400D85112 /* Logr.swift */; };
 		F6F43C1622E5874100D85112 /* LogrService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F43C1522E5874100D85112 /* LogrService.swift */; };
+		F6F8E302230099320068B089 /* LogrServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F8E301230099320068B089 /* LogrServiceMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		F6F43C0F22DE729300D85112 /* LogLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogLevel.swift; sourceTree = "<group>"; };
 		F6F43C1022DE729400D85112 /* Logr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logr.swift; sourceTree = "<group>"; };
 		F6F43C1522E5874100D85112 /* LogrService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogrService.swift; sourceTree = "<group>"; };
+		F6F8E301230099320068B089 /* LogrServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogrServiceMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				F6A0710122F7893100455FB7 /* Info.plist */,
 				F6A0710822F7897A00455FB7 /* Target */,
 				F648260B22FCC73600B712E6 /* LogrTests.swift */,
+				F6F8E300230099130068B089 /* Util */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -140,6 +143,14 @@
 				F6F43C0722DE727200D85112 /* Logr.h */,
 			);
 			path = Headers;
+			sourceTree = "<group>";
+		};
+		F6F8E300230099130068B089 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				F6F8E301230099320068B089 /* LogrServiceMock.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6A0710A22F7899400455FB7 /* ConsoleTargetTests.swift in Sources */,
+				F6F8E302230099320068B089 /* LogrServiceMock.swift in Sources */,
 				F648260C22FCC73600B712E6 /* LogrTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

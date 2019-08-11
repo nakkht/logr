@@ -17,11 +17,11 @@ open class Logr {
     }
     
     open func debug(_ message: String, file: String = #file, _ function: String = #function, line: Int = #line, _ async: Bool = true) {
-        log(.debug, message, file, function, line, async)
+        self.log(.debug, message, file, function, line, async)
     }
     
     open func info(_ message: String, file: String = #file, _ function: String = #function, line: Int = #line, _ async: Bool = true) {
-        log(.info, message, file, function, line, async)
+        self.log(.info, message, file, function, line, async)
     }
     
     open func warn(_ message: String, file: String = #file, _ function: String = #function, line: Int = #line, _ async: Bool = true) {
@@ -37,6 +37,6 @@ open class Logr {
     }
     
     func log(_ level: LogLevel, _ message: String, _ file: String = #file, _ function: String = #function, _ line: Int = #line, _ async: Bool = true) {
-        service.log(level, message: message, file: file, function: function, line: line, async)
+        service.log(level, message: message, file: file, function: function, line: line, async: async)
     }
 }
