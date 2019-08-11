@@ -17,7 +17,7 @@ class LogrServiceTests: XCTestCase {
 
     override func setUp() {
         targetMock = TargetMock()
-        config = Config(targetMock)
+        config = Config(async: false, targetMock)
         service = LogrService(with: config)
         XCTAssertNotNil(LogrService.targets)
         XCTAssertEqual(config.targets?.count, LogrService.targets?.count)

@@ -13,8 +13,12 @@ public class Config {
     let targets: [Target]?
     let async: Bool
     
-    public init(_ targets: Target..., async: Bool = true) {
+    public init(async: Bool = true, targets: [Target]? = nil) {
         self.targets = targets
         self.async = async
+    }
+    
+    public convenience init(async: Bool = true, _ targets: Target...) {
+        self.init(async: async, targets: targets)
     }
 }

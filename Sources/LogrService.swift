@@ -22,15 +22,16 @@ public class LogrService {
     }
     
     public func log(_ level: LogLevel, message: String, file: String = #file, function: String = #function, line: Int = #line) {
-        LogrService.targets?.forEach({ (target) in
-            dispatch({
-                target.send(level, message: message, file: file, function: function, line: line)
-            })
-        })
-        
+        async ? LogrService.dispatchQueue.async {
+            self.dispatchLog(level, message: message, file: file, function: function, line: line)
+        } : LogrService.dispatchQueue.sync {
+            self.dispatchLog(level, message: message, file: file, function: function, line: line)
+        }
     }
     
-    func dispatch(_ block: @escaping () -> Void) {
-        async ? LogrService.dispatchQueue.async { block() } : LogrService.dispatchQueue.sync { block() }
+    func dispatchLog(_ level: LogLevel, message: String, file: String, function: String, line: Int) {
+        LogrService.targets?.forEach({
+            $0.send(level, message: message, file: file, function: function, line: line)
+        })
     }
 }
