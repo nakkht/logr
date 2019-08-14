@@ -7,19 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F6F8E3202304BEA90068B089 /* Logr.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F6F8E31D2304BEA10068B089 /* Logr.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F6FCC86822F0F4F0003D2AC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FCC86722F0F4F0003D2AC4 /* AppDelegate.swift */; };
 		F6FCC86A22F0F4F0003D2AC4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FCC86922F0F4F0003D2AC4 /* ViewController.swift */; };
 		F6FCC86F22F0F4F1003D2AC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6FCC86E22F0F4F1003D2AC4 /* Assets.xcassets */; };
-		F6FCC87E22F24720003D2AC4 /* Logr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6FCC87D22F24720003D2AC4 /* Logr.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		F6F8E31C2304BE420068B089 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F6F8E3202304BEA90068B089 /* Logr.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		F6F8E31D2304BEA10068B089 /* Logr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Logr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6FCC86422F0F4F0003D2AC4 /* LogrDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogrDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6FCC86722F0F4F0003D2AC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6FCC86922F0F4F0003D2AC4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F6FCC86E22F0F4F1003D2AC4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F6FCC87322F0F4F1003D2AC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F6FCC87D22F24720003D2AC4 /* Logr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Logr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,7 +41,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6FCC87E22F24720003D2AC4 /* Logr.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,7 +78,7 @@
 		F6FCC87922F0F62A003D2AC4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F6FCC87D22F24720003D2AC4 /* Logr.framework */,
+				F6F8E31D2304BEA10068B089 /* Logr.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -80,6 +93,7 @@
 				F6FCC86022F0F4F0003D2AC4 /* Sources */,
 				F6FCC86122F0F4F0003D2AC4 /* Frameworks */,
 				F6FCC86222F0F4F0003D2AC4 /* Resources */,
+				F6F8E31C2304BE420068B089 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
