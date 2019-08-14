@@ -20,6 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         logr.info("Application did finish launch")
         return true
     }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        logr.info("Application did become active")
+    }
 
     func applicationWillResignActive(_ application: UIApplication) {
         logr.info("Application will resign active")
@@ -31,13 +35,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         logr.info("Application will enter foreground")
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        logr.info("Application did become active")
-    }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-        logr.warn("Application will terminate")
     }
 }

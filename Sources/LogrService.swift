@@ -16,9 +16,14 @@ public class LogrService {
     
     let async: Bool
     
-    public init(with config: Config? = nil) {
-        self.async = config?.async ?? true
-        LogrService.targets = config?.targets
+    init() {
+        async = true
+    }
+    
+    @discardableResult
+    public init(with config: Config) {
+        self.async = config.async
+        LogrService.targets = config.targets
     }
     
     public func log(_ level: LogLevel, message: String, file: String = #file, function: String = #function, line: Int = #line) {

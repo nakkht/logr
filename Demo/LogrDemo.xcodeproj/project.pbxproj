@@ -37,7 +37,7 @@
 		F6FCC85B22F0F4F0003D2AC4 = {
 			isa = PBXGroup;
 			children = (
-				F6FCC86622F0F4F0003D2AC4 /* logrexamle */,
+				F6FCC86622F0F4F0003D2AC4 /* LogrDemo */,
 				F6FCC86522F0F4F0003D2AC4 /* Products */,
 				F6FCC87922F0F62A003D2AC4 /* Frameworks */,
 			);
@@ -51,7 +51,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F6FCC86622F0F4F0003D2AC4 /* logrexamle */ = {
+		F6FCC86622F0F4F0003D2AC4 /* LogrDemo */ = {
 			isa = PBXGroup;
 			children = (
 				F6FCC86722F0F4F0003D2AC4 /* AppDelegate.swift */,
@@ -59,7 +59,7 @@
 				F6FCC86E22F0F4F1003D2AC4 /* Assets.xcassets */,
 				F6FCC87322F0F4F1003D2AC4 /* Info.plist */,
 			);
-			path = logrexamle;
+			path = LogrDemo;
 			sourceTree = "<group>";
 		};
 		F6FCC87922F0F62A003D2AC4 /* Frameworks */ = {
@@ -267,9 +267,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7Y489T33S3;
-				INFOPLIST_FILE = logrexamle/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/LogrDemo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -277,6 +279,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.neqsoft.logrdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -286,9 +289,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7Y489T33S3;
-				INFOPLIST_FILE = logrexamle/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/LogrDemo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -296,6 +301,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.neqsoft.logrdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

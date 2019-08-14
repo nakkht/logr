@@ -29,7 +29,7 @@ class LogrServiceTests: XCTestCase {
     
     func testDefaultValues() {
         service = LogrService()
-        XCTAssertNil(LogrService.targets)
+        XCTAssertNotNil(LogrService.targets)
     }
 
     func testLog() {
