@@ -22,6 +22,7 @@
 		F6F8E3042300A68C0068B089 /* LogrServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F8E3032300A68C0068B089 /* LogrServiceTests.swift */; };
 		F6F8E3062300B0CD0068B089 /* TargetMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F8E3052300B0CD0068B089 /* TargetMock.swift */; };
 		F6F8E3082300B9EA0068B089 /* ConfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F8E3072300B9EA0068B089 /* ConfigTests.swift */; };
+		F6F8E3222308DF1C0068B089 /* LogLevelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F8E3212308DF1C0068B089 /* LogLevelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		F6F8E3032300A68C0068B089 /* LogrServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogrServiceTests.swift; sourceTree = "<group>"; };
 		F6F8E3052300B0CD0068B089 /* TargetMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetMock.swift; sourceTree = "<group>"; };
 		F6F8E3072300B9EA0068B089 /* ConfigTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigTests.swift; sourceTree = "<group>"; };
+		F6F8E3212308DF1C0068B089 /* LogLevelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogLevelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				F6F8E3032300A68C0068B089 /* LogrServiceTests.swift */,
 				F6F8E300230099130068B089 /* Util */,
 				F6F8E3072300B9EA0068B089 /* ConfigTests.swift */,
+				F6F8E3212308DF1C0068B089 /* LogLevelTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6F8E3222308DF1C0068B089 /* LogLevelTests.swift in Sources */,
 				F6A0710A22F7899400455FB7 /* ConsoleTargetTests.swift in Sources */,
 				F6F8E3082300B9EA0068B089 /* ConfigTests.swift in Sources */,
 				F6F8E3042300A68C0068B089 /* LogrServiceTests.swift in Sources */,
