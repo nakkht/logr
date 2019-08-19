@@ -24,7 +24,7 @@ end
 
 ### Demo
 
-Demo project can be access by opening Demo.workspace project in Demo subfolder.
+Demo project can be access by opening Demo.workspace in Demo subfolder.
 
 ### Author
 * [Paulius Gudonis](pg@neqsoft.com)

@@ -18,8 +18,8 @@ Pod::Spec.new do |spec|
   spec.platform     = :ios, "9.0"
   spec.swift_version = "5.0"
 
-  spec.source       = { :git => "https://github.com/nakkht/logr.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/nakkht/logr.git", :tag => "v#{spec.version}" }
 
-  spec.source_files  = "Sources"
+  spec.source_files  = "Sources/**/*.swift"
 
 end
