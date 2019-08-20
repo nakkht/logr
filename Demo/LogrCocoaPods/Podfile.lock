@@ -1,0 +1,21 @@
+PODS:
+  - Logr (0.1.0)
+
+DEPENDENCIES:
+  - Logr (from `https://github.com/nakkht/logr.git`)
+
+EXTERNAL SOURCES:
+  Logr:
+    :git: https://github.com/nakkht/logr.git
+
+CHECKOUT OPTIONS:
+  Logr:
+    :commit: d8ed1a50b27ac55fc7ca898a9fea0417cee7d583
+    :git: https://github.com/nakkht/logr.git
+
+SPEC CHECKSUMS:
+  Logr: d4c9e1094d0d29aec7076da1d27720fa3f6fffe8
+
+PODFILE CHECKSUM: 181996135d97ed666f4a875f14fb0b16adc78e61
+
+COCOAPODS: 1.7.5
