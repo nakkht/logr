@@ -7,37 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F6F8E3202304BEA90068B089 /* Logr.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F6F8E31D2304BEA10068B089 /* Logr.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		F6FCC86822F0F4F0003D2AC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FCC86722F0F4F0003D2AC4 /* AppDelegate.swift */; };
-		F6FCC86A22F0F4F0003D2AC4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FCC86922F0F4F0003D2AC4 /* ViewController.swift */; };
-		F6FCC86F22F0F4F1003D2AC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6FCC86E22F0F4F1003D2AC4 /* Assets.xcassets */; };
+		F6F8E35F230C9AF80068B089 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F8E35E230C9AF80068B089 /* AppDelegate.swift */; };
+		F6F8E361230C9AF80068B089 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F8E360230C9AF80068B089 /* ViewController.swift */; };
+		F6F8E366230C9AFA0068B089 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6F8E365230C9AFA0068B089 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		F6F8E31C2304BE420068B089 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				F6F8E3202304BEA90068B089 /* Logr.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		F6F8E31D2304BEA10068B089 /* Logr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Logr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F6FCC86422F0F4F0003D2AC4 /* LogrDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogrDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F6FCC86722F0F4F0003D2AC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F6FCC86922F0F4F0003D2AC4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F6FCC86E22F0F4F1003D2AC4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F6FCC87322F0F4F1003D2AC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F6F8E35B230C9AF80068B089 /* LogrCocoaPods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogrCocoaPods.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6F8E35E230C9AF80068B089 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F6F8E360230C9AF80068B089 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F6F8E365230C9AFA0068B089 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F6F8E36A230C9AFA0068B089 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		F6FCC86122F0F4F0003D2AC4 /* Frameworks */ = {
+		F6F8E358230C9AF80068B089 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -47,79 +31,69 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F6FCC85B22F0F4F0003D2AC4 = {
+		F6F8E352230C9AF80068B089 = {
 			isa = PBXGroup;
 			children = (
-				F6FCC86622F0F4F0003D2AC4 /* LogrDemo */,
-				F6FCC86522F0F4F0003D2AC4 /* Products */,
-				F6FCC87922F0F62A003D2AC4 /* Frameworks */,
+				F6F8E35D230C9AF80068B089 /* LogrCocoaPods */,
+				F6F8E35C230C9AF80068B089 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		F6FCC86522F0F4F0003D2AC4 /* Products */ = {
+		F6F8E35C230C9AF80068B089 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F6FCC86422F0F4F0003D2AC4 /* LogrDemo.app */,
+				F6F8E35B230C9AF80068B089 /* LogrCocoaPods.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F6FCC86622F0F4F0003D2AC4 /* LogrDemo */ = {
+		F6F8E35D230C9AF80068B089 /* LogrCocoaPods */ = {
 			isa = PBXGroup;
 			children = (
-				F6FCC86722F0F4F0003D2AC4 /* AppDelegate.swift */,
-				F6FCC86922F0F4F0003D2AC4 /* ViewController.swift */,
-				F6FCC86E22F0F4F1003D2AC4 /* Assets.xcassets */,
-				F6FCC87322F0F4F1003D2AC4 /* Info.plist */,
+				F6F8E35E230C9AF80068B089 /* AppDelegate.swift */,
+				F6F8E360230C9AF80068B089 /* ViewController.swift */,
+				F6F8E365230C9AFA0068B089 /* Assets.xcassets */,
+				F6F8E36A230C9AFA0068B089 /* Info.plist */,
 			);
-			path = LogrDemo;
-			sourceTree = "<group>";
-		};
-		F6FCC87922F0F62A003D2AC4 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				F6F8E31D2304BEA10068B089 /* Logr.framework */,
-			);
-			name = Frameworks;
+			path = LogrCocoaPods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F6FCC86322F0F4F0003D2AC4 /* LogrDemo */ = {
+		F6F8E35A230C9AF80068B089 /* LogrCocoaPods */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F6FCC87622F0F4F1003D2AC4 /* Build configuration list for PBXNativeTarget "LogrDemo" */;
+			buildConfigurationList = F6F8E36D230C9AFA0068B089 /* Build configuration list for PBXNativeTarget "LogrCocoaPods" */;
 			buildPhases = (
-				F6FCC86022F0F4F0003D2AC4 /* Sources */,
-				F6FCC86122F0F4F0003D2AC4 /* Frameworks */,
-				F6FCC86222F0F4F0003D2AC4 /* Resources */,
-				F6F8E31C2304BE420068B089 /* Embed Frameworks */,
+				F6F8E357230C9AF80068B089 /* Sources */,
+				F6F8E358230C9AF80068B089 /* Frameworks */,
+				F6F8E359230C9AF80068B089 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = LogrDemo;
-			productName = logrexamle;
-			productReference = F6FCC86422F0F4F0003D2AC4 /* LogrDemo.app */;
+			name = LogrCocoaPods;
+			productName = LogrCocoaPods;
+			productReference = F6F8E35B230C9AF80068B089 /* LogrCocoaPods.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		F6FCC85C22F0F4F0003D2AC4 /* Project object */ = {
+		F6F8E353230C9AF80068B089 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1030;
 				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = neqsoft;
 				TargetAttributes = {
-					F6FCC86322F0F4F0003D2AC4 = {
+					F6F8E35A230C9AF80068B089 = {
 						CreatedOnToolsVersion = 10.3;
 					};
 				};
 			};
-			buildConfigurationList = F6FCC85F22F0F4F0003D2AC4 /* Build configuration list for PBXProject "LogrDemo" */;
+			buildConfigurationList = F6F8E356230C9AF80068B089 /* Build configuration list for PBXProject "LogrCocoaPods" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -127,41 +101,41 @@
 				en,
 				Base,
 			);
-			mainGroup = F6FCC85B22F0F4F0003D2AC4;
-			productRefGroup = F6FCC86522F0F4F0003D2AC4 /* Products */;
+			mainGroup = F6F8E352230C9AF80068B089;
+			productRefGroup = F6F8E35C230C9AF80068B089 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F6FCC86322F0F4F0003D2AC4 /* LogrDemo */,
+				F6F8E35A230C9AF80068B089 /* LogrCocoaPods */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		F6FCC86222F0F4F0003D2AC4 /* Resources */ = {
+		F6F8E359230C9AF80068B089 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6FCC86F22F0F4F1003D2AC4 /* Assets.xcassets in Resources */,
+				F6F8E366230C9AFA0068B089 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		F6FCC86022F0F4F0003D2AC4 /* Sources */ = {
+		F6F8E357230C9AF80068B089 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6FCC86A22F0F4F0003D2AC4 /* ViewController.swift in Sources */,
-				F6FCC86822F0F4F0003D2AC4 /* AppDelegate.swift in Sources */,
+				F6F8E361230C9AF80068B089 /* ViewController.swift in Sources */,
+				F6F8E35F230C9AF80068B089 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		F6FCC87422F0F4F1003D2AC4 /* Debug */ = {
+		F6F8E36B230C9AFA0068B089 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -194,7 +168,6 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -213,7 +186,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -223,7 +196,7 @@
 			};
 			name = Debug;
 		};
-		F6FCC87522F0F4F1003D2AC4 /* Release */ = {
+		F6F8E36C230C9AFA0068B089 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -256,7 +229,6 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -269,7 +241,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -279,22 +251,20 @@
 			};
 			name = Release;
 		};
-		F6FCC87722F0F4F1003D2AC4 /* Debug */ = {
+		F6F8E36E230C9AFA0068B089 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "$(SRCROOT)/LogrDemo/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				INFOPLIST_FILE = LogrCocoaPods/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.neqsoft.logrdemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.neqsoft.logrcocoapods;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -302,22 +272,20 @@
 			};
 			name = Debug;
 		};
-		F6FCC87822F0F4F1003D2AC4 /* Release */ = {
+		F6F8E36F230C9AFA0068B089 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "$(SRCROOT)/LogrDemo/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				INFOPLIST_FILE = LogrCocoaPods/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.neqsoft.logrdemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.neqsoft.logrcocoapods;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -328,25 +296,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F6FCC85F22F0F4F0003D2AC4 /* Build configuration list for PBXProject "LogrDemo" */ = {
+		F6F8E356230C9AF80068B089 /* Build configuration list for PBXProject "LogrCocoaPods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F6FCC87422F0F4F1003D2AC4 /* Debug */,
-				F6FCC87522F0F4F1003D2AC4 /* Release */,
+				F6F8E36B230C9AFA0068B089 /* Debug */,
+				F6F8E36C230C9AFA0068B089 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F6FCC87622F0F4F1003D2AC4 /* Build configuration list for PBXNativeTarget "LogrDemo" */ = {
+		F6F8E36D230C9AFA0068B089 /* Build configuration list for PBXNativeTarget "LogrCocoaPods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F6FCC87722F0F4F1003D2AC4 /* Debug */,
-				F6FCC87822F0F4F1003D2AC4 /* Release */,
+				F6F8E36E230C9AFA0068B089 /* Debug */,
+				F6F8E36F230C9AFA0068B089 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = F6FCC85C22F0F4F0003D2AC4 /* Project object */;
+	rootObject = F6F8E353230C9AF80068B089 /* Project object */;
 }
