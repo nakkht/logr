@@ -2,6 +2,11 @@ os: osx
 osx_image: xcode10.3
 language: swift
 
+branches:
+  only:
+  - master
+  - develop
+
 brefore_install:
   - gem install xcpretty --no-document --quiet
   - xcpretty --version
