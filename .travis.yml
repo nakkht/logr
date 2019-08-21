@@ -13,7 +13,7 @@ brefore_install:
 
 script: 
   - xcodebuild clean build -project Logr.xcodeproj -scheme Logr -sdk iphonesimulator
-    -destination "platform=iOS Simulator,OS=10.3,name=iPhone X"
+    -destination "platform=iOS Simulator,OS=10.3,name=iPhone 8"
     -destination "platform=iOS Simulator,OS=12.4,name=iPhone X"
     test | xcpretty -c
 after_success:

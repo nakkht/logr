@@ -8,17 +8,19 @@
 
 import Foundation
 
-public class Config {
+public struct Config {
     
     let targets: [Target]?
     let async: Bool
+    let dispatchQueue: DispatchQueue?
     
-    public init(async: Bool = true, targets: [Target]? = nil) {
+    public init(async: Bool = true, dispatchQueue: DispatchQueue? = nil, targets: [Target]? = nil) {
         self.targets = targets
         self.async = async
+        self.dispatchQueue = dispatchQueue
     }
     
-    public convenience init(async: Bool = true, _ targets: Target...) {
-        self.init(async: async, targets: targets)
+    public init(async: Bool = true, dispatchQueue: DispatchQueue? = nil, _ targets: Target...) {
+        self.init(async: async, dispatchQueue: dispatchQueue, targets: targets)
     }
 }

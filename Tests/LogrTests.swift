@@ -74,16 +74,4 @@ class LogrTests: XCTestCase {
         XCTAssertEqual(LogLevel.critical, mock.calledLogWith?.0)
         XCTAssertEqual(message, mock.calledLogWith?.1)
     }
-
-    func testLog() {
-        let message = "info message"
-        logr.log(.info, message, "file", "function", 42)
-        
-        XCTAssertNotNil(mock.calledLogWith)
-        XCTAssertEqual(LogLevel.info, mock.calledLogWith?.level)
-        XCTAssertEqual(message, mock.calledLogWith?.message)
-        XCTAssertEqual("file", mock.calledLogWith?.metaInfo.file)
-        XCTAssertEqual("function", mock.calledLogWith?.metaInfo.function)
-        XCTAssertEqual(42, mock.calledLogWith?.metaInfo.line)
-    }
 }

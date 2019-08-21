@@ -12,6 +12,7 @@
 		F61FC50C22EE2E8E00DBDB7F /* OSLogType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61FC50B22EE2E8E00DBDB7F /* OSLogType.swift */; };
 		F61FC50E22EE37CB00DBDB7F /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61FC50D22EE37CB00DBDB7F /* Config.swift */; };
 		F648260C22FCC73600B712E6 /* LogrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F648260B22FCC73600B712E6 /* LogrTests.swift */; };
+		F66D4E0F2329986E00A53F9A /* FileTargetConfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66D4E0E2329986D00A53F9A /* FileTargetConfigTests.swift */; };
 		F6A0710222F7893100455FB7 /* Logr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6F43C0422DE727200D85112 /* Logr.framework */; };
 		F6A0710A22F7899400455FB7 /* ConsoleTargetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A0710922F7899400455FB7 /* ConsoleTargetTests.swift */; };
 		F6F43C0922DE727200D85112 /* Logr.h in Headers */ = {isa = PBXBuildFile; fileRef = F6F43C0722DE727200D85112 /* Logr.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -24,7 +25,11 @@
 		F6F8E3082300B9EA0068B089 /* ConfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F8E3072300B9EA0068B089 /* ConfigTests.swift */; };
 		F6F8E3222308DF1C0068B089 /* LogLevelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F8E3212308DF1C0068B089 /* LogLevelTests.swift */; };
 		F6F8E3252308E0BE0068B089 /* OsLogTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F8E3242308E0BE0068B089 /* OsLogTypeTests.swift */; };
+		F6F8E371230F365D0068B089 /* FileTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F8E370230F365D0068B089 /* FileTarget.swift */; };
+		F6F8E373230F369A0068B089 /* FileTargetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F8E372230F369A0068B089 /* FileTargetTests.swift */; };
 		F6F8E375231488AB0068B089 /* MetaInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F8E374231488AB0068B089 /* MetaInfo.swift */; };
+		F6F8E3772315D9D20068B089 /* FileTargetConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F8E3762315D9D20068B089 /* FileTargetConfig.swift */; };
+		F6F8E3792315DFF90068B089 /* TimeSpan.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F8E3782315DFF90068B089 /* TimeSpan.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +48,7 @@
 		F61FC50B22EE2E8E00DBDB7F /* OSLogType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSLogType.swift; sourceTree = "<group>"; };
 		F61FC50D22EE37CB00DBDB7F /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		F648260B22FCC73600B712E6 /* LogrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogrTests.swift; sourceTree = "<group>"; };
+		F66D4E0E2329986D00A53F9A /* FileTargetConfigTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTargetConfigTests.swift; sourceTree = "<group>"; };
 		F6A070FD22F7893100455FB7 /* LogrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6A0710122F7893100455FB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6A0710922F7899400455FB7 /* ConsoleTargetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleTargetTests.swift; sourceTree = "<group>"; };
@@ -58,7 +64,11 @@
 		F6F8E3072300B9EA0068B089 /* ConfigTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigTests.swift; sourceTree = "<group>"; };
 		F6F8E3212308DF1C0068B089 /* LogLevelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogLevelTests.swift; sourceTree = "<group>"; };
 		F6F8E3242308E0BE0068B089 /* OsLogTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OsLogTypeTests.swift; sourceTree = "<group>"; };
+		F6F8E370230F365D0068B089 /* FileTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTarget.swift; sourceTree = "<group>"; };
+		F6F8E372230F369A0068B089 /* FileTargetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTargetTests.swift; sourceTree = "<group>"; };
 		F6F8E374231488AB0068B089 /* MetaInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaInfo.swift; sourceTree = "<group>"; };
+		F6F8E3762315D9D20068B089 /* FileTargetConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTargetConfig.swift; sourceTree = "<group>"; };
+		F6F8E3782315DFF90068B089 /* TimeSpan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSpan.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +95,9 @@
 			children = (
 				F61FC50322EE14FD00DBDB7F /* Target.swift */,
 				F61FC50522EE157400DBDB7F /* ConsoleTarget.swift */,
+				F6F8E370230F365D0068B089 /* FileTarget.swift */,
+				F6F8E3762315D9D20068B089 /* FileTargetConfig.swift */,
+				F6F8E3782315DFF90068B089 /* TimeSpan.swift */,
 			);
 			path = Target;
 			sourceTree = "<group>";
@@ -116,6 +129,8 @@
 			isa = PBXGroup;
 			children = (
 				F6A0710922F7899400455FB7 /* ConsoleTargetTests.swift */,
+				F6F8E372230F369A0068B089 /* FileTargetTests.swift */,
+				F66D4E0E2329986D00A53F9A /* FileTargetConfigTests.swift */,
 			);
 			path = Target;
 			sourceTree = "<group>";
@@ -290,12 +305,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F66D4E0F2329986E00A53F9A /* FileTargetConfigTests.swift in Sources */,
 				F6F8E3252308E0BE0068B089 /* OsLogTypeTests.swift in Sources */,
 				F6F8E3222308DF1C0068B089 /* LogLevelTests.swift in Sources */,
 				F6A0710A22F7899400455FB7 /* ConsoleTargetTests.swift in Sources */,
 				F6F8E3082300B9EA0068B089 /* ConfigTests.swift in Sources */,
 				F6F8E3042300A68C0068B089 /* LogrServiceTests.swift in Sources */,
 				F6F8E302230099320068B089 /* LogrServiceMock.swift in Sources */,
+				F6F8E373230F369A0068B089 /* FileTargetTests.swift in Sources */,
 				F648260C22FCC73600B712E6 /* LogrTests.swift in Sources */,
 				F6F8E3062300B0CD0068B089 /* TargetMock.swift in Sources */,
 			);
@@ -308,7 +325,10 @@
 				F6F43C1122DE729400D85112 /* LogLevel.swift in Sources */,
 				F61FC50422EE14FD00DBDB7F /* Target.swift in Sources */,
 				F6F8E375231488AB0068B089 /* MetaInfo.swift in Sources */,
+				F6F8E371230F365D0068B089 /* FileTarget.swift in Sources */,
+				F6F8E3772315D9D20068B089 /* FileTargetConfig.swift in Sources */,
 				F6F43C1622E5874100D85112 /* LogrService.swift in Sources */,
+				F6F8E3792315DFF90068B089 /* TimeSpan.swift in Sources */,
 				F61FC50E22EE37CB00DBDB7F /* Config.swift in Sources */,
 				F61FC50622EE157400DBDB7F /* ConsoleTarget.swift in Sources */,
 				F61FC50C22EE2E8E00DBDB7F /* OSLogType.swift in Sources */,

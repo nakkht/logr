@@ -12,7 +12,7 @@ import os.log
 public final class ConsoleTarget: Target {
     
     @available(iOS 10.0, *)
-    private lazy var osLog = OSLog(subsystem: subsystem, category: category)
+    lazy var osLog = OSLog(subsystem: subsystem, category: category)
     
     let subsystem: String
     let category: String

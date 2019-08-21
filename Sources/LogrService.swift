@@ -10,20 +10,22 @@ import Foundation
 
 public class LogrService {
     
-    static let queueName = "com.neqsoft.logr_service"
-    static let dispatchQueue = DispatchQueue(label: queueName, qos: .background)
+    static var dispatchQueue = DispatchQueue(label: "com.neqsoft.logr_service", qos: .background)
     static var targets: [Target]?
     
     let async: Bool
     
     init() {
-        async = true
+        self.async = true
     }
     
     @discardableResult
     public init(with config: Config) {
         self.async = config.async
         LogrService.targets = config.targets
+        if let configDispatchQueue = config.dispatchQueue {
+            LogrService.dispatchQueue = configDispatchQueue
+        }
     }
     
     public func log(_ level: LogLevel, _ message: String, _ metaInfo: MetaInfo) {

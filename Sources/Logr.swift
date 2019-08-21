@@ -17,26 +17,22 @@ open class Logr {
     }
     
     open func debug(_ message: String, file: String = #file, _ function: String = #function, line: Int = #line) {
-        self.log(.debug, message, file, function, line)
+        self.service.log(.debug, message, MetaInfo(file: file, function: function, line: line))
     }
     
     open func info(_ message: String, file: String = #file, _ function: String = #function, line: Int = #line) {
-        self.log(.info, message, file, function, line)
+        self.service.log(.info, message, MetaInfo(file: file, function: function, line: line))
     }
     
     open func warn(_ message: String, file: String = #file, _ function: String = #function, line: Int = #line) {
-        self.log(.warn, message, file, function, line)
+        self.service.log(.warn, message, MetaInfo(file: file, function: function, line: line))
     }
     
     open func error(_ message: String, file: String = #file, _ function: String = #function, line: Int = #line) {
-        self.log(.error, message, file, function, line)
+        self.service.log(.error, message, MetaInfo(file: file, function: function, line: line))
     }
     
     open func critical(_ message: String, file: String = #file, _ function: String = #function, line: Int = #line) {
-        self.log(.critical, message, file, function, line)
-    }
-    
-    func log(_ level: LogLevel, _ message: String, _ file: String, _ function: String, _ line: Int) {
-        service.log(level, message, MetaInfo(file: file, function: function, line: line))
+        self.service.log(.critical, message, MetaInfo(file: file, function: function, line: line))
     }
 }
