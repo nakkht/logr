@@ -26,17 +26,17 @@ public class LogrService {
         LogrService.targets = config.targets
     }
     
-    public func log(_ level: LogLevel, message: String, file: String = #file, function: String = #function, line: Int = #line) {
+    public func log(_ level: LogLevel, _ message: String, _ metaInfo: MetaInfo) {
         async ? LogrService.dispatchQueue.async {
-            self.dispatchLog(level, message: message, file: file, function: function, line: line)
+            self.dispatchLog(level, message, metaInfo)
         } : LogrService.dispatchQueue.sync {
-            self.dispatchLog(level, message: message, file: file, function: function, line: line)
+            self.dispatchLog(level, message, metaInfo)
         }
     }
     
-    func dispatchLog(_ level: LogLevel, message: String, file: String, function: String, line: Int) {
+    func dispatchLog(_ level: LogLevel, _ message: String, _ metaInfo: MetaInfo) {
         LogrService.targets?.forEach({
-            $0.send(level, message: message, file: file, function: function, line: line)
+            $0.send(level, message, metaInfo)
         })
     }
 }

@@ -34,13 +34,14 @@ class LogrServiceTests: XCTestCase {
 
     func testLog() {
         let message = "error message"
-        service.log(.error, message: message)
+        let metaInfo = MetaInfo(file: "file", function: "function", line: 42)
+        service.log(.error, message, metaInfo)
         
         XCTAssertNotNil(targetMock.calledSendWtih)
         XCTAssertEqual(LogLevel.error, targetMock.calledSendWtih?.level)
         XCTAssertEqual(message, targetMock.calledSendWtih?.message)
-        XCTAssertEqual(#file, targetMock.calledSendWtih?.file)
-        XCTAssertEqual(#function, targetMock.calledSendWtih?.function)
-        XCTAssertEqual(37, targetMock.calledSendWtih?.line)
+        XCTAssertEqual("file", targetMock.calledSendWtih?.metaInfo.file)
+        XCTAssertEqual("function", targetMock.calledSendWtih?.metaInfo.function)
+        XCTAssertEqual(42, targetMock.calledSendWtih?.metaInfo.line)
     }
 }

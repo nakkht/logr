@@ -11,9 +11,9 @@ import Foundation
 
 class TargetMock: Target {
     
-    var calledSendWtih: (level: LogLevel, message: String, file: String, function: String, line: Int)?
+    var calledSendWtih: (level: LogLevel, message: String, metaInfo: MetaInfo)?
     
-    func send(_ level: LogLevel, message: String, file: String, function: String, line: Int) {
-        calledSendWtih = (level, message, file, function, line)
+    func send(_ level: LogLevel, _ message: String, _ metaInfo: MetaInfo) {
+        calledSendWtih = (level, message, metaInfo)
     }
 }

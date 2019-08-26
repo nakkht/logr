@@ -36,7 +36,7 @@ open class Logr {
         self.log(.critical, message, file, function, line)
     }
     
-    func log(_ level: LogLevel, _ message: String, _ file: String = #file, _ function: String = #function, _ line: Int = #line) {
-        service.log(level, message: message, file: file, function: function, line: line)
+    func log(_ level: LogLevel, _ message: String, _ file: String, _ function: String, _ line: Int) {
+        service.log(level, message, MetaInfo(file: file, function: function, line: line))
     }
 }

@@ -22,11 +22,11 @@ public final class ConsoleTarget: Target {
         self.category = category
     }
     
-    public func send(_ level: LogLevel, message: String, file: String = #file, function: String = #function, line: Int = #line) {
+    public func send(_ level: LogLevel, _ message: String, _ metaInfo: MetaInfo) {
         if #available(iOS 10.0, *) {
-            os_log("%{public}@ %{public}@ %{public}d %{public}@ %{public}@", log: osLog, type: OSLogType.from(level), file, function, line, level.title, message)
+            os_log("%{public}@ %{public}@ %{public}d %{public}@ %{public}@", log: osLog, type: OSLogType.from(level), metaInfo.file, metaInfo.function, metaInfo.line, level.title, message)
         } else {
-            NSLog("%@", "\(file) \(function) \(line) \(level.title) \(message)")
+            NSLog("%@", "\(metaInfo.file) \(metaInfo.function) \(metaInfo.line) \(level.title) \(message)")
         }
     }
 }

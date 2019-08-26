@@ -77,13 +77,13 @@ class LogrTests: XCTestCase {
 
     func testLog() {
         let message = "info message"
-        logr.log(.info, message)
+        logr.log(.info, message, "file", "function", 42)
         
         XCTAssertNotNil(mock.calledLogWith)
         XCTAssertEqual(LogLevel.info, mock.calledLogWith?.level)
         XCTAssertEqual(message, mock.calledLogWith?.message)
-        XCTAssertEqual(#file, mock.calledLogWith?.file)
-        XCTAssertEqual("testLog()", mock.calledLogWith?.function)
-        XCTAssertEqual(80, mock.calledLogWith?.line)
+        XCTAssertEqual("file", mock.calledLogWith?.metaInfo.file)
+        XCTAssertEqual("function", mock.calledLogWith?.metaInfo.function)
+        XCTAssertEqual(42, mock.calledLogWith?.metaInfo.line)
     }
 }

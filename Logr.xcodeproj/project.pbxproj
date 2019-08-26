@@ -24,6 +24,7 @@
 		F6F8E3082300B9EA0068B089 /* ConfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F8E3072300B9EA0068B089 /* ConfigTests.swift */; };
 		F6F8E3222308DF1C0068B089 /* LogLevelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F8E3212308DF1C0068B089 /* LogLevelTests.swift */; };
 		F6F8E3252308E0BE0068B089 /* OsLogTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F8E3242308E0BE0068B089 /* OsLogTypeTests.swift */; };
+		F6F8E375231488AB0068B089 /* MetaInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F8E374231488AB0068B089 /* MetaInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		F6F8E3072300B9EA0068B089 /* ConfigTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigTests.swift; sourceTree = "<group>"; };
 		F6F8E3212308DF1C0068B089 /* LogLevelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogLevelTests.swift; sourceTree = "<group>"; };
 		F6F8E3242308E0BE0068B089 /* OsLogTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OsLogTypeTests.swift; sourceTree = "<group>"; };
+		F6F8E374231488AB0068B089 /* MetaInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 				F6F43C1022DE729400D85112 /* Logr.swift */,
 				F6F43C1522E5874100D85112 /* LogrService.swift */,
 				F61FC50D22EE37CB00DBDB7F /* Config.swift */,
+				F6F8E374231488AB0068B089 /* MetaInfo.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 			files = (
 				F6F43C1122DE729400D85112 /* LogLevel.swift in Sources */,
 				F61FC50422EE14FD00DBDB7F /* Target.swift in Sources */,
+				F6F8E375231488AB0068B089 /* MetaInfo.swift in Sources */,
 				F6F43C1622E5874100D85112 /* LogrService.swift in Sources */,
 				F61FC50E22EE37CB00DBDB7F /* Config.swift in Sources */,
 				F61FC50622EE157400DBDB7F /* ConsoleTarget.swift in Sources */,
