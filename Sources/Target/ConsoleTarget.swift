@@ -12,17 +12,16 @@ import os.log
 public final class ConsoleTarget: Target {
     
     @available(iOS 10.0, *)
-    lazy var osLog = OSLog(subsystem: subsystem, category: category)
+    lazy var osLog = OSLog(subsystem: self.config.subsystem, category: self.config.category)
     
-    let subsystem: String
-    let category: String
+    let config: ConsoleTargetConfig
     
-    public init(subsystem: String = "com.neqsoft.logr", category: String = "ConsoleTarget") {
-        self.subsystem = subsystem
-        self.category = category
+    public init(_ config: ConsoleTargetConfig) {
+        self.config = config
     }
     
     public func send(_ level: LogLevel, _ message: String, _ metaInfo: MetaInfo) {
+        guard self.config.levels.contains(level) else { return }
         if #available(iOS 10.0, *) {
             os_log("%{public}@ %{public}@ %{public}d %{public}@ %{public}@", log: osLog, type: OSLogType.from(level), metaInfo.file, metaInfo.function, metaInfo.line, level.title, message)
         } else {

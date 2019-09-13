@@ -7,7 +7,8 @@ All notable changes to logr project.
 Added
 
 * Logging to a file
-* Config option to set your own dispatch queue	
+* Config option to set your own dispatch queue
+* Loglevels per target config
 
 ### v0.1.0 [2019-08-18]
 

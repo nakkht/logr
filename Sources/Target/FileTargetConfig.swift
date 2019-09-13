@@ -18,12 +18,15 @@ public struct FileTargetConfig {
     public let maxArchivedFilesCount = 1
     public let archiveFrequency: TimeSpan
     public let maxFileSizeInBytes: UInt
+    public let levels: [LogLevel]
     
-    init(fileName: String = "file", fileExtension: String = "log", archiveFrequency: TimeSpan = .day, maxFileSizeInBytes: UInt? = nil) {
+    init(fileName: String = "file", fileExtension: String = "log", archiveFrequency: TimeSpan = .day, maxFileSizeInBytes: UInt? = nil,
+         levels: [LogLevel] = LogLevel.allCases) {
         self.fileExtension = fileExtension
         self.fileName = fileName
         self.archiveFrequency = archiveFrequency
         self.maxFileSizeInBytes = maxFileSizeInBytes ?? FileTargetConfig.defaultMaxFileSizeInBytes
+        self.levels = levels
     }
     
     var fullFileName: String {
