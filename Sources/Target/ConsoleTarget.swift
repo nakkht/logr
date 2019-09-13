@@ -16,8 +16,8 @@ public final class ConsoleTarget: Target {
     
     let config: ConsoleTargetConfig
     
-    public init(_ config: ConsoleTargetConfig) {
-        self.config = config
+    public init(_ config: ConsoleTargetConfig? = nil) {
+        self.config = config ?? ConsoleTargetConfig()
     }
     
     public func send(_ level: LogLevel, _ message: String, _ metaInfo: MetaInfo) {

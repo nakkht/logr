@@ -15,6 +15,9 @@ class FileTargetTests: XCTestCase {
 
     override func setUp() {
         fileTarget = FileTarget()
+        
+        XCTAssertNotNil(fileTarget.fileHandle)
+        XCTAssertNotNil(fileTarget.config)
     }
 
     override func tearDown() {

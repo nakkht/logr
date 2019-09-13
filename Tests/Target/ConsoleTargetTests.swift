@@ -15,8 +15,8 @@ class ConsoleTargetTests: XCTestCase {
 
     override func setUp() {
         target = ConsoleTarget()
-        XCTAssertEqual("com.neqsoft.logr", target.subsystem)
-        XCTAssertEqual("ConsoleTarget", target.category)
+        XCTAssertEqual("com.neqsoft.logr", target.config.subsystem)
+        XCTAssertEqual("ConsoleTarget", target.config.category)
     }
 
     override func tearDown() {
@@ -24,11 +24,11 @@ class ConsoleTargetTests: XCTestCase {
     }
     
     func testSetValues() {
-        let subsystem = "logging_subsystem"
-        let category = "logging_category"
-        let target = ConsoleTarget(subsystem: subsystem, category: category)
+        let config = ConsoleTargetConfig(subsystem: "logging_subsystem", category: "logging_category", levels: [.warn])
+        let target = ConsoleTarget(config)
         
-        XCTAssertEqual(target.category, category)
-        XCTAssertEqual(target.subsystem, subsystem)
+        XCTAssertEqual(target.config.category, config.category)
+        XCTAssertEqual(target.config.subsystem, config.subsystem)
+        XCTAssertEqual(target.config.levels, config.levels)
     }
 }
