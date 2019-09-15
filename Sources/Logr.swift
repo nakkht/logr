@@ -16,23 +16,23 @@ open class Logr {
         self.service = service ?? LogrService()
     }
     
-    open func debug(_ message: String, file: String = #file, _ function: String = #function, line: Int = #line) {
+    open func debug(_ message: String, _ file: String = #file, _ function: String = #function, line: Int = #line) {
         self.service.log(.debug, message, MetaInfo(file: file, function: function, line: line))
     }
     
-    open func info(_ message: String, file: String = #file, _ function: String = #function, line: Int = #line) {
+    open func info(_ message: String, _ file: String = #file, _ function: String = #function, line: Int = #line) {
         self.service.log(.info, message, MetaInfo(file: file, function: function, line: line))
     }
     
-    open func warn(_ message: String, file: String = #file, _ function: String = #function, line: Int = #line) {
+    open func warn(_ message: String, _ file: String = #file, _ function: String = #function, line: Int = #line) {
         self.service.log(.warn, message, MetaInfo(file: file, function: function, line: line))
     }
     
-    open func error(_ message: String, file: String = #file, _ function: String = #function, line: Int = #line) {
+    open func error(_ message: String, _ file: String = #file, _ function: String = #function, line: Int = #line) {
         self.service.log(.error, message, MetaInfo(file: file, function: function, line: line))
     }
     
-    open func critical(_ message: String, file: String = #file, _ function: String = #function, line: Int = #line) {
+    open func critical(_ message: String, _ file: String = #file, _ function: String = #function, line: Int = #line) {
         self.service.log(.critical, message, MetaInfo(file: file, function: function, line: line))
     }
 }

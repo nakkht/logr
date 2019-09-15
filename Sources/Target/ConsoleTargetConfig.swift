@@ -14,9 +14,9 @@ public struct ConsoleTargetConfig {
     public let category: String
     public let levels: [LogLevel]
     
-    public init(subsystem: String = "com.neqsoft.logr", category: String = "ConsoleTarget", levels: [LogLevel] = LogLevel.allCases) {
-        self.subsystem = subsystem
-        self.category = category
-        self.levels = levels
+    public init(subsystem: String? = nil, category: String? = nil, levels: [LogLevel]? = nil) {
+        self.subsystem = subsystem ?? "com.neqsoft.logr"
+        self.category = category ?? "ConsoleTarget"
+        self.levels = levels ?? LogLevel.allCases
     }
 }
