@@ -17,10 +17,10 @@ brefore_install:
   - xcpretty --version
 
 script: 
-  - xcodebuild clean build -project Logr.xcodeproj -scheme Logr -destination 'platform=iOS Simulator,name=iPhone 6 Plus,OS=10.3' | xcpretty -c
+  - xcodebuild clean build -project Logr.xcodeproj -scheme Logr -destination 'platform=iOS Simulator,name=iPhone 6 Plus,OS=10.3.1' | xcpretty -c
   - xcodebuild clean build -project Logr.xcodeproj -scheme Logr -destination 'platform=iOS Simulator,name=iPhone 6 Plus,OS=latest' | xcpretty -c
 
-  - xcodebuild test -project Logr.xcodeproj -scheme Logr -destination 'platform=iOS Simulator,name=iPhone 6 Plus,OS=10.3' | xcpretty -c
+  - xcodebuild test -project Logr.xcodeproj -scheme Logr -destination 'platform=iOS Simulator,name=iPhone 6 Plus,OS=10.3.1' | xcpretty -c
   - xcodebuild test -project Logr.xcodeproj -scheme Logr -destination 'platform=iOS Simulator,name=iPhone 6 Plus,OS=latest' | xcpretty -c
 after_success:
   - bash <(curl -s https://codecov.io/bash) -J 'Logr'
