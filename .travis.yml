@@ -12,9 +12,10 @@ brefore_install:
   - xcpretty --version
 
 script: 
-  - xcodebuild clean build -project Logr.xcodeproj -scheme Logr -sdk iphonesimulator
-    -destination "platform=iOS Simulator,OS=10.3,name=iPhone 8"
-    -destination "platform=iOS Simulator,OS=12.4,name=iPhone X"
-    test | xcpretty -c
+  - xcodebuild clean build -project Logr.xcodeproj -scheme Logr -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 8,OS=9.0" | xcpretty -c
+  - xcodebuild clean build -project Logr.xcodeproj -scheme Logr -sdk iphonesimulato  -destination "platform=iOS Simulator,name=iPhone X,OS=latest" | xcpretty -c
+
+  - xcodebuild test -project Logr.xcodeproj -scheme Logr -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 8,OS=9.0" | xcpretty -c
+  - xcodebuild test -project Logr.xcodeproj -scheme Logr -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 8,OS=latest" | xcpretty -c
 after_success:
   - bash <(curl -s https://codecov.io/bash) -J 'Logr'
