@@ -2,6 +2,11 @@ os: osx
 osx_image: xcode10.3
 language: swift
 
+env:
+  global:
+    - LC_CTYPE=en_US.UTF-8
+    - LANG=en_US.UTF-8
+
 branches:
   only:
   - master
@@ -12,10 +17,10 @@ brefore_install:
   - xcpretty --version
 
 script: 
-  - xcodebuild clean build -project Logr.xcodeproj -scheme Logr -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 8,OS=9.0" | xcpretty -c
-  - xcodebuild clean build -project Logr.xcodeproj -scheme Logr -sdk iphonesimulato  -destination "platform=iOS Simulator,name=iPhone X,OS=latest" | xcpretty -c
+  - xcodebuild clean build -project Logr.xcodeproj -scheme Logr -destination 'platform=iOS Simulator,name=iPhone 6 Plus,OS=10.3' | xcpretty -c
+  - xcodebuild clean build -project Logr.xcodeproj -scheme Logr -destination 'platform=iOS Simulator,name=iPhone 6 Plus,OS=latest' | xcpretty -c
 
-  - xcodebuild test -project Logr.xcodeproj -scheme Logr -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 8,OS=9.0" | xcpretty -c
-  - xcodebuild test -project Logr.xcodeproj -scheme Logr -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 8,OS=latest" | xcpretty -c
+  - xcodebuild test -project Logr.xcodeproj -scheme Logr -destination 'platform=iOS Simulator,name=iPhone 6 Plus,OS=10.3' | xcpretty -c
+  - xcodebuild test -project Logr.xcodeproj -scheme Logr -destination 'platform=iOS Simulator,name=iPhone 6 Plus,OS=latest' | xcpretty -c
 after_success:
   - bash <(curl -s https://codecov.io/bash) -J 'Logr'
