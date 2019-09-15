@@ -12,13 +12,13 @@ import XCTest
 class ConsoleTargetTests: XCTestCase {
     
     var target: ConsoleTarget!
-
+    
     override func setUp() {
         target = ConsoleTarget()
         XCTAssertEqual("com.neqsoft.logr", target.config.subsystem)
         XCTAssertEqual("ConsoleTarget", target.config.category)
     }
-
+    
     override func tearDown() {
         target = nil
     }

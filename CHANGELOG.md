@@ -8,7 +8,7 @@ Added
 
 * Logging to a file
 * Config option to set your own dispatch queue
-* Loglevels per target config
+* Log levels per target config
 
 ### v0.1.0 [2019-08-18]
 

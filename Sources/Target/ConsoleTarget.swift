@@ -23,9 +23,9 @@ public final class ConsoleTarget: Target {
     public func send(_ level: LogLevel, _ message: String, _ metaInfo: MetaInfo) {
         guard self.config.levels.contains(level) else { return }
         if #available(iOS 10.0, *) {
-            os_log("%{public}@ %{public}@ %{public}d %{public}@ %{public}@", log: osLog, type: OSLogType.from(level), metaInfo.file, metaInfo.function, metaInfo.line, level.title, message)
+            os_log("%{public}@ %{public}@ %{public}d %{public}@: %{public}@", log: osLog, type: OSLogType.from(level), metaInfo.file, metaInfo.function, metaInfo.line, level.title, message)
         } else {
-            NSLog("%@", "\(metaInfo.file) \(metaInfo.function) \(metaInfo.line) \(level.title) \(message)")
+            NSLog("%@", "\(metaInfo.file) \(metaInfo.function) \(metaInfo.line) \(level.title): \(message)")
         }
     }
 }

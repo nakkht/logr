@@ -20,7 +20,7 @@ public struct FileTargetConfig {
     public let maxFileSizeInBytes: UInt
     public let levels: [LogLevel]
     
-    init(fileName: String = "file", fileExtension: String = "log", archiveFrequency: TimeSpan = .day, maxFileSizeInBytes: UInt? = nil,
+    public init(fileName: String = "file", fileExtension: String = "log", archiveFrequency: TimeSpan = .day, maxFileSizeInBytes: UInt? = nil,
          levels: [LogLevel] = LogLevel.allCases) {
         self.fileExtension = fileExtension
         self.fileName = fileName

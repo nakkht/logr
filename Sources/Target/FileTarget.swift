@@ -19,7 +19,7 @@ public class FileTarget: Target {
     
     let dispatchQueue = DispatchQueue(label: "com.neqsoft.file_target", qos: .background)
     
-    init(_ config: FileTargetConfig? = nil) {
+    public init(_ config: FileTargetConfig? = nil) {
         self.config = config ?? FileTargetConfig()
         initFile()
     }
@@ -40,11 +40,17 @@ public class FileTarget: Target {
     }
     
     func initFile() {
-        let fullFilePath = baseLogDirectory.appendingPathComponent(self.config.fullFileName).absoluteString
-        FileManager.default.createFile(atPath: fullFilePath,
-                                       contents: nil,
-                                       attributes: [.creationDate: Date()])
-        self.fileHandle = FileHandle(forWritingAtPath: fullFilePath)
+        let fullFilePath = self.baseLogDirectory.appendingPathComponent(self.config.fullFileName)
+        self.createFileIfNeeded(fullLogFileUrl)
+        self.fileHandle = FileHandle(forWritingAtPath: fullFilePath.path)
+    }
+    
+    func createFileIfNeeded(_ url: URL) {
+        guard !self.doesLogFileExists else { return }
+        try? self.fileManager.createDirectory(at: url.deletingLastPathComponent(), withIntermediateDirectories: true)
+        self.fileManager.createFile(atPath: url.path,
+                                    contents: nil,
+                                    attributes: [.creationDate: Date()])
     }
     
     func closeFile() {
@@ -53,13 +59,13 @@ public class FileTarget: Target {
     }
     
     func moveFile() {
-        try? self.fileManager.moveItem(atPath: fullLogFileUrl.absoluteString, toPath: fullArchiveFileUrl.absoluteString)
+        try? self.fileManager.moveItem(atPath: fullLogFileUrl.path, toPath: fullArchiveFileUrl.path)
     }
     
     func deleteOldFiles() {
         guard let contents = try? fileManager.contentsOfDirectory(at: baseLogDirectory, includingPropertiesForKeys: nil) else { return }
         let filesForDeletion = contents.sorted {
-            $0.absoluteString.compare($1.absoluteString, options: .numeric) == .orderedAscending
+            $0.path.compare($1.path, options: .numeric) == .orderedAscending
             }.dropFirst(self.config.maxArchivedFilesCount)
         guard filesForDeletion.count > 0 else { return }
         filesForDeletion.forEach {
@@ -70,7 +76,7 @@ public class FileTarget: Target {
     func renameArchivedFiles() {
         guard let contents = try? fileManager.contentsOfDirectory(at: baseLogDirectory, includingPropertiesForKeys: nil) else { return }
         let archivedFiles = contents.sorted {
-            $0.absoluteString.compare($1.absoluteString, options: .numeric) == .orderedAscending
+            $0.path.compare($1.path, options: .numeric) == .orderedAscending
         }
         archivedFiles.enumerated().reversed().forEach { (offset: Int, url: URL) in
             let newFileUrl = baseLogDirectory.appendingPathComponent("archive/\(self.config.fileName).\(offset + 1).\(self.config.fileExtension)")
@@ -101,8 +107,8 @@ public class FileTarget: Target {
     }
     
     var logFileAge: TimeSpan? {
-        guard let creationDate = try? fileManager.attributesOfItem(atPath: fullLogFileUrl.absoluteString)[.creationDate] as? Date,
-            let modificationDate = try? fileManager.attributesOfItem(atPath: fullLogFileUrl.absoluteString)[.modificationDate] as? Date else {
+        guard let creationDate = try? fileManager.attributesOfItem(atPath: fullLogFileUrl.path)[.creationDate] as? Date,
+            let modificationDate = try? fileManager.attributesOfItem(atPath: fullLogFileUrl.path)[.modificationDate] as? Date else {
                 return nil
         }
         let components = Calendar.current.dateComponents([.minute, .hour, .day, .weekOfYear, .month], from: creationDate, to: modificationDate)
@@ -117,9 +123,13 @@ public class FileTarget: Target {
     }
     
     var logFileSizeInBytes: UInt64 {
-        guard let size = try? fileManager.attributesOfItem(atPath: fullLogFileUrl.absoluteString)[.size] as? UInt64 else {
+        guard let size = try? fileManager.attributesOfItem(atPath: fullLogFileUrl.path)[.size] as? UInt64 else {
             return 0
         }
         return size
+    }
+    
+    var doesLogFileExists: Bool {
+        return fileManager.fileExists(atPath: self.fullLogFileUrl.path)
     }
 }

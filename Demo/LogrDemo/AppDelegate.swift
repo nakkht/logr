@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private lazy var logr = Logr()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        LogrService.init(with: Config(ConsoleTarget()))
+        LogrService.init(with: Config(ConsoleTarget(), FileTarget()))
         logr.info("Application did finish launch")
         return true
     }
