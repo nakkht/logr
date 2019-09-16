@@ -16,6 +16,7 @@
 		F671FA47232C46F90086FF42 /* ConsoleTargetConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F671FA46232C46F90086FF42 /* ConsoleTargetConfig.swift */; };
 		F6A0710222F7893100455FB7 /* Logr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6F43C0422DE727200D85112 /* Logr.framework */; };
 		F6A0710A22F7899400455FB7 /* ConsoleTargetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A0710922F7899400455FB7 /* ConsoleTargetTests.swift */; };
+		F6AA7AAF233021660063512F /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AA7AAE233021660063512F /* Style.swift */; };
 		F6F43C0922DE727200D85112 /* Logr.h in Headers */ = {isa = PBXBuildFile; fileRef = F6F43C0722DE727200D85112 /* Logr.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F6F43C1122DE729400D85112 /* LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F43C0F22DE729300D85112 /* LogLevel.swift */; };
 		F6F43C1222DE729400D85112 /* Logr.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F43C1022DE729400D85112 /* Logr.swift */; };
@@ -54,6 +55,7 @@
 		F6A070FD22F7893100455FB7 /* LogrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6A0710122F7893100455FB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6A0710922F7899400455FB7 /* ConsoleTargetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleTargetTests.swift; sourceTree = "<group>"; };
+		F6AA7AAE233021660063512F /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		F6F43C0422DE727200D85112 /* Logr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Logr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6F43C0722DE727200D85112 /* Logr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Logr.h; sourceTree = "<group>"; };
 		F6F43C0822DE727200D85112 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				F6F8E370230F365D0068B089 /* FileTarget.swift */,
 				F6F8E3762315D9D20068B089 /* FileTargetConfig.swift */,
 				F6F8E3782315DFF90068B089 /* TimeSpan.swift */,
+				F6AA7AAE233021660063512F /* Style.swift */,
 			);
 			path = Target;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				F6F8E375231488AB0068B089 /* MetaInfo.swift in Sources */,
 				F6F8E371230F365D0068B089 /* FileTarget.swift in Sources */,
 				F6F8E3772315D9D20068B089 /* FileTargetConfig.swift in Sources */,
+				F6AA7AAF233021660063512F /* Style.swift in Sources */,
 				F6F43C1622E5874100D85112 /* LogrService.swift in Sources */,
 				F6F8E3792315DFF90068B089 /* TimeSpan.swift in Sources */,
 				F61FC50E22EE37CB00DBDB7F /* Config.swift in Sources */,

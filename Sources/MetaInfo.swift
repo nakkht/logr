@@ -13,4 +13,8 @@ public struct MetaInfo {
     var file: String
     var function: String
     var line: Int
+    
+    var text: String {
+        return "\(file) \(function) \(line)"
+    }
 }

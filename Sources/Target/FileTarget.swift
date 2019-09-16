@@ -26,7 +26,8 @@ public class FileTarget: Target {
     
     public func send(_ level: LogLevel, _ message: String, _ metaInfo: MetaInfo) {
         guard self.config.levels.contains(level) else { return }
-        self.write("\(metaInfo.file) \(metaInfo.function) \(metaInfo.line) \(level.title): \(message)\n")
+        let metaText = self.config.style == .verbose ? "\(metaInfo.text) " : ""
+        self.write("\(metaText)\(level.title): \(message)\n")
     }
     
     func write(_ log: String) {
