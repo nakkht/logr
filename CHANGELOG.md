@@ -2,11 +2,11 @@
 
 All notable changes to logr project.
 
-### v0.2.0 - [Unreleased]
+### v0.2.0 - [2019-09-18]
 
 Added
 
-* Logging to a file
+* Logging to a file (FileTarget)
 * Config option to set your own dispatch queue
 * Log levels per target config
 
