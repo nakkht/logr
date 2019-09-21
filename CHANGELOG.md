@@ -2,6 +2,12 @@
 
 All notable changes to logr project.
 
+### v0.3.0 - [Unreleased]
+
+Added
+
+* Swift Package Manager support
+
 ### v0.2.0 - [2019-09-18]
 
 Added
