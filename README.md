@@ -20,7 +20,7 @@ To integrate using CocoaPods, install [CocoaPods](https://guides.cocoapods.org/u
 ```
 target 'MyApp' do
   use_frameworks!
-  pod 'Logr', '0.1.0'
+  pod 'Logr', '0.2.0'
 end
 ```
 
