@@ -40,6 +40,16 @@ public class FileTarget: Target {
         }
     }
     
+    public func archive() {
+        dispatchQueue.async {
+            self.renameArchivedFiles()
+            self.closeFile()
+            self.moveFile()
+            self.initFile()
+            self.deleteOldFiles()
+        }
+    }
+    
     func initFile() {
         let fullFilePath = self.baseLogDirectory.appendingPathComponent(self.config.fullFileName)
         self.createFileIfNeeded(fullLogFileUrl)
@@ -67,7 +77,7 @@ public class FileTarget: Target {
         guard let contents = try? fileManager.contentsOfDirectory(at: baseLogDirectory, includingPropertiesForKeys: nil) else { return }
         let filesForDeletion = contents.sorted {
             $0.path.compare($1.path, options: .numeric) == .orderedAscending
-            }.dropFirst(self.config.maxArchivedFilesCount)
+        }.dropFirst(self.config.maxArchivedFilesCount)
         guard filesForDeletion.count > 0 else { return }
         filesForDeletion.forEach {
             try? self.fileManager.removeItem(at: $0)
@@ -85,15 +95,9 @@ public class FileTarget: Target {
         }
     }
     
-    func archive() {
-        dispatchQueue.async {
-            guard self.shouldArchive else { return }
-            self.renameArchivedFiles()
-            self.closeFile()
-            self.moveFile()
-            self.initFile()
-            self.deleteOldFiles()
-        }
+    func archiveIfNeeded() {
+        guard self.shouldArchive else { return }
+        self.archive()
     }
     
     var shouldArchive: Bool {
@@ -124,10 +128,8 @@ public class FileTarget: Target {
     }
     
     var logFileSizeInBytes: UInt64 {
-        guard let size = try? fileManager.attributesOfItem(atPath: fullLogFileUrl.path)[.size] as? UInt64 else {
-            return 0
-        }
-        return size
+        let size = try? fileManager.attributesOfItem(atPath: fullLogFileUrl.path)[.size] as? UInt64
+        return size ?? 0
     }
     
     var doesLogFileExists: Bool {
