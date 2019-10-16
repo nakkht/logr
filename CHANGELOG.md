@@ -2,7 +2,7 @@
 
 All notable changes to logr project.
 
-### v0.3.0 - [Unreleased]
+### v0.3.0 - [2019-10-16]
 
 Added
 
