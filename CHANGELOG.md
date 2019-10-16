@@ -8,6 +8,10 @@ Added
 
 * Swift Package Manager support
 
+Fixed
+
+* Setting maxArchivedFilesCount in FileTargetConfig 
+
 ### v0.2.0 - [2019-09-18]
 
 Added

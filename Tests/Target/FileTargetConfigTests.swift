@@ -65,12 +65,14 @@ class FileTargetConfigTests: XCTestCase {
     }
     
     func testFullFileName() {
-        fileTargetConfig = FileTargetConfig(fileName: "filename", fileExtension: "txt")
+        fileTargetConfig.fileName = "filename"
+        fileTargetConfig.fileExtension = "txt"
         XCTAssertEqual("filename.txt", fileTargetConfig.fullFileName)
     }
     
     func testFullArchiveFileName() {
-        fileTargetConfig = FileTargetConfig(fileName: "filename", fileExtension: "txt")
+        fileTargetConfig.fileName = "filename"
+        fileTargetConfig.fileExtension = "txt"
         XCTAssertEqual("archive/filename.0.txt", fileTargetConfig.fullArchiveFileName)
     }
 }
