@@ -2,7 +2,7 @@
 
 All notable changes to logr project.
 
-### v0.3.0 - [2019-10-16]
+## v0.3.0 - [2019-10-16]
 
 Added
 
@@ -12,7 +12,7 @@ Fixed
 
 * Setting maxArchivedFilesCount in FileTargetConfig 
 
-### v0.2.0 - [2019-09-18]
+## v0.2.0 - [2019-09-18]
 
 Added
 
@@ -20,7 +20,7 @@ Added
 * Config option to set your own dispatch queue
 * Log levels per target config
 
-### v0.1.0 [2019-08-18]
+## v0.1.0 - [2019-08-18]
 
 Added
 
