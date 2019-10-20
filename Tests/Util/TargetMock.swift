@@ -11,9 +11,9 @@ import Foundation
 
 class TargetMock: Target {
     
-    var calledSendWith: ((_ level: LogLevel, _ message: String, _ metaInfo: MetaInfo) -> Void)?
+    var calledSendWith: ((Message) -> Void)?
     
-    func send(_ level: LogLevel, _ message: String, _ metaInfo: MetaInfo) {
-        calledSendWith?(level, message, metaInfo)
+    func send(_ message: Message) {
+        calledSendWith?(message)
     }
 }

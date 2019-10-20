@@ -17,22 +17,22 @@ open class Logr {
     }
     
     open func debug(_ message: String, _ file: String = #file, _ function: String = #function, line: Int = #line) {
-        self.service.log(.debug, message, MetaInfo(file: file, function: function, line: line))
+        self.service.log(Message(level: .debug, text: message, meta: MetaInfo(file: file, function: function, line: line)))
     }
     
     open func info(_ message: String, _ file: String = #file, _ function: String = #function, line: Int = #line) {
-        self.service.log(.info, message, MetaInfo(file: file, function: function, line: line))
+        self.service.log(Message(level: .info, text: message, meta: MetaInfo(file: file, function: function, line: line)))
     }
     
     open func warn(_ message: String, _ file: String = #file, _ function: String = #function, line: Int = #line) {
-        self.service.log(.warn, message, MetaInfo(file: file, function: function, line: line))
+        self.service.log(Message(level: .warn, text: message, meta: MetaInfo(file: file, function: function, line: line)))
     }
     
     open func error(_ message: String, _ file: String = #file, _ function: String = #function, line: Int = #line) {
-        self.service.log(.error, message, MetaInfo(file: file, function: function, line: line))
+        self.service.log(Message(level: .error, text: message, meta: MetaInfo(file: file, function: function, line: line)))
     }
     
     open func critical(_ message: String, _ file: String = #file, _ function: String = #function, line: Int = #line) {
-        self.service.log(.critical, message, MetaInfo(file: file, function: function, line: line))
+        self.service.log(Message(level: .critical, text: message, meta: MetaInfo(file: file, function: function, line: line)))
     }
 }

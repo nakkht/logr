@@ -8,11 +8,11 @@
 
 import Foundation
 
-public struct MetaInfo {
+public struct MetaInfo: Equatable {
     
-    var file: String
-    var function: String
-    var line: Int
+    public var file: String
+    public var function: String
+    public var line: Int
     
     var text: String {
         return "\(file) \(function) \(line)"

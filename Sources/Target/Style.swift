@@ -9,6 +9,7 @@
 import Foundation
 
 public enum Style {
+    
     case minimal
     case verbose
 }

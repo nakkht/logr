@@ -20,12 +20,12 @@ public final class ConsoleTarget: Target {
         self.config = config ?? ConsoleTargetConfig()
     }
     
-    public func send(_ level: LogLevel, _ message: String, _ metaInfo: MetaInfo) {
-        guard self.config.levels.contains(level) else { return }
+    public func send(_ message: Message) {
+        guard self.config.levels.contains(message.level) else { return }
         if #available(iOS 10.0, *) {
-            osLog(level, message, metaInfo)
+            osLog(message.level, message.text, message.meta)
         } else {
-            nsLog(level, message, metaInfo)
+            nsLog(message.level, message.text, message.meta)
         }
     }
     

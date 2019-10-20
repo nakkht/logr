@@ -15,17 +15,17 @@ class LogrServiceTests: XCTestCase {
     var config: Config!
     var targetMock: TargetMock!
     var dispatchQueue: DispatchQueue!
-
+    
     override func setUp() {
         dispatchQueue = DispatchQueue(label: "com.neqsoft.test_dispatch")
         targetMock = TargetMock()
-        config = Config(async: false, dispatchQueue: dispatchQueue, targetMock)
+        config = Config(targets: [targetMock], async: false, dispatchQueue: dispatchQueue)
         service = LogrService(with: config)
         XCTAssertEqual(dispatchQueue, LogrService.dispatchQueue)
         XCTAssertNotNil(LogrService.targets)
         XCTAssertEqual(config.targets?.count, LogrService.targets?.count)
     }
-
+    
     override func tearDown() {
         targetMock = nil
         config = nil
@@ -39,36 +39,40 @@ class LogrServiceTests: XCTestCase {
     }
     
     func testAsyncLog() {
-        service = LogrService(with: Config(targetMock))
+        var config = Config()
+        config.targets = [targetMock]
+        service = LogrService(with: config)
         XCTAssertNotNil(LogrService.targets)
         
-        let message = "error message"
-        let metaInfo = MetaInfo(file: "file", function: "async type of function", line: 42)
+        let message = Message(level: .error,
+                              text: "error message",
+                              meta: MetaInfo(file: "file", function: "async type of function", line: 42))
         let expectation = XCTestExpectation(description: "Async logging")
-        targetMock.calledSendWith = { (receivedLevel, receivedMessage, receivedMeta) in
+        targetMock.calledSendWith = {
             
-            XCTAssertEqual(LogLevel.error, receivedLevel)
-            XCTAssertEqual(message, receivedMessage)
-            XCTAssertEqual("file", receivedMeta.file)
-            XCTAssertEqual("async type of function", receivedMeta.function)
-            XCTAssertEqual(42, receivedMeta.line)
+            XCTAssertEqual(LogLevel.error, $0.level)
+            XCTAssertEqual(message.text, $0.text)
+            XCTAssertEqual("file", $0.meta.file)
+            XCTAssertEqual("async type of function", $0.meta.function)
+            XCTAssertEqual(42, $0.meta.line)
             expectation.fulfill()
         }
-        service.log(.error, message, metaInfo)
+        service.log(message)
         wait(for: [expectation], timeout: 1.0)
     }
-
+    
     func testLog() {
-        let message = "error message"
-        let metaInfo = MetaInfo(file: "file", function: "sync type of function", line: 42)
-        targetMock.calledSendWith = { (receivedLevel, receivedMessage, receivedMeta) in
-         
-            XCTAssertEqual(LogLevel.error, receivedLevel)
-            XCTAssertEqual(message, receivedMessage)
-            XCTAssertEqual("file", receivedMeta.file)
-            XCTAssertEqual("sync type of function", receivedMeta.function)
-            XCTAssertEqual(42, receivedMeta.line)
+        let message = Message(level: .error,
+                              text: "error message",
+                              meta:  MetaInfo(file: "file", function: "sync type of function", line: 42))
+        targetMock.calledSendWith = {
+            
+            XCTAssertEqual(LogLevel.error, $0.level)
+            XCTAssertEqual(message.text, $0.text)
+            XCTAssertEqual("file", $0.meta.file)
+            XCTAssertEqual("sync type of function", $0.meta.function)
+            XCTAssertEqual(42, $0.meta.line)
         }
-        service.log(.error, message, metaInfo)
+        service.log(message)
     }
 }

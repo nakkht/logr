@@ -10,5 +10,5 @@ import Foundation
 
 public protocol Target {
     
-    func send(_ level: LogLevel, _ message: String, _ metaInfo: MetaInfo)
+    func send(_ message: Message)
 }

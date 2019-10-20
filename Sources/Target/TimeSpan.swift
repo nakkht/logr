@@ -9,6 +9,7 @@
 import Foundation
 
 public enum TimeSpan: UInt, CaseIterable {
+    
     case minute
     case hour
     case day

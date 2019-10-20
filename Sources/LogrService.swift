@@ -28,15 +28,15 @@ public class LogrService {
         }
     }
     
-    public func log(_ level: LogLevel, _ message: String, _ metaInfo: MetaInfo) {
+    public func log(_ message: Message) {
         if(async) {
-            LogrService.dispatchQueue.async { self.dispatchLog(level, message, metaInfo) }
+            LogrService.dispatchQueue.async { self.dispatchLog(message) }
         } else {
-            LogrService.dispatchQueue.sync { self.dispatchLog(level, message, metaInfo) }
+            LogrService.dispatchQueue.sync { self.dispatchLog(message) }
         }
     }
     
-    func dispatchLog(_ level: LogLevel, _ message: String, _ metaInfo: MetaInfo) {
-        LogrService.targets?.forEach { $0.send(level, message, metaInfo) }
+    func dispatchLog(_ message: Message) {
+        LogrService.targets?.forEach { $0.send(message) }
     }
 }

@@ -35,8 +35,8 @@ class LogrTests: XCTestCase {
         logr.debug(message)
         
         XCTAssertNotNil(mock.calledLogWith)
-        XCTAssertEqual(LogLevel.debug, mock.calledLogWith?.0)
-        XCTAssertEqual(message, mock.calledLogWith?.1)
+        XCTAssertEqual(LogLevel.debug, mock.calledLogWith?.level)
+        XCTAssertEqual(message, mock.calledLogWith?.text)
     }
     
     func testInfo() {
@@ -44,8 +44,8 @@ class LogrTests: XCTestCase {
         logr.info(message)
         
         XCTAssertNotNil(mock.calledLogWith)
-        XCTAssertEqual(LogLevel.info, mock.calledLogWith?.0)
-        XCTAssertEqual(message, mock.calledLogWith?.1)
+        XCTAssertEqual(LogLevel.info, mock.calledLogWith?.level)
+        XCTAssertEqual(message, mock.calledLogWith?.text)
     }
 
     func testWarn() {
@@ -53,8 +53,8 @@ class LogrTests: XCTestCase {
         logr.warn(message)
         
         XCTAssertNotNil(mock.calledLogWith)
-        XCTAssertEqual(LogLevel.warn, mock.calledLogWith?.0)
-        XCTAssertEqual(message, mock.calledLogWith?.1)
+        XCTAssertEqual(LogLevel.warn, mock.calledLogWith?.level)
+        XCTAssertEqual(message, mock.calledLogWith?.text)
     }
 
     func testError() {
@@ -62,8 +62,8 @@ class LogrTests: XCTestCase {
         logr.error(message)
         
         XCTAssertNotNil(mock.calledLogWith)
-        XCTAssertEqual(LogLevel.error, mock.calledLogWith?.0)
-        XCTAssertEqual(message, mock.calledLogWith?.1)
+        XCTAssertEqual(LogLevel.error, mock.calledLogWith?.level)
+        XCTAssertEqual(message, mock.calledLogWith?.text)
     }
 
     func testCritical() {
@@ -71,7 +71,7 @@ class LogrTests: XCTestCase {
         logr.critical(message)
         
         XCTAssertNotNil(mock.calledLogWith)
-        XCTAssertEqual(LogLevel.critical, mock.calledLogWith?.0)
-        XCTAssertEqual(message, mock.calledLogWith?.1)
+        XCTAssertEqual(LogLevel.critical, mock.calledLogWith?.level)
+        XCTAssertEqual(message, mock.calledLogWith?.text)
     }
 }

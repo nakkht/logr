@@ -24,10 +24,10 @@ public class FileTarget: Target {
         initFile()
     }
     
-    public func send(_ level: LogLevel, _ message: String, _ metaInfo: MetaInfo) {
-        guard self.config.levels.contains(level) else { return }
-        let metaText = self.config.style == .verbose ? "\(metaInfo.text) " : ""
-        self.write("\(metaText)\(level.title): \(message)\n")
+    public func send(_ message: Message) {
+        guard self.config.levels.contains(message.level) else { return }
+        let metaText = self.config.style == .verbose ? "\(message.metaText) " : ""
+        self.write("\(metaText)\(message.level.title): \(message.text)\n")
     }
     
     func write(_ log: String) {
