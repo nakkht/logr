@@ -10,7 +10,17 @@ import Foundation
 
 public struct Config {
     
-    var targets: [Target]? = nil
-    var async: Bool = true
-    var dispatchQueue: DispatchQueue? = nil
+    public let targets: [Target]?
+    public let async: Bool
+    public let dispatchQueue: DispatchQueue?
+    
+    public init(async: Bool? = nil, dispatchQueue: DispatchQueue? = nil, targets: [Target]? = nil) {
+        self.targets = targets
+        self.async = async ?? true
+        self.dispatchQueue = dispatchQueue
+    }
+    
+    public init(async: Bool? = nil, dispatchQueue: DispatchQueue? = nil, _ targets: Target...) {
+        self.init(async: async, dispatchQueue: dispatchQueue, targets: targets)
+    }
 }

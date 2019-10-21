@@ -10,8 +10,15 @@ import Foundation
 
 public struct ConsoleTargetConfig {
     
-    public var subsystem: String = "com.neqsoft.logr"
-    public var category: String = "ConsoleTarget"
-    public var levels: [LogLevel] = LogLevel.allCases
-    public var style: Style = .minimal
+    public let subsystem: String
+    public let category: String
+    public let levels: [LogLevel]
+    public let style: Style
+    
+    public init(subsystem: String? = nil, category: String? = nil, levels: [LogLevel]? = nil, style: Style? = nil) {
+        self.subsystem = subsystem ?? "com.neqsoft.logr"
+        self.category = category ?? "ConsoleTarget"
+        self.levels = levels ?? LogLevel.allCases
+        self.style = style ?? .minimal
+    }
 }

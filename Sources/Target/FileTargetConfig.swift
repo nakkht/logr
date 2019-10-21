@@ -10,22 +10,34 @@ import Foundation
 
 public struct FileTargetConfig {
     
-    public static let defaultMaxFileSizeInBytes: UInt = 20 * 1024 * 1024
+    public static let defaultMaxFileSizeInBytes: UInt64 = 20 * 1024 * 1024
     
-    public var fileExtension: String = "log"
-    public var fileName: String = "file"
+    public let fileExtension: String
+    public let fileName: String
     
-    public var maxArchivedFilesCount = 1
-    public var archiveFrequency: TimeSpan = .day
-    public var maxFileSizeInBytes: UInt = FileTargetConfig.defaultMaxFileSizeInBytes
-    public var levels: [LogLevel] = LogLevel.allCases
-    public var style: Style = .minimal
+    public let maxArchivedFilesCount: UInt16
+    public let archiveFrequency: TimeSpan
+    public let maxFileSizeInBytes: UInt64
+    public let levels: [LogLevel]
+    public let style: Style
     
-    var fullFileName: String {
+    public init(fileName: String? = nil, fileExtension: String? = nil, maxArchivedFilesCount: UInt16? = nil,
+                archiveFrequency: TimeSpan? = nil, maxFileSizeInBytes: UInt64? = nil,
+                levels: [LogLevel]? = nil, style: Style? = nil) {
+        self.fileExtension = fileExtension ?? "log"
+        self.fileName = fileName ?? "file"
+        self.maxArchivedFilesCount = maxArchivedFilesCount ?? 1
+        self.archiveFrequency = archiveFrequency ?? .day
+        self.maxFileSizeInBytes = maxFileSizeInBytes ?? FileTargetConfig.defaultMaxFileSizeInBytes
+        self.levels = levels ?? LogLevel.allCases
+        self.style = style ?? .minimal
+    }
+    
+    public var fullFileName: String {
         return "\(fileName).\(fileExtension)"
     }
     
-    var fullArchiveFileName: String {
+    public var fullArchiveFileName: String {
         return "archive/\(fileName).0.\(fileExtension)"
     }
 }

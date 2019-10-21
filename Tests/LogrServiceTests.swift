@@ -19,7 +19,7 @@ class LogrServiceTests: XCTestCase {
     override func setUp() {
         dispatchQueue = DispatchQueue(label: "com.neqsoft.test_dispatch")
         targetMock = TargetMock()
-        config = Config(targets: [targetMock], async: false, dispatchQueue: dispatchQueue)
+        config = Config(async: false, dispatchQueue: dispatchQueue, targetMock)
         service = LogrService(with: config)
         XCTAssertEqual(dispatchQueue, LogrService.dispatchQueue)
         XCTAssertNotNil(LogrService.targets)
@@ -39,9 +39,7 @@ class LogrServiceTests: XCTestCase {
     }
     
     func testAsyncLog() {
-        var config = Config()
-        config.targets = [targetMock]
-        service = LogrService(with: config)
+        service = LogrService(with: Config(targetMock))
         XCTAssertNotNil(LogrService.targets)
         
         let message = Message(level: .error,

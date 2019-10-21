@@ -29,12 +29,15 @@ class FileTargetConfigTests: XCTestCase {
         XCTAssertEqual("log", fileTargetConfig.fileExtension)
         XCTAssertEqual("file", fileTargetConfig.fileName)
         XCTAssertEqual(TimeSpan.day, fileTargetConfig.archiveFrequency)
-        XCTAssertEqual(fileTargetConfig.maxFileSizeInBytes, fileTargetConfig.maxFileSizeInBytes)
+        XCTAssertEqual(FileTargetConfig.defaultMaxFileSizeInBytes, fileTargetConfig.maxFileSizeInBytes)
         XCTAssertEqual("file.log", fileTargetConfig.fullFileName)
         XCTAssertEqual("archive/file.0.log", fileTargetConfig.fullArchiveFileName)
+        XCTAssertEqual(Style.minimal, fileTargetConfig.style)
+        XCTAssertEqual(LogLevel.allCases, fileTargetConfig.levels)
+        XCTAssertEqual(1, fileTargetConfig.maxArchivedFilesCount)
     }
     
-    func testFileExtension() {
+    func testSetFileExtension() {
         fileTargetConfig = FileTargetConfig(fileExtension: "")
         XCTAssertEqual("", fileTargetConfig.fileExtension)
         
@@ -42,7 +45,7 @@ class FileTargetConfigTests: XCTestCase {
         XCTAssertEqual("longextension", fileTargetConfig.fileExtension)
     }
     
-    func testFileName() {
+    func testSetFileName() {
         fileTargetConfig = FileTargetConfig(fileName: "")
         XCTAssertEqual("", fileTargetConfig.fileName)
         
@@ -51,28 +54,41 @@ class FileTargetConfigTests: XCTestCase {
         XCTAssertEqual(longFileName, fileTargetConfig.fileName)
     }
     
-    func testTimeSpan() {
+    func testSetArchiveFrequency() {
         TimeSpan.allCases.forEach {
             fileTargetConfig = FileTargetConfig(archiveFrequency: $0)
             XCTAssertEqual($0, fileTargetConfig.archiveFrequency)
         }
     }
     
-    func testFileSizes() {
-        let size = UInt(100 * 1024 * 1024)
+    func testSetFileSizes() {
+        let size = UInt64(100 * 1024 * 1024)
         fileTargetConfig = FileTargetConfig(maxFileSizeInBytes: size)
         XCTAssertEqual(size, fileTargetConfig.maxFileSizeInBytes)
     }
     
+    func testSetStyle() {
+        fileTargetConfig = FileTargetConfig(style: .verbose)
+        XCTAssertEqual(.verbose, fileTargetConfig.style)
+    }
+    
+    func testSetLevels() {
+        fileTargetConfig = FileTargetConfig(levels: [.debug])
+        XCTAssertEqual([.debug], fileTargetConfig.levels)
+    }
+    
     func testFullFileName() {
-        fileTargetConfig.fileName = "filename"
-        fileTargetConfig.fileExtension = "txt"
+        fileTargetConfig = FileTargetConfig(fileName: "filename", fileExtension: "txt")
         XCTAssertEqual("filename.txt", fileTargetConfig.fullFileName)
     }
     
+    func testSetMaxArchivedFileCount() {
+        fileTargetConfig = FileTargetConfig(maxArchivedFilesCount: 100)
+        XCTAssertEqual(100, fileTargetConfig.maxArchivedFilesCount)
+    }
+    
     func testFullArchiveFileName() {
-        fileTargetConfig.fileName = "filename"
-        fileTargetConfig.fileExtension = "txt"
+        fileTargetConfig = FileTargetConfig(fileName: "filename", fileExtension: "txt")
         XCTAssertEqual("archive/filename.0.txt", fileTargetConfig.fullArchiveFileName)
     }
 }
