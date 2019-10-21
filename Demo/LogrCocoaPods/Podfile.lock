@@ -1,5 +1,5 @@
 PODS:
-  - Logr (0.1.0)
+  - Logr (0.3.0)
 
 DEPENDENCIES:
   - Logr (from `https://github.com/nakkht/logr.git`)
@@ -10,12 +10,12 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Logr:
-    :commit: d8ed1a50b27ac55fc7ca898a9fea0417cee7d583
+    :commit: 06bedbd929da3c30119e5e62e0a9a525afe8f0da
     :git: https://github.com/nakkht/logr.git
 
 SPEC CHECKSUMS:
-  Logr: d4c9e1094d0d29aec7076da1d27720fa3f6fffe8
+  Logr: 9be5bfac29e27c3edbdd41dede0d0249befa268a
 
 PODFILE CHECKSUM: 181996135d97ed666f4a875f14fb0b16adc78e61
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.4

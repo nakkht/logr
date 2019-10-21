@@ -3,28 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F6F8E3202304BEA90068B089 /* Logr.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F6F8E31D2304BEA10068B089 /* Logr.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F64ACC5F235E38980076D10E /* Logr in Frameworks */ = {isa = PBXBuildFile; productRef = F64ACC5E235E38980076D10E /* Logr */; };
 		F6FCC86822F0F4F0003D2AC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FCC86722F0F4F0003D2AC4 /* AppDelegate.swift */; };
 		F6FCC86F22F0F4F1003D2AC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6FCC86E22F0F4F1003D2AC4 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		F6F8E31C2304BE420068B089 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				F6F8E3202304BEA90068B089 /* Logr.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		F6F8E31D2304BEA10068B089 /* Logr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Logr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -39,6 +25,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F64ACC5F235E38980076D10E /* Logr in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,13 +77,15 @@
 				F6FCC86022F0F4F0003D2AC4 /* Sources */,
 				F6FCC86122F0F4F0003D2AC4 /* Frameworks */,
 				F6FCC86222F0F4F0003D2AC4 /* Resources */,
-				F6F8E31C2304BE420068B089 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = LogrDemo;
+			packageProductDependencies = (
+				F64ACC5E235E38980076D10E /* Logr */,
+			);
 			productName = logrexamle;
 			productReference = F6FCC86422F0F4F0003D2AC4 /* LogrDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -125,6 +114,9 @@
 				Base,
 			);
 			mainGroup = F6FCC85B22F0F4F0003D2AC4;
+			packageReferences = (
+				F64ACC5D235E38980076D10E /* XCRemoteSwiftPackageReference "logr" */,
+			);
 			productRefGroup = F6FCC86522F0F4F0003D2AC4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -343,6 +335,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F64ACC5D235E38980076D10E /* XCRemoteSwiftPackageReference "logr" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nakkht/logr.git";
+			requirement = {
+				kind = exactVersion;
+				version = 0.3.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F64ACC5E235E38980076D10E /* Logr */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F64ACC5D235E38980076D10E /* XCRemoteSwiftPackageReference "logr" */;
+			productName = Logr;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F6FCC85C22F0F4F0003D2AC4 /* Project object */;
 }
