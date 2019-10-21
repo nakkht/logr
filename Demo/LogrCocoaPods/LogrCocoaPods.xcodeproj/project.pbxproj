@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2FD54E5E9EF1D6BC43128FE5 /* libPods-LogrCocoaPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7878881CDEAEB7C6F4B31EA9 /* libPods-LogrCocoaPods.a */; };
+		8FCFBFABB10B4E9B6F5403C5 /* Pods_LogrCocoaPods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFF52DD83093F8386ADE8AF /* Pods_LogrCocoaPods.framework */; };
 		F6F8E35F230C9AF80068B089 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F8E35E230C9AF80068B089 /* AppDelegate.swift */; };
 		F6F8E366230C9AFA0068B089 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6F8E365230C9AFA0068B089 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0E1CFEDF12D7E615C45B8BD7 /* Pods-LogrCocoaPods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LogrCocoaPods.debug.xcconfig"; path = "Target Support Files/Pods-LogrCocoaPods/Pods-LogrCocoaPods.debug.xcconfig"; sourceTree = "<group>"; };
-		7878881CDEAEB7C6F4B31EA9 /* libPods-LogrCocoaPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LogrCocoaPods.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FFF52DD83093F8386ADE8AF /* Pods_LogrCocoaPods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LogrCocoaPods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		853BB725F1C579BA30ED170A /* Pods-LogrCocoaPods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LogrCocoaPods.release.xcconfig"; path = "Target Support Files/Pods-LogrCocoaPods/Pods-LogrCocoaPods.release.xcconfig"; sourceTree = "<group>"; };
 		F6F8E35B230C9AF80068B089 /* LogrCocoaPods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogrCocoaPods.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6F8E35E230C9AF80068B089 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -27,7 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FD54E5E9EF1D6BC43128FE5 /* libPods-LogrCocoaPods.a in Frameworks */,
+				8FCFBFABB10B4E9B6F5403C5 /* Pods_LogrCocoaPods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,7 +46,7 @@
 		630F8DFF9ED1983A80434F28 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7878881CDEAEB7C6F4B31EA9 /* libPods-LogrCocoaPods.a */,
+				3FFF52DD83093F8386ADE8AF /* Pods_LogrCocoaPods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -90,6 +90,7 @@
 				F6F8E357230C9AF80068B089 /* Sources */,
 				F6F8E358230C9AF80068B089 /* Frameworks */,
 				F6F8E359230C9AF80068B089 /* Resources */,
+				FA0429397273FEECA337C5DB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -165,6 +166,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA0429397273FEECA337C5DB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LogrCocoaPods/Pods-LogrCocoaPods-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LogrCocoaPods/Pods-LogrCocoaPods-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LogrCocoaPods/Pods-LogrCocoaPods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

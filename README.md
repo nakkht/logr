@@ -7,11 +7,13 @@
 
 Simple logging library for iOS written in Swift
 
-### Manual integration
+### Swift Package Manager integration
 
-* Add Logr project into your workspace in xcode
-* Go to 'General' tab of your 'Target'
-* Press '+' under 'Embedded binaries' and select Logr.framework
+```
+dependencies: [
+  .package(url: "https://github.com/nakkht/logr.git", exact: "0.3.1")
+]
+```
 
 ### CocoaPods
 
@@ -20,7 +22,7 @@ To integrate using CocoaPods, install [CocoaPods](https://guides.cocoapods.org/u
 ```
 target 'MyApp' do
   use_frameworks!
-  pod 'Logr', '0.2.0'
+  pod 'Logr', '0.3.1'
 end
 ```
 
