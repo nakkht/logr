@@ -9,7 +9,7 @@ Pod::Spec.new do |spec|
                    DESC
 
   spec.homepage     = "https://github.com/nakkht/logr"
-  spec.license      = "Apache License, Version 2.0"
+  spec.license      = { :type => "Apache v2.0", :file => "LICENSE" }
 
   spec.author             = { "Paulius Gudonis" => "pg@neqsoft.com" }
   spec.social_media_url   = "https://twitter.com/nakkht"

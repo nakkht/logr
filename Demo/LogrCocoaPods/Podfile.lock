@@ -1,16 +1,16 @@
 PODS:
-  - Logr (0.3.0)
+  - Logr (0.3.1)
 
 DEPENDENCIES:
-  - Logr (= 0.3.0)
+  - Logr (= 0.3.1)
 
 SPEC REPOS:
   trunk:
     - Logr
 
 SPEC CHECKSUMS:
-  Logr: 9be5bfac29e27c3edbdd41dede0d0249befa268a
+  Logr: 7a9c4088b287888760ccea10dd30759c9b52452a
 
-PODFILE CHECKSUM: da66aa7f5c3c987d3f0937ddd943e45819c3464c
+PODFILE CHECKSUM: 2b27c33338b2c0bc6f5fdb920ba190e64dd1d5b9
 
 COCOAPODS: 1.8.4
