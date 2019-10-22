@@ -7,7 +7,9 @@
 
 Simple logging library for iOS written in Swift
 
-### Swift Package Manager integration
+## Integration
+
+### Swift Package Manager
 
 ```
 dependencies: [
@@ -26,12 +28,40 @@ target 'MyApp' do
 end
 ```
 
-### Demo
+## Usage
+
+In your `AppDelegate.swift` file add:
+
+```swift
+import Logr
+```
+
+At the beginning of `func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool` configure logr service with wanted targets:
+
+```swift
+LogrService.init(with: Config(ConsoleTarget(), FileTarget()))
+``` 
+
+For more serious configuration for production, `ConsolteTarget` should be omitted, the following snippet is suggested:
+
+```swift
+#if DEBUG
+static let targets: [Target] = [ConsoleTarget(), FileTarget()]
+#else
+static let targets: [Target] = [FileTarget()]
+#endif
+
+static let config = Config(targets: targets)
+
+LogrService.init(with: config)
+```
+
+## Demo
 
 Demo project can be access by opening Demo.workspace in Demo subfolder.
 
-### Author
+## Author
 * [Paulius Gudonis](pg@neqsoft.com)
 
-### Licence
+## Licence
 This repository is under the **Apache v2.0** license. [Find it here](https://github.com/nakkht/logr/blob/master/LICENSE).
