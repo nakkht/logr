@@ -14,7 +14,7 @@ public struct MetaInfo: Equatable {
     public var function: String
     public var line: Int
     
-    var text: String {
+    public var text: String {
         return "\(file) \(function) \(line)"
     }
 }

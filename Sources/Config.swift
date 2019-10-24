@@ -8,19 +8,34 @@
 
 import Foundation
 
+/// Struct used to enapsulate configuration values, i.e. LogrService
 public struct Config {
     
+    /// Targets assigned during initialization
     public let targets: [Target]?
+    
+    /// Bool flag assigned during initialization. Default: true
     public let async: Bool
+    
+    /// Optional dispatch queue assigned during initialization
     public let dispatchQueue: DispatchQueue?
     
-    public init(async: Bool? = nil, dispatchQueue: DispatchQueue? = nil, targets: [Target]? = nil) {
+    /**
+     Initializes new immutable config struct with provided arguments
+     
+     - Parameters:
+     - async: determines whether executions passed to the targets will be synchronous or asynchronous
+     - dispatchQueue: dispatch queue onto which logging messages shall be dispatched to the targets
+     - targets: array of targets to which loggign messages shall be dispatched
+     */
+    public init(async: Bool = true, dispatchQueue: DispatchQueue? = nil, targets: [Target]? = nil) {
         self.targets = targets
-        self.async = async ?? true
+        self.async = async
         self.dispatchQueue = dispatchQueue
+        dispatchQueue.v
     }
     
-    public init(async: Bool? = nil, dispatchQueue: DispatchQueue? = nil, _ targets: Target...) {
+    public init(async: Bool = true, dispatchQueue: DispatchQueue? = nil, _ targets: Target...) {
         self.init(async: async, dispatchQueue: dispatchQueue, targets: targets)
     }
 }
