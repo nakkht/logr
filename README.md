@@ -19,7 +19,7 @@ dependencies: [
 
 ### CocoaPods
 
-To integrate using CocoaPods, install [CocoaPods](https://guides.cocoapods.org/using/getting-started.html) and include the following in your Podfile:
+To integrate using CocoaPods, install [CocoaPods](https://cocoapods.org/pods/logr) and include the following in your Podfile:
 
 ```
 target 'MyApp' do
