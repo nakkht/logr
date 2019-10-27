@@ -26,7 +26,7 @@ public class FileTarget: Target {
     
     public func send(_ message: Message) {
         guard self.config.levels.contains(message.level) else { return }
-        let metaText = self.config.style == .verbose ? "\(message.metaText) " : ""
+        let metaText = self.config.style == .verbose ? "\(message.meta.text) " : ""
         self.write("\(metaText)\(message.level.title): \(message.text)\n")
     }
     

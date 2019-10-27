@@ -6,14 +6,17 @@
 //  Copyright © 2019 neqsoft. All rights reserved.
 //
 
-
 import Foundation
 
+/// Immutable struct encapsulating all log message data.
 public struct Message {
     
+    /// Log level of the log message.
     public let level: LogLevel
-    public let text: String
-    public let meta: MetaInfo
     
-    public var metaText: String { return meta.text}
+    /// Actual provided log message.
+    public let text: String
+    
+    /// Meta information of the log message.
+    public let meta: MetaInfo
 }

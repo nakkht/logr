@@ -8,8 +8,12 @@
 
 import Foundation
 
+/// Enum descibing logging styles.
 public enum Style {
     
+    /// Minimal style denotes short logging style, where only message and level are logged.
     case minimal
+    
+    /// Verbose style denotes excessive logging style, including, but not limited to message, log level and meta information.
     case verbose
 }

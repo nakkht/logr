@@ -30,6 +30,6 @@ class MessageTests: XCTestCase {
         XCTAssertEqual(.error, message.level)
         XCTAssertEqual(logMessage, message.text)
         XCTAssertEqual(metaInfo, message.meta)
-        XCTAssertEqual(message.metaText, message.meta.text)
+        XCTAssertEqual(message.meta.text, message.meta.text)
     }
 }

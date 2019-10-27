@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Main logging service used for dispatching messages to dedicated targets for further processing.
 public class LogrService {
     
     static var dispatchQueue = DispatchQueue(label: "com.neqsoft.logr_service", qos: .background)
@@ -28,6 +29,12 @@ public class LogrService {
         }
     }
     
+    /**
+     Dispatches log messages to the targets based  on configuration: synchronously or asynchronously.
+     
+     - Parameters:
+        - message: struct encapsulating all log message data including meta information
+     */
     public func log(_ message: Message) {
         if(async) {
             LogrService.dispatchQueue.async { self.dispatchLog(message) }
