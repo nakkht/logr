@@ -8,23 +8,40 @@
 
 import Foundation
 
-public class FileTarget: Target {
+/// Target class for logging to a file.
+open class FileTarget: Target {
     
-    public lazy var fileManager = FileManager.default
+    lazy var fileManager = FileManager.default
+    
+    /// Base directory URL for logged files.
     public lazy var baseLogDirectory = fileManager.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
-    public lazy var fullLogFileUrl = baseLogDirectory.appendingPathComponent(self.config.fullFileName)
-    public lazy var fullArchiveFileUrl = baseLogDirectory.appendingPathComponent(self.config.fullArchiveFileName)
-    public let config: FileTargetConfig
-    public var fileHandle: FileHandle?
     
+    /// URL of main log file.
+    public lazy var fullLogFileUrl = baseLogDirectory.appendingPathComponent(self.config.fullFileName)
+    
+    /// URL of most recent archive file.
+    public lazy var fullArchiveFileUrl = baseLogDirectory.appendingPathComponent(self.config.fullArchiveFileName)
+    
+    /// Config struct assigned during initialization
+    public let config: FileTargetConfig
+    
+    /// File handle of a current log file being written to.
+    public var fileHandle: FileHandle?
+
     let dispatchQueue = DispatchQueue(label: "com.neqsoft.file_target", qos: .background)
     
+   /**
+    Initializes FileTarget instance with provided FileTargetConfig struct. Prepares file for receiving and persisting log messages.
+    
+    - Parameters:
+       - config: struct encapsulating logging preferences. Defaults to struct instance with defaults values.
+    */
     public init(_ config: FileTargetConfig? = nil) {
         self.config = config ?? FileTargetConfig()
         initFile()
     }
     
-    public func send(_ message: Message) {
+    open func send(_ message: Message) {
         guard self.config.levels.contains(message.level) else { return }
         let metaText = self.config.style == .verbose ? "\(message.meta.text) " : ""
         self.write("\(metaText)\(message.level.title): \(message.text)\n")
@@ -40,6 +57,7 @@ public class FileTarget: Target {
         }
     }
     
+    /// Forces archive process of the current log file regardless of the preconditions set in config files. Non-blocking. Thread-safe.
     public func archive() {
         dispatchQueue.async {
             self.renameArchivedFiles()

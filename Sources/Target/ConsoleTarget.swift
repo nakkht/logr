@@ -9,18 +9,26 @@
 import Foundation
 import os.log
 
-public final class ConsoleTarget: Target {
+/// Target class used for logging to unified logging system: i.e. console/Apple Log system facility.
+open class ConsoleTarget: Target {
     
     @available(iOS 10.0, *)
     lazy var osLog = OSLog(subsystem: self.config.subsystem, category: self.config.category)
     
-    let config: ConsoleTargetConfig
+    /// Configuration struct assigned during initialization.
+    public let config: ConsoleTargetConfig
     
+    /**
+     Initializes ConsoleTarget instance with provided ConsoleTargetConfig struct.
+     
+     - Parameters:
+        - config: struct encapsulating logging preferences. Defaults to struct instance with defaults values.
+     */
     public init(_ config: ConsoleTargetConfig? = nil) {
         self.config = config ?? ConsoleTargetConfig()
     }
     
-    public func send(_ message: Message) {
+    open func send(_ message: Message) {
         guard self.config.levels.contains(message.level) else { return }
         if #available(iOS 10.0, *) {
             osLog(message.level, message.text, message.meta)
