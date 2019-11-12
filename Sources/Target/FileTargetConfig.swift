@@ -37,7 +37,7 @@ public struct FileTargetConfig {
         return "\(fileName).\(fileExtension)"
     }
     
-    public var fullArchiveFileName: String {
-        return "archive/\(fileName).0.\(fileExtension)"
+    public var archiveFileName: String {
+        return "\(fileName).0.\(fileExtension)"
     }
 }

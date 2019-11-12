@@ -19,8 +19,8 @@ open class FileTarget: Target {
     /// URL of main log file.
     public lazy var fullLogFileUrl = baseLogDirectory.appendingPathComponent(self.config.fullFileName)
     
-    /// URL of most recent archive file.
-    public lazy var fullArchiveFileUrl = baseLogDirectory.appendingPathComponent(self.config.fullArchiveFileName)
+    /// URL or archive folder.
+    public lazy var archiveUrl = baseLogDirectory.appendingPathComponent("archive")
     
     /// Config struct assigned during initialization
     public let config: FileTargetConfig
@@ -60,11 +60,11 @@ open class FileTarget: Target {
     /// Forces archive process of the current log file regardless of the preconditions set in config files. Non-blocking. Thread-safe.
     public func archive() {
         dispatchQueue.async {
-            self.renameArchivedFiles()
+            self.shiftArchivedFiles()
             self.closeFile()
             self.moveFile()
             self.initFile()
-            self.deleteOldFiles()
+            self.deleteObsoletFiles(at: self.archiveUrl)
         }
     }
     
@@ -88,11 +88,11 @@ open class FileTarget: Target {
     }
     
     func moveFile() {
-        try? self.fileManager.moveItem(atPath: fullLogFileUrl.path, toPath: fullArchiveFileUrl.path)
+        try? self.fileManager.moveItem(atPath: fullLogFileUrl.path, toPath: archiveUrl.path)
     }
     
-    func deleteOldFiles() {
-        guard let contents = try? fileManager.contentsOfDirectory(at: baseLogDirectory, includingPropertiesForKeys: nil) else { return }
+    func deleteObsoletFiles(at url: URL) {
+        guard let contents = try? fileManager.contentsOfDirectory(at: url, includingPropertiesForKeys: nil) else { return }
         let filesForDeletion = contents.sorted {
             $0.path.compare($1.path, options: .numeric) == .orderedAscending
         }.dropFirst(Int(self.config.maxArchivedFilesCount))
@@ -102,13 +102,13 @@ open class FileTarget: Target {
         }
     }
     
-    func renameArchivedFiles() {
-        guard let contents = try? fileManager.contentsOfDirectory(at: baseLogDirectory, includingPropertiesForKeys: nil) else { return }
+    func shiftArchivedFiles() {
+        guard let contents = try? fileManager.contentsOfDirectory(at: self.archiveUrl, includingPropertiesForKeys: nil) else { return }
         let archivedFiles = contents.sorted {
             $0.path.compare($1.path, options: .numeric) == .orderedAscending
         }
         archivedFiles.enumerated().reversed().forEach { (offset: Int, url: URL) in
-            let newFileUrl = baseLogDirectory.appendingPathComponent("archive/\(self.config.fileName).\(offset + 1).\(self.config.fileExtension)")
+            let newFileUrl = archiveUrl.appendingPathComponent("\(self.config.fileName).\(offset + 1).\(self.config.fileExtension)")
             try? self.fileManager.moveItem(at: url, to: newFileUrl)
         }
     }

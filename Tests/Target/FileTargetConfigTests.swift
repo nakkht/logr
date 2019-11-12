@@ -31,7 +31,7 @@ class FileTargetConfigTests: XCTestCase {
         XCTAssertEqual(TimeSpan.day, fileTargetConfig.archiveFrequency)
         XCTAssertEqual(FileTargetConfig.defaultMaxFileSizeInBytes, fileTargetConfig.maxFileSizeInBytes)
         XCTAssertEqual("file.log", fileTargetConfig.fullFileName)
-        XCTAssertEqual("archive/file.0.log", fileTargetConfig.fullArchiveFileName)
+        XCTAssertEqual("file.0.log", fileTargetConfig.archiveFileName)
         XCTAssertEqual(Style.minimal, fileTargetConfig.style)
         XCTAssertEqual(LogLevel.allCases, fileTargetConfig.levels)
         XCTAssertEqual(1, fileTargetConfig.maxArchivedFilesCount)
@@ -89,6 +89,6 @@ class FileTargetConfigTests: XCTestCase {
     
     func testFullArchiveFileName() {
         fileTargetConfig = FileTargetConfig(fileName: "filename", fileExtension: "txt")
-        XCTAssertEqual("archive/filename.0.txt", fileTargetConfig.fullArchiveFileName)
+        XCTAssertEqual("filename.0.txt", fileTargetConfig.archiveFileName)
     }
 }
