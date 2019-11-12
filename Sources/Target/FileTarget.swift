@@ -64,7 +64,7 @@ open class FileTarget: Target {
         dispatchQueue.async {
             self.shiftArchivedFiles()
             self.closeFile()
-            self.moveFile()
+            self.moveFileToArchive()
             self.initFile()
             self.deleteObsoletFiles(at: self.archiveUrl)
             completion?()
@@ -90,8 +90,9 @@ open class FileTarget: Target {
         self.fileHandle?.closeFile()
     }
     
-    func moveFile() {
-        try? self.fileManager.moveItem(atPath: fullLogFileUrl.path, toPath: archiveUrl.path)
+    func moveFileToArchive() {
+        let archiveFileUrl = archiveUrl.appendingPathComponent(self.config.archiveFileName)
+        try? self.fileManager.moveItem(atPath: fullLogFileUrl.path, toPath: archiveFileUrl.path)
     }
     
     func deleteObsoletFiles(at url: URL) {
