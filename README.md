@@ -11,21 +11,28 @@ Simple logging library for iOS written in Swift
 
 ### Swift Package Manager
 
+Once Swift package set up, add the following to your `Package.swift`:
+
 ```
 dependencies: [
   .package(url: "https://github.com/nakkht/logr.git", exact: "0.3.4")
 ]
 ```
 
-### CocoaPods
+### Carthage
 
-To integrate using CocoaPods, install [CocoaPods](https://cocoapods.org/pods/logr) and include the following in your Podfile:
+To add Logr to your project using Carthage, add the following to your Cartfile:
 
 ```
-target 'MyApp' do
-  use_frameworks!
-  pod 'Logr', '0.3.4'
-end
+github "nakkht/logr" "0.3.4"
+```
+
+### CocoaPods
+
+To integrate using CocoaPods, install [CocoaPods](https://guides.cocoapods.org/using/getting-started.html#getting-started) and include the following in your Podfile:
+
+```
+pod 'Logr', '~> 0.3.4'
 ```
 
 ## Usage
