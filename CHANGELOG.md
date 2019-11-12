@@ -2,6 +2,11 @@
 
 All notable changes to logr project.
 
+## v0.3.4 - [2019-11-12]
+
+Fixed
+* Creating archive folder if does not exist
+
 ## v0.3.3 - [2019-11-12]
 
 Fixed
