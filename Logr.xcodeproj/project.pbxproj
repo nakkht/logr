@@ -1,0 +1,411 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		OBJ_62 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_37 /* Config.swift */; };
+		OBJ_63 /* OSLogType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_39 /* OSLogType.swift */; };
+		OBJ_64 /* LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_40 /* LogLevel.swift */; };
+		OBJ_65 /* Logr.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_41 /* Logr.swift */; };
+		OBJ_66 /* LogrService.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_42 /* LogrService.swift */; };
+		OBJ_67 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_43 /* Message.swift */; };
+		OBJ_68 /* MetaInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* MetaInfo.swift */; };
+		OBJ_69 /* ConsoleTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_46 /* ConsoleTarget.swift */; };
+		OBJ_70 /* ConsoleTargetConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* ConsoleTargetConfig.swift */; };
+		OBJ_71 /* FileTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_48 /* FileTarget.swift */; };
+		OBJ_72 /* FileTargetConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_49 /* FileTargetConfig.swift */; };
+		OBJ_73 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_50 /* Style.swift */; };
+		OBJ_74 /* Target.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_51 /* Target.swift */; };
+		OBJ_75 /* TimeSpan.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_52 /* TimeSpan.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		"Logr::Logr::Product" /* Logr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Logr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		OBJ_10 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		OBJ_11 /* Logr.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Logr.podspec; sourceTree = "<group>"; };
+		OBJ_12 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		OBJ_13 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		OBJ_14 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		OBJ_15 /* Logr.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Logr.podspec; sourceTree = "<group>"; };
+		OBJ_16 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		OBJ_17 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		OBJ_18 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		OBJ_19 /* Logr.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Logr.podspec; sourceTree = "<group>"; };
+		OBJ_20 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		OBJ_22 /* ConfigTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigTests.swift; sourceTree = "<group>"; };
+		OBJ_24 /* OsLogTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OsLogTypeTests.swift; sourceTree = "<group>"; };
+		OBJ_25 /* LogLevelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogLevelTests.swift; sourceTree = "<group>"; };
+		OBJ_26 /* LogrServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogrServiceTests.swift; sourceTree = "<group>"; };
+		OBJ_27 /* LogrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogrTests.swift; sourceTree = "<group>"; };
+		OBJ_28 /* MessageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTests.swift; sourceTree = "<group>"; };
+		OBJ_30 /* ConsoleTargetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleTargetTests.swift; sourceTree = "<group>"; };
+		OBJ_31 /* FileTargetConfigTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTargetConfigTests.swift; sourceTree = "<group>"; };
+		OBJ_32 /* FileTargetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTargetTests.swift; sourceTree = "<group>"; };
+		OBJ_34 /* LogrServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogrServiceMock.swift; sourceTree = "<group>"; };
+		OBJ_35 /* TargetMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetMock.swift; sourceTree = "<group>"; };
+		OBJ_37 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		OBJ_39 /* OSLogType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSLogType.swift; sourceTree = "<group>"; };
+		OBJ_40 /* LogLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogLevel.swift; sourceTree = "<group>"; };
+		OBJ_41 /* Logr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logr.swift; sourceTree = "<group>"; };
+		OBJ_42 /* LogrService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogrService.swift; sourceTree = "<group>"; };
+		OBJ_43 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		OBJ_44 /* MetaInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaInfo.swift; sourceTree = "<group>"; };
+		OBJ_46 /* ConsoleTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleTarget.swift; sourceTree = "<group>"; };
+		OBJ_47 /* ConsoleTargetConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleTargetConfig.swift; sourceTree = "<group>"; };
+		OBJ_48 /* FileTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTarget.swift; sourceTree = "<group>"; };
+		OBJ_49 /* FileTargetConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTargetConfig.swift; sourceTree = "<group>"; };
+		OBJ_50 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		OBJ_51 /* Target.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Target.swift; sourceTree = "<group>"; };
+		OBJ_52 /* TimeSpan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSpan.swift; sourceTree = "<group>"; };
+		OBJ_56 /* Demo */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Demo; sourceTree = SOURCE_ROOT; };
+		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		OBJ_9 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		OBJ_76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		OBJ_21 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_22 /* ConfigTests.swift */,
+				OBJ_23 /* Extension */,
+				OBJ_25 /* LogLevelTests.swift */,
+				OBJ_26 /* LogrServiceTests.swift */,
+				OBJ_27 /* LogrTests.swift */,
+				OBJ_28 /* MessageTests.swift */,
+				OBJ_29 /* Target */,
+				OBJ_33 /* Util */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		OBJ_23 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_24 /* OsLogTypeTests.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		OBJ_29 /* Target */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_30 /* ConsoleTargetTests.swift */,
+				OBJ_31 /* FileTargetConfigTests.swift */,
+				OBJ_32 /* FileTargetTests.swift */,
+			);
+			path = Target;
+			sourceTree = "<group>";
+		};
+		OBJ_33 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_34 /* LogrServiceMock.swift */,
+				OBJ_35 /* TargetMock.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		OBJ_36 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_37 /* Config.swift */,
+				OBJ_38 /* Extension */,
+				OBJ_40 /* LogLevel.swift */,
+				OBJ_41 /* Logr.swift */,
+				OBJ_42 /* LogrService.swift */,
+				OBJ_43 /* Message.swift */,
+				OBJ_44 /* MetaInfo.swift */,
+				OBJ_45 /* Target */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		OBJ_38 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_39 /* OSLogType.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		OBJ_45 /* Target */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_46 /* ConsoleTarget.swift */,
+				OBJ_47 /* ConsoleTargetConfig.swift */,
+				OBJ_48 /* FileTarget.swift */,
+				OBJ_49 /* FileTargetConfig.swift */,
+				OBJ_50 /* Style.swift */,
+				OBJ_51 /* Target.swift */,
+				OBJ_52 /* TimeSpan.swift */,
+			);
+			path = Target;
+			sourceTree = "<group>";
+		};
+		OBJ_5 = {
+			isa = PBXGroup;
+			children = (
+				OBJ_6 /* Package.swift */,
+				OBJ_7 /* Sources */,
+				OBJ_8 /* Tests */,
+				OBJ_53 /* Products */,
+				OBJ_56 /* Demo */,
+			);
+			sourceTree = "<group>";
+		};
+		OBJ_53 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				"Logr::Logr::Product" /* Logr.framework */,
+			);
+			name = Products;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		OBJ_7 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Sources;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_8 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_9 /* LICENSE */,
+				OBJ_10 /* CHANGELOG.md */,
+				OBJ_11 /* Logr.podspec */,
+				OBJ_12 /* README.md */,
+				OBJ_13 /* LICENSE */,
+				OBJ_14 /* CHANGELOG.md */,
+				OBJ_15 /* Logr.podspec */,
+				OBJ_16 /* README.md */,
+				OBJ_17 /* LICENSE */,
+				OBJ_18 /* CHANGELOG.md */,
+				OBJ_19 /* Logr.podspec */,
+				OBJ_20 /* README.md */,
+				OBJ_21 /* Tests */,
+				OBJ_36 /* Sources */,
+			);
+			name = Tests;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		"Logr::Logr" /* Logr */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_58 /* Build configuration list for PBXNativeTarget "Logr" */;
+			buildPhases = (
+				OBJ_61 /* Sources */,
+				OBJ_76 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Logr;
+			productName = Logr;
+			productReference = "Logr::Logr::Product" /* Logr.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		OBJ_1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftMigration = 9999;
+				LastUpgradeCheck = 9999;
+			};
+			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "Logr" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = OBJ_5;
+			productRefGroup = OBJ_53 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				"Logr::Logr" /* Logr */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		OBJ_61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_62 /* Config.swift in Sources */,
+				OBJ_63 /* OSLogType.swift in Sources */,
+				OBJ_64 /* LogLevel.swift in Sources */,
+				OBJ_65 /* Logr.swift in Sources */,
+				OBJ_66 /* LogrService.swift in Sources */,
+				OBJ_67 /* Message.swift in Sources */,
+				OBJ_68 /* MetaInfo.swift in Sources */,
+				OBJ_69 /* ConsoleTarget.swift in Sources */,
+				OBJ_70 /* ConsoleTargetConfig.swift in Sources */,
+				OBJ_71 /* FileTarget.swift in Sources */,
+				OBJ_72 /* FileTargetConfig.swift in Sources */,
+				OBJ_73 /* Style.swift in Sources */,
+				OBJ_74 /* Target.swift in Sources */,
+				OBJ_75 /* TimeSpan.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		OBJ_3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"SWIFT_PACKAGE=1",
+					"DEBUG=1",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACOSX_DEPLOYMENT_TARGET = "";
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE DEBUG";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				USE_HEADERMAP = NO;
+			};
+			name = Debug;
+		};
+		OBJ_4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"SWIFT_PACKAGE=1",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACOSX_DEPLOYMENT_TARGET = "";
+				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				USE_HEADERMAP = NO;
+			};
+			name = Release;
+		};
+		OBJ_59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Logr.xcodeproj/Logr_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 9.0;
+				MARKETING_VERSION = 0.3.4;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = Logr;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = Logr;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		OBJ_60 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Logr.xcodeproj/Logr_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 9.0;
+				MARKETING_VERSION = 0.3.4;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = Logr;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = Logr;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		OBJ_2 /* Build configuration list for PBXProject "Logr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_3 /* Debug */,
+				OBJ_4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_58 /* Build configuration list for PBXNativeTarget "Logr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_59 /* Debug */,
+				OBJ_60 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = OBJ_1 /* Project object */;
+}
