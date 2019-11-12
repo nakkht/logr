@@ -41,6 +41,7 @@ open class FileTarget: Target {
             self.dispatchQueue = configDispatchQueue
         }
         initFile()
+        initArchive()
     }
     
     open func send(_ message: Message) {
@@ -75,6 +76,10 @@ open class FileTarget: Target {
         let fullFilePath = self.baseLogDirectory.appendingPathComponent(self.config.fullFileName)
         self.createFileIfNeeded(fullLogFileUrl)
         self.fileHandle = FileHandle(forWritingAtPath: fullFilePath.path)
+    }
+    
+    func initArchive() {
+        try? fileManager.createDirectory(at: self.archiveUrl, withIntermediateDirectories: true, attributes: nil)
     }
     
     func createFileIfNeeded(_ url: URL) {
