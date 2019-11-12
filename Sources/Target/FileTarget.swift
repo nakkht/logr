@@ -20,8 +20,8 @@ open class FileTarget: Target {
     /// URL of main log file.
     public lazy var fullLogFileUrl = baseLogDirectory.appendingPathComponent(self.config.fullFileName)
     
-    /// URL or archive folder.
-    public lazy var archiveUrl = baseLogDirectory.appendingPathComponent("archive")
+    /// URL of  archive folder.
+    public lazy var archiveUrl = baseLogDirectory.appendingPathComponent("archive", isDirectory: true)
     
     /// Config struct assigned during initialization
     public let config: FileTargetConfig
