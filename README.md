@@ -13,7 +13,7 @@ Simple logging library for iOS written in Swift
 
 ```
 dependencies: [
-  .package(url: "https://github.com/nakkht/logr.git", exact: "0.3.1")
+  .package(url: "https://github.com/nakkht/logr.git", exact: "0.3.2")
 ]
 ```
 
@@ -24,7 +24,7 @@ To integrate using CocoaPods, install [CocoaPods](https://cocoapods.org/pods/log
 ```
 target 'MyApp' do
   use_frameworks!
-  pod 'Logr', '0.3.1'
+  pod 'Logr', '0.3.2'
 end
 ```
 
