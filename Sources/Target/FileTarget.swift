@@ -12,6 +12,7 @@ import Foundation
 open class FileTarget: Target {
     
     lazy var fileManager = FileManager.default
+    var dispatchQueue = DispatchQueue(label: "com.neqsoft.file_target", qos: .background)
     
     /// Base directory URL for logged files.
     public lazy var baseLogDirectory = fileManager.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
@@ -28,8 +29,6 @@ open class FileTarget: Target {
     /// File handle of a current log file being written to.
     public var fileHandle: FileHandle?
 
-    let dispatchQueue = DispatchQueue(label: "com.neqsoft.file_target", qos: .background)
-    
    /**
     Initializes FileTarget instance with provided FileTargetConfig struct. Prepares file for receiving and persisting log messages.
     
@@ -38,6 +37,9 @@ open class FileTarget: Target {
     */
     public init(_ config: FileTargetConfig? = nil) {
         self.config = config ?? FileTargetConfig()
+        if let configDispatchQueue = config?.dispatchQueue {
+            self.dispatchQueue = configDispatchQueue
+        }
         initFile()
     }
     
@@ -58,13 +60,14 @@ open class FileTarget: Target {
     }
     
     /// Forces archive process of the current log file regardless of the preconditions set in config files. Non-blocking. Thread-safe.
-    public func archive() {
+    public func archive(_ completion: (() -> Void)? = nil) {
         dispatchQueue.async {
             self.shiftArchivedFiles()
             self.closeFile()
             self.moveFile()
             self.initFile()
             self.deleteObsoletFiles(at: self.archiveUrl)
+            completion?()
         }
     }
     

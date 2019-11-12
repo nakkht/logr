@@ -21,9 +21,12 @@ public struct FileTargetConfig {
     public let levels: [LogLevel]
     public let style: Style
     
+    /// Optional dispatch queue assigned during initialization.
+    public let dispatchQueue: DispatchQueue?
+    
     public init(fileName: String? = nil, fileExtension: String? = nil, maxArchivedFilesCount: UInt16? = nil,
                 archiveFrequency: TimeSpan? = nil, maxFileSizeInBytes: UInt64? = nil,
-                levels: [LogLevel]? = nil, style: Style? = nil) {
+                levels: [LogLevel]? = nil, style: Style? = nil, dispatchQueue: DispatchQueue? = nil) {
         self.fileExtension = fileExtension ?? "log"
         self.fileName = fileName ?? "file"
         self.maxArchivedFilesCount = maxArchivedFilesCount ?? 1
@@ -31,6 +34,7 @@ public struct FileTargetConfig {
         self.maxFileSizeInBytes = maxFileSizeInBytes ?? FileTargetConfig.defaultMaxFileSizeInBytes
         self.levels = levels ?? LogLevel.allCases
         self.style = style ?? .minimal
+        self.dispatchQueue = dispatchQueue
     }
     
     public var fullFileName: String {
