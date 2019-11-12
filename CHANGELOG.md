@@ -2,6 +2,15 @@
 
 All notable changes to logr project.
 
+## v0.3.2 - [2019-11-12]
+
+Added
+* Documentation for public apis
+* Dispatch queue configuration for file target
+
+Fixed
+* Using wrong url for deleting/renaming archived files
+
 ## v0.3.1 - [2019-10-21]
 
 Added
