@@ -21,7 +21,7 @@ dependencies: [
 
 ### Carthage
 
-To add Logr to your project using Carthage, add the following to your Cartfile:
+To add Logr to your project using Carthage, add the following to your `Cartfile`:
 
 ```
 github "nakkht/logr" "0.3.4"
@@ -29,7 +29,7 @@ github "nakkht/logr" "0.3.4"
 
 ### CocoaPods
 
-To integrate using CocoaPods, install [CocoaPods](https://guides.cocoapods.org/using/getting-started.html#getting-started) and include the following in your Podfile:
+To integrate using CocoaPods, install [CocoaPods](https://guides.cocoapods.org/using/getting-started.html#getting-started) and include the following in your `Podfile`:
 
 ```
 pod 'Logr', '~> 0.3.4'

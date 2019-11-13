@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Logr  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+
+    <a title="Logr  Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="index.html">
+          Logr 0.3.4 Docs
+        </a>
+         (65% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/nakkht/logr">
+            <img class="header-icon" src="img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="index.html">Logr Reference</a>
+      <img class="carat" src="img/carat.png" />
+      Logr  Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/ConsoleTarget.html">ConsoleTarget</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/FileTarget.html">FileTarget</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/Logr.html">Logr</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/LogrService.html">LogrService</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/LogLevel.html">LogLevel</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/Style.html">Style</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/TimeSpan.html">TimeSpan</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/Target.html">Target</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/Config.html">Config</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/ConsoleTargetConfig.html">ConsoleTargetConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/FileTargetConfig.html">FileTargetConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/Message.html">Message</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/MetaInfo.html">MetaInfo</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content">
+            
+            <h1 id='logr' class='heading'>logr</h1>
+
+<p><a href="https://travis-ci.com/nakkht/logr"><img src="https://travis-ci.com/nakkht/logr.svg?branch=develop" alt="Build Status"></a>
+<a href="https://codecov.io/gh/nakkht/logr"><img src="https://codecov.io/gh/nakkht/logr/branch/develop/graph/badge.svg" alt="codecov"></a>
+<img src="https://img.shields.io/cocoapods/p/Logr?color=green" alt="Cocoapods platforms">
+<a href="https://codebeat.co/projects/github-com-nakkht-logr-master"><img src="https://codebeat.co/badges/22ef8e2e-a141-4c24-94b3-3501d0fe9313" alt="codebeat badge"></a></p>
+
+<p>Simple logging library for iOS written in Swift</p>
+<h2 id='integration' class='heading'>Integration</h2>
+<h3 id='swift-package-manager' class='heading'>Swift Package Manager</h3>
+
+<p>Once Swift package set up, add the following to your <code>Package.swift</code>:</p>
+<pre class="highlight plaintext"><code>dependencies: [
+  .package(url: "https://github.com/nakkht/logr.git", exact: "0.3.4")
+]
+</code></pre>
+<h3 id='carthage' class='heading'>Carthage</h3>
+
+<p>To add Logr to your project using Carthage, add the following to your <code>Cartfile</code>:</p>
+<pre class="highlight plaintext"><code>github "nakkht/logr" "0.3.4"
+</code></pre>
+<h3 id='cocoapods' class='heading'>CocoaPods</h3>
+
+<p>To integrate using CocoaPods, install <a href="https://guides.cocoapods.org/using/getting-started.html#getting-started">CocoaPods</a> and include the following in your <code>Podfile</code>:</p>
+<pre class="highlight plaintext"><code>pod 'Logr', '~&gt; 0.3.4'
+</code></pre>
+<h2 id='usage' class='heading'>Usage</h2>
+
+<p>In your <code>AppDelegate.swift</code> file add:</p>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">Logr</span>
+</code></pre>
+
+<p>At the beginning of <code>func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -&gt; Bool</code> configure logr service with wanted targets:</p>
+<pre class="highlight swift"><code><span class="kt">LogrService</span><span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="kt">Config</span><span class="p">(</span><span class="kt">ConsoleTarget</span><span class="p">(),</span> <span class="kt">FileTarget</span><span class="p">()))</span>
+</code></pre>
+
+<p>For more serious configuration for production, <code>ConsolteTarget</code> should be omitted, the following snippet is suggested:</p>
+<pre class="highlight swift"><code><span class="cp">#if DEBUG</span>
+<span class="kd">static</span> <span class="k">let</span> <span class="nv">targets</span><span class="p">:</span> <span class="p">[</span><span class="kt">Target</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kt">ConsoleTarget</span><span class="p">(),</span> <span class="kt">FileTarget</span><span class="p">()]</span>
+<span class="cp">#else</span>
+<span class="kd">static</span> <span class="k">let</span> <span class="nv">targets</span><span class="p">:</span> <span class="p">[</span><span class="kt">Target</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kt">FileTarget</span><span class="p">()]</span>
+<span class="cp">#endif</span>
+
+<span class="kd">static</span> <span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">Config</span><span class="p">(</span><span class="nv">targets</span><span class="p">:</span> <span class="n">targets</span><span class="p">)</span>
+
+<span class="kt">LogrService</span><span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">config</span><span class="p">)</span>
+</code></pre>
+<h2 id='demo' class='heading'>Demo</h2>
+
+<p>Demo project can be access by opening Demo.workspace in Demo subfolder.</p>
+<h2 id='author' class='heading'>Author</h2>
+
+<ul>
+<li><a href="pg@neqsoft.com">Paulius Gudonis</a></li>
+</ul>
+<h2 id='licence' class='heading'>Licence</h2>
+
+<p>This repository is under the <strong>Apache v2.0</strong> license. <a href="https://github.com/nakkht/logr/blob/master/LICENSE">Find it here</a>.</p>
+
+          </div>
+        </section>
+
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2019 <a class="link" href="https://pgu.dev" target="_blank" rel="external">Paulius Gudonis</a>. All rights reserved. (Last updated: 2019-11-13)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>

@@ -1,0 +1,12 @@
+
+author: Paulius Gudonis
+author_url: https://pgu.dev
+github_url: https://github.com/nakkht/logr
+module: Logr
+output: docs
+theme: fullwidth
+swift_build_tool: spm
+build_tool_arguments: [-Xswiftc, -swift-version, -Xswiftc, "5"]
+module_version: 0.3.4
+clean: true
+sdk: iphonesimulator
