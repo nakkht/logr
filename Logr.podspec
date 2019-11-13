@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "Logr"
-  spec.version      = "0.3.4"
+  spec.version      = "0.4.0"
   spec.summary      = "Simple and extensible logging library for iOS"
 
   spec.description  = <<-DESC
@@ -22,4 +22,3 @@ Pod::Spec.new do |spec|
   spec.source_files  = "Sources/**/*.swift"
 
 end
-

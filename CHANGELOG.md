@@ -2,6 +2,11 @@
 
 All notable changes to logr project.
 
+## v0.4.0 - [2019-11-13]
+
+Added
+* Carthage support (Inlcuded Logr.xcodeproj)
+
 ## v0.3.4 - [2019-11-12]
 
 Fixed
