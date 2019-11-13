@@ -1,8 +1,9 @@
 # logr
 
 [![Build Status](https://travis-ci.com/nakkht/logr.svg?branch=develop)](https://travis-ci.com/nakkht/logr)
-[![codecov](https://codecov.io/gh/nakkht/logr/branch/develop/graph/badge.svg)](https://codecov.io/gh/nakkht/logr)
 ![Cocoapods platforms](https://img.shields.io/cocoapods/p/Logr?color=green)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![codecov](https://codecov.io/gh/nakkht/logr/branch/develop/graph/badge.svg)](https://codecov.io/gh/nakkht/logr)
 [![codebeat badge](https://codebeat.co/badges/22ef8e2e-a141-4c24-94b3-3501d0fe9313)](https://codebeat.co/projects/github-com-nakkht-logr-master)
 
 Simple logging library for iOS written in Swift
@@ -66,6 +67,10 @@ LogrService.init(with: config)
 ## Demo
 
 Demo project can be access by opening Demo.workspace in Demo subfolder.
+
+## Documentation
+
+[Documentation](https://nakkht.github.io/logr/) generated with [jazzy](https://github.com/realm/jazzy). Hosted by [GitHub Pages](https://pages.github.com).
 
 ## Author
 * [Paulius Gudonis](pg@neqsoft.com)
