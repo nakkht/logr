@@ -70,7 +70,8 @@ Demo project can be access by opening Demo.workspace in Demo subfolder.
 
 ## Documentation
 
-[Documentation](https://nakkht.github.io/logr/) generated with [jazzy](https://github.com/realm/jazzy). Hosted by [GitHub Pages](https://pages.github.com).
+- [Documentation](https://nakkht.github.io/logr/) generated with [jazzy](https://github.com/realm/jazzy). Hosted by [GitHub Pages](https://pages.github.com).
+- [Architecture document](https://github.com/nakkht/logr/wiki/Architecture) available in project wiki
 
 ## Author
 * [Paulius Gudonis](https://pgu.dev)
