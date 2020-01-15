@@ -73,7 +73,7 @@ Demo project can be access by opening Demo.workspace in Demo subfolder.
 [Documentation](https://nakkht.github.io/logr/) generated with [jazzy](https://github.com/realm/jazzy). Hosted by [GitHub Pages](https://pages.github.com).
 
 ## Author
-* [Paulius Gudonis](pg@neqsoft.com)
+* [Paulius Gudonis](https://pgu.dev)
 
 ## Licence
 This repository is under the **Apache v2.0** license. [Find it here](https://github.com/nakkht/logr/blob/master/LICENSE).
