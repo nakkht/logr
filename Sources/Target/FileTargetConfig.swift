@@ -12,13 +12,25 @@ public struct FileTargetConfig {
     
     public static let defaultMaxFileSizeInBytes: UInt64 = 20 * 1024 * 1024
     
+    /// Log file extension. Defaults to `log`.
     public let fileExtension: String
+    
+    /// Log file name. Defaults to `file`.
     public let fileName: String
     
+    /// Maximum number of archived files to keep. Defaults to 1.
     public let maxArchivedFilesCount: UInt16
+    
+    /// Determines minimum time until log file should be archived.
     public let archiveFrequency: TimeSpan
+    
+    /// Determines minimum file size until log file should be archived.
     public let maxFileSizeInBytes: UInt64
+    
+    /// Log levels that should allowed for the target.
     public let levels: [LogLevel]
+    
+    /// Determines logging style used by the target.
     public let style: Style
     
     /// Optional dispatch queue assigned during initialization.

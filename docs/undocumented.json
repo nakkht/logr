@@ -1,62 +1,6 @@
 {
   "warnings": [
     {
-      "file": "/Users/paulius/dev/logr/Sources/LogLevel.swift",
-      "line": 11,
-      "symbol": "LogLevel",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/paulius/dev/logr/Sources/LogLevel.swift",
-      "line": 13,
-      "symbol": "LogLevel.debug",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/paulius/dev/logr/Sources/LogLevel.swift",
-      "line": 14,
-      "symbol": "LogLevel.info",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/paulius/dev/logr/Sources/LogLevel.swift",
-      "line": 15,
-      "symbol": "LogLevel.warn",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/paulius/dev/logr/Sources/LogLevel.swift",
-      "line": 16,
-      "symbol": "LogLevel.error",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/paulius/dev/logr/Sources/LogLevel.swift",
-      "line": 17,
-      "symbol": "LogLevel.critical",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/paulius/dev/logr/Sources/LogLevel.swift",
-      "line": 19,
-      "symbol": "LogLevel.title",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/paulius/dev/logr/Sources/LogrService.swift",
-      "line": 24,
-      "symbol": "LogrService.init(with:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/paulius/dev/logr/Sources/Target/FileTargetConfig.swift",
       "line": 11,
       "symbol": "FileTargetConfig",
@@ -72,114 +16,23 @@
     },
     {
       "file": "/Users/paulius/dev/logr/Sources/Target/FileTargetConfig.swift",
-      "line": 15,
-      "symbol": "FileTargetConfig.fileExtension",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/paulius/dev/logr/Sources/Target/FileTargetConfig.swift",
-      "line": 16,
-      "symbol": "FileTargetConfig.fileName",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/paulius/dev/logr/Sources/Target/FileTargetConfig.swift",
-      "line": 18,
-      "symbol": "FileTargetConfig.maxArchivedFilesCount",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/paulius/dev/logr/Sources/Target/FileTargetConfig.swift",
-      "line": 19,
-      "symbol": "FileTargetConfig.archiveFrequency",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/paulius/dev/logr/Sources/Target/FileTargetConfig.swift",
-      "line": 20,
-      "symbol": "FileTargetConfig.maxFileSizeInBytes",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/paulius/dev/logr/Sources/Target/FileTargetConfig.swift",
-      "line": 21,
-      "symbol": "FileTargetConfig.levels",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/paulius/dev/logr/Sources/Target/FileTargetConfig.swift",
-      "line": 22,
-      "symbol": "FileTargetConfig.style",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/paulius/dev/logr/Sources/Target/FileTargetConfig.swift",
-      "line": 27,
+      "line": 39,
       "symbol": "FileTargetConfig.init(fileName:fileExtension:maxArchivedFilesCount:archiveFrequency:maxFileSizeInBytes:levels:style:dispatchQueue:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/paulius/dev/logr/Sources/Target/FileTargetConfig.swift",
-      "line": 40,
+      "line": 52,
       "symbol": "FileTargetConfig.fullFileName",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/paulius/dev/logr/Sources/Target/FileTargetConfig.swift",
-      "line": 44,
+      "line": 56,
       "symbol": "FileTargetConfig.archiveFileName",
       "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/paulius/dev/logr/Sources/Target/TimeSpan.swift",
-      "line": 11,
-      "symbol": "TimeSpan",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/paulius/dev/logr/Sources/Target/TimeSpan.swift",
-      "line": 13,
-      "symbol": "TimeSpan.minute",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/paulius/dev/logr/Sources/Target/TimeSpan.swift",
-      "line": 14,
-      "symbol": "TimeSpan.hour",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/paulius/dev/logr/Sources/Target/TimeSpan.swift",
-      "line": 15,
-      "symbol": "TimeSpan.day",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/paulius/dev/logr/Sources/Target/TimeSpan.swift",
-      "line": 16,
-      "symbol": "TimeSpan.week",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/paulius/dev/logr/Sources/Target/TimeSpan.swift",
-      "line": 17,
-      "symbol": "TimeSpan.month",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     }
   ],

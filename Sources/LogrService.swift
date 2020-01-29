@@ -20,6 +20,12 @@ public class LogrService {
         self.async = true
     }
     
+    /**
+    Initializes new intance of LogrSerice with provided configuration. Overrides any properties initialized with previous LogrService instance.
+    
+    - Parameters:
+       - config: struct encapsulating configuration properties used by LogrService
+    */
     @discardableResult
     public init(with config: Config) {
         self.async = config.async
@@ -36,7 +42,7 @@ public class LogrService {
         - message: struct encapsulating all log message data including meta information
      */
     public func log(_ message: Message) {
-        if(async) {
+        if async {
             LogrService.dispatchQueue.async { self.dispatchLog(message) }
         } else {
             LogrService.dispatchQueue.sync { self.dispatchLog(message) }
