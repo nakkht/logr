@@ -42,9 +42,16 @@ Package.resolved
 /.previous-build
 .*.sw[nop]
 *.xcscmblueprint
-.swiftpm
 
-# CocoaPods
+!.swiftpm/
+.swiftpm/*
+!.swiftpm/xcode/
+.swiftpm/xcode/*
+!.swiftpm/xcode/package.xcworkspace/
+.swiftpm/xcode/package.xcworkspace/*
+!.swiftpm/xcode/package.xcworkspace/xcshareddata/
+
+# CocoaPods	
 #
 # We recommend against adding the Pods directory to your .gitignore. However
 # you should judge for yourself, the pros and cons are mentioned at:

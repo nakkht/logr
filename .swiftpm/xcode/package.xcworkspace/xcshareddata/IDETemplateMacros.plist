@@ -1,4 +1,9 @@
-//
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>FILEHEADER</key>
+    <string>
 // Copyright 2020 Paulius Gudonis, neqsoft
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,20 +17,6 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-// 
-
-import Foundation
-import os.log
-
-extension OSLogType {
-    
-    @available(iOS 10.0, *)
-    static func from(_ logLevel: LogLevel) -> OSLogType {
-        switch logLevel {
-        case .debug: return debug
-        case .info: return info
-        case .warn, .error: return error
-        case .critical: return fault
-        }
-    }
-}
+//  </string>
+</dict>
+</plist>

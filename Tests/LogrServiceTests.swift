@@ -1,10 +1,18 @@
 //
-//  LogrServiceTests.swift
-//  LogrTests
+// Copyright 2020 Paulius Gudonis, neqsoft
 //
-//  Created by Paulius Gudonis on 11/08/2019.
-//  Copyright © 2019 neqsoft. All rights reserved.
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
 //
+//    http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+// 
 
 import XCTest
 @testable import Logr
@@ -43,6 +51,7 @@ class LogrServiceTests: XCTestCase {
         XCTAssertNotNil(LogrService.targets)
         
         let message = Message(level: .error,
+                              tag: String(describing: self),
                               text: "error message",
                               meta: MetaInfo(file: "file", function: "async type of function", line: 42))
         let expectation = XCTestExpectation(description: "Async logging")
@@ -50,6 +59,7 @@ class LogrServiceTests: XCTestCase {
             
             XCTAssertEqual(LogLevel.error, $0.level)
             XCTAssertEqual(message.text, $0.text)
+            XCTAssertEqual(message.tag, $0.tag)
             XCTAssertEqual("file", $0.meta.file)
             XCTAssertEqual("async type of function", $0.meta.function)
             XCTAssertEqual(42, $0.meta.line)
@@ -61,11 +71,13 @@ class LogrServiceTests: XCTestCase {
     
     func testLog() {
         let message = Message(level: .error,
+                              tag: String(describing: self),
                               text: "error message",
                               meta:  MetaInfo(file: "file", function: "sync type of function", line: 42))
         targetMock.calledSendWith = {
             
             XCTAssertEqual(LogLevel.error, $0.level)
+            XCTAssertEqual(message.tag, $0.tag)
             XCTAssertEqual(message.text, $0.text)
             XCTAssertEqual("file", $0.meta.file)
             XCTAssertEqual("sync type of function", $0.meta.function)

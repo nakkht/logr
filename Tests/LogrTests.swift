@@ -1,10 +1,18 @@
 //
-//  LogrTests.swift
-//  LogrTests
+// Copyright 2020 Paulius Gudonis, neqsoft
 //
-//  Created by Paulius Gudonis on 08/08/2019.
-//  Copyright © 2019 neqsoft. All rights reserved.
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
 //
+//    http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+// 
 
 import XCTest
 @testable import Logr
@@ -12,15 +20,17 @@ import XCTest
 class LogrTests: XCTestCase {
     
     var mock: LogrServiceMock!
+    var tag: String!
     var logr: Logr!
-
+    
     override func setUp() {
         mock = LogrServiceMock()
-        logr = Logr(mock)
-    
+        tag = String(describing: self)
+        logr = Logr(tag, mock)
+        
         XCTAssertTrue(mock === logr.service)
     }
-
+    
     override func tearDown() {
         logr = nil
     }
@@ -28,8 +38,9 @@ class LogrTests: XCTestCase {
     func testDefaultValues() {
         logr = Logr()
         XCTAssertNotNil(logr.service)
+        XCTAssertNil(logr.tag)
     }
-
+    
     func testDebug() {
         let message = "debug message"
         logr.debug(message)
@@ -47,7 +58,7 @@ class LogrTests: XCTestCase {
         XCTAssertEqual(LogLevel.info, mock.calledLogWith?.level)
         XCTAssertEqual(message, mock.calledLogWith?.text)
     }
-
+    
     func testWarn() {
         let message = "warn message"
         logr.warn(message)
@@ -56,7 +67,7 @@ class LogrTests: XCTestCase {
         XCTAssertEqual(LogLevel.warn, mock.calledLogWith?.level)
         XCTAssertEqual(message, mock.calledLogWith?.text)
     }
-
+    
     func testError() {
         let message = "error message"
         logr.error(message)
@@ -65,7 +76,7 @@ class LogrTests: XCTestCase {
         XCTAssertEqual(LogLevel.error, mock.calledLogWith?.level)
         XCTAssertEqual(message, mock.calledLogWith?.text)
     }
-
+    
     func testCritical() {
         let message = "critical message"
         logr.critical(message)

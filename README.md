@@ -4,7 +4,6 @@
 ![Cocoapods platforms](https://img.shields.io/cocoapods/p/Logr?color=green)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![codecov](https://codecov.io/gh/nakkht/logr/branch/develop/graph/badge.svg)](https://codecov.io/gh/nakkht/logr)
-[![codebeat badge](https://codebeat.co/badges/22ef8e2e-a141-4c24-94b3-3501d0fe9313)](https://codebeat.co/projects/github-com-nakkht-logr-master)
 
 Simple logging library for iOS written in Swift
 
@@ -78,3 +77,17 @@ Demo project can be access by opening Demo.workspace in Demo subfolder.
 
 ## Licence
 This repository is under the **Apache v2.0** license. [Find it here](https://github.com/nakkht/logr/blob/master/LICENSE).
+
+    Copyright 2020 Paulius Gudonis
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
