@@ -23,7 +23,7 @@ open class Logr {
     public let service: LogrService
     
     /// Tag assinged during initialization. Used as a prefix for all log messages. Helps to categorize/group messages.
-    public let tag: String?
+    public let tag: String
     
     /**
      Initializes new instance of Logr.
@@ -32,7 +32,7 @@ open class Logr {
         - serivce: LogrService to which pass logging messages
         - tag: Prefix to be used for all messages logged through this Logr instance
      */
-    public init(_ tag: String? = nil, _ service: LogrService? = nil) {
+    public init(_ tag: String = "", _ service: LogrService? = nil) {
         self.tag = tag
         self.service = service ?? LogrService()
     }

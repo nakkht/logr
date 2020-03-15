@@ -38,7 +38,7 @@ class LogrTests: XCTestCase {
     func testDefaultValues() {
         logr = Logr()
         XCTAssertNotNil(logr.service)
-        XCTAssertNil(logr.tag)
+        XCTAssertEqual("", logr.tag)
     }
     
     func testDebug() {

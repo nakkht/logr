@@ -36,6 +36,8 @@ open class FileTarget: Target {
     
     /// File handle of a current log file being written to.
     public var fileHandle: FileHandle?
+    
+    let dateFormatter: DateFormatter
 
    /**
     Initializes FileTarget instance with provided FileTargetConfig struct. Prepares file for receiving and persisting log messages.
@@ -48,14 +50,24 @@ open class FileTarget: Target {
         if let configDispatchQueue = config?.dispatchQueue {
             self.dispatchQueue = configDispatchQueue
         }
+        self.dateFormatter = DateFormatter()
+        self.dateFormatter.dateFormat = self.config.dateTimeFormat
         initFile()
         initArchive()
     }
     
     open func send(_ message: Message) {
         guard self.config.levels.contains(message.level) else { return }
+        self.write(self.formatted(message))
+    }
+    
+    open func formatted(_ message: Message) -> String {
         let metaText = self.config.style == .verbose ? "\(message.meta.text) " : ""
-        self.write("\(metaText)\(message.level.title): \(message.text)\n")
+        return "\(dateString)\(metaText)\(message.tag) - \(message.level.title): \(message.text)\n"
+    }
+    
+    var dateString: String {
+        self.dateFormatter.string(from: Date())
     }
     
     func write(_ log: String) {

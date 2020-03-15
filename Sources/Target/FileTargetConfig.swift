@@ -19,6 +19,7 @@ import Foundation
 public struct FileTargetConfig {
     
     public static let defaultMaxFileSizeInBytes: UInt64 = 20 * 1024 * 1024
+    public static let defaultDateTimeFormat = "y-MM-dd H:m:ss.SSS"
     
     /// Log file extension. Defaults to `log`.
     public let fileExtension: String
@@ -41,17 +42,21 @@ public struct FileTargetConfig {
     /// Determines logging style used by the target.
     public let style: Style
     
+    /// Format to be used for log line timestamps
+    public let dateTimeFormat: String
+    
     /// Optional dispatch queue assigned during initialization.
     public let dispatchQueue: DispatchQueue?
     
     public init(fileName: String? = nil, fileExtension: String? = nil, maxArchivedFilesCount: UInt16? = nil,
-                archiveFrequency: TimeSpan? = nil, maxFileSizeInBytes: UInt64? = nil,
+                archiveFrequency: TimeSpan? = nil, maxFileSizeInBytes: UInt64? = nil, dateTimeFormat: String? = nil,
                 levels: [LogLevel]? = nil, style: Style? = nil, dispatchQueue: DispatchQueue? = nil) {
         self.fileExtension = fileExtension ?? "log"
         self.fileName = fileName ?? "file"
         self.maxArchivedFilesCount = maxArchivedFilesCount ?? 1
         self.archiveFrequency = archiveFrequency ?? .day
         self.maxFileSizeInBytes = maxFileSizeInBytes ?? FileTargetConfig.defaultMaxFileSizeInBytes
+        self.dateTimeFormat = dateTimeFormat ?? FileTargetConfig.defaultDateTimeFormat
         self.levels = levels ?? LogLevel.allCases
         self.style = style ?? .minimal
         self.dispatchQueue = dispatchQueue

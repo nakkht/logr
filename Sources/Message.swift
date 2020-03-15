@@ -23,7 +23,7 @@ public struct Message {
     public let level: LogLevel
     
     /// Tag associated with the message.
-    public let tag: String?
+    public let tag: String
     
     /// Actual provided log message.
     public let text: String
