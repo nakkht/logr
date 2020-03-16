@@ -63,7 +63,7 @@ open class FileTarget: Target {
     
     open func formatted(_ message: Message) -> String {
         let metaText = self.config.style == .verbose ? "\(message.meta.text) " : ""
-        return "\(dateString)\(metaText)\(message.tag) - \(message.level.title): \(message.text)\n"
+        return "\(dateString) \(metaText)\(message.tag) - \(message.level.title): \(message.text)\n"
     }
     
     var dateString: String {
