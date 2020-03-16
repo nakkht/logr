@@ -30,6 +30,10 @@ public struct MetaInfo: Equatable {
     
     /// Property for transforming MetaInfo struct into text line.
     public var text: String {
-        return "\(file) \(function) \(line)"
+        "\(fileName) \(function) \(line)"
+    }
+    
+    public var fileName: String {
+        String(file.split(separator: "/").last ?? "")
     }
 }

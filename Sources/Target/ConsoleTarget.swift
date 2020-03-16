@@ -48,7 +48,7 @@ open class ConsoleTarget: Target {
     @available(iOS 10.0, *)
     func osLog(_ level: LogLevel, _ message: String, _ metaInfo: MetaInfo) {
         if(self.config.style == .verbose) {
-            os_log("%{public}@ %{public}@ %{public}d %{public}@: %{public}@", log: osLog, type: OSLogType.from(level), metaInfo.file, metaInfo.function, metaInfo.line, level.title, message)
+            os_log("%{public}@ %{public}@: %{public}@", log: osLog, type: OSLogType.from(level), metaInfo.text, level.title, message)
         } else {
             os_log("%{public}@: %{public}@", log: osLog, type: OSLogType.from(level), level.title, message)
         }
