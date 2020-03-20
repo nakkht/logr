@@ -2,6 +2,13 @@
 
 All notable changes to logr project.
 
+## v0.5.0 - [2019-03-20]
+
+Added:
+* Interactive demo
+* More documentation
+* Tag for `Logr` class
+
 ## v0.4.0 - [2019-11-13]
 
 Added
