@@ -21,7 +21,7 @@ import Logr
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    private lazy var logr = Logr()
+    private lazy var logr = Logr(String(describing: AppDelegate.self))
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = viewController
         window?.makeKeyAndVisible()
         
-        LogrService.init(with: Config(ConsoleTarget(), FileTarget()))
+        LogrService.init(with: Config(ConsoleTarget(ConsoleTargetConfig(style: .verbose)), FileTarget()))
         logr.info("Application did finish launch")
         return true
     }

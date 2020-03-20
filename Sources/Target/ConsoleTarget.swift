@@ -39,23 +39,23 @@ open class ConsoleTarget: Target {
     open func send(_ message: Message) {
         guard self.config.levels.contains(message.level) else { return }
         if #available(iOS 10.0, *) {
-            osLog(message.level, message.text, message.meta)
+            osLog(message)
         } else {
-            nsLog(message.level, message.text, message.meta)
+            nsLog(message)
         }
     }
     
     @available(iOS 10.0, *)
-    func osLog(_ level: LogLevel, _ message: String, _ metaInfo: MetaInfo) {
+    func osLog(_ message: Message) {
         if(self.config.style == .verbose) {
-            os_log("%{public}@ %{public}@: %{public}@", log: osLog, type: OSLogType.from(level), metaInfo.text, level.title, message)
+            os_log("%{public}@ %{public}@: %{public}@ %{public}@", log: osLog, type: OSLogType.from(message.level), message.meta.text, message.level.title, message.tag, message.text)
         } else {
-            os_log("%{public}@: %{public}@", log: osLog, type: OSLogType.from(level), level.title, message)
+            os_log("%{public}@: %{public}@ %{public}@", log: osLog, type: OSLogType.from(message.level), message.meta.text, message.level.title, message.tag, message.text)
         }
     }
     
-    func nsLog(_ level: LogLevel, _ message: String, _ metaInfo: MetaInfo) {
-        let metaText = self.config.style == .verbose ? "\(metaInfo.text) " : ""
-        NSLog("%@", "\(metaText)\(level.title): \(message)")
+    func nsLog(_ message: Message) {
+        let metaText = self.config.style == .verbose ? "\(message.meta.text) " : ""
+        NSLog("%@", "\(metaText)\(message.level.title): \(message.tag) \(message.text)")
     }
 }

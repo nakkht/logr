@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F64ACC5F235E38980076D10E /* Logr in Frameworks */ = {isa = PBXBuildFile; productRef = F64ACC5E235E38980076D10E /* Logr */; };
+		76FA1F0C24254D89001BB73D /* Logr in Frameworks */ = {isa = PBXBuildFile; productRef = 76FA1F0B24254D89001BB73D /* Logr */; };
 		F6C24F0B23E0DBA500A6CD2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6C24F0A23E0DBA500A6CD2D /* LaunchScreen.storyboard */; };
 		F6FCC86822F0F4F0003D2AC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FCC86722F0F4F0003D2AC4 /* AppDelegate.swift */; };
 		F6FCC86F22F0F4F1003D2AC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6FCC86E22F0F4F1003D2AC4 /* Assets.xcassets */; };
@@ -27,7 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F64ACC5F235E38980076D10E /* Logr in Frameworks */,
+				76FA1F0C24254D89001BB73D /* Logr in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,7 +87,7 @@
 			);
 			name = LogrDemo;
 			packageProductDependencies = (
-				F64ACC5E235E38980076D10E /* Logr */,
+				76FA1F0B24254D89001BB73D /* Logr */,
 			);
 			productName = logrexamle;
 			productReference = F6FCC86422F0F4F0003D2AC4 /* LogrDemo.app */;
@@ -114,11 +114,10 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 			);
 			mainGroup = F6FCC85B22F0F4F0003D2AC4;
 			packageReferences = (
-				F64ACC5D235E38980076D10E /* XCRemoteSwiftPackageReference "logr" */,
+				76FA1F0A24254D89001BB73D /* XCRemoteSwiftPackageReference "logr" */,
 			);
 			productRefGroup = F6FCC86522F0F4F0003D2AC4 /* Products */;
 			projectDirPath = "";
@@ -206,7 +205,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -263,7 +262,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -341,20 +340,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F64ACC5D235E38980076D10E /* XCRemoteSwiftPackageReference "logr" */ = {
+		76FA1F0A24254D89001BB73D /* XCRemoteSwiftPackageReference "logr" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/nakkht/logr.git";
+			repositoryURL = "https://github.com/nakkht/logr";
 			requirement = {
-				kind = exactVersion;
-				version = 0.4.0;
+				branch = develop;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F64ACC5E235E38980076D10E /* Logr */ = {
+		76FA1F0B24254D89001BB73D /* Logr */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F64ACC5D235E38980076D10E /* XCRemoteSwiftPackageReference "logr" */;
+			package = 76FA1F0A24254D89001BB73D /* XCRemoteSwiftPackageReference "logr" */;
 			productName = Logr;
 		};
 /* End XCSwiftPackageProductDependency section */
