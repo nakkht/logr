@@ -18,12 +18,12 @@ before_install:
 
 jobs:
   include:
-    - stage: build
+    - stage: Build
       script:
         - xcodebuild clean build -project Logr.xcodeproj -scheme Logr -destination 'platform=iOS Simulator,name=iPhone 5s,OS=10.3.1' | xcpretty -c
         - xcodebuild clean build -project Logr.xcodeproj -scheme Logr -destination 'platform=iOS Simulator,name=iPhone 11 Pro,OS=latest' | xcpretty -c
 
-    - stage: test
+    - stage: Test
       script:
         - xcodebuild test -project Logr.xcodeproj -scheme Logr -destination 'platform=iOS Simulator,name=iPhone 5s,OS=10.3.1' | xcpretty -c
         - xcodebuild test -project Logr.xcodeproj -scheme Logr -destination 'platform=iOS Simulator,name=iPhone 11 Pro,OS=latest' | xcpretty -c

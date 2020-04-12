@@ -49,7 +49,7 @@ At the beginning of `func application(_ application: UIApplication, didFinishLau
 LogrService.init(with: Config(ConsoleTarget(), FileTarget()))
 ``` 
 
-For more serious configuration in production, it is recommended to ommit `ConsoleTarget'. The following snippet is suggested:
+For more serious configuration in production, it is recommended to ommit `ConsoleTarget`. The following snippet is suggested:
 
 ```swift
 #if DEBUG
