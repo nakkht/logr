@@ -1,4 +1,4 @@
-# logr
+# Logr
 
 [![Build Status](https://travis-ci.com/nakkht/logr.svg?branch=develop)](https://travis-ci.com/nakkht/logr)
 ![Cocoapods platforms](https://img.shields.io/cocoapods/p/Logr?color=green)

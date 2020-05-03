@@ -1,40 +1,61 @@
 {
   "warnings": [
     {
-      "file": "/Users/paulius/dev/logr/Sources/Target/FileTargetConfig.swift",
-      "line": 11,
+      "file": "/Users/nakkht/dev/logr/Sources/MetaInfo.swift",
+      "line": 36,
+      "symbol": "MetaInfo.fileName",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nakkht/dev/logr/Sources/Target/FileTarget.swift",
+      "line": 64,
+      "symbol": "FileTarget.formatted(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nakkht/dev/logr/Sources/Target/FileTargetConfig.swift",
+      "line": 19,
       "symbol": "FileTargetConfig",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/paulius/dev/logr/Sources/Target/FileTargetConfig.swift",
-      "line": 13,
+      "file": "/Users/nakkht/dev/logr/Sources/Target/FileTargetConfig.swift",
+      "line": 21,
       "symbol": "FileTargetConfig.defaultMaxFileSizeInBytes",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/paulius/dev/logr/Sources/Target/FileTargetConfig.swift",
-      "line": 39,
-      "symbol": "FileTargetConfig.init(fileName:fileExtension:maxArchivedFilesCount:archiveFrequency:maxFileSizeInBytes:levels:style:dispatchQueue:)",
+      "file": "/Users/nakkht/dev/logr/Sources/Target/FileTargetConfig.swift",
+      "line": 22,
+      "symbol": "FileTargetConfig.defaultDateTimeFormat",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nakkht/dev/logr/Sources/Target/FileTargetConfig.swift",
+      "line": 51,
+      "symbol": "FileTargetConfig.init(fileName:fileExtension:maxArchivedFilesCount:archiveFrequency:maxFileSizeInBytes:dateTimeFormat:levels:style:dispatchQueue:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/paulius/dev/logr/Sources/Target/FileTargetConfig.swift",
-      "line": 52,
+      "file": "/Users/nakkht/dev/logr/Sources/Target/FileTargetConfig.swift",
+      "line": 65,
       "symbol": "FileTargetConfig.fullFileName",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/paulius/dev/logr/Sources/Target/FileTargetConfig.swift",
-      "line": 56,
+      "file": "/Users/nakkht/dev/logr/Sources/Target/FileTargetConfig.swift",
+      "line": 69,
       "symbol": "FileTargetConfig.archiveFileName",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/paulius/dev/logr"
+  "source_directory": "/Users/nakkht/dev/logr"
 }

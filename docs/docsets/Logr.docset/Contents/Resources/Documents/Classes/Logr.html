@@ -14,7 +14,7 @@
     <a title="Logr Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">Logr 0.4.0 Docs</a> (93% documented)</p>
+        <p><a href="../index.html">Logr 0.5.0 Docs</a> (90% documented)</p>
         <p class="header-right"><a href="https://github.com/nakkht/logr"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -118,7 +118,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>LogrServiice assigned during initialization. Defaults to main LogrService instance.</p>
+                        <p>LogrServiice instance assigned during initialization. Defaults to main LogrService instance.</p>
 
                       </div>
                       <div class="declaration">
@@ -135,9 +135,36 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:4LogrAACyAbA0A7ServiceCSgcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4LogrAACyAbA0A7ServiceCSgcfc">init(_:)</a>
+                    <a name="/s:4LogrAAC3tagSSvp"></a>
+                    <a name="//apple_ref/swift/Property/tag" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4LogrAAC3tagSSvp">tag</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Tag assinged during initialization. Used as a prefix for all log messages. Helps to categorize/group messages.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">tag</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4LogrAACyABSS_AA0A7ServiceCSgtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4LogrAACyABSS_AA0A7ServiceCSgtcfc">init(_:<wbr>_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -152,7 +179,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">_</span> <span class="nv">service</span><span class="p">:</span> <span class="kt"><a href="../Classes/LogrService.html">LogrService</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">_</span> <span class="nv">tag</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">""</span><span class="p">,</span> <span class="n">_</span> <span class="nv">service</span><span class="p">:</span> <span class="kt"><a href="../Classes/LogrService.html">LogrService</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -172,6 +199,18 @@
                                 </div>
                               </td>
                             </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tag</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Prefix to be used for all messages logged through this Logr instance</p>
+                                </div>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -183,7 +222,7 @@
                     <code>
                     <a name="/s:4LogrAAC5debug___4lineySS_S2SSitF"></a>
                     <a name="//apple_ref/swift/Method/debug(_:_:_:line:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4LogrAAC5debug___4lineySS_S2SSitF">debug(_:_:_:line:)</a>
+                    <a class="token" href="#/s:4LogrAAC5debug___4lineySS_S2SSitF">debug(_:<wbr>_:<wbr>_:<wbr>line:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -265,7 +304,7 @@
                     <code>
                     <a name="/s:4LogrAAC4info___4lineySS_S2SSitF"></a>
                     <a name="//apple_ref/swift/Method/info(_:_:_:line:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4LogrAAC4info___4lineySS_S2SSitF">info(_:_:_:line:)</a>
+                    <a class="token" href="#/s:4LogrAAC4info___4lineySS_S2SSitF">info(_:<wbr>_:<wbr>_:<wbr>line:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -347,7 +386,7 @@
                     <code>
                     <a name="/s:4LogrAAC4warn___4lineySS_S2SSitF"></a>
                     <a name="//apple_ref/swift/Method/warn(_:_:_:line:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4LogrAAC4warn___4lineySS_S2SSitF">warn(_:_:_:line:)</a>
+                    <a class="token" href="#/s:4LogrAAC4warn___4lineySS_S2SSitF">warn(_:<wbr>_:<wbr>_:<wbr>line:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -429,7 +468,7 @@
                     <code>
                     <a name="/s:4LogrAAC5error___4lineySS_S2SSitF"></a>
                     <a name="//apple_ref/swift/Method/error(_:_:_:line:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4LogrAAC5error___4lineySS_S2SSitF">error(_:_:_:line:)</a>
+                    <a class="token" href="#/s:4LogrAAC5error___4lineySS_S2SSitF">error(_:<wbr>_:<wbr>_:<wbr>line:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -511,7 +550,7 @@
                     <code>
                     <a name="/s:4LogrAAC8critical___4lineySS_S2SSitF"></a>
                     <a name="//apple_ref/swift/Method/critical(_:_:_:line:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4LogrAAC8critical___4lineySS_S2SSitF">critical(_:_:_:line:)</a>
+                    <a class="token" href="#/s:4LogrAAC8critical___4lineySS_S2SSitF">critical(_:<wbr>_:<wbr>_:<wbr>line:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -593,8 +632,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://pgu.dev" target="_blank" rel="external">Paulius Gudonis</a>. All rights reserved. (Last updated: 2020-01-29)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://pgu.dev" target="_blank" rel="external">Paulius Gudonis</a>. All rights reserved. (Last updated: 2020-05-03)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
