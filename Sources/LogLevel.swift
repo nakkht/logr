@@ -14,8 +14,6 @@
 // limitations under the License.
 // 
 
-import Foundation
-
 /// Enum containing available distinct log levels within library.
 public enum LogLevel: Int, Equatable, CaseIterable {
     

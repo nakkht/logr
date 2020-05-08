@@ -14,8 +14,6 @@
 // limitations under the License.
 // 
 
-import Foundation
-
 /// Proxy class used to pass log messages to underlying service.
 open class Logr {
     

@@ -14,8 +14,6 @@
 // limitations under the License.
 // 
 
-import Foundation
-
 /// Immutable struct for encapsulating meta information of the log message.
 public struct MetaInfo: Equatable {
     

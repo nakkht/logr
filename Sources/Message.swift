@@ -14,8 +14,6 @@
 // limitations under the License.
 // 
 
-import Foundation
-
 /// Immutable struct encapsulating all log message data.
 public struct Message {
     
