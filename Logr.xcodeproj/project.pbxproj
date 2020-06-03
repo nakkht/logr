@@ -119,6 +119,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7635F5B724883C97009C5C91 /* Console */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_46 /* ConsoleTarget.swift */,
+				OBJ_47 /* ConsoleTargetConfig.swift */,
+			);
+			path = Console;
+			sourceTree = "<group>";
+		};
+		7635F5B824883CA4009C5C91 /* File */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_48 /* FileTarget.swift */,
+				OBJ_49 /* FileTargetConfig.swift */,
+			);
+			path = File;
+			sourceTree = "<group>";
+		};
 		OBJ_21 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,10 +205,8 @@
 		OBJ_45 /* Target */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_46 /* ConsoleTarget.swift */,
-				OBJ_47 /* ConsoleTargetConfig.swift */,
-				OBJ_48 /* FileTarget.swift */,
-				OBJ_49 /* FileTargetConfig.swift */,
+				7635F5B824883CA4009C5C91 /* File */,
+				7635F5B724883C97009C5C91 /* Console */,
 				OBJ_50 /* Style.swift */,
 				OBJ_51 /* Target.swift */,
 				OBJ_52 /* TimeSpan.swift */,

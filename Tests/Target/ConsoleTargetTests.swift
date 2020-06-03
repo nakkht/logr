@@ -15,6 +15,7 @@
 // 
 
 import XCTest
+import os.log
 @testable import Logr
 
 class ConsoleTargetTests: XCTestCase {
@@ -25,18 +26,68 @@ class ConsoleTargetTests: XCTestCase {
         target = ConsoleTarget()
         XCTAssertEqual("com.neqsoft.logr", target.config.subsystem)
         XCTAssertEqual("ConsoleTarget", target.config.category)
+        if #available(iOS 10.0, *) {
+            XCTAssertTrue(target.osLog.isEnabled(type: .default))
+            XCTAssertTrue(target.osLog.isEnabled(type: .info))
+            XCTAssertTrue(target.osLog.isEnabled(type: .debug))
+            XCTAssertTrue(target.osLog.isEnabled(type: .error))
+            XCTAssertTrue(target.osLog.isEnabled(type: .fault))
+        }
     }
     
     override func tearDown() {
         target = nil
     }
     
-    func testSetValues() {
+    func testConfigValues() {
         let config = ConsoleTargetConfig(subsystem: "logging_subsystem", category: "logging_category", levels: [.warn])
         let target = ConsoleTarget(config)
         
-        XCTAssertEqual(target.config.category, config.category)
-        XCTAssertEqual(target.config.subsystem, config.subsystem)
-        XCTAssertEqual(target.config.levels, config.levels)
+        XCTAssertEqual(config.category, target.config.category)
+        XCTAssertEqual(config.subsystem, target.config.subsystem)
+        XCTAssertEqual(config.levels, target.config.levels)
+        XCTAssertEqual(config.style, target.config.style)
     }
+
+    func testOsLogMinimal() {
+        XCTAssertEqual(.minimal, target.config.style)
+        messages.forEach { target.send($0) }
+    }
+
+    func testOsLogVerbose() {
+        let config = ConsoleTargetConfig(subsystem: "logging_subsystem", category: "logging_category", style: .verbose)
+        let target = ConsoleTarget(config)
+        
+        XCTAssertEqual(.verbose, target.config.style)
+        messages.forEach { target.send($0) }
+    }
+    
+    func testLevels() {
+        let config = ConsoleTargetConfig(subsystem: "logging_subsystem", category: "logging_category", levels: [])
+        let target = ConsoleTarget(config)
+        
+        XCTAssertEqual(.minimal, target.config.style)
+        messages.forEach { target.send($0) }
+    }
+    
+    func testNsLogMinimal() {
+        XCTAssertEqual(.minimal, target.config.style)
+        messages.forEach { target.nsLog($0) }
+    }
+    
+    func testNsLogVerbose() {
+        let config = ConsoleTargetConfig(subsystem: "logging_subsystem", category: "logging_category", style: .verbose)
+        let target = ConsoleTarget(config)
+        
+        XCTAssertEqual(.verbose, target.config.style)
+        messages.forEach { target.nsLog($0) }
+    }
+
+    var messages = [
+        Message(level: .debug, tag: "ConsoleTargetTest", text: "debug message", meta: MetaInfo(file: #file, function: #function, line: #line)),
+        Message(level: .info, tag: "ConsoleTargetTest", text: "info message", meta: MetaInfo(file: #file, function: #function, line: #line)),
+        Message(level: .warn, tag: "ConsoleTargetTest", text: "warn message", meta: MetaInfo(file: #file, function: #function, line: #line)),
+        Message(level: .error, tag: "ConsoleTargetTest", text: "error message", meta: MetaInfo(file: #file, function: #function, line: #line)),
+        Message(level: .critical, tag: "ConsoleTargetTest", text: "info message", meta: MetaInfo(file: #file, function: #function, line: #line))
+    ]
 }
