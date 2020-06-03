@@ -16,7 +16,7 @@
 
 import Foundation
 
-/// Immutable struct used to encapsulate consolet target configuration values
+/// Immutable struct used to encapsulate consolet target configuration values.
 public struct ConsoleTargetConfig {
     
     /// Subsystem name value assigned during initialization. Used for OSLog configuration.
@@ -25,8 +25,8 @@ public struct ConsoleTargetConfig {
     /// Category name value assigned during initialization. Used for OSLog configuration.
     public let category: String
     
-    /// Logging levels value assigned during initialization.
-    public let levels: [LogLevel]
+    /// Minimum log levlel to be logged.
+    public let level: LogLevel
     
     /// Logging style value assigned during initialization.
     public let style: Style
@@ -35,15 +35,16 @@ public struct ConsoleTargetConfig {
      Initialzes configuration struct with provided values.
      
      - Parameters:
-        - substystem: title of OSLog subsystem. Helps to distinguish logs within Console logs. Defaults to: com.neqsoft.logr
-        - category: title of OSLog category. Helps to distinguish logs within Console logs. Defaults to: ConsoleTarget
-        - levels: array of log levels, which shall be logged
-        - style: logging style. Defaults to: minimal style
+     - substystem: title of OSLog subsystem. Helps to distinguish logs within Console logs. Defaults to: com.neqsoft.logr
+     - category: title of OSLog category. Helps to distinguish logs within Console logs. Defaults to: ConsoleTarget
+     - level: lowest log level which shall be logged
+     - style: logging style. Defaults to: minimal style
      */
-    public init(subsystem: String? = nil, category: String? = nil, levels: [LogLevel]? = nil, style: Style? = nil) {
-        self.subsystem = subsystem ?? "com.neqsoft.logr"
-        self.category = category ?? "ConsoleTarget"
-        self.levels = levels ?? LogLevel.allCases
-        self.style = style ?? .minimal
+    public init(subsystem: String = "com.neqsoft.logr", category: String = "ConsoleTarget",
+                level: LogLevel = .debug, style: Style = .minimal) {
+        self.subsystem = subsystem
+        self.category = category
+        self.level = level
+        self.style = style
     }
 }

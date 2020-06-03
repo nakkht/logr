@@ -57,7 +57,7 @@ open class FileTarget: Target {
     }
     
     open func send(_ message: Message) {
-        guard self.config.levels.contains(message.level) else { return }
+        guard message.level.rawValue >= self.config.level.rawValue else { return }
         self.write(self.formatted(message))
     }
     

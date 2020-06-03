@@ -40,12 +40,12 @@ class ConsoleTargetTests: XCTestCase {
     }
     
     func testConfigValues() {
-        let config = ConsoleTargetConfig(subsystem: "logging_subsystem", category: "logging_category", levels: [.warn])
+        let config = ConsoleTargetConfig(subsystem: "logging_subsystem", category: "logging_category", level: .warn)
         let target = ConsoleTarget(config)
         
         XCTAssertEqual(config.category, target.config.category)
         XCTAssertEqual(config.subsystem, target.config.subsystem)
-        XCTAssertEqual(config.levels, target.config.levels)
+        XCTAssertEqual(config.level, target.config.level)
         XCTAssertEqual(config.style, target.config.style)
     }
 
@@ -63,7 +63,7 @@ class ConsoleTargetTests: XCTestCase {
     }
     
     func testLevels() {
-        let config = ConsoleTargetConfig(subsystem: "logging_subsystem", category: "logging_category", levels: [])
+        let config = ConsoleTargetConfig(subsystem: "logging_subsystem", category: "logging_category", level: .info)
         let target = ConsoleTarget(config)
         
         XCTAssertEqual(.minimal, target.config.style)

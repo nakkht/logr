@@ -37,7 +37,7 @@ open class ConsoleTarget: Target {
     }
     
     open func send(_ message: Message) {
-        guard self.config.levels.contains(message.level) else { return }
+        guard message.level.rawValue >= self.config.level.rawValue else { return }
         if #available(iOS 10.0, *) {
             osLog(message)
         } else {

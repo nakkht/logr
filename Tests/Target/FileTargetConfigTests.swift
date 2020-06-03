@@ -41,7 +41,7 @@ class FileTargetConfigTests: XCTestCase {
         XCTAssertEqual("file.log", fileTargetConfig.fullFileName)
         XCTAssertEqual("file.0.log", fileTargetConfig.archiveFileName)
         XCTAssertEqual(Style.minimal, fileTargetConfig.style)
-        XCTAssertEqual(LogLevel.allCases, fileTargetConfig.levels)
+        XCTAssertEqual(.debug, fileTargetConfig.level)
         XCTAssertEqual(1, fileTargetConfig.maxArchivedFilesCount)
     }
     
@@ -81,8 +81,8 @@ class FileTargetConfigTests: XCTestCase {
     }
     
     func testSetLevels() {
-        fileTargetConfig = FileTargetConfig(levels: [.debug])
-        XCTAssertEqual([.debug], fileTargetConfig.levels)
+        fileTargetConfig = FileTargetConfig(level: .debug)
+        XCTAssertEqual(.debug, fileTargetConfig.level)
     }
     
     func testFullFileName() {

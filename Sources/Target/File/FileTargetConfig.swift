@@ -36,8 +36,8 @@ public struct FileTargetConfig {
     /// Determines minimum file size until log file should be archived.
     public let maxFileSizeInBytes: UInt64
     
-    /// Log levels that should allowed for the target.
-    public let levels: [LogLevel]
+    /// Minimum log levlel to be logged.
+    public let level: LogLevel
     
     /// Determines logging style used by the target.
     public let style: Style
@@ -50,14 +50,14 @@ public struct FileTargetConfig {
     
     public init(fileName: String? = nil, fileExtension: String? = nil, maxArchivedFilesCount: UInt16? = nil,
                 archiveFrequency: TimeSpan? = nil, maxFileSizeInBytes: UInt64? = nil, dateTimeFormat: String? = nil,
-                levels: [LogLevel]? = nil, style: Style? = nil, dispatchQueue: DispatchQueue? = nil) {
+                level: LogLevel? = nil, style: Style? = nil, dispatchQueue: DispatchQueue? = nil) {
         self.fileExtension = fileExtension ?? "log"
         self.fileName = fileName ?? "file"
         self.maxArchivedFilesCount = maxArchivedFilesCount ?? 1
         self.archiveFrequency = archiveFrequency ?? .day
         self.maxFileSizeInBytes = maxFileSizeInBytes ?? FileTargetConfig.defaultMaxFileSizeInBytes
         self.dateTimeFormat = dateTimeFormat ?? FileTargetConfig.defaultDateTimeFormat
-        self.levels = levels ?? LogLevel.allCases
+        self.level = level ?? .debug
         self.style = style ?? .minimal
         self.dispatchQueue = dispatchQueue
     }
