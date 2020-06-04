@@ -22,7 +22,6 @@
 
 /* Begin PBXBuildFile section */
 		OBJ_100 /* ConsoleTargetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* ConsoleTargetTests.swift */; };
-		OBJ_101 /* FileTargetConfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_31 /* FileTargetConfigTests.swift */; };
 		OBJ_102 /* FileTargetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_32 /* FileTargetTests.swift */; };
 		OBJ_103 /* LogrServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_34 /* LogrServiceMock.swift */; };
 		OBJ_104 /* TargetMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_35 /* TargetMock.swift */; };
@@ -77,7 +76,6 @@
 		OBJ_27 /* LogrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogrTests.swift; sourceTree = "<group>"; };
 		OBJ_28 /* MessageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTests.swift; sourceTree = "<group>"; };
 		OBJ_30 /* ConsoleTargetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleTargetTests.swift; sourceTree = "<group>"; };
-		OBJ_31 /* FileTargetConfigTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTargetConfigTests.swift; sourceTree = "<group>"; };
 		OBJ_32 /* FileTargetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTargetTests.swift; sourceTree = "<group>"; };
 		OBJ_34 /* LogrServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogrServiceMock.swift; sourceTree = "<group>"; };
 		OBJ_35 /* TargetMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetMock.swift; sourceTree = "<group>"; };
@@ -164,7 +162,6 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_30 /* ConsoleTargetTests.swift */,
-				OBJ_31 /* FileTargetConfigTests.swift */,
 				OBJ_32 /* FileTargetTests.swift */,
 			);
 			path = Target;
@@ -355,7 +352,6 @@
 				OBJ_98 /* LogrTests.swift in Sources */,
 				OBJ_99 /* MessageTests.swift in Sources */,
 				OBJ_100 /* ConsoleTargetTests.swift in Sources */,
-				OBJ_101 /* FileTargetConfigTests.swift in Sources */,
 				OBJ_102 /* FileTargetTests.swift in Sources */,
 				OBJ_103 /* LogrServiceMock.swift in Sources */,
 				OBJ_104 /* TargetMock.swift in Sources */,
