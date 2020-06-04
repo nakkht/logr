@@ -19,10 +19,12 @@ import XCTest
 
 class FileTargetTests: XCTestCase {
     
+    var fileManager: FileManager!
     var fileTarget: FileTarget!
     var targetConfig: FileTargetConfig!
     
     override func setUp() {
+        fileManager = FileManager.default
         fileTarget = FileTarget()
         
         XCTAssertNotNil(fileTarget.fileHandle)
@@ -42,8 +44,11 @@ class FileTargetTests: XCTestCase {
     }
     
     override func tearDown() {
+        try! FileManager.default.removeItem(at: fileTarget.fullLogFileUrl)
+        try! FileManager.default.removeItem(at: fileTarget.archiveUrl)
         fileTarget = nil
         targetConfig = nil
+        fileManager = nil
     }
     
     func testConfig() {
@@ -66,6 +71,41 @@ class FileTargetTests: XCTestCase {
         TimeSpan.allCases.forEach {
             targetConfig = FileTargetConfig(archiveFrequency: $0)
             XCTAssertEqual($0, targetConfig.archiveFrequency)
+        }
+    }
+    
+    func testManualArchive() {
+        XCTAssertTrue(fileTarget.doesLogFileExists)
+        XCTAssertEqual(0, fileTarget.logFileSizeInBytes)
+        let lineCount = 10_000
+        let expectation = XCTestExpectation(description: "Complete logging")
+        let meta = MetaInfo(file: #file, function: #function, line: #line)
+        (0..<lineCount).forEach {
+            let debugMessage = Message(level: .debug, tag: "Test", text: "message #\($0)", meta: meta)
+            let infoMessage = Message(level: .info, tag: "Test", text: "message #\($0)", meta: meta)
+            let warnMessage = Message(level: .warn, tag: "Test", text: "message #\($0)", meta: meta)
+            let errorMessage = Message(level: .error, tag: "Test", text: "message #\($0)", meta: meta)
+            let criticalMessage = Message(level: .critical, tag: "Test", text: "message #\($0)", meta: meta)
+            fileTarget.send(debugMessage)
+            fileTarget.send(infoMessage)
+            fileTarget.send(warnMessage)
+            fileTarget.send(errorMessage)
+            fileTarget.send(criticalMessage)
+        }
+        fileTarget.archive {
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 20.0)
+        let archivedFileUrl = fileTarget.archiveUrl.appendingPathComponent(self.targetConfig.archiveFileName)
+        let archivedFileSize = try! fileManager.attributesOfItem(atPath: archivedFileUrl.path)[.size] as? UInt64
+        XCTAssertEqual(2554450, archivedFileSize)
+        let archivedLines = try! String(contentsOf: archivedFileUrl, encoding: .utf8).components(separatedBy: .newlines)
+        stride(from: 0, to: lineCount, by: 5).enumerated().forEach {
+            XCTAssertTrue(archivedLines[$0.element].contains("Test - Debug: message #\($0.offset)"))
+            XCTAssertTrue(archivedLines[$0.element + 1].contains("Test - Info: message #\($0.offset)"))
+            XCTAssertTrue(archivedLines[$0.element + 2].contains("Test - Warn: message #\($0.offset)"))
+            XCTAssertTrue(archivedLines[$0.element + 3].contains("Test - Error: message #\($0.offset)"))
+            XCTAssertTrue(archivedLines[$0.element + 4].contains("Test - Critical: message #\($0.offset)"))
         }
     }
 }
