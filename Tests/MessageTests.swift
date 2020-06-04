@@ -21,19 +21,13 @@ import XCTest
 
 class MessageTests: XCTestCase {
     
-    var message: Message!
-    
-    override func tearDown() {
-        message = nil
-    }
-    
     func testSetValues() {
         let logMessage = "log message"
         let tag = String(describing: self)
         let metaInfo = MetaInfo(file: "fileName",
                                 function: "function",
                                 line: 42)
-        message = Message(level: .error,
+        let message = Message(level: .error,
                           tag: tag,
                           text: logMessage,
                           meta: metaInfo)
@@ -43,6 +37,18 @@ class MessageTests: XCTestCase {
         XCTAssertEqual(logMessage, message.text)
         XCTAssertEqual(tag, message.tag)
         XCTAssertEqual(metaInfo, message.meta)
-        XCTAssertEqual(message.meta.text, message.meta.text)
+        XCTAssertEqual(metaInfo.text, message.meta.text)
+    }
+    
+    func testMetaInfo() {
+        let file = ""
+        let function = #function
+        let line = #line
+        let metaInfo = MetaInfo(file: file, function: function, line: line)
+        
+        XCTAssertEqual(file, metaInfo.file)
+        XCTAssertEqual(function, metaInfo.function)
+        XCTAssertEqual(line, metaInfo.line)
+        XCTAssertEqual("", metaInfo.fileName)
     }
 }
