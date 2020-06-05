@@ -77,7 +77,7 @@ class FileTargetTests: XCTestCase {
     func testManualArchive() {
         XCTAssertTrue(fileTarget.doesLogFileExists)
         XCTAssertEqual(0, fileTarget.logFileSizeInBytes)
-        let lineCount = 10_000
+        let lineCount = 100
         let expectation = XCTestExpectation(description: "Complete logging")
         let meta = MetaInfo(file: #file, function: #function, line: #line)
         (0..<lineCount).forEach {
@@ -95,11 +95,10 @@ class FileTargetTests: XCTestCase {
         fileTarget.archive {
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 20.0)
+        wait(for: [expectation], timeout: 30.0)
         let archivedFileUrl = fileTarget.archiveUrl.appendingPathComponent(self.targetConfig.archiveFileName)
-        let archivedFileSize = try! fileManager.attributesOfItem(atPath: archivedFileUrl.path)[.size] as? UInt64
-        XCTAssertEqual(2554450, archivedFileSize)
-        let archivedLines = try! String(contentsOf: archivedFileUrl, encoding: .utf8).components(separatedBy: .newlines)
+        let archivedLines = try! String(contentsOf: archivedFileUrl, encoding: .utf8).components(separatedBy: .newlines).dropLast()
+        XCTAssertEqual(lineCount * 5, archivedLines.count)
         stride(from: 0, to: lineCount, by: 5).enumerated().forEach {
             XCTAssertTrue(archivedLines[$0.element].contains("Test - Debug: message #\($0.offset)"))
             XCTAssertTrue(archivedLines[$0.element + 1].contains("Test - Info: message #\($0.offset)"))

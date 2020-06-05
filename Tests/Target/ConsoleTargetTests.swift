@@ -26,13 +26,8 @@ class ConsoleTargetTests: XCTestCase {
         target = ConsoleTarget()
         XCTAssertEqual("com.neqsoft.logr", target.config.subsystem)
         XCTAssertEqual("ConsoleTarget", target.config.category)
-        if #available(iOS 10.0, *) {
-            XCTAssertTrue(target.osLog.isEnabled(type: .default))
-            XCTAssertTrue(target.osLog.isEnabled(type: .info))
-            XCTAssertTrue(target.osLog.isEnabled(type: .debug))
-            XCTAssertTrue(target.osLog.isEnabled(type: .error))
-            XCTAssertTrue(target.osLog.isEnabled(type: .fault))
-        }
+        XCTAssertEqual(.debug, target.config.level)
+        XCTAssertEqual(.minimal, target.config.style)
     }
     
     override func tearDown() {

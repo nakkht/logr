@@ -1,5 +1,5 @@
 os: osx
-osx_image: xcode11.3
+osx_image: xcode11.5
 language: swift
 
 env:
@@ -14,19 +14,18 @@ branches:
 
 before_install:
   - gem install xcpretty --no-document --quiet
-  - xcpretty --version
 
 jobs:
   include:
     - stage: Build
       script:
-        - xcodebuild build -project Logr.xcodeproj -scheme Logr -destination 'platform=iOS Simulator,name=iPhone 5s,OS=10.3.1' | xcpretty -c
-        - xcodebuild build -project Logr.xcodeproj -scheme Logr -destination 'platform=iOS Simulator,name=iPhone 11 Pro,OS=latest' | xcpretty -c
+        - xcodebuild build -project Logr.xcodeproj -scheme Logr -destination 'platform=iOS Simulator,name=iPhone 5s,OS=10.3.1'
+        - xcodebuild build -project Logr.xcodeproj -scheme Logr -destination 'platform=iOS Simulator,name=iPhone 11 Pro,OS=latest'
 
     - stage: Test
       script:
-        - xcodebuild test -project Logr.xcodeproj -scheme Logr -destination 'platform=iOS Simulator,name=iPhone 5s,OS=10.3.1' | xcpretty -c
-        - xcodebuild test -project Logr.xcodeproj -scheme Logr -destination 'platform=iOS Simulator,name=iPhone 11 Pro,OS=latest' | xcpretty -c
+        - xcodebuild clean test -project Logr.xcodeproj -scheme Logr -destination 'platform=iOS Simulator,name=iPhone 5s,OS=10.3.1' | xcpretty -c && exit ${PIPESTATUS[0]}
+        - xcodebuild clean test -project Logr.xcodeproj -scheme Logr -destination 'platform=iOS Simulator,name=iPhone 11 Pro,OS=latest' | xcpretty -c && exit ${PIPESTATUS[0]}
 
 after_success:
   - bash <(curl -s https://codecov.io/bash) -J 'Logr'
