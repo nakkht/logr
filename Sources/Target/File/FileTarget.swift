@@ -63,7 +63,7 @@ open class FileTarget: Target {
     
     open func formatted(_ message: Message) -> String {
         let metaText = self.config.style == .verbose ? "\(message.meta.text) " : ""
-        return "\(dateString) \(metaText)\(message.tag) - \(message.level.title): \(message.text)\n"
+        return "\(dateString) \(metaText)\(message.level.title) - \(message.tag): \(message.text)\n"
     }
     
     var dateString: String {
@@ -141,15 +141,13 @@ open class FileTarget: Target {
         }
     }
     
-    func archiveIfNeeded() {
+    func archiveIfNeeded(_ completion: (() -> Void)? = nil) {
         guard self.shouldArchive else { return }
-        self.archive()
+        self.archive(completion)
     }
     
     var shouldArchive: Bool {
-        guard let logFileAge = self.logFileAge else {
-            return shouldArchiveBasedOnSize
-        }
+        guard let logFileAge = self.logFileAge else { return shouldArchiveBasedOnSize }
         return logFileAge.rawValue >= config.archiveFrequency.rawValue || shouldArchiveBasedOnSize
     }
     
