@@ -15,7 +15,7 @@ Pod::Spec.new do |spec|
   spec.social_media_url   = "https://twitter.com/nakkht"
 
   spec.platform     = :ios, "9.0"
-  spec.swift_version = "5.1"
+  spec.swift_version = "5.2"
 
   spec.source       = { :git => "https://github.com/nakkht/logr.git", :tag => "v#{spec.version}" }
 
