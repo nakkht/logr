@@ -125,7 +125,6 @@ open class FileTarget: Target {
         let filesForDeletion = contents.sorted {
             $0.path.compare($1.path, options: .numeric) == .orderedAscending
         }.dropFirst(Int(self.config.maxArchivedFilesCount))
-        guard filesForDeletion.count > 0 else { return }
         filesForDeletion.forEach {
             try? self.fileManager.removeItem(at: $0)
         }

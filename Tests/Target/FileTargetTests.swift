@@ -77,7 +77,7 @@ class FileTargetTests: XCTestCase {
     func testManualArchive() {
         XCTAssertTrue(fileTarget.doesLogFileExists)
         XCTAssertEqual(0, fileTarget.logFileSizeInBytes)
-        let lineCount = 100
+        let lineCount = 1000
         let expectation = XCTestExpectation(description: "Complete logging")
         let meta = MetaInfo(file: #file, function: #function, line: #line)
         (0..<lineCount).forEach {
@@ -95,7 +95,7 @@ class FileTargetTests: XCTestCase {
         fileTarget.archive {
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 30.0)
+        wait(for: [expectation], timeout: 120.0)
         let archivedFileUrl = fileTarget.archiveUrl.appendingPathComponent(self.targetConfig.archiveFileName)
         let archivedLines = try! String(contentsOf: archivedFileUrl, encoding: .utf8).components(separatedBy: .newlines).dropLast()
         XCTAssertEqual(lineCount * 5, archivedLines.count)

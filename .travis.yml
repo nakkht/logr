@@ -12,20 +12,15 @@ branches:
   - master
   - develop
 
-before_install:
-  - gem install xcpretty --no-document --quiet
+xcode_project: Logr.xcodeproj
+xcode_scheme: Logr
 
 jobs:
   include:
-    - stage: Build
-      script:
-        - xcodebuild build -project Logr.xcodeproj -scheme Logr -destination 'platform=iOS Simulator,name=iPhone 5s,OS=10.3.1'
-        - xcodebuild build -project Logr.xcodeproj -scheme Logr -destination 'platform=iOS Simulator,name=iPhone 11 Pro,OS=latest'
-
-    - stage: Test
-      script:
-        - xcodebuild clean test -project Logr.xcodeproj -scheme Logr -destination 'platform=iOS Simulator,name=iPhone 5s,OS=10.3.1' | xcpretty -c && exit ${PIPESTATUS[0]}
-        - xcodebuild clean test -project Logr.xcodeproj -scheme Logr -destination 'platform=iOS Simulator,name=iPhone 11 Pro,OS=latest' | xcpretty -c && exit ${PIPESTATUS[0]}
+    - xcode_destination: platform=iOS Simulator,name=iPhone 6,OS=10.3.1
+    - xcode_destination: platform=iOS Simulator,name=iPhone 7,OS=11.4
+    - xcode_destination: platform=iOS Simulator,name=iPhone 8,OS=12.4
+    - xcode_destination: platform=iOS Simulator,name=iPhone 8,OS=13.2.2
 
 after_success:
   - bash <(curl -s https://codecov.io/bash) -J 'Logr'
