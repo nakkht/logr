@@ -7,11 +7,11 @@ assignees: nakkht
 
 ---
 
-<!-- Thanks for helping logr to improve! Before you submit bug report, please make sure to check the following boxes by putting an x in the [ ] (don't: [x ], [ x], do: [x]) -->
+<!-- Thanks for helping Logr to improve! Before you submit bug report, please make sure to check the following boxes by putting an x in the [ ] (don't: [x ], [ x], do: [x]) -->
 
 ### Checklist
 
-- [ ] Updated logr to the latest version
+- [ ] Updated Logr to the latest version
 - [ ] I searched for [existing GitHub issues](https://github.com/nakkht/logr/issues)
 
 ### Issue Description
@@ -34,7 +34,7 @@ assignees: nakkht
   
 | Key                           | Value                                                      |
 | -------------------| --------------------------------------|
-| logr version            |   x.x.x                                                       |
+| Logr version            |   x.x.x                                                       |
 | iOS version             |   x.x.x                                                       |
 | Swift version          |   x.x.x                                                       |
 | Xcode version        |   x.x.x                                                       |
