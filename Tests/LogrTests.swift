@@ -38,7 +38,14 @@ class LogrTests: XCTestCase {
     func testDefaultValues() {
         logr = Logr()
         XCTAssertNotNil(logr.service)
-        XCTAssertEqual("", logr.tag)
+        XCTAssertEqual("LogrTests", logr.tag)
+    }
+    
+    func testRandomTags() {
+        ["tag", "specific.tag"].forEach {
+            let logr = Logr($0)
+            XCTAssertEqual($0, logr.tag)
+        }
     }
     
     func testDebug() {

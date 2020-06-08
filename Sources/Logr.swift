@@ -12,7 +12,9 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-// 
+//
+
+import Foundation
 
 /// Proxy class used to pass log messages to underlying service.
 open class Logr {
@@ -30,8 +32,8 @@ open class Logr {
         - serivce: LogrService to which pass logging messages
         - tag: Prefix to be used for all messages logged through this Logr instance
      */
-    public init(_ tag: String = "", _ service: LogrService? = nil) {
-        self.tag = tag
+    public init(_ tag: String = #file, _ service: LogrService? = nil) {
+        self.tag = !tag.contains("/") ? tag : tag.components(separatedBy: "/").last?.components(separatedBy: ".").first ?? ""
         self.service = service ?? LogrService()
     }
     
