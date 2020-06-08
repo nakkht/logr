@@ -30,7 +30,7 @@ open class Logr {
      
      - Parameters:
         - serivce: LogrService to which pass logging messages
-        - tag: Prefix to be used for all messages logged through this Logr instance
+        - tag: Prefix to be used for all messages logged through this Logr instance. If not provided, calling file name will be used as a tag.
      */
     public init(_ tag: String = #file, _ service: LogrService? = nil) {
         self.tag = !tag.contains("/") ? tag : tag.components(separatedBy: "/").last?.components(separatedBy: ".").first ?? ""
