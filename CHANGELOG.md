@@ -2,12 +2,12 @@
 
 All notable changes to logr project.
 
-## v0.6.0 - [2019-xx-xx]
+## v0.6.0 - [2020-xx-xx]
 
 Added:
 * Inferred tags
 
-## v0.5.0 - [2019-03-20]
+## v0.5.0 - [2020-03-20]
 
 Added:
 * Interactive demo

@@ -7,6 +7,16 @@
 
 Simple logging library for iOS written in Swift
 
+## Features
+
+- [x] Inferred tags
+- [x] Swift Package Manager/Carthage/CocoaPods integration
+- [x] Highly extensible
+- [x] Logging to multiple targets/destination at the same time
+- [x] Console logging out of the box via ConsoleTarget
+- [x] File logging out of the box via FileTarget 
+- [x] Pure Swift 5
+
 ## Integration
 
 ### Swift Package Manager
