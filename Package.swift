@@ -19,5 +19,6 @@ let package = Package(
                     dependencies: ["Logr"],
                     path: ".",
                     sources: ["Tests"])
-    ]
+    ],
+    swiftLanguageVersions: [.v5]
 )
