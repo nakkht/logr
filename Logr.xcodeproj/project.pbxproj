@@ -68,7 +68,7 @@
 
 /* Begin PBXFileReference section */
 		"Logr::Logr::Product" /* Logr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Logr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"Logr::LogrTests::Product" /* LogrTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = LogrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Logr::LogrTests::Product" /* LogrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = LogrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_22 /* ConfigTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigTests.swift; sourceTree = "<group>"; };
 		OBJ_24 /* OsLogTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OsLogTypeTests.swift; sourceTree = "<group>"; };
 		OBJ_25 /* LogLevelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogLevelTests.swift; sourceTree = "<group>"; };
@@ -522,6 +522,7 @@
 		OBJ_91 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -532,7 +533,7 @@
 				INFOPLIST_FILE = Logr.xcodeproj/LogrTests_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
@@ -547,6 +548,7 @@
 		OBJ_92 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -557,7 +559,7 @@
 				INFOPLIST_FILE = Logr.xcodeproj/LogrTests_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";

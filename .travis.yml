@@ -34,10 +34,14 @@ jobs:
     - xcode_destination: platform=tvOS Simulator,name=Apple TV,OS=10.2
       osx_image: xcode11.5
 
-    - xcode_destination: platform=iOS Simulator,name=iPhone 5s,OS=9.3
+    - xcode_destination: platform=iOS Simulator,name=iPhone 5s,OS=9.0
       osx_image: xcode10.2
-    - xcode_destination: platform=tvOS Simulator,name=Apple TV,OS=9.2
+      before_script:
+        - sudo mkdir -p '/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 9.0.simruntime/Contents/Resources/RuntimeRoot/usr/lib/swift'
+    - xcode_destination: platform=tvOS Simulator,name=Apple TV,OS=9.0
       osx_image: xcode10.2
+      before_script:
+        - sudo mkdir -p '/Library/Developer/CoreSimulator/Profiles/Runtimes/tvOS 9.0.simruntime/Contents/Resources/RuntimeRoot/usr/lib/swift'
 
 after_success:
   - bash <(curl -s https://codecov.io/bash) -J 'Logr'
