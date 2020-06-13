@@ -20,7 +20,7 @@ import os.log
 /// Target class used for logging to unified logging system: i.e. console/Apple Log system facility.
 open class ConsoleTarget: Target {
     
-    @available(iOS 10.0, *)
+    @available(iOS 10.0, tvOS 10.0, *)
     lazy var osLog = OSLog(subsystem: self.config.subsystem, category: self.config.category)
     
     /// Configuration struct assigned during initialization.
@@ -38,14 +38,14 @@ open class ConsoleTarget: Target {
     
     open func send(_ message: Message) {
         guard message.level.rawValue >= self.config.level.rawValue else { return }
-        if #available(iOS 10.0, *) {
+        if #available(iOS 10.0, tvOS 10.0, *) {
             osLog(message)
         } else {
             nsLog(message)
         }
     }
     
-    @available(iOS 10.0, *)
+    @available(iOS 10.0, tvOS 10.0, *)
     func osLog(_ message: Message) {
         if(self.config.style == .verbose) {
             os_log("%{public}@ %{public}@: %{public}@ %{public}@", log: osLog, type: OSLogType.from(message.level), message.meta.text, message.level.title, message.tag, message.text)

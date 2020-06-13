@@ -67,7 +67,7 @@ open class FileTarget: Target {
     }
     
     var dateString: String {
-        self.dateFormatter.string(from: Date())
+        return self.dateFormatter.string(from: Date())
     }
     
     func write(_ log: String) {

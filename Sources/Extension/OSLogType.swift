@@ -18,7 +18,7 @@ import os.log
 
 extension OSLogType {
     
-    @available(iOS 10.0, *)
+    @available(iOS 10.0, tvOS 10.0, *)
     static func from(_ logLevel: LogLevel) -> OSLogType {
         switch logLevel {
         case .debug: return debug

@@ -5,8 +5,9 @@ import PackageDescription
 let package = Package(
     name: "Logr",
     platforms: [
-        .macOS(.v10_12),
-        .iOS(.v9)
+        .macOS(.v10_11),
+        .iOS(.v9),
+        .tvOS(.v9)
     ],
     products: [
         .library(name: "Logr", targets: ["Logr"])
