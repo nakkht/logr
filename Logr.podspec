@@ -14,7 +14,10 @@ Pod::Spec.new do |spec|
   spec.author             = { "Paulius Gudonis" => "pg@neqsoft.com" }
   spec.social_media_url   = "https://twitter.com/nakkht"
 
-  spec.platform     = :ios, "9.0"
+  spec.ios.deployment_target = "9.0"
+  spec.osx.deployment_target = "10.14"
+  spec.tvos.deployment_target = "9.0"
+
   spec.swift_version = "5.2"
 
   spec.source       = { :git => "https://github.com/nakkht/logr.git", :tag => "v#{spec.version}" }
