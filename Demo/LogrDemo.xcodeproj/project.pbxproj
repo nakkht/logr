@@ -344,7 +344,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/nakkht/logr";
 			requirement = {
-				branch = develop;
+				branch = master;
 				kind = branch;
 			};
 		};
