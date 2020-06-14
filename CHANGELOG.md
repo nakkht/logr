@@ -2,6 +2,11 @@
 
 All notable changes to logr project.
 
+## v0.6.1 - [2020-06-14]
+
+Fixed:
+* `Package.swift` to use version 10.14 for the macOS platform 
+
 ## v0.6.0 - [2020-06-14]
 
 Added:
