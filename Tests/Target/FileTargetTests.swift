@@ -22,7 +22,16 @@ class FileTargetTests: XCTestCase {
     var target: FileTarget!
     var targetConfig: FileTargetConfig!
     
-    override func setUp() {
+    override func tearDown() {
+        if let target = self.target {
+            try! target.fileManager.removeItem(at: target.fullLogFileUrl)
+            try! target.fileManager.removeItem(at: target.archiveUrl)
+        }
+        target = nil
+        targetConfig = nil
+    }
+    
+    func testDefaultSetup() {
         target = FileTarget()
         
         XCTAssertNotNil(target.fileHandle)
@@ -41,32 +50,42 @@ class FileTargetTests: XCTestCase {
         XCTAssertEqual(Style.minimal, targetConfig.style)
         XCTAssertEqual(.debug, targetConfig.level)
         XCTAssertEqual(1, targetConfig.maxArchivedFilesCount)
-    }
-    
-    override func tearDown() {
-        try! target.fileManager.removeItem(at: target.fullLogFileUrl)
-        try! target.fileManager.removeItem(at: target.archiveUrl)
-        target = nil
-        targetConfig = nil
+        XCTAssertNil(targetConfig.dispatchQueue)
+        XCTAssertNil(targetConfig.header)
     }
     
     func testConfig() {
         let size = UInt64(100 * 1024 * 1024)
         let fileExtension = "longextension"
         let fileName = "long-file-name"
-        let targetConfig = FileTargetConfig(fileName: fileName, fileExtension: fileExtension, maxArchivedFilesCount: 100,
-                                            maxFileSizeInBytes: size ,style: .verbose)
+        let archiveFrequence = TimeSpan.week
+        let dateFormat = "y-MM-dd"
+        let header = """
+        ========= SYS INFO ==========
+        =============================
+        """
+        let dispatchQueue = DispatchQueue(label: "test.queue")
+        targetConfig = FileTargetConfig(fileName: fileName, fileExtension: fileExtension, maxArchivedFilesCount: 100, archiveFrequency: archiveFrequence,
+                                        maxFileSizeInBytes: size, dateTimeFormat: dateFormat, level: .critical, style: .verbose, dispatchQueue: dispatchQueue,
+                                        header: header)
         
         XCTAssertEqual(fileExtension, targetConfig.fileExtension)
         XCTAssertEqual(fileName, targetConfig.fileName)
         XCTAssertEqual(size, targetConfig.maxFileSizeInBytes)
         XCTAssertEqual(.verbose, targetConfig.style)
+        XCTAssertEqual(.critical, targetConfig.level)
         XCTAssertEqual("\(fileName).\(fileExtension)", targetConfig.fullFileName)
         XCTAssertEqual(100, targetConfig.maxArchivedFilesCount)
         XCTAssertEqual("\(fileName).0.\(fileExtension)", targetConfig.archiveFileName)
+        XCTAssertEqual(archiveFrequence, targetConfig.archiveFrequency)
+        XCTAssertEqual(header, targetConfig.header)
+        XCTAssertEqual(dispatchQueue, targetConfig.dispatchQueue)
+        XCTAssertEqual(dispatchQueue.label, targetConfig.dispatchQueue!.label)
     }
     
     func testManualArchive() {
+        target = FileTarget()
+        targetConfig = FileTargetConfig()
         let lineCount = 1000
         let expectation = XCTestExpectation(description: "Writing \(lineCount) log lines")
         let meta = MetaInfo(file: #file, function: #function, line: #line)
@@ -134,20 +153,19 @@ class FileTargetTests: XCTestCase {
     }
     
     func testSizeBasedArchive() {
-        XCTAssertFalse(target.shouldArchive)
         let maxFileSize: UInt64 = 5 * 1024
         targetConfig = FileTargetConfig(maxFileSizeInBytes: maxFileSize, style: .verbose)
         target = FileTarget(targetConfig)
         let lineCount = 100
-        let writeExpectaiton = XCTestExpectation(description: "Writing \(lineCount) log lines")
+        let expectation = XCTestExpectation(description: "Writing \(lineCount) log lines")
         let meta = MetaInfo(file: #file, function: #function, line: #line)
         (0..<lineCount).forEach {
             target.send(Message(level: .debug, tag: "Test", text: "message #\($0)", meta: meta))
         }
         target.dispatchQueue.async {
-            writeExpectaiton.fulfill()
+            expectation.fulfill()
         }
-        wait(for: [writeExpectaiton], timeout: 10.0)
+        wait(for: [expectation], timeout: 10.0)
         
         let archiveExpecation = XCTestExpectation(description: "Async size based archive")
         XCTAssertTrue(target.shouldArchive)
@@ -160,5 +178,26 @@ class FileTargetTests: XCTestCase {
         XCTAssertEqual(0, target.logFileSizeInBytes)
         let archivedFileCount = try! target.fileManager.contentsOfDirectory(atPath: target.archiveUrl.path).count
         XCTAssertEqual(1, archivedFileCount)
+    }
+    
+    func testLogFileHeader() {
+        let header = """
+        ========= SYS INFO ==========
+        App Version : 1.2.3
+        =============================
+        """
+        targetConfig = FileTargetConfig(header: header)
+        target = FileTarget(targetConfig)
+        
+        let expectation = XCTestExpectation(description: "Archive log header")
+        XCTAssertFalse(target.shouldArchive)
+        target.archive {
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 2.0)
+        XCTAssertEqual(UInt64(header.utf8.count), target.logFileSizeInBytes)
+        let archivedFileUrl = target.archiveUrl.appendingPathComponent(self.targetConfig.archiveFileName)
+        let archivedLines = try! String(contentsOf: archivedFileUrl, encoding: .utf8)
+        XCTAssertEqual(header, archivedLines)
     }
 }

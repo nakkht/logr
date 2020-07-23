@@ -53,7 +53,7 @@ open class FileTarget: Target {
         self.dateFormatter = DateFormatter()
         self.dateFormatter.dateFormat = self.config.dateTimeFormat
         initFile()
-        initArchive()
+        try? fileManager.createDirectory(at: self.archiveUrl, withIntermediateDirectories: true, attributes: nil)
     }
     
     open func send(_ message: Message) {
@@ -81,33 +81,32 @@ open class FileTarget: Target {
     }
     
     /// Forces archive process of the current log file regardless of the preconditions set in config files. Non-blocking. Thread-safe.
-    public func archive(_ completion: (() -> Void)? = nil) {
+    /// - Parameter completionHandler: the block to execute when archiving as completed
+    public func archive(_ completionHandler: (() -> Void)? = nil) {
         dispatchQueue.async {
             self.shiftArchivedFiles()
             self.closeFile()
             self.moveFileToArchive()
             self.initFile()
             self.deleteObsoletFiles(at: self.archiveUrl)
-            completion?()
+            completionHandler?()
         }
     }
     
     func initFile() {
-        let fullFilePath = self.baseLogDirectory.appendingPathComponent(self.config.fullFileName)
-        self.createFileIfNeeded(fullLogFileUrl)
-        self.fileHandle = FileHandle(forWritingAtPath: fullFilePath.path)
+        let didCreateNewFile = self.createFileIfNeeded(fullLogFileUrl)
+        self.fileHandle = FileHandle(forWritingAtPath: fullLogFileUrl.path)
+        if didCreateNewFile, let header = config.header { self.write(header) }
     }
     
-    func initArchive() {
-        try? fileManager.createDirectory(at: self.archiveUrl, withIntermediateDirectories: true, attributes: nil)
-    }
-    
-    func createFileIfNeeded(_ url: URL) {
-        guard !self.doesLogFileExists else { return }
+    @discardableResult
+    func createFileIfNeeded(_ url: URL) -> Bool {
+        guard !self.doesLogFileExists else { return false }
         try? self.fileManager.createDirectory(at: url.deletingLastPathComponent(), withIntermediateDirectories: true)
         self.fileManager.createFile(atPath: url.path,
                                     contents: nil,
                                     attributes: [.creationDate: Date()])
+        return true
     }
     
     func closeFile() {
@@ -141,9 +140,12 @@ open class FileTarget: Target {
         }
     }
     
-    func archiveIfNeeded(_ completion: (() -> Void)? = nil) {
-        guard self.shouldArchive else { return }
-        self.archive(completion)
+    func archiveIfNeeded(_ completionHandler: (() -> Void)? = nil) {
+        guard self.shouldArchive else {
+            completionHandler?()
+            return
+        }
+        self.archive(completionHandler)
     }
     
     var shouldArchive: Bool {

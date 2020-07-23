@@ -48,11 +48,14 @@ public struct FileTargetConfig {
     /// Optional dispatch queue assigned during initialization.
     public let dispatchQueue: DispatchQueue?
     
+    /// Optional header to be addead as the first content to newly create log file
+    public let header: String?
+    
     public init(fileName: String? = nil, fileExtension: String? = nil, maxArchivedFilesCount: UInt16? = nil,
                 archiveFrequency: TimeSpan? = nil, maxFileSizeInBytes: UInt64? = nil, dateTimeFormat: String? = nil,
-                level: LogLevel? = nil, style: Style? = nil, dispatchQueue: DispatchQueue? = nil) {
-        self.fileExtension = fileExtension ?? "log"
+                level: LogLevel? = nil, style: Style? = nil, dispatchQueue: DispatchQueue? = nil, header: String? = nil) {
         self.fileName = fileName ?? "file"
+        self.fileExtension = fileExtension ?? "log"
         self.maxArchivedFilesCount = maxArchivedFilesCount ?? 1
         self.archiveFrequency = archiveFrequency ?? .day
         self.maxFileSizeInBytes = maxFileSizeInBytes ?? FileTargetConfig.defaultMaxFileSizeInBytes
@@ -60,6 +63,7 @@ public struct FileTargetConfig {
         self.level = level ?? .debug
         self.style = style ?? .minimal
         self.dispatchQueue = dispatchQueue
+        self.header = header
     }
     
     public var fullFileName: String {
