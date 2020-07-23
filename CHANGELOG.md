@@ -2,6 +2,11 @@
 
 All notable changes to logr project.
 
+## v0.7.0 - [2020-xx-xx]
+
+Added:
+* Optional headers for log files.
+
 ## v0.6.1 - [2020-06-14]
 
 Fixed:
