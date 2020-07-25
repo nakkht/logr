@@ -6,20 +6,6 @@
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		"Logr::LogrPackageTests::ProductTarget" /* LogrPackageTests */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = OBJ_85 /* Build configuration list for PBXAggregateTarget "LogrPackageTests" */;
-			buildPhases = (
-			);
-			dependencies = (
-				OBJ_88 /* PBXTargetDependency */,
-			);
-			name = LogrPackageTests;
-			productName = LogrPackageTests;
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
 		OBJ_100 /* ConsoleTargetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* ConsoleTargetTests.swift */; };
 		OBJ_102 /* FileTargetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_32 /* FileTargetTests.swift */; };
@@ -40,7 +26,6 @@
 		OBJ_74 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_50 /* Style.swift */; };
 		OBJ_75 /* Target.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_51 /* Target.swift */; };
 		OBJ_76 /* TimeSpan.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_52 /* TimeSpan.swift */; };
-		OBJ_83 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_94 /* ConfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* ConfigTests.swift */; };
 		OBJ_95 /* OsLogTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* OsLogTypeTests.swift */; };
 		OBJ_96 /* LogLevelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* LogLevelTests.swift */; };
@@ -56,13 +41,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = "Logr::Logr";
 			remoteInfo = Logr;
-		};
-		F6FFAFFB23E36347009C6661 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "Logr::LogrTests";
-			remoteInfo = LogrTests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -268,20 +246,6 @@
 			productReference = "Logr::LogrTests::Product" /* LogrTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		"Logr::SwiftPMPackageDescription" /* LogrPackageDescription */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_79 /* Build configuration list for PBXNativeTarget "LogrPackageDescription" */;
-			buildPhases = (
-				OBJ_82 /* Sources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = LogrPackageDescription;
-			productName = LogrPackageDescription;
-			productType = "com.apple.product-type.framework";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -304,8 +268,6 @@
 			projectRoot = "";
 			targets = (
 				"Logr::Logr" /* Logr */,
-				"Logr::SwiftPMPackageDescription" /* LogrPackageDescription */,
-				"Logr::LogrPackageTests::ProductTarget" /* LogrPackageTests */,
 				"Logr::LogrTests" /* LogrTests */,
 			);
 		};
@@ -333,14 +295,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_82 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 0;
-			files = (
-				OBJ_83 /* Package.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		OBJ_93 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
@@ -365,11 +319,6 @@
 			isa = PBXTargetDependency;
 			target = "Logr::Logr" /* Logr */;
 			targetProxy = F6FFAFFA23E36346009C6661 /* PBXContainerItemProxy */;
-		};
-		OBJ_88 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = "Logr::LogrTests" /* LogrTests */;
-			targetProxy = F6FFAFFB23E36347009C6661 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -489,36 +438,6 @@
 			};
 			name = Release;
 		};
-		OBJ_80 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -package-description-version 5.1";
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		OBJ_81 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -package-description-version 5.1";
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
-		OBJ_86 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-			};
-			name = Debug;
-		};
-		OBJ_87 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-			};
-			name = Release;
-		};
 		OBJ_91 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -588,24 +507,6 @@
 			buildConfigurations = (
 				OBJ_60 /* Debug */,
 				OBJ_61 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		OBJ_79 /* Build configuration list for PBXNativeTarget "LogrPackageDescription" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				OBJ_80 /* Debug */,
-				OBJ_81 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		OBJ_85 /* Build configuration list for PBXAggregateTarget "LogrPackageTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				OBJ_86 /* Debug */,
-				OBJ_87 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
