@@ -86,20 +86,15 @@ class FileTargetTests: XCTestCase {
     func testManualArchive() {
         target = FileTarget()
         targetConfig = FileTargetConfig()
-        let lineCount = 1000
+        let lineCount = 100
         let expectation = XCTestExpectation(description: "Writing \(lineCount) log lines")
         let meta = MetaInfo(file: #file, function: #function, line: #line)
         (0..<lineCount).forEach {
-            let debugMessage = Message(level: .debug, tag: "Test", text: "message #\($0)", meta: meta)
-            let infoMessage = Message(level: .info, tag: "Test", text: "message #\($0)", meta: meta)
-            let warnMessage = Message(level: .warn, tag: "Test", text: "message #\($0)", meta: meta)
-            let errorMessage = Message(level: .error, tag: "Test", text: "message #\($0)", meta: meta)
-            let criticalMessage = Message(level: .critical, tag: "Test", text: "message #\($0)", meta: meta)
-            target.send(debugMessage)
-            target.send(infoMessage)
-            target.send(warnMessage)
-            target.send(errorMessage)
-            target.send(criticalMessage)
+            target.send(Message(level: .debug, tag: "Test", text: "message #\($0)", meta: meta))
+            target.send(Message(level: .info, tag: "Test", text: "message #\($0)", meta: meta))
+            target.send(Message(level: .warn, tag: "Test", text: "message #\($0)", meta: meta))
+            target.send(Message(level: .error, tag: "Test", text: "message #\($0)", meta: meta))
+            target.send(Message(level: .critical, tag: "Test", text: "message #\($0)", meta: meta))
         }
         target.archive {
             expectation.fulfill()
@@ -125,16 +120,11 @@ class FileTargetTests: XCTestCase {
         let expectation = XCTestExpectation(description: "Writing \(lineCount) log lines using serial queue")
         let meta = MetaInfo(file: #file, function: #function, line: #line)
         (0..<lineCount).forEach {
-            let debugMessage = Message(level: .debug, tag: "Test", text: "message #\($0)", meta: meta)
-            let infoMessage = Message(level: .info, tag: "Test", text: "message #\($0)", meta: meta)
-            let warnMessage = Message(level: .warn, tag: "Test", text: "message #\($0)", meta: meta)
-            let errorMessage = Message(level: .error, tag: "Test", text: "message #\($0)", meta: meta)
-            let criticalMessage = Message(level: .critical, tag: "Test", text: "message #\($0)", meta: meta)
-            target.send(debugMessage)
-            target.send(infoMessage)
-            target.send(warnMessage)
-            target.send(errorMessage)
-            target.send(criticalMessage)
+            target.send(Message(level: .debug, tag: "Test", text: "message #\($0)", meta: meta))
+            target.send(Message(level: .info, tag: "Test", text: "message #\($0)", meta: meta))
+            target.send(Message(level: .warn, tag: "Test", text: "message #\($0)", meta: meta))
+            target.send(Message(level: .error, tag: "Test", text: "message #\($0)", meta: meta))
+            target.send(Message(level: .critical, tag: "Test", text: "message #\($0)", meta: meta))
         }
         target.archive {
             expectation.fulfill()
@@ -165,7 +155,7 @@ class FileTargetTests: XCTestCase {
         target.dispatchQueue.async {
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 10.0)
+        wait(for: [expectation], timeout: 60.0)
         
         let archiveExpecation = XCTestExpectation(description: "Async size based archive")
         XCTAssertTrue(target.shouldArchive)
@@ -174,7 +164,7 @@ class FileTargetTests: XCTestCase {
                 archiveExpecation.fulfill()
             }
         }
-        wait(for: [archiveExpecation], timeout: 10.0)
+        wait(for: [archiveExpecation], timeout: 20.0)
         XCTAssertEqual(0, target.logFileSizeInBytes)
         let archivedFileCount = try! target.fileManager.contentsOfDirectory(atPath: target.archiveUrl.path).count
         XCTAssertEqual(1, archivedFileCount)
@@ -195,7 +185,6 @@ class FileTargetTests: XCTestCase {
             expectation.fulfill()
         }
         wait(for: [expectation], timeout: 2.0)
-        XCTAssertEqual(UInt64(header.utf8.count), target.logFileSizeInBytes)
         let archivedFileUrl = target.archiveUrl.appendingPathComponent(self.targetConfig.archiveFileName)
         let archivedLines = try! String(contentsOf: archivedFileUrl, encoding: .utf8)
         XCTAssertEqual(header, archivedLines)

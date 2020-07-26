@@ -16,7 +16,7 @@ xcode_scheme: Logr
 
 jobs:
   include:
-    - xcode_destination: platform=iOS Simulator,name=iPhone 8,OS=13.2.2
+    - xcode_destination: platform=iOS Simulator,name=iPhone 8,OS=13.6
       osx_image: xcode11.6
     - xcode_destination: platform=iOS Simulator,name=iPhone 8,OS=12.4
       osx_image: xcode11.6

@@ -193,8 +193,8 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
-				OBJ_21 /* Tests */,
 				OBJ_36 /* Sources */,
+				OBJ_21 /* Tests */,
 				OBJ_53 /* Products */,
 				OBJ_56 /* Demo */,
 				OBJ_57 /* docs */,
