@@ -19,7 +19,7 @@ import Foundation
 public struct FileTargetConfig {
     
     public static let defaultMaxFileSizeInBytes: UInt64 = 20 * 1024 * 1024
-    public static let defaultDateTimeFormat = "y-MM-dd H:m:ss.SSS"
+    public static let defaultDateTimeFormat = "y-MM-dd HH:mm:ss.SSS"
     
     /// Log file extension. Defaults to `log`.
     public let fileExtension: String

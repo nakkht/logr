@@ -47,6 +47,7 @@ class FileTargetTests: XCTestCase {
         XCTAssertEqual(FileTargetConfig.defaultMaxFileSizeInBytes, targetConfig.maxFileSizeInBytes)
         XCTAssertEqual("file.log", targetConfig.fullFileName)
         XCTAssertEqual("file.0.log", targetConfig.archiveFileName)
+        XCTAssertEqual("y-MM-dd HH:mm:ss.SSS", targetConfig.dateTimeFormat)
         XCTAssertEqual(Style.minimal, targetConfig.style)
         XCTAssertEqual(.debug, targetConfig.level)
         XCTAssertEqual(1, targetConfig.maxArchivedFilesCount)
@@ -81,6 +82,7 @@ class FileTargetTests: XCTestCase {
         XCTAssertEqual(header, targetConfig.header)
         XCTAssertEqual(dispatchQueue, targetConfig.dispatchQueue)
         XCTAssertEqual(dispatchQueue.label, targetConfig.dispatchQueue!.label)
+        XCTAssertEqual(dateFormat, targetConfig.dateTimeFormat)
     }
     
     func testManualArchive() {
