@@ -2,6 +2,11 @@
 
 All notable changes to logr project.
 
+## v0.7.1 - [2020-08-xx]
+
+Fixed:
+* `defaultDateTimeFormat` in FileTargetConfig missing full minutes 
+
 ## v0.7.0 - [2020-07-23]
 
 Added:
