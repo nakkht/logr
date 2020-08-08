@@ -48,14 +48,14 @@ open class ConsoleTarget: Target {
     @available(iOS 10.0, tvOS 10.0, macOS 10.12, *)
     func osLog(_ message: Message) {
         if(self.config.style == .verbose) {
-            os_log("%{public}@ %{public}@: %{public}@ %{public}@", log: osLog, type: OSLogType.from(message.level), message.meta.text, message.level.title, message.tag, message.text)
+            os_log("%{public}@ %{public}@: %{public}@ %{public}@", log: osLog, type: OSLogType.from(message.level), message.meta.text, message.level.description, message.tag, message.text)
         } else {
-            os_log("%{public}@: %{public}@ %{public}@", log: osLog, type: OSLogType.from(message.level), message.meta.text, message.level.title, message.tag, message.text)
+            os_log("%{public}@: %{public}@ %{public}@", log: osLog, type: OSLogType.from(message.level), message.meta.text, message.level.description, message.tag, message.text)
         }
     }
     
     func nsLog(_ message: Message) {
         let metaText = self.config.style == .verbose ? "\(message.meta.text) " : ""
-        NSLog("%@", "\(metaText)\(message.level.title): \(message.tag) \(message.text)")
+        NSLog("%@", "\(metaText)\(message.level.description): \(message.tag) \(message.text)")
     }
 }

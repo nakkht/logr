@@ -15,7 +15,7 @@
 // 
 
 /// Enum containing available distinct log levels within library.
-public enum LogLevel: Int, Equatable, CaseIterable {
+public enum LogLevel: Int, Equatable, CustomStringConvertible {
     
     /// Denotes verbose log level
     case debug = 0
@@ -33,7 +33,7 @@ public enum LogLevel: Int, Equatable, CaseIterable {
     case critical = 4
     
     /// String representation of the log level.
-    public var title: String {
+    public var description: String {
         switch self {
         case .debug: return "Debug"
         case .info: return "Info"

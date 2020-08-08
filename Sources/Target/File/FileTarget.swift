@@ -38,13 +38,13 @@ open class FileTarget: Target {
     public var fileHandle: FileHandle?
     
     let dateFormatter: DateFormatter
-
-   /**
-    Initializes FileTarget instance with provided FileTargetConfig struct. Prepares file for receiving and persisting log messages.
     
-    - Parameters:
-       - config: struct encapsulating logging preferences. Defaults to struct instance with defaults values.
-    */
+    /**
+     Initializes FileTarget instance with provided FileTargetConfig struct. Prepares file for receiving and persisting log messages.
+     
+     - Parameters:
+     - config: struct encapsulating logging preferences. Defaults to struct instance with defaults values.
+     */
     public init(_ config: FileTargetConfig? = nil) {
         self.config = config ?? FileTargetConfig()
         if let configDispatchQueue = config?.dispatchQueue {
@@ -63,7 +63,7 @@ open class FileTarget: Target {
     
     open func formatted(_ message: Message) -> String {
         let metaText = self.config.style == .verbose ? "\(message.meta.text) " : ""
-        return "\(dateString) \(metaText)\(message.level.title) - \(message.tag): \(message.text)\n"
+        return "\(dateString) \(metaText)\(message.level.description) - \(message.tag): \(message.text)\n"
     }
     
     var dateString: String {

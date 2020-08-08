@@ -86,10 +86,9 @@ class FileTargetTests: XCTestCase {
     }
     
     func testManualArchive() {
-        target = FileTarget()
         targetConfig = FileTargetConfig()
+        target = FileTarget(targetConfig)
         let lineCount = 100
-        let expectation = XCTestExpectation(description: "Writing \(lineCount) log lines")
         let meta = MetaInfo(file: #file, function: #function, line: #line)
         (0..<lineCount).forEach {
             target.send(Message(level: .debug, tag: "Test", text: "message #\($0)", meta: meta))
@@ -98,6 +97,7 @@ class FileTargetTests: XCTestCase {
             target.send(Message(level: .error, tag: "Test", text: "message #\($0)", meta: meta))
             target.send(Message(level: .critical, tag: "Test", text: "message #\($0)", meta: meta))
         }
+        let expectation = XCTestExpectation(description: "Writing \(lineCount) log lines")
         target.archive {
             expectation.fulfill()
         }
@@ -119,7 +119,6 @@ class FileTargetTests: XCTestCase {
         targetConfig = FileTargetConfig(dispatchQueue: dispatchQueue)
         target = FileTarget(targetConfig)
         let lineCount = 10
-        let expectation = XCTestExpectation(description: "Writing \(lineCount) log lines using serial queue")
         let meta = MetaInfo(file: #file, function: #function, line: #line)
         (0..<lineCount).forEach {
             target.send(Message(level: .debug, tag: "Test", text: "message #\($0)", meta: meta))
@@ -128,6 +127,7 @@ class FileTargetTests: XCTestCase {
             target.send(Message(level: .error, tag: "Test", text: "message #\($0)", meta: meta))
             target.send(Message(level: .critical, tag: "Test", text: "message #\($0)", meta: meta))
         }
+        let expectation = XCTestExpectation(description: "Writing \(lineCount) log lines using serial queue")
         target.archive {
             expectation.fulfill()
         }
@@ -149,11 +149,11 @@ class FileTargetTests: XCTestCase {
         targetConfig = FileTargetConfig(maxFileSizeInBytes: maxFileSize, style: .verbose)
         target = FileTarget(targetConfig)
         let lineCount = 100
-        let expectation = XCTestExpectation(description: "Writing \(lineCount) log lines")
         let meta = MetaInfo(file: #file, function: #function, line: #line)
         (0..<lineCount).forEach {
             target.send(Message(level: .debug, tag: "Test", text: "message #\($0)", meta: meta))
         }
+        let expectation = XCTestExpectation(description: "Writing \(lineCount) log lines")
         target.dispatchQueue.async {
             expectation.fulfill()
         }
@@ -181,8 +181,8 @@ class FileTargetTests: XCTestCase {
         targetConfig = FileTargetConfig(header: header)
         target = FileTarget(targetConfig)
         
-        let expectation = XCTestExpectation(description: "Archive log header")
         XCTAssertFalse(target.shouldArchive)
+        let expectation = XCTestExpectation(description: "Archive log header")
         target.archive {
             expectation.fulfill()
         }
@@ -190,5 +190,115 @@ class FileTargetTests: XCTestCase {
         let archivedFileUrl = target.archiveUrl.appendingPathComponent(self.targetConfig.archiveFileName)
         let archivedLines = try! String(contentsOf: archivedFileUrl, encoding: .utf8)
         XCTAssertEqual(header, archivedLines)
+    }
+    
+    func testInfoMinimumLogLevel() {
+        targetConfig = FileTargetConfig(level: .info)
+        target = FileTarget(targetConfig)
+        let lineCount = 100
+        let meta = MetaInfo(file: #file, function: #function, line: #line)
+        (0..<lineCount).forEach {
+            target.send(Message(level: .debug, tag: "Test", text: "message #\($0)", meta: meta))
+            target.send(Message(level: .info, tag: "Test", text: "message #\($0)", meta: meta))
+            target.send(Message(level: .warn, tag: "Test", text: "message #\($0)", meta: meta))
+            target.send(Message(level: .error, tag: "Test", text: "message #\($0)", meta: meta))
+            target.send(Message(level: .critical, tag: "Test", text: "message #\($0)", meta: meta))
+        }
+        let expectation = XCTestExpectation(description: "Writing \(lineCount) log lines")
+        target.archive {
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 20.0)
+        
+        let archivedFileUrl = target.archiveUrl.appendingPathComponent(self.targetConfig.archiveFileName)
+        let logContent = try! String(contentsOf: archivedFileUrl, encoding: .utf8).components(separatedBy: .newlines).dropLast()
+        XCTAssertEqual(lineCount * 4, logContent.count)
+        stride(from: 0, to: logContent.count, by: 4).enumerated().forEach {
+            XCTAssertTrue(logContent[$0.element].contains("Info - Test: message #\($0.offset)"))
+            XCTAssertTrue(logContent[$0.element + 1].contains("Warn - Test: message #\($0.offset)"))
+            XCTAssertTrue(logContent[$0.element + 2].contains("Error - Test: message #\($0.offset)"))
+            XCTAssertTrue(logContent[$0.element + 3].contains("Critical - Test: message #\($0.offset)"))
+        }
+    }
+    
+    func testWarnMinimumLogLevel() {
+        targetConfig = FileTargetConfig(level: .warn)
+        target = FileTarget(targetConfig)
+        let lineCount = 100
+        let meta = MetaInfo(file: #file, function: #function, line: #line)
+        (0..<lineCount).forEach {
+            target.send(Message(level: .debug, tag: "Test", text: "message #\($0)", meta: meta))
+            target.send(Message(level: .info, tag: "Test", text: "message #\($0)", meta: meta))
+            target.send(Message(level: .warn, tag: "Test", text: "message #\($0)", meta: meta))
+            target.send(Message(level: .error, tag: "Test", text: "message #\($0)", meta: meta))
+            target.send(Message(level: .critical, tag: "Test", text: "message #\($0)", meta: meta))
+        }
+        let expectation = XCTestExpectation(description: "Writing \(lineCount) log lines")
+        target.archive {
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 20.0)
+        
+        let archivedFileUrl = target.archiveUrl.appendingPathComponent(self.targetConfig.archiveFileName)
+        let logContent = try! String(contentsOf: archivedFileUrl, encoding: .utf8).components(separatedBy: .newlines).dropLast()
+        XCTAssertEqual(lineCount * 3, logContent.count)
+        stride(from: 0, to: logContent.count, by: 3).enumerated().forEach {
+            XCTAssertTrue(logContent[$0.element].contains("Warn - Test: message #\($0.offset)"))
+            XCTAssertTrue(logContent[$0.element + 1].contains("Error - Test: message #\($0.offset)"))
+            XCTAssertTrue(logContent[$0.element + 2].contains("Critical - Test: message #\($0.offset)"))
+        }
+    }
+    
+    func testErrorMinimumLogLevel() {
+        targetConfig = FileTargetConfig(level: .error)
+        target = FileTarget(targetConfig)
+        let lineCount = 100
+        let meta = MetaInfo(file: #file, function: #function, line: #line)
+        (0..<lineCount).forEach {
+            target.send(Message(level: .debug, tag: "Test", text: "message #\($0)", meta: meta))
+            target.send(Message(level: .info, tag: "Test", text: "message #\($0)", meta: meta))
+            target.send(Message(level: .warn, tag: "Test", text: "message #\($0)", meta: meta))
+            target.send(Message(level: .error, tag: "Test", text: "message #\($0)", meta: meta))
+            target.send(Message(level: .critical, tag: "Test", text: "message #\($0)", meta: meta))
+        }
+        let expectation = XCTestExpectation(description: "Writing \(lineCount) log lines")
+        target.archive {
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 20.0)
+        
+        let archivedFileUrl = target.archiveUrl.appendingPathComponent(self.targetConfig.archiveFileName)
+        let logContent = try! String(contentsOf: archivedFileUrl, encoding: .utf8).components(separatedBy: .newlines).dropLast()
+        XCTAssertEqual(lineCount * 2, logContent.count)
+        stride(from: 0, to: logContent.count, by: 2).enumerated().forEach {
+            XCTAssertTrue(logContent[$0.element].contains("Error - Test: message #\($0.offset)"))
+            XCTAssertTrue(logContent[$0.element + 1].contains("Critical - Test: message #\($0.offset)"))
+        }
+    }
+    
+    func testCriticalMinimumLogLevel() {
+        targetConfig = FileTargetConfig(level: .critical)
+        target = FileTarget(targetConfig)
+        let lineCount = 100
+        let meta = MetaInfo(file: #file, function: #function, line: #line)
+        (0..<lineCount).forEach {
+            target.send(Message(level: .debug, tag: "Test", text: "message #\($0)", meta: meta))
+            target.send(Message(level: .info, tag: "Test", text: "message #\($0)", meta: meta))
+            target.send(Message(level: .warn, tag: "Test", text: "message #\($0)", meta: meta))
+            target.send(Message(level: .error, tag: "Test", text: "message #\($0)", meta: meta))
+            target.send(Message(level: .critical, tag: "Test", text: "message #\($0)", meta: meta))
+        }
+        let expectation = XCTestExpectation(description: "Writing \(lineCount) log lines")
+        target.archive {
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 20.0)
+        
+        let archivedFileUrl = target.archiveUrl.appendingPathComponent(self.targetConfig.archiveFileName)
+        let logContent = try! String(contentsOf: archivedFileUrl, encoding: .utf8).components(separatedBy: .newlines).dropLast()
+        XCTAssertEqual(lineCount, logContent.count)
+        stride(from: 0, to: logContent.count, by: 1).enumerated().forEach {
+            XCTAssertTrue(logContent[$0.element].contains("Critical - Test: message #\($0.offset)"))
+        }
     }
 }
