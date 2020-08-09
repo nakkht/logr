@@ -57,7 +57,7 @@ jobs:
       osx_image: xcode12
 
   allow_failures:
-    osx_images: xcode12
+    osx_image: xcode12
 
 after_success:
   - bash <(curl -s https://codecov.io/bash) -J 'Logr'
