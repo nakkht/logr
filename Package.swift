@@ -7,7 +7,8 @@ let package = Package(
     platforms: [
         .macOS(.v10_14),
         .iOS(.v9),
-        .tvOS(.v9)
+        .tvOS(.v9),
+        .watchOS(.v3)
     ],
     products: [
         .library(name: "Logr", targets: ["Logr"])
