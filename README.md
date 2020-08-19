@@ -1,7 +1,7 @@
 # Logr
 
 [![build status](https://travis-ci.com/nakkht/logr.svg?branch=develop)](https://travis-ci.com/nakkht/logr)
-![platforms](https://img.shields.io/badge/platforms-ios%20%7C%20osx%20%7C%20tvos-brightgreen)
+![platforms](https://img.shields.io/badge/platforms-iOS%20%7C%20macOS%20%7C%20tvOS%20%7C%20watchOS-brightgreen)
 [![codecov](https://codecov.io/gh/nakkht/logr/branch/develop/graph/badge.svg)](https://codecov.io/gh/nakkht/logr)
 [![documentation](https://img.shields.io/badge/doc-reference-brightgreen)](https://nakkht.github.io/logr/)
 
