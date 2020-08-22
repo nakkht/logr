@@ -4,29 +4,29 @@ All notable changes to logr project.
 
 ## v0.7.1 - [2020-08-xx]
 
-Fixed:
+Fixed
 * `defaultDateTimeFormat` in FileTargetConfig missing full minutes 
 
 ## v0.7.0 - [2020-07-23]
 
-Added:
+Added
 * Optional headers for log files.
 
 ## v0.6.1 - [2020-06-14]
 
-Fixed:
+Fixed
 * `Package.swift` to use version 10.14 for the macOS platform 
 
 ## v0.6.0 - [2020-06-14]
 
-Added:
+Added
 * Inferred tags
 * tvOS support
 * macOS support
 
 ## v0.5.0 - [2020-03-20]
 
-Added:
+Added
 * Interactive demo
 * More documentation
 * Tag for `Logr` class
