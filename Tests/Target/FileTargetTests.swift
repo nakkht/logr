@@ -186,7 +186,7 @@ class FileTargetTests: XCTestCase {
         target.archive {
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 2.0)
+        wait(for: [expectation], timeout: 10.0)
         let archivedFileUrl = target.archiveUrl.appendingPathComponent(self.targetConfig.archiveFileName)
         let archivedLines = try! String(contentsOf: archivedFileUrl, encoding: .utf8)
         XCTAssertEqual(header, archivedLines)
