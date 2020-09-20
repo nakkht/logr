@@ -10,7 +10,7 @@ Fixed
 ## v0.7.0 - [2020-07-23]
 
 Added
-* Optional headers for log files.
+* Optional headers for log files
 
 ## v0.6.1 - [2020-06-14]
 

@@ -16,6 +16,7 @@ Simple logging library for iOS written in Swift
 - [x] Console logging out of the box via ConsoleTarget
 - [x] File logging out of the box via FileTarget 
 - [x] Pure Swift 5
+- [x] Optional file header for each file
 
 ## Integration
 
