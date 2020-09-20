@@ -7,31 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		OBJ_100 /* ConsoleTargetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* ConsoleTargetTests.swift */; };
-		OBJ_102 /* FileTargetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_32 /* FileTargetTests.swift */; };
-		OBJ_103 /* LogrServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_34 /* LogrServiceMock.swift */; };
-		OBJ_104 /* TargetMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_35 /* TargetMock.swift */; };
+		76F33C3F251686E600E251AE /* Logr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F33C2D251686E600E251AE /* Logr.swift */; };
+		76F33C40251686E600E251AE /* OSLogType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F33C2F251686E600E251AE /* OSLogType.swift */; };
+		76F33C41251686E600E251AE /* FileTargetConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F33C32251686E600E251AE /* FileTargetConfig.swift */; };
+		76F33C42251686E600E251AE /* FileTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F33C33251686E600E251AE /* FileTarget.swift */; };
+		76F33C43251686E600E251AE /* Target.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F33C34251686E600E251AE /* Target.swift */; };
+		76F33C44251686E600E251AE /* TimeSpan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F33C35251686E600E251AE /* TimeSpan.swift */; };
+		76F33C45251686E600E251AE /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F33C36251686E600E251AE /* Style.swift */; };
+		76F33C46251686E600E251AE /* ConsoleTargetConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F33C38251686E600E251AE /* ConsoleTargetConfig.swift */; };
+		76F33C47251686E600E251AE /* ConsoleTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F33C39251686E600E251AE /* ConsoleTarget.swift */; };
+		76F33C48251686E600E251AE /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F33C3A251686E600E251AE /* Message.swift */; };
+		76F33C49251686E600E251AE /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F33C3B251686E600E251AE /* Config.swift */; };
+		76F33C4A251686E600E251AE /* MetaInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F33C3C251686E600E251AE /* MetaInfo.swift */; };
+		76F33C4B251686E600E251AE /* LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F33C3D251686E600E251AE /* LogLevel.swift */; };
+		76F33C4C251686E600E251AE /* LogrService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F33C3E251686E600E251AE /* LogrService.swift */; };
+		76F33C7B2516872000E251AE /* ConfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F33C6E2516871F00E251AE /* ConfigTests.swift */; };
+		76F33C7C2516872000E251AE /* OsLogTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F33C702516871F00E251AE /* OsLogTypeTests.swift */; };
+		76F33C7D2516872000E251AE /* TargetMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F33C722516871F00E251AE /* TargetMock.swift */; };
+		76F33C7E2516872000E251AE /* LogrServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F33C732516871F00E251AE /* LogrServiceMock.swift */; };
+		76F33C7F2516872000E251AE /* ConsoleTargetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F33C752516871F00E251AE /* ConsoleTargetTests.swift */; };
+		76F33C802516872000E251AE /* FileTargetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F33C762516871F00E251AE /* FileTargetTests.swift */; };
+		76F33C812516872000E251AE /* LogrServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F33C772516872000E251AE /* LogrServiceTests.swift */; };
+		76F33C822516872000E251AE /* LogrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F33C782516872000E251AE /* LogrTests.swift */; };
+		76F33C832516872000E251AE /* LogLevelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F33C792516872000E251AE /* LogLevelTests.swift */; };
+		76F33C842516872000E251AE /* MessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F33C7A2516872000E251AE /* MessageTests.swift */; };
 		OBJ_106 /* Logr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Logr::Logr::Product" /* Logr.framework */; };
-		OBJ_63 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_37 /* Config.swift */; };
-		OBJ_64 /* OSLogType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_39 /* OSLogType.swift */; };
-		OBJ_65 /* LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_40 /* LogLevel.swift */; };
-		OBJ_66 /* Logr.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_41 /* Logr.swift */; };
-		OBJ_67 /* LogrService.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_42 /* LogrService.swift */; };
-		OBJ_68 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_43 /* Message.swift */; };
-		OBJ_69 /* MetaInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* MetaInfo.swift */; };
-		OBJ_70 /* ConsoleTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_46 /* ConsoleTarget.swift */; };
-		OBJ_71 /* ConsoleTargetConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* ConsoleTargetConfig.swift */; };
-		OBJ_72 /* FileTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_48 /* FileTarget.swift */; };
-		OBJ_73 /* FileTargetConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_49 /* FileTargetConfig.swift */; };
-		OBJ_74 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_50 /* Style.swift */; };
-		OBJ_75 /* Target.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_51 /* Target.swift */; };
-		OBJ_76 /* TimeSpan.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_52 /* TimeSpan.swift */; };
-		OBJ_94 /* ConfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* ConfigTests.swift */; };
-		OBJ_95 /* OsLogTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* OsLogTypeTests.swift */; };
-		OBJ_96 /* LogLevelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* LogLevelTests.swift */; };
-		OBJ_97 /* LogrServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* LogrServiceTests.swift */; };
-		OBJ_98 /* LogrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* LogrTests.swift */; };
-		OBJ_99 /* MessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* MessageTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,32 +45,32 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		76F33C2D251686E600E251AE /* Logr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logr.swift; sourceTree = "<group>"; };
+		76F33C2F251686E600E251AE /* OSLogType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSLogType.swift; sourceTree = "<group>"; };
+		76F33C32251686E600E251AE /* FileTargetConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileTargetConfig.swift; sourceTree = "<group>"; };
+		76F33C33251686E600E251AE /* FileTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileTarget.swift; sourceTree = "<group>"; };
+		76F33C34251686E600E251AE /* Target.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Target.swift; sourceTree = "<group>"; };
+		76F33C35251686E600E251AE /* TimeSpan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSpan.swift; sourceTree = "<group>"; };
+		76F33C36251686E600E251AE /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		76F33C38251686E600E251AE /* ConsoleTargetConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleTargetConfig.swift; sourceTree = "<group>"; };
+		76F33C39251686E600E251AE /* ConsoleTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleTarget.swift; sourceTree = "<group>"; };
+		76F33C3A251686E600E251AE /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		76F33C3B251686E600E251AE /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		76F33C3C251686E600E251AE /* MetaInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaInfo.swift; sourceTree = "<group>"; };
+		76F33C3D251686E600E251AE /* LogLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogLevel.swift; sourceTree = "<group>"; };
+		76F33C3E251686E600E251AE /* LogrService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogrService.swift; sourceTree = "<group>"; };
+		76F33C6E2516871F00E251AE /* ConfigTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigTests.swift; sourceTree = "<group>"; };
+		76F33C702516871F00E251AE /* OsLogTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OsLogTypeTests.swift; sourceTree = "<group>"; };
+		76F33C722516871F00E251AE /* TargetMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetMock.swift; sourceTree = "<group>"; };
+		76F33C732516871F00E251AE /* LogrServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogrServiceMock.swift; sourceTree = "<group>"; };
+		76F33C752516871F00E251AE /* ConsoleTargetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleTargetTests.swift; sourceTree = "<group>"; };
+		76F33C762516871F00E251AE /* FileTargetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileTargetTests.swift; sourceTree = "<group>"; };
+		76F33C772516872000E251AE /* LogrServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogrServiceTests.swift; sourceTree = "<group>"; };
+		76F33C782516872000E251AE /* LogrTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogrTests.swift; sourceTree = "<group>"; };
+		76F33C792516872000E251AE /* LogLevelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogLevelTests.swift; sourceTree = "<group>"; };
+		76F33C7A2516872000E251AE /* MessageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTests.swift; sourceTree = "<group>"; };
 		"Logr::Logr::Product" /* Logr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Logr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Logr::LogrTests::Product" /* LogrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = LogrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		OBJ_22 /* ConfigTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigTests.swift; sourceTree = "<group>"; };
-		OBJ_24 /* OsLogTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OsLogTypeTests.swift; sourceTree = "<group>"; };
-		OBJ_25 /* LogLevelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogLevelTests.swift; sourceTree = "<group>"; };
-		OBJ_26 /* LogrServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogrServiceTests.swift; sourceTree = "<group>"; };
-		OBJ_27 /* LogrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogrTests.swift; sourceTree = "<group>"; };
-		OBJ_28 /* MessageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTests.swift; sourceTree = "<group>"; };
-		OBJ_30 /* ConsoleTargetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleTargetTests.swift; sourceTree = "<group>"; };
-		OBJ_32 /* FileTargetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTargetTests.swift; sourceTree = "<group>"; };
-		OBJ_34 /* LogrServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogrServiceMock.swift; sourceTree = "<group>"; };
-		OBJ_35 /* TargetMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetMock.swift; sourceTree = "<group>"; };
-		OBJ_37 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		OBJ_39 /* OSLogType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSLogType.swift; sourceTree = "<group>"; };
-		OBJ_40 /* LogLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogLevel.swift; sourceTree = "<group>"; };
-		OBJ_41 /* Logr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logr.swift; sourceTree = "<group>"; };
-		OBJ_42 /* LogrService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogrService.swift; sourceTree = "<group>"; };
-		OBJ_43 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		OBJ_44 /* MetaInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaInfo.swift; sourceTree = "<group>"; };
-		OBJ_46 /* ConsoleTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleTarget.swift; sourceTree = "<group>"; };
-		OBJ_47 /* ConsoleTargetConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleTargetConfig.swift; sourceTree = "<group>"; };
-		OBJ_48 /* FileTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTarget.swift; sourceTree = "<group>"; };
-		OBJ_49 /* FileTargetConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTargetConfig.swift; sourceTree = "<group>"; };
-		OBJ_50 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
-		OBJ_51 /* Target.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Target.swift; sourceTree = "<group>"; };
-		OBJ_52 /* TimeSpan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSpan.swift; sourceTree = "<group>"; };
 		OBJ_56 /* Demo */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Demo; sourceTree = SOURCE_ROOT; };
 		OBJ_57 /* docs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = docs; sourceTree = SOURCE_ROOT; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -95,98 +95,114 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7635F5B724883C97009C5C91 /* Console */ = {
+		76F33C2C251686E600E251AE /* Logr */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_46 /* ConsoleTarget.swift */,
-				OBJ_47 /* ConsoleTargetConfig.swift */,
+				76F33C2D251686E600E251AE /* Logr.swift */,
+				76F33C2E251686E600E251AE /* Extension */,
+				76F33C30251686E600E251AE /* Target */,
+				76F33C3A251686E600E251AE /* Message.swift */,
+				76F33C3B251686E600E251AE /* Config.swift */,
+				76F33C3C251686E600E251AE /* MetaInfo.swift */,
+				76F33C3D251686E600E251AE /* LogLevel.swift */,
+				76F33C3E251686E600E251AE /* LogrService.swift */,
+			);
+			path = Logr;
+			sourceTree = "<group>";
+		};
+		76F33C2E251686E600E251AE /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				76F33C2F251686E600E251AE /* OSLogType.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		76F33C30251686E600E251AE /* Target */ = {
+			isa = PBXGroup;
+			children = (
+				76F33C31251686E600E251AE /* File */,
+				76F33C34251686E600E251AE /* Target.swift */,
+				76F33C35251686E600E251AE /* TimeSpan.swift */,
+				76F33C36251686E600E251AE /* Style.swift */,
+				76F33C37251686E600E251AE /* Console */,
+			);
+			path = Target;
+			sourceTree = "<group>";
+		};
+		76F33C31251686E600E251AE /* File */ = {
+			isa = PBXGroup;
+			children = (
+				76F33C32251686E600E251AE /* FileTargetConfig.swift */,
+				76F33C33251686E600E251AE /* FileTarget.swift */,
+			);
+			path = File;
+			sourceTree = "<group>";
+		};
+		76F33C37251686E600E251AE /* Console */ = {
+			isa = PBXGroup;
+			children = (
+				76F33C38251686E600E251AE /* ConsoleTargetConfig.swift */,
+				76F33C39251686E600E251AE /* ConsoleTarget.swift */,
 			);
 			path = Console;
 			sourceTree = "<group>";
 		};
-		7635F5B824883CA4009C5C91 /* File */ = {
+		76F33C6D2516871F00E251AE /* LogrTests */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_48 /* FileTarget.swift */,
-				OBJ_49 /* FileTargetConfig.swift */,
+				76F33C6E2516871F00E251AE /* ConfigTests.swift */,
+				76F33C6F2516871F00E251AE /* Extension */,
+				76F33C712516871F00E251AE /* Util */,
+				76F33C742516871F00E251AE /* Target */,
+				76F33C772516872000E251AE /* LogrServiceTests.swift */,
+				76F33C782516872000E251AE /* LogrTests.swift */,
+				76F33C792516872000E251AE /* LogLevelTests.swift */,
+				76F33C7A2516872000E251AE /* MessageTests.swift */,
 			);
-			path = File;
+			path = LogrTests;
+			sourceTree = "<group>";
+		};
+		76F33C6F2516871F00E251AE /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				76F33C702516871F00E251AE /* OsLogTypeTests.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		76F33C712516871F00E251AE /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				76F33C722516871F00E251AE /* TargetMock.swift */,
+				76F33C732516871F00E251AE /* LogrServiceMock.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		76F33C742516871F00E251AE /* Target */ = {
+			isa = PBXGroup;
+			children = (
+				76F33C752516871F00E251AE /* ConsoleTargetTests.swift */,
+				76F33C762516871F00E251AE /* FileTargetTests.swift */,
+			);
+			path = Target;
 			sourceTree = "<group>";
 		};
 		OBJ_21 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_22 /* ConfigTests.swift */,
-				OBJ_23 /* Extension */,
-				OBJ_25 /* LogLevelTests.swift */,
-				OBJ_26 /* LogrServiceTests.swift */,
-				OBJ_27 /* LogrTests.swift */,
-				OBJ_28 /* MessageTests.swift */,
-				OBJ_29 /* Target */,
-				OBJ_33 /* Util */,
+				76F33C6D2516871F00E251AE /* LogrTests */,
 			);
 			path = Tests;
-			sourceTree = "<group>";
-		};
-		OBJ_23 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_24 /* OsLogTypeTests.swift */,
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
-		OBJ_29 /* Target */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_30 /* ConsoleTargetTests.swift */,
-				OBJ_32 /* FileTargetTests.swift */,
-			);
-			path = Target;
-			sourceTree = "<group>";
-		};
-		OBJ_33 /* Util */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_34 /* LogrServiceMock.swift */,
-				OBJ_35 /* TargetMock.swift */,
-			);
-			path = Util;
 			sourceTree = "<group>";
 		};
 		OBJ_36 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_37 /* Config.swift */,
-				OBJ_38 /* Extension */,
-				OBJ_40 /* LogLevel.swift */,
-				OBJ_41 /* Logr.swift */,
-				OBJ_42 /* LogrService.swift */,
-				OBJ_43 /* Message.swift */,
-				OBJ_44 /* MetaInfo.swift */,
-				OBJ_45 /* Target */,
+				76F33C2C251686E600E251AE /* Logr */,
 			);
 			path = Sources;
-			sourceTree = "<group>";
-		};
-		OBJ_38 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_39 /* OSLogType.swift */,
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
-		OBJ_45 /* Target */ = {
-			isa = PBXGroup;
-			children = (
-				7635F5B824883CA4009C5C91 /* File */,
-				7635F5B724883C97009C5C91 /* Console */,
-				OBJ_50 /* Style.swift */,
-				OBJ_51 /* Target.swift */,
-				OBJ_52 /* TimeSpan.swift */,
-			);
-			path = Target;
 			sourceTree = "<group>";
 		};
 		OBJ_5 = {
@@ -278,20 +294,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_63 /* Config.swift in Sources */,
-				OBJ_64 /* OSLogType.swift in Sources */,
-				OBJ_65 /* LogLevel.swift in Sources */,
-				OBJ_66 /* Logr.swift in Sources */,
-				OBJ_67 /* LogrService.swift in Sources */,
-				OBJ_68 /* Message.swift in Sources */,
-				OBJ_69 /* MetaInfo.swift in Sources */,
-				OBJ_70 /* ConsoleTarget.swift in Sources */,
-				OBJ_71 /* ConsoleTargetConfig.swift in Sources */,
-				OBJ_72 /* FileTarget.swift in Sources */,
-				OBJ_73 /* FileTargetConfig.swift in Sources */,
-				OBJ_74 /* Style.swift in Sources */,
-				OBJ_75 /* Target.swift in Sources */,
-				OBJ_76 /* TimeSpan.swift in Sources */,
+				76F33C4A251686E600E251AE /* MetaInfo.swift in Sources */,
+				76F33C40251686E600E251AE /* OSLogType.swift in Sources */,
+				76F33C41251686E600E251AE /* FileTargetConfig.swift in Sources */,
+				76F33C42251686E600E251AE /* FileTarget.swift in Sources */,
+				76F33C3F251686E600E251AE /* Logr.swift in Sources */,
+				76F33C49251686E600E251AE /* Config.swift in Sources */,
+				76F33C4B251686E600E251AE /* LogLevel.swift in Sources */,
+				76F33C46251686E600E251AE /* ConsoleTargetConfig.swift in Sources */,
+				76F33C44251686E600E251AE /* TimeSpan.swift in Sources */,
+				76F33C45251686E600E251AE /* Style.swift in Sources */,
+				76F33C48251686E600E251AE /* Message.swift in Sources */,
+				76F33C4C251686E600E251AE /* LogrService.swift in Sources */,
+				76F33C47251686E600E251AE /* ConsoleTarget.swift in Sources */,
+				76F33C43251686E600E251AE /* Target.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,16 +315,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_94 /* ConfigTests.swift in Sources */,
-				OBJ_95 /* OsLogTypeTests.swift in Sources */,
-				OBJ_96 /* LogLevelTests.swift in Sources */,
-				OBJ_97 /* LogrServiceTests.swift in Sources */,
-				OBJ_98 /* LogrTests.swift in Sources */,
-				OBJ_99 /* MessageTests.swift in Sources */,
-				OBJ_100 /* ConsoleTargetTests.swift in Sources */,
-				OBJ_102 /* FileTargetTests.swift in Sources */,
-				OBJ_103 /* LogrServiceMock.swift in Sources */,
-				OBJ_104 /* TargetMock.swift in Sources */,
+				76F33C802516872000E251AE /* FileTargetTests.swift in Sources */,
+				76F33C822516872000E251AE /* LogrTests.swift in Sources */,
+				76F33C832516872000E251AE /* LogLevelTests.swift in Sources */,
+				76F33C7C2516872000E251AE /* OsLogTypeTests.swift in Sources */,
+				76F33C7B2516872000E251AE /* ConfigTests.swift in Sources */,
+				76F33C7F2516872000E251AE /* ConsoleTargetTests.swift in Sources */,
+				76F33C7D2516872000E251AE /* TargetMock.swift in Sources */,
+				76F33C7E2516872000E251AE /* LogrServiceMock.swift in Sources */,
+				76F33C812516872000E251AE /* LogrServiceTests.swift in Sources */,
+				76F33C842516872000E251AE /* MessageTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,7 +457,7 @@
 		OBJ_91 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -467,7 +483,7 @@
 		OBJ_92 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
