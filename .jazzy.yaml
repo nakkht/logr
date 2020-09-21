@@ -7,6 +7,6 @@ output: docs
 theme: apple
 swift_build_tool: spm
 build_tool_arguments: [-Xswiftc, -swift-version, -Xswiftc, "5"]
-module_version: 0.7.0
+module_version: 0.8.0
 clean: true
 sdk: iphonesimulator

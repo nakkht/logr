@@ -2,10 +2,18 @@
 
 All notable changes to logr project.
 
-## v0.7.1 - [2020-08-xx]
+## v0.8.0 - [2020-09-21]
+
+Added
+* Tests for minimum logged level
+* Swift 5.3 support
+
+Changed
+* WatchOS support to v3
+* Code organization
 
 Fixed
-* `defaultDateTimeFormat` in FileTargetConfig missing full minutes 
+* `defaultDateTimeFormat` in FileTargetConfig missing full minutes
 
 ## v0.7.0 - [2020-07-23]
 

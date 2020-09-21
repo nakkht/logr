@@ -26,7 +26,7 @@ Once Swift package set up, add the following to your `Package.swift`:
 
 ```
 dependencies: [
-  .package(url: "https://github.com/nakkht/logr.git", exact: "0.7.0")
+  .package(url: "https://github.com/nakkht/logr.git", exact: "0.8.0")
 ]
 ```
 
@@ -35,7 +35,7 @@ dependencies: [
 To add Logr to your project using Carthage, add the following to your `Cartfile`:
 
 ```
-github "nakkht/logr" "0.7.0"
+github "nakkht/logr" "0.8.0"
 ```
 
 ### CocoaPods
@@ -43,7 +43,7 @@ github "nakkht/logr" "0.7.0"
 To integrate using CocoaPods, install [CocoaPods](https://guides.cocoapods.org/using/getting-started.html#getting-started) and include the following in your `Podfile`:
 
 ```
-pod 'Logr', '~> 0.7.0'
+pod 'Logr', '~> 0.8.0'
 ```
 
 ## Usage
