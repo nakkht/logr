@@ -88,7 +88,7 @@ class FileTargetTests: XCTestCase {
     func testManualArchive() {
         targetConfig = FileTargetConfig()
         target = FileTarget(targetConfig)
-        let lineCount = 100
+        let lineCount = 10
         let meta = MetaInfo(file: #file, function: #function, line: #line)
         (0..<lineCount).forEach {
             target.send(Message(level: .debug, tag: "Test", text: "message #\($0)", meta: meta))
@@ -145,10 +145,10 @@ class FileTargetTests: XCTestCase {
     }
     
     func testSizeBasedArchive() {
-        let maxFileSize: UInt64 = 5 * 1024
+        let maxFileSize: UInt64 = 1024
         targetConfig = FileTargetConfig(maxFileSizeInBytes: maxFileSize, style: .verbose)
         target = FileTarget(targetConfig)
-        let lineCount = 100
+        let lineCount = 20
         let meta = MetaInfo(file: #file, function: #function, line: #line)
         (0..<lineCount).forEach {
             target.send(Message(level: .debug, tag: "Test", text: "message #\($0)", meta: meta))

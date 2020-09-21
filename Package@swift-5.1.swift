@@ -11,7 +11,8 @@ let package = Package(
         .watchOS(.v3)
     ],
     products: [
-        .library(name: "Logr", targets: ["Logr"])
+        .library(name: "Logr",
+                 targets: ["Logr"])
     ],
     targets: [
         .target(name: "Logr"),
