@@ -35,8 +35,8 @@ open class FileTarget: Target {
     public var fileHandle: FileHandle?
     
     let dateFormatter: DateFormatter
+    var dispatchQueue: DispatchQueue
     lazy var fileManager = FileManager.default
-    var io = DispatchQueue.io
     
     /**
      Initializes FileTarget instance with provided FileTargetConfig struct. Prepares file for receiving and persisting log messages.
@@ -44,11 +44,9 @@ open class FileTarget: Target {
      - Parameters:
      - config: struct encapsulating logging preferences. Defaults to struct instance with defaults values.
      */
-    public init(_ config: FileTargetConfig? = nil) {
+    public init(_ config: FileTargetConfig? = nil, dispatchQueue: DispatchQueue? = nil) {
         self.config = config ?? FileTargetConfig()
-        if let configDispatchQueue = config?.dispatchQueue {
-            self.io = configDispatchQueue
-        }
+        self.dispatchQueue = dispatchQueue ?? DispatchQueue.io
         self.dateFormatter = DateFormatter()
         self.dateFormatter.dateFormat = self.config.dateTimeFormat
         initFile()
@@ -70,7 +68,7 @@ open class FileTarget: Target {
     }
     
     func write(_ log: String) {
-        io.async {
+        dispatchQueue.async {
             guard let data = log.data(using: .utf8), data.count > 0 else { return }
             self.fileHandle?.seekToEndOfFile()
             self.fileHandle?.write(data)
@@ -82,9 +80,15 @@ open class FileTarget: Target {
     /// Forces archive process of the current log file regardless of the preconditions set in config files. Non-blocking. Thread-safe.
     /// - Parameter completionHandler: the block to execute when archiving as completed
     public func forceArchive(_ completionHandler: @escaping (() -> Void)) {
-        io.async {
+        dispatchQueue.async {
             self.archive()
             completionHandler()
+        }
+    }
+    
+    public func sync() {
+        dispatchQueue.sync {
+            self.fileHandle?.synchronizeFile()
         }
     }
     

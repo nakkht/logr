@@ -45,15 +45,12 @@ public struct FileTargetConfig {
     /// Format to be used for log line timestamps
     public let dateTimeFormat: String
     
-    /// Optional dispatch queue assigned during initialization.
-    public let dispatchQueue: DispatchQueue?
-    
     /// Optional header to be addead as the first content to newly create log file
     public let header: String?
     
     public init(fileName: String? = nil, fileExtension: String? = nil, maxArchivedFilesCount: UInt16? = nil,
                 archiveFrequency: TimeSpan? = nil, maxFileSizeInBytes: UInt64? = nil, dateTimeFormat: String? = nil,
-                level: LogLevel? = nil, style: Style? = nil, dispatchQueue: DispatchQueue? = nil, header: String? = nil) {
+                level: LogLevel? = nil, style: Style? = nil, header: String? = nil) {
         self.fileName = fileName ?? "file"
         self.fileExtension = fileExtension ?? "log"
         self.maxArchivedFilesCount = maxArchivedFilesCount ?? 2
@@ -62,7 +59,6 @@ public struct FileTargetConfig {
         self.dateTimeFormat = dateTimeFormat ?? FileTargetConfig.defaultDateTimeFormat
         self.level = level ?? .debug
         self.style = style ?? .minimal
-        self.dispatchQueue = dispatchQueue
         self.header = header
     }
     

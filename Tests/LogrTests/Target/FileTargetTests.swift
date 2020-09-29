@@ -50,7 +50,6 @@ class FileTargetTests: XCTestCase {
         XCTAssertEqual(Style.minimal, targetConfig.style)
         XCTAssertEqual(.debug, targetConfig.level)
         XCTAssertEqual(2, targetConfig.maxArchivedFilesCount)
-        XCTAssertNil(targetConfig.dispatchQueue)
         XCTAssertNil(targetConfig.header)
     }
     
@@ -64,9 +63,8 @@ class FileTargetTests: XCTestCase {
         ========= SYS INFO ==========
         =============================
         """
-        let dispatchQueue = DispatchQueue(label: "test.queue")
         targetConfig = FileTargetConfig(fileName: fileName, fileExtension: fileExtension, maxArchivedFilesCount: 100, archiveFrequency: archiveFrequence,
-                                        maxFileSizeInBytes: size, dateTimeFormat: dateFormat, level: .critical, style: .verbose, dispatchQueue: dispatchQueue,
+                                        maxFileSizeInBytes: size, dateTimeFormat: dateFormat, level: .critical, style: .verbose,
                                         header: header)
         
         XCTAssertEqual(fileExtension, targetConfig.fileExtension)
@@ -79,8 +77,6 @@ class FileTargetTests: XCTestCase {
         XCTAssertEqual("\(fileName).0.\(fileExtension)", targetConfig.archiveFileName)
         XCTAssertEqual(archiveFrequence, targetConfig.archiveFrequency)
         XCTAssertEqual(header, targetConfig.header)
-        XCTAssertEqual(dispatchQueue, targetConfig.dispatchQueue)
-        XCTAssertEqual(dispatchQueue.label, targetConfig.dispatchQueue!.label)
         XCTAssertEqual(dateFormat, targetConfig.dateTimeFormat)
     }
     
@@ -115,8 +111,8 @@ class FileTargetTests: XCTestCase {
     
     func testSerialDispatchQueue() {
         let dispatchQueue = DispatchQueue(label: "test.queue")
-        targetConfig = FileTargetConfig(dispatchQueue: dispatchQueue)
-        target = FileTarget(targetConfig)
+        targetConfig = FileTargetConfig()
+        target = FileTarget(targetConfig, dispatchQueue: dispatchQueue)
         let lineCount = 10
         let meta = MetaInfo(file: #file, function: #function, line: #line)
         (0..<lineCount).forEach {
@@ -126,20 +122,15 @@ class FileTargetTests: XCTestCase {
             target.send(Message(level: .error, tag: "Test", text: "message #\($0)", meta: meta))
             target.send(Message(level: .critical, tag: "Test", text: "message #\($0)", meta: meta))
         }
-        let expectation = XCTestExpectation(description: "Writing \(lineCount) log lines using serial queue")
-        target.forceArchive {
-            expectation.fulfill()
-        }
-        wait(for: [expectation], timeout: 20.0)
-        let archivedFileUrl = target.archiveUrl.appendingPathComponent(self.targetConfig.archiveFileName)
-        let archivedLines = try! String(contentsOf: archivedFileUrl, encoding: .utf8).components(separatedBy: .newlines).dropLast()
-        XCTAssertEqual(lineCount * 5, archivedLines.count)
+        target.sync()
+        let logContent = try! String(contentsOf: target.logFileUrl, encoding: .utf8).components(separatedBy: .newlines).dropLast()
+        XCTAssertEqual(lineCount * 5, logContent.count)
         stride(from: 0, to: lineCount, by: 5).enumerated().forEach {
-            XCTAssertTrue(archivedLines[$0.element].contains("Debug - Test: message #\($0.offset)"))
-            XCTAssertTrue(archivedLines[$0.element + 1].contains("Info - Test: message #\($0.offset)"))
-            XCTAssertTrue(archivedLines[$0.element + 2].contains("Warn - Test: message #\($0.offset)"))
-            XCTAssertTrue(archivedLines[$0.element + 3].contains("Error - Test: message #\($0.offset)"))
-            XCTAssertTrue(archivedLines[$0.element + 4].contains("Critical - Test: message #\($0.offset)"))
+            XCTAssertTrue(logContent[$0.element].contains("Debug - Test: message #\($0.offset)"))
+            XCTAssertTrue(logContent[$0.element + 1].contains("Info - Test: message #\($0.offset)"))
+            XCTAssertTrue(logContent[$0.element + 2].contains("Warn - Test: message #\($0.offset)"))
+            XCTAssertTrue(logContent[$0.element + 3].contains("Error - Test: message #\($0.offset)"))
+            XCTAssertTrue(logContent[$0.element + 4].contains("Critical - Test: message #\($0.offset)"))
         }
     }
     
@@ -153,7 +144,7 @@ class FileTargetTests: XCTestCase {
             target.send(Message(level: .debug, tag: "Test", text: "message #\($0)", meta: meta))
         }
         let expectation = XCTestExpectation(description: "Writing \(lineCount) log lines")
-        target.io.async {
+        target.dispatchQueue.async {
             expectation.fulfill()
         }
         wait(for: [expectation], timeout: 60.0)
@@ -172,14 +163,9 @@ class FileTargetTests: XCTestCase {
         target = FileTarget(targetConfig)
         
         XCTAssertFalse(target.shouldArchive)
-        let expectation = XCTestExpectation(description: "Archive log header")
-        target.forceArchive {
-            expectation.fulfill()
-        }
-        wait(for: [expectation], timeout: 10.0)
-        let archivedFileUrl = target.archiveUrl.appendingPathComponent(self.targetConfig.archiveFileName)
-        let archivedLines = try! String(contentsOf: archivedFileUrl, encoding: .utf8)
-        XCTAssertEqual(header, archivedLines)
+        
+        let logContent = try! String(contentsOf: target.logFileUrl, encoding: .utf8)
+        XCTAssertEqual(header, logContent)
     }
     
     func testInfoMinimumLogLevel() {
@@ -192,14 +178,9 @@ class FileTargetTests: XCTestCase {
         target.send(Message(level: .error, tag: "Test", text: "message", meta: meta))
         target.send(Message(level: .critical, tag: "Test", text: "message", meta: meta))
         
-        let expectation = XCTestExpectation(description: "Archive log file")
-        target.forceArchive {
-            expectation.fulfill()
-        }
-        wait(for: [expectation], timeout: 20.0)
+        target.sync()
         
-        let archivedFileUrl = target.archiveUrl.appendingPathComponent(self.targetConfig.archiveFileName)
-        let logContent = try! String(contentsOf: archivedFileUrl, encoding: .utf8).components(separatedBy: .newlines).dropLast()
+        let logContent = try! String(contentsOf: target.logFileUrl, encoding: .utf8).components(separatedBy: .newlines).dropLast()
         XCTAssertEqual(4, logContent.count)
         XCTAssertTrue(logContent[0].contains("Info - Test: message"))
         XCTAssertTrue(logContent[1].contains("Warn - Test: message"))
@@ -217,14 +198,9 @@ class FileTargetTests: XCTestCase {
         target.send(Message(level: .error, tag: "Test", text: "message", meta: meta))
         target.send(Message(level: .critical, tag: "Test", text: "message", meta: meta))
         
-        let expectation = XCTestExpectation(description: "Archive log file")
-        target.forceArchive {
-            expectation.fulfill()
-        }
-        wait(for: [expectation], timeout: 20.0)
+        target.sync()
         
-        let archivedFileUrl = target.archiveUrl.appendingPathComponent(self.targetConfig.archiveFileName)
-        let logContent = try! String(contentsOf: archivedFileUrl, encoding: .utf8).components(separatedBy: .newlines).dropLast()
+        let logContent = try! String(contentsOf: target.logFileUrl, encoding: .utf8).components(separatedBy: .newlines).dropLast()
         XCTAssertEqual(3, logContent.count)
         XCTAssertTrue(logContent[0].contains("Warn - Test: message"))
         XCTAssertTrue(logContent[1].contains("Error - Test: message"))
@@ -241,14 +217,9 @@ class FileTargetTests: XCTestCase {
         target.send(Message(level: .error, tag: "Test", text: "message", meta: meta))
         target.send(Message(level: .critical, tag: "Test", text: "message", meta: meta))
         
-        let expectation = XCTestExpectation(description: "Archive log file")
-        target.forceArchive {
-            expectation.fulfill()
-        }
-        wait(for: [expectation], timeout: 20.0)
+        target.sync()
         
-        let archivedFileUrl = target.archiveUrl.appendingPathComponent(self.targetConfig.archiveFileName)
-        let logContent = try! String(contentsOf: archivedFileUrl, encoding: .utf8).components(separatedBy: .newlines).dropLast()
+        let logContent = try! String(contentsOf: target.logFileUrl, encoding: .utf8).components(separatedBy: .newlines).dropLast()
         XCTAssertEqual(2, logContent.count)
         XCTAssertTrue(logContent[0].contains("Error - Test: message"))
         XCTAssertTrue(logContent[1].contains("Critical - Test: message"))
@@ -264,14 +235,9 @@ class FileTargetTests: XCTestCase {
         target.send(Message(level: .error, tag: "Test", text: "message", meta: meta))
         target.send(Message(level: .critical, tag: "Test", text: "message", meta: meta))
         
-        let expectation = XCTestExpectation(description: "Archive log file")
-        target.forceArchive {
-            expectation.fulfill()
-        }
-        wait(for: [expectation], timeout: 20.0)
+        target.sync()
         
-        let archivedFileUrl = target.archiveUrl.appendingPathComponent(self.targetConfig.archiveFileName)
-        let logContent = try! String(contentsOf: archivedFileUrl, encoding: .utf8).components(separatedBy: .newlines).dropLast()
+        let logContent = try! String(contentsOf: target.logFileUrl, encoding: .utf8).components(separatedBy: .newlines).dropLast()
         XCTAssertEqual(1, logContent.count)
         XCTAssertTrue(logContent[0].contains("Critical - Test: message"))
     }
