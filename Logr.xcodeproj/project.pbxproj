@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		76DED42C2523B491005B1A2C /* DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DED42B2523B491005B1A2C /* DispatchQueue.swift */; };
 		76F33C3F251686E600E251AE /* Logr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F33C2D251686E600E251AE /* Logr.swift */; };
 		76F33C40251686E600E251AE /* OSLogType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F33C2F251686E600E251AE /* OSLogType.swift */; };
 		76F33C41251686E600E251AE /* FileTargetConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F33C32251686E600E251AE /* FileTargetConfig.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		76DED42B2523B491005B1A2C /* DispatchQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchQueue.swift; sourceTree = "<group>"; };
 		76F33C2D251686E600E251AE /* Logr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logr.swift; sourceTree = "<group>"; };
 		76F33C2F251686E600E251AE /* OSLogType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSLogType.swift; sourceTree = "<group>"; };
 		76F33C32251686E600E251AE /* FileTargetConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileTargetConfig.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 		76F33C2E251686E600E251AE /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				76DED42B2523B491005B1A2C /* DispatchQueue.swift */,
 				76F33C2F251686E600E251AE /* OSLogType.swift */,
 			);
 			path = Extension;
@@ -302,6 +305,7 @@
 				76F33C49251686E600E251AE /* Config.swift in Sources */,
 				76F33C4B251686E600E251AE /* LogLevel.swift in Sources */,
 				76F33C46251686E600E251AE /* ConsoleTargetConfig.swift in Sources */,
+				76DED42C2523B491005B1A2C /* DispatchQueue.swift in Sources */,
 				76F33C44251686E600E251AE /* TimeSpan.swift in Sources */,
 				76F33C45251686E600E251AE /* Style.swift in Sources */,
 				76F33C48251686E600E251AE /* Message.swift in Sources */,

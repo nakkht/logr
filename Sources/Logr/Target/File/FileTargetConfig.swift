@@ -56,7 +56,7 @@ public struct FileTargetConfig {
                 level: LogLevel? = nil, style: Style? = nil, dispatchQueue: DispatchQueue? = nil, header: String? = nil) {
         self.fileName = fileName ?? "file"
         self.fileExtension = fileExtension ?? "log"
-        self.maxArchivedFilesCount = maxArchivedFilesCount ?? 1
+        self.maxArchivedFilesCount = maxArchivedFilesCount ?? 2
         self.archiveFrequency = archiveFrequency ?? .day
         self.maxFileSizeInBytes = maxFileSizeInBytes ?? FileTargetConfig.defaultMaxFileSizeInBytes
         self.dateTimeFormat = dateTimeFormat ?? FileTargetConfig.defaultDateTimeFormat

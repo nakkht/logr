@@ -24,8 +24,7 @@ class FileTargetTests: XCTestCase {
     
     override func tearDown() {
         if let target = self.target {
-            try! target.fileManager.removeItem(at: target.fullLogFileUrl)
-            try! target.fileManager.removeItem(at: target.archiveUrl)
+            try? target.fileManager.removeItem(at: self.target.baseLogDirectory)
         }
         target = nil
         targetConfig = nil
@@ -50,7 +49,7 @@ class FileTargetTests: XCTestCase {
         XCTAssertEqual("y-MM-dd HH:mm:ss.SSS", targetConfig.dateTimeFormat)
         XCTAssertEqual(Style.minimal, targetConfig.style)
         XCTAssertEqual(.debug, targetConfig.level)
-        XCTAssertEqual(1, targetConfig.maxArchivedFilesCount)
+        XCTAssertEqual(2, targetConfig.maxArchivedFilesCount)
         XCTAssertNil(targetConfig.dispatchQueue)
         XCTAssertNil(targetConfig.header)
     }
@@ -98,7 +97,7 @@ class FileTargetTests: XCTestCase {
             target.send(Message(level: .critical, tag: "Test", text: "message #\($0)", meta: meta))
         }
         let expectation = XCTestExpectation(description: "Writing \(lineCount) log lines")
-        target.archive {
+        target.forceArchive {
             expectation.fulfill()
         }
         wait(for: [expectation], timeout: 120.0)
@@ -128,7 +127,7 @@ class FileTargetTests: XCTestCase {
             target.send(Message(level: .critical, tag: "Test", text: "message #\($0)", meta: meta))
         }
         let expectation = XCTestExpectation(description: "Writing \(lineCount) log lines using serial queue")
-        target.archive {
+        target.forceArchive {
             expectation.fulfill()
         }
         wait(for: [expectation], timeout: 20.0)
@@ -154,20 +153,11 @@ class FileTargetTests: XCTestCase {
             target.send(Message(level: .debug, tag: "Test", text: "message #\($0)", meta: meta))
         }
         let expectation = XCTestExpectation(description: "Writing \(lineCount) log lines")
-        target.dispatchQueue.async {
+        target.io.async {
             expectation.fulfill()
         }
         wait(for: [expectation], timeout: 60.0)
         
-        let archiveExpecation = XCTestExpectation(description: "Async size based archive")
-        XCTAssertTrue(target.shouldArchive)
-        target.dispatchQueue.async {
-            self.target.archiveIfNeeded() {
-                archiveExpecation.fulfill()
-            }
-        }
-        wait(for: [archiveExpecation], timeout: 20.0)
-        XCTAssertEqual(0, target.logFileSizeInBytes)
         let archivedFileCount = try! target.fileManager.contentsOfDirectory(atPath: target.archiveUrl.path).count
         XCTAssertEqual(1, archivedFileCount)
     }
@@ -183,7 +173,7 @@ class FileTargetTests: XCTestCase {
         
         XCTAssertFalse(target.shouldArchive)
         let expectation = XCTestExpectation(description: "Archive log header")
-        target.archive {
+        target.forceArchive {
             expectation.fulfill()
         }
         wait(for: [expectation], timeout: 10.0)
@@ -203,7 +193,7 @@ class FileTargetTests: XCTestCase {
         target.send(Message(level: .critical, tag: "Test", text: "message", meta: meta))
         
         let expectation = XCTestExpectation(description: "Archive log file")
-        target.archive {
+        target.forceArchive {
             expectation.fulfill()
         }
         wait(for: [expectation], timeout: 20.0)
@@ -228,7 +218,7 @@ class FileTargetTests: XCTestCase {
         target.send(Message(level: .critical, tag: "Test", text: "message", meta: meta))
         
         let expectation = XCTestExpectation(description: "Archive log file")
-        target.archive {
+        target.forceArchive {
             expectation.fulfill()
         }
         wait(for: [expectation], timeout: 20.0)
@@ -252,7 +242,7 @@ class FileTargetTests: XCTestCase {
         target.send(Message(level: .critical, tag: "Test", text: "message", meta: meta))
         
         let expectation = XCTestExpectation(description: "Archive log file")
-        target.archive {
+        target.forceArchive {
             expectation.fulfill()
         }
         wait(for: [expectation], timeout: 20.0)
@@ -275,7 +265,7 @@ class FileTargetTests: XCTestCase {
         target.send(Message(level: .critical, tag: "Test", text: "message", meta: meta))
         
         let expectation = XCTestExpectation(description: "Archive log file")
-        target.archive {
+        target.forceArchive {
             expectation.fulfill()
         }
         wait(for: [expectation], timeout: 20.0)

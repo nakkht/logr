@@ -19,17 +19,14 @@ import Foundation
 /// Target class for logging to a file.
 open class FileTarget: Target {
     
-    lazy var fileManager = FileManager.default
-    var dispatchQueue = DispatchQueue(label: "com.neqsoft.file_target", qos: .background)
-    
     /// Base directory URL for logged files.
-    public lazy var baseLogDirectory = fileManager.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
+    public lazy var baseLogDirectory = fileManager.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!.appendingPathComponent("Logs", isDirectory: true)
     
     /// URL of main log file.
-    public lazy var fullLogFileUrl = baseLogDirectory.appendingPathComponent(self.config.fullFileName)
+    public lazy var logFileUrl = baseLogDirectory.appendingPathComponent(self.config.fullFileName)
     
     /// URL of  archive folder.
-    public lazy var archiveUrl = baseLogDirectory.appendingPathComponent("archive", isDirectory: true)
+    public lazy var archiveUrl = baseLogDirectory.appendingPathComponent("Archive", isDirectory: true)
     
     /// Config struct assigned during initialization
     public let config: FileTargetConfig
@@ -38,6 +35,8 @@ open class FileTarget: Target {
     public var fileHandle: FileHandle?
     
     let dateFormatter: DateFormatter
+    lazy var fileManager = FileManager.default
+    var io = DispatchQueue.io
     
     /**
      Initializes FileTarget instance with provided FileTargetConfig struct. Prepares file for receiving and persisting log messages.
@@ -48,7 +47,7 @@ open class FileTarget: Target {
     public init(_ config: FileTargetConfig? = nil) {
         self.config = config ?? FileTargetConfig()
         if let configDispatchQueue = config?.dispatchQueue {
-            self.dispatchQueue = configDispatchQueue
+            self.io = configDispatchQueue
         }
         self.dateFormatter = DateFormatter()
         self.dateFormatter.dateFormat = self.config.dateTimeFormat
@@ -71,31 +70,27 @@ open class FileTarget: Target {
     }
     
     func write(_ log: String) {
-        guard !log.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
-        dispatchQueue.async {
+        io.async {
             guard let data = log.data(using: .utf8), data.count > 0 else { return }
             self.fileHandle?.seekToEndOfFile()
             self.fileHandle?.write(data)
             self.fileHandle?.synchronizeFile()
+            self.archiveIfNeeded()
         }
     }
     
     /// Forces archive process of the current log file regardless of the preconditions set in config files. Non-blocking. Thread-safe.
     /// - Parameter completionHandler: the block to execute when archiving as completed
-    public func archive(_ completionHandler: (() -> Void)? = nil) {
-        dispatchQueue.async {
-            self.shiftArchivedFiles()
-            self.closeFile()
-            self.moveFileToArchive()
-            self.initFile()
-            self.deleteObsoletFiles(at: self.archiveUrl)
-            completionHandler?()
+    public func forceArchive(_ completionHandler: @escaping (() -> Void)) {
+        io.async {
+            self.archive()
+            completionHandler()
         }
     }
     
     func initFile() {
-        let didCreateNewFile = self.createFileIfNeeded(fullLogFileUrl)
-        self.fileHandle = FileHandle(forWritingAtPath: fullLogFileUrl.path)
+        let didCreateNewFile = self.createFileIfNeeded(logFileUrl)
+        self.fileHandle = FileHandle(forWritingAtPath: logFileUrl.path)
         if didCreateNewFile, let header = config.header { self.write(header) }
     }
     
@@ -116,7 +111,7 @@ open class FileTarget: Target {
     
     func moveFileToArchive() {
         let archiveFileUrl = archiveUrl.appendingPathComponent(self.config.archiveFileName)
-        try? self.fileManager.moveItem(atPath: fullLogFileUrl.path, toPath: archiveFileUrl.path)
+        try? self.fileManager.moveItem(atPath: logFileUrl.path, toPath: archiveFileUrl.path)
     }
     
     func deleteObsoletFiles(at url: URL) {
@@ -140,12 +135,17 @@ open class FileTarget: Target {
         }
     }
     
-    func archiveIfNeeded(_ completionHandler: (() -> Void)? = nil) {
-        guard self.shouldArchive else {
-            completionHandler?()
-            return
-        }
-        self.archive(completionHandler)
+    func archiveIfNeeded() {
+        guard self.shouldArchive else { return }
+        self.archive()
+    }
+    
+    func archive() {
+        self.shiftArchivedFiles()
+        self.closeFile()
+        self.moveFileToArchive()
+        self.initFile()
+        self.deleteObsoletFiles(at: self.archiveUrl)
     }
     
     var shouldArchive: Bool {
@@ -158,8 +158,8 @@ open class FileTarget: Target {
     }
     
     var logFileAge: TimeSpan? {
-        guard let creationDate = try? fileManager.attributesOfItem(atPath: fullLogFileUrl.path)[.creationDate] as? Date,
-            let modificationDate = try? fileManager.attributesOfItem(atPath: fullLogFileUrl.path)[.modificationDate] as? Date else {
+        guard let creationDate = try? fileManager.attributesOfItem(atPath: logFileUrl.path)[.creationDate] as? Date,
+            let modificationDate = try? fileManager.attributesOfItem(atPath: logFileUrl.path)[.modificationDate] as? Date else {
                 return nil
         }
         let components = Calendar.current.dateComponents([.minute, .hour, .day, .weekOfYear, .month], from: creationDate, to: modificationDate)
@@ -174,11 +174,11 @@ open class FileTarget: Target {
     }
     
     var logFileSizeInBytes: UInt64 {
-        let size = try? fileManager.attributesOfItem(atPath: fullLogFileUrl.path)[.size] as? UInt64
+        let size = try? fileManager.attributesOfItem(atPath: logFileUrl.path)[.size] as? UInt64
         return size ?? 0
     }
     
     var doesLogFileExists: Bool {
-        return fileManager.fileExists(atPath: self.fullLogFileUrl.path)
+        return fileManager.fileExists(atPath: self.logFileUrl.path)
     }
 }
