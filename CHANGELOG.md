@@ -2,6 +2,11 @@
 
 All notable changes to logr project.
 
+## v0.9.0 - [2020-10-xx]
+
+Fixed
+* Auto archive based on archive file size or age 
+
 ## v0.8.0 - [2020-09-21]
 
 Added
