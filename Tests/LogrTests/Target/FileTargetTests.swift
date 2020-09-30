@@ -92,6 +92,7 @@ class FileTargetTests: XCTestCase {
             target.send(Message(level: .error, tag: "Test", text: "message #\($0)", meta: meta))
             target.send(Message(level: .critical, tag: "Test", text: "message #\($0)", meta: meta))
         }
+        target.sync()
         let expectation = XCTestExpectation(description: "Writing \(lineCount) log lines")
         target.forceArchive {
             expectation.fulfill()
