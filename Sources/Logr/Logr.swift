@@ -25,27 +25,21 @@ open class Logr {
     /// Tag assinged during initialization. Used as a prefix for all log messages. Helps to categorize/group messages.
     public let tag: String
     
-    /**
-     Initializes new instance of Logr.
-     
-     - Parameters:
-        - serivce: LogrService to which pass logging messages
-        - tag: Prefix to be used for all messages logged through this Logr instance. If not provided, calling file name will be used as a tag.
-     */
+    /// Initializes new instance of Logr.
+    /// - Parameters:
+    ///   - tag: prefix to be used for all messages logged through this Logr instance. If not provided, calling file name will be used as a tag.
+    ///   - service: LogrService to which pass logging messages.
     public init(_ tag: String = #file, _ service: LogrService? = nil) {
         self.tag = !tag.contains("/") ? tag : tag.components(separatedBy: "/").last?.components(separatedBy: ".").first ?? ""
         self.service = service ?? LogrService()
     }
     
-    /**
-     Logs debug type of message to the service.
-     
-     - Parameters:
-        - message: text to be logged
-        - file: name of the file where debug function was called
-        - function: name of the function where debug function was called
-        - line: line number where debug function was called
-     */
+    /// Logs debug type of message to the service.
+    /// - Parameters:
+    ///   - message: message to be logged.
+    ///   - file: full file path where critical function was called.
+    ///   - function: name of the function where critical function was called.
+    ///   - line: line number where critical function was called.
     open func debug(_ message: String, _ file: String = #file, _ function: String = #function, line: Int = #line) {
         self.service.log(Message(level: .debug,
                                  tag: tag,
@@ -53,15 +47,12 @@ open class Logr {
                                  meta: MetaInfo(file: file, function: function, line: line, timeStamp: Date())))
     }
     
-    /**
-     Logs info type of message to the service.
-     
-     - Parameters:
-        - message: text to be logged
-        - file: name of the file where info function was called
-        - function: name of the function where info function was called
-        - line: line number where info function was called
-     */
+    /// Logs info type of message to the service.
+    /// - Parameters:
+    ///   - message: message to be logged.
+    ///   - file: full file path where critical function was called.
+    ///   - function: name of the function where critical function was called.
+    ///   - line: line number where critical function was called.
     open func info(_ message: String, _ file: String = #file, _ function: String = #function, line: Int = #line) {
         self.service.log(Message(level: .info,
                                  tag: tag,
@@ -69,15 +60,12 @@ open class Logr {
                                  meta: MetaInfo(file: file, function: function, line: line, timeStamp: Date())))
     }
     
-    /**
-     Logs warn type of message to the service.
-     
-     - Parameters:
-        - message: text to be logged
-        - file: name of the file where warn function was called
-        - function: name of the function where warn function was called
-        - line: line number where warn function was called
-     */
+    /// Logs warn type of message to the service.
+    /// - Parameters:
+    ///   - message: message to be logged.
+    ///   - file: full file path where critical function was called.
+    ///   - function: name of the function where critical function was called.
+    ///   - line: line number where critical function was called.
     open func warn(_ message: String, _ file: String = #file, _ function: String = #function, line: Int = #line) {
         self.service.log(Message(level: .warn,
                                  tag: tag,
@@ -85,15 +73,12 @@ open class Logr {
                                  meta: MetaInfo(file: file, function: function, line: line, timeStamp: Date())))
     }
     
-    /**
-     Logs error type of message to the service.
-     
-     - Parameters:
-        - message: text to be logged
-        - file: name of the file where error function was called
-        - function: name of the function where error function was called
-        - line: line number where error function was called
-     */
+    /// Logs error type of message to the service.
+    /// - Parameters:
+    ///   - message: message to be logged.
+    ///   - file: full file path where critical function was called.
+    ///   - function: name of the function where critical function was called.
+    ///   - line: line number where critical function was called.
     open func error(_ message: String, _ file: String = #file, _ function: String = #function, line: Int = #line) {
         self.service.log(Message(level: .error,
                                  tag: tag,
@@ -101,15 +86,12 @@ open class Logr {
                                  meta: MetaInfo(file: file, function: function, line: line, timeStamp: Date())))
     }
     
-    /**
-     Logs critical type of message to the service.
-     
-     - Parameters:
-        - message: text to be logged
-        - file: name of the file where critical function was called
-        - function: name of the function where critical function was called
-        - line: line number where critical function was called
-     */
+    /// Logs critical type of message to the service.
+    /// - Parameters:
+    ///   - message: message to be logged.
+    ///   - file: full file path where critical function was called.
+    ///   - function: name of the function where critical function was called.
+    ///   - line: line number where critical function was called.
     open func critical(_ message: String, _ file: String = #file, _ function: String = #function, line: Int = #line) {
         self.service.log(Message(level: .critical,
                                  tag: tag,

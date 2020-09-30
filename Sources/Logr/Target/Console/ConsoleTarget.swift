@@ -26,12 +26,8 @@ open class ConsoleTarget: Target {
     /// Configuration struct assigned during initialization.
     public let config: ConsoleTargetConfig
     
-    /**
-     Initializes ConsoleTarget instance with provided ConsoleTargetConfig struct.
-     
-     - Parameters:
-        - config: struct encapsulating logging preferences. Defaults to struct instance with defaults values.
-     */
+    /// Initializes ConsoleTarget instance with provided ConsoleTargetConfig struct.
+    /// - Parameter config: struct encapsulating logging preferences. Defaults to struct instance with defaults values.
     public init(_ config: ConsoleTargetConfig? = nil) {
         self.config = config ?? ConsoleTargetConfig()
     }

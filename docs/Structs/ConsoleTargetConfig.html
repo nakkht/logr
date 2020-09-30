@@ -14,7 +14,7 @@
     <a title="ConsoleTargetConfig Structure Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">Logr 0.9.0 Docs</a> (89% documented)</p>
+        <p><a href="../index.html">Logr 0.9.0 Docs</a> (90% documented)</p>
         <p class="header-right"><a href="https://github.com/nakkht/logr"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -228,22 +228,70 @@
                       <div class="abstract">
                         <p>Initialzes configuration struct with provided values.</p>
 
-<ul>
-<li>substystem: title of OSLog subsystem. Helps to distinguish logs within Console logs. Defaults to: com.neqsoft.logr</li>
-<li>category: title of OSLog category. Helps to distinguish logs within Console logs. Defaults to: ConsoleTarget</li>
-<li>level: lowest log level which shall be logged</li>
-<li>style: logging style. Defaults to: minimal style</li>
-</ul>
-
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">subsystem</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">"com.neqsoft.logr"</span><span class="p">,</span> <span class="nv">category</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">"ConsoleTarget"</span><span class="p">,</span>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">subsystem</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">"logr.subsystem"</span><span class="p">,</span> <span class="nv">category</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">"ConsoleTarget"</span><span class="p">,</span>
             <span class="nv">level</span><span class="p">:</span> <span class="kt"><a href="../Enums/LogLevel.html">LogLevel</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">debug</span><span class="p">,</span> <span class="nv">style</span><span class="p">:</span> <span class="kt"><a href="../Enums/Style.html">Style</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">minimal</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>subsystem</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>title of OSLog subsystem. Helps to distinguish logs within Console logs. Defaults to: <code>logr.subsystem</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>category</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>title of OSLog category. Helps to distinguish logs within Console logs. Defaults to: <code><a href="../Classes/ConsoleTarget.html">ConsoleTarget</a></code></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>level</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>lowest log level which shall be logged.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>style</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>logging style. Defaults to: <code>minimal</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>

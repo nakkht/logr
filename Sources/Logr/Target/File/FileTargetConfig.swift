@@ -42,10 +42,10 @@ public struct FileTargetConfig {
     /// Determines logging style used by the target.
     public let style: Style
     
-    /// Format to be used for log line timestamps
+    /// Format to be used for log line timestamps.
     public let dateTimeFormat: String
     
-    /// Optional header to be addead as the first content to newly create log file
+    /// Optional header to be addead as the first content to newly create log file.
     public let header: String?
     
     public init(fileName: String? = nil, fileExtension: String? = nil, maxArchivedFilesCount: UInt16? = nil,

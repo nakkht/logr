@@ -14,7 +14,7 @@
     <a title="LogrService Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">Logr 0.9.0 Docs</a> (89% documented)</p>
+        <p><a href="../index.html">Logr 0.9.0 Docs</a> (90% documented)</p>
         <p class="header-right"><a href="https://github.com/nakkht/logr"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -108,9 +108,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:4Logr0A7ServiceC4withAcA6ConfigV_tcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(with:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4Logr0A7ServiceC4withAcA6ConfigV_tcfc">init(with:<wbr>)</a>
+                    <a name="/s:4Logr0A7ServiceC4with13dispatchQueueAcA6ConfigV_So03OS_D6_queueCSgtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(with:dispatchQueue:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Logr0A7ServiceC4with13dispatchQueueAcA6ConfigV_So03OS_D6_queueCSgtcfc">init(with:<wbr>dispatchQueue:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -118,7 +118,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initializes new intance of LogrSerice with provided configuration. Overrides any properties initialized with previous LogrService instance.</p>
+                        <p>Initializes new intance of LogrService with provided configuration. Overrides previously set <code>targets</code> and <code>dispatchQueue</code> properties.</p>
 
                       </div>
                       <div class="declaration">
@@ -126,7 +126,7 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
-<span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">with</span> <span class="nv">config</span><span class="p">:</span> <span class="kt"><a href="../Structs/Config.html">Config</a></span><span class="p">)</span></code></pre>
+<span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">with</span> <span class="nv">config</span><span class="p">:</span> <span class="kt"><a href="../Structs/Config.html">Config</a></span><span class="p">,</span> <span class="nv">dispatchQueue</span><span class="p">:</span> <span class="kt">DispatchQueue</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -142,7 +142,19 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>struct encapsulating configuration properties used by LogrService</p>
+                                  <p>struct encapsulating configuration properties used by LogrService.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>dispatchQueue</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>queue to be used for handling incoming log messages and forwarding to  previously set targets.</p>
                                 </div>
                               </td>
                             </tr>

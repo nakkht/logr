@@ -14,7 +14,7 @@
     <a title="Logr Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">Logr 0.9.0 Docs</a> (89% documented)</p>
+        <p><a href="../index.html">Logr 0.9.0 Docs</a> (90% documented)</p>
         <p class="header-right"><a href="https://github.com/nakkht/logr"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -190,24 +190,24 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>serivce</em>
+                                <em>tag</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>LogrService to which pass logging messages</p>
+                                  <p>prefix to be used for all messages logged through this Logr instance. If not provided, calling file name will be used as a tag.</p>
                                 </div>
                               </td>
                             </tr>
                             <tr>
                               <td>
                                 <code>
-                                <em>tag</em>
+                                <em>service</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Prefix to be used for all messages logged through this Logr instance. If not provided, calling file name will be used as a tag.</p>
+                                  <p>LogrService to which pass logging messages.</p>
                                 </div>
                               </td>
                             </tr>
@@ -253,7 +253,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>text to be logged</p>
+                                  <p>message to be logged.</p>
                                 </div>
                               </td>
                             </tr>
@@ -265,7 +265,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>name of the file where debug function was called</p>
+                                  <p>full file path where critical function was called.</p>
                                 </div>
                               </td>
                             </tr>
@@ -277,7 +277,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>name of the function where debug function was called</p>
+                                  <p>name of the function where critical function was called.</p>
                                 </div>
                               </td>
                             </tr>
@@ -289,7 +289,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>line number where debug function was called</p>
+                                  <p>line number where critical function was called.</p>
                                 </div>
                               </td>
                             </tr>
@@ -335,7 +335,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>text to be logged</p>
+                                  <p>message to be logged.</p>
                                 </div>
                               </td>
                             </tr>
@@ -347,7 +347,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>name of the file where info function was called</p>
+                                  <p>full file path where critical function was called.</p>
                                 </div>
                               </td>
                             </tr>
@@ -359,7 +359,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>name of the function where info function was called</p>
+                                  <p>name of the function where critical function was called.</p>
                                 </div>
                               </td>
                             </tr>
@@ -371,7 +371,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>line number where info function was called</p>
+                                  <p>line number where critical function was called.</p>
                                 </div>
                               </td>
                             </tr>
@@ -417,7 +417,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>text to be logged</p>
+                                  <p>message to be logged.</p>
                                 </div>
                               </td>
                             </tr>
@@ -429,7 +429,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>name of the file where warn function was called</p>
+                                  <p>full file path where critical function was called.</p>
                                 </div>
                               </td>
                             </tr>
@@ -441,7 +441,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>name of the function where warn function was called</p>
+                                  <p>name of the function where critical function was called.</p>
                                 </div>
                               </td>
                             </tr>
@@ -453,7 +453,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>line number where warn function was called</p>
+                                  <p>line number where critical function was called.</p>
                                 </div>
                               </td>
                             </tr>
@@ -499,7 +499,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>text to be logged</p>
+                                  <p>message to be logged.</p>
                                 </div>
                               </td>
                             </tr>
@@ -511,7 +511,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>name of the file where error function was called</p>
+                                  <p>full file path where critical function was called.</p>
                                 </div>
                               </td>
                             </tr>
@@ -523,7 +523,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>name of the function where error function was called</p>
+                                  <p>name of the function where critical function was called.</p>
                                 </div>
                               </td>
                             </tr>
@@ -535,7 +535,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>line number where error function was called</p>
+                                  <p>line number where critical function was called.</p>
                                 </div>
                               </td>
                             </tr>
@@ -581,7 +581,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>text to be logged</p>
+                                  <p>message to be logged.</p>
                                 </div>
                               </td>
                             </tr>
@@ -593,7 +593,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>name of the file where critical function was called</p>
+                                  <p>full file path where critical function was called.</p>
                                 </div>
                               </td>
                             </tr>
@@ -605,7 +605,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>name of the function where critical function was called</p>
+                                  <p>name of the function where critical function was called.</p>
                                 </div>
                               </td>
                             </tr>
@@ -617,7 +617,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>line number where critical function was called</p>
+                                  <p>line number where critical function was called.</p>
                                 </div>
                               </td>
                             </tr>

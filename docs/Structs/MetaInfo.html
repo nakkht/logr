@@ -14,7 +14,7 @@
     <a title="MetaInfo Structure Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">Logr 0.9.0 Docs</a> (89% documented)</p>
+        <p><a href="../index.html">Logr 0.9.0 Docs</a> (90% documented)</p>
         <p class="header-right"><a href="https://github.com/nakkht/logr"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -118,14 +118,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Name of the file where log call happened.</p>
+                        <p>Whole path to the file where log message was created.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">file</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">file</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -152,7 +152,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">function</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">function</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -179,7 +179,34 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">line</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">line</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Logr8MetaInfoV9timeStamp10Foundation4DateVvp"></a>
+                    <a name="//apple_ref/swift/Property/timeStamp" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Logr8MetaInfoV9timeStamp10Foundation4DateVvp">timeStamp</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Timestamp of when the  log message was created.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">timeStamp</span><span class="p">:</span> <span class="kt">Date</span></code></pre>
 
                         </div>
                       </div>
@@ -199,7 +226,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Property for transforming MetaInfo struct into text line.</p>
+                        <p>Computed property for transforming MetaInfo struct into text line.</p>
 
                       </div>
                       <div class="declaration">
@@ -226,7 +253,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Computed property for getting only file name from the <code><a href="../Structs/MetaInfo.html#/s:4Logr8MetaInfoV4fileSSvp">file</a></code> property.</p>
 
                       </div>
                       <div class="declaration">

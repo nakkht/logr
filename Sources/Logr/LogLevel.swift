@@ -17,19 +17,19 @@
 /// Enum containing available distinct log levels within library.
 public enum LogLevel: Int, Equatable, CustomStringConvertible {
     
-    /// Denotes verbose log level
+    /// Denotes verbose log level.
     case debug = 0
     
-    /// Denotes informational log level
+    /// Denotes informational log level.
     case info = 1
     
-    /// Denotes warning log level
+    /// Denotes warning log level.
     case warn = 2
     
-    /// Denotes error log level
+    /// Denotes error log level.
     case error = 3
     
-    /// Denotes critical log level
+    /// Denotes critical log level.
     case critical = 4
     
     /// String representation of the log level.
