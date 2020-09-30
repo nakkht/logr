@@ -22,11 +22,30 @@ class LogrServiceTests: XCTestCase {
     var service: LogrService!
     var config: Config!
     var targetMock: TargetMock!
-    var dispatchQueue: DispatchQueue!
+    var defaultDispatchQueue: DispatchQueue!
     
     override func setUp() {
-        dispatchQueue = DispatchQueue(label: "logr.test-dispatch")
         targetMock = TargetMock()
+        defaultDispatchQueue = LogrService.dispatchQueue
+    }
+    
+    override func tearDown() {
+        targetMock = nil
+        config = nil
+        service = nil
+        LogrService.dispatchQueue = defaultDispatchQueue
+        LogrService.targets = nil
+    }
+    
+    func testDefaultValues() {
+        service = LogrService()
+        XCTAssertNil(LogrService.targets)
+        XCTAssertEqual("logr.service", LogrService.dispatchQueue.label)
+        XCTAssertTrue(service.async)
+    }
+    
+    func testDispatchQueue() {
+        let dispatchQueue = DispatchQueue(label: "logr.test-dispatch")
         config = Config(async: false, targetMock)
         service = LogrService(with: config, dispatchQueue: dispatchQueue)
         XCTAssertEqual(dispatchQueue, LogrService.dispatchQueue)
@@ -34,16 +53,19 @@ class LogrServiceTests: XCTestCase {
         XCTAssertEqual(config.targets?.count, LogrService.targets?.count)
     }
     
-    override func tearDown() {
-        targetMock = nil
-        config = nil
-        dispatchQueue = nil
-        service = nil
-    }
-    
-    func testDefaultValues() {
-        service = LogrService()
+    func testSyncLog() {
+        service = LogrService(with: Config(async: false, targetMock))
         XCTAssertNotNil(LogrService.targets)
+        let metaInfo = MetaInfo(file: #file, function: #function, line: #line, timeStamp: Date())
+        let message = Message(level: .error,
+                              tag: String(describing: self),
+                              text: "error message",
+                              meta: metaInfo)
+        targetMock.calledSendWith = {
+            XCTAssertEqual(message, $0)
+            XCTAssertEqual(metaInfo, $0.meta)
+        }
+        service.log(message)
     }
     
     func testAsyncLog() {
