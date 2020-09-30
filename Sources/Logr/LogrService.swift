@@ -19,7 +19,7 @@ import Foundation
 /// Main logging service used for dispatching messages to dedicated targets for further processing.
 public class LogrService {
     
-    static var dispatchQueue = DispatchQueue(label: "com.neqsoft.logr_service", qos: .background)
+    static var dispatchQueue = DispatchQueue(label: "logr.service", qos: .background)
     static var targets: [Target]?
     
     let async: Bool

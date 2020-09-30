@@ -24,9 +24,11 @@ class MessageTests: XCTestCase {
     func testSetValues() {
         let logMessage = "log message"
         let tag = String(describing: self)
+        let timeStamp = Date()
         let metaInfo = MetaInfo(file: "fileName",
                                 function: "function",
-                                line: 42)
+                                line: 42,
+                                timeStamp: timeStamp)
         let message = Message(level: .error,
                           tag: tag,
                           text: logMessage,
@@ -38,17 +40,20 @@ class MessageTests: XCTestCase {
         XCTAssertEqual(tag, message.tag)
         XCTAssertEqual(metaInfo, message.meta)
         XCTAssertEqual(metaInfo.text, message.meta.text)
+        XCTAssertEqual(metaInfo.timeStamp, message.meta.timeStamp)
     }
     
     func testMetaInfo() {
         let file = ""
         let function = #function
         let line = #line
-        let metaInfo = MetaInfo(file: file, function: function, line: line)
+        let timeStamp = Date()
+        let metaInfo = MetaInfo(file: file, function: function, line: line, timeStamp: timeStamp)
         
         XCTAssertEqual(file, metaInfo.file)
         XCTAssertEqual(function, metaInfo.function)
         XCTAssertEqual(line, metaInfo.line)
         XCTAssertEqual("", metaInfo.fileName)
+        XCTAssertEqual(timeStamp, metaInfo.timeStamp)
     }
 }

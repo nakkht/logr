@@ -79,10 +79,10 @@ class ConsoleTargetTests: XCTestCase {
     }
 
     var messages = [
-        Message(level: .debug, tag: "ConsoleTargetTest", text: "debug message", meta: MetaInfo(file: #file, function: #function, line: #line)),
-        Message(level: .info, tag: "ConsoleTargetTest", text: "info message", meta: MetaInfo(file: #file, function: #function, line: #line)),
-        Message(level: .warn, tag: "ConsoleTargetTest", text: "warn message", meta: MetaInfo(file: #file, function: #function, line: #line)),
-        Message(level: .error, tag: "ConsoleTargetTest", text: "error message", meta: MetaInfo(file: #file, function: #function, line: #line)),
-        Message(level: .critical, tag: "ConsoleTargetTest", text: "info message", meta: MetaInfo(file: #file, function: #function, line: #line))
+        Message(level: .debug, tag: "ConsoleTargetTest", text: "debug message", meta: MetaInfo(file: #file, function: #function, line: #line, timeStamp: Date())),
+        Message(level: .info, tag: "ConsoleTargetTest", text: "info message", meta: MetaInfo(file: #file, function: #function, line: #line, timeStamp: Date())),
+        Message(level: .warn, tag: "ConsoleTargetTest", text: "warn message", meta: MetaInfo(file: #file, function: #function, line: #line, timeStamp: Date())),
+        Message(level: .error, tag: "ConsoleTargetTest", text: "error message", meta: MetaInfo(file: #file, function: #function, line: #line, timeStamp: Date())),
+        Message(level: .critical, tag: "ConsoleTargetTest", text: "info message", meta: MetaInfo(file: #file, function: #function, line: #line, timeStamp: Date()))
     ]
 }

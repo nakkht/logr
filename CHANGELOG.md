@@ -4,6 +4,9 @@ All notable changes to logr project.
 
 ## v0.9.0 - [2020-10-xx]
 
+Added:
+* Timestamp to message meta info
+
 Fixed
 * Auto archive based on archive file size or age 
 

@@ -35,7 +35,7 @@ open class FileTarget: Target {
     public var fileHandle: FileHandle?
     
     let dateFormatter: DateFormatter
-    var dispatchQueue: DispatchQueue
+    let dispatchQueue: DispatchQueue
     lazy var fileManager = FileManager.default
     
     /**
@@ -60,11 +60,8 @@ open class FileTarget: Target {
     
     open func formatted(_ message: Message) -> String {
         let metaText = self.config.style == .verbose ? "\(message.meta.text) " : ""
-        return "\(dateString) \(metaText)\(message.level.description) - \(message.tag): \(message.text)\n"
-    }
-    
-    var dateString: String {
-        return self.dateFormatter.string(from: Date())
+        let timeStamp = self.dateFormatter.string(from: message.meta.timeStamp)
+        return "\(timeStamp) \(metaText)\(message.level.description) - \(message.tag): \(message.text)\n"
     }
     
     func write(_ log: String) {

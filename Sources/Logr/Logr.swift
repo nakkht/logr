@@ -50,7 +50,7 @@ open class Logr {
         self.service.log(Message(level: .debug,
                                  tag: tag,
                                  text: message,
-                                 meta: MetaInfo(file: file, function: function, line: line)))
+                                 meta: MetaInfo(file: file, function: function, line: line, timeStamp: Date())))
     }
     
     /**
@@ -66,7 +66,7 @@ open class Logr {
         self.service.log(Message(level: .info,
                                  tag: tag,
                                  text: message,
-                                 meta: MetaInfo(file: file, function: function, line: line)))
+                                 meta: MetaInfo(file: file, function: function, line: line, timeStamp: Date())))
     }
     
     /**
@@ -82,7 +82,7 @@ open class Logr {
         self.service.log(Message(level: .warn,
                                  tag: tag,
                                  text: message,
-                                 meta: MetaInfo(file: file, function: function, line: line)))
+                                 meta: MetaInfo(file: file, function: function, line: line, timeStamp: Date())))
     }
     
     /**
@@ -98,7 +98,7 @@ open class Logr {
         self.service.log(Message(level: .error,
                                  tag: tag,
                                  text: message,
-                                 meta: MetaInfo(file: file, function: function, line: line)))
+                                 meta: MetaInfo(file: file, function: function, line: line, timeStamp: Date())))
     }
     
     /**
@@ -114,6 +114,6 @@ open class Logr {
         self.service.log(Message(level: .critical,
                                  tag: tag,
                                  text: message,
-                                 meta: MetaInfo(file: file, function: function, line: line)))
+                                 meta: MetaInfo(file: file, function: function, line: line, timeStamp: Date())))
     }
 }

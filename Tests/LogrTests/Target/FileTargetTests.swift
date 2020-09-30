@@ -84,7 +84,7 @@ class FileTargetTests: XCTestCase {
         targetConfig = FileTargetConfig()
         target = FileTarget(targetConfig)
         let lineCount = 10
-        let meta = MetaInfo(file: #file, function: #function, line: #line)
+        let meta = MetaInfo(file: #file, function: #function, line: #line, timeStamp: Date())
         (0..<lineCount).forEach {
             target.send(Message(level: .debug, tag: "Test", text: "message #\($0)", meta: meta))
             target.send(Message(level: .info, tag: "Test", text: "message #\($0)", meta: meta))
@@ -115,7 +115,7 @@ class FileTargetTests: XCTestCase {
         targetConfig = FileTargetConfig()
         target = FileTarget(targetConfig, dispatchQueue: dispatchQueue)
         let lineCount = 10
-        let meta = MetaInfo(file: #file, function: #function, line: #line)
+        let meta = MetaInfo(file: #file, function: #function, line: #line, timeStamp: Date())
         (0..<lineCount).forEach {
             target.send(Message(level: .debug, tag: "Test", text: "message #\($0)", meta: meta))
             target.send(Message(level: .info, tag: "Test", text: "message #\($0)", meta: meta))
@@ -140,7 +140,7 @@ class FileTargetTests: XCTestCase {
         targetConfig = FileTargetConfig(maxFileSizeInBytes: maxFileSize, style: .verbose)
         target = FileTarget(targetConfig)
         let lineCount = 20
-        let meta = MetaInfo(file: #file, function: #function, line: #line)
+        let meta = MetaInfo(file: #file, function: #function, line: #line, timeStamp: Date())
         (0..<lineCount).forEach {
             target.send(Message(level: .debug, tag: "Test", text: "message #\($0)", meta: meta))
         }
@@ -174,7 +174,7 @@ class FileTargetTests: XCTestCase {
     func testInfoMinimumLogLevel() {
         targetConfig = FileTargetConfig(level: .info)
         target = FileTarget(targetConfig)
-        let meta = MetaInfo(file: #file, function: #function, line: #line)
+        let meta = MetaInfo(file: #file, function: #function, line: #line, timeStamp: Date())
         target.send(Message(level: .debug, tag: "Test", text: "message", meta: meta))
         target.send(Message(level: .info, tag: "Test", text: "message", meta: meta))
         target.send(Message(level: .warn, tag: "Test", text: "message", meta: meta))
@@ -194,7 +194,7 @@ class FileTargetTests: XCTestCase {
     func testWarnMinimumLogLevel() {
         targetConfig = FileTargetConfig(level: .warn)
         target = FileTarget(targetConfig)
-        let meta = MetaInfo(file: #file, function: #function, line: #line)
+        let meta = MetaInfo(file: #file, function: #function, line: #line, timeStamp: Date())
         target.send(Message(level: .debug, tag: "Test", text: "message", meta: meta))
         target.send(Message(level: .info, tag: "Test", text: "message", meta: meta))
         target.send(Message(level: .warn, tag: "Test", text: "message", meta: meta))
@@ -213,7 +213,7 @@ class FileTargetTests: XCTestCase {
     func testErrorMinimumLogLevel() {
         targetConfig = FileTargetConfig(level: .error)
         target = FileTarget(targetConfig)
-        let meta = MetaInfo(file: #file, function: #function, line: #line)
+        let meta = MetaInfo(file: #file, function: #function, line: #line, timeStamp: Date())
         target.send(Message(level: .debug, tag: "Test", text: "message", meta: meta))
         target.send(Message(level: .info, tag: "Test", text: "message", meta: meta))
         target.send(Message(level: .warn, tag: "Test", text: "message", meta: meta))
@@ -231,7 +231,7 @@ class FileTargetTests: XCTestCase {
     func testCriticalMinimumLogLevel() {
         targetConfig = FileTargetConfig(level: .critical)
         target = FileTarget(targetConfig)
-        let meta = MetaInfo(file: #file, function: #function, line: #line)
+        let meta = MetaInfo(file: #file, function: #function, line: #line, timeStamp: Date())
         target.send(Message(level: .debug, tag: "Test", text: "message", meta: meta))
         target.send(Message(level: .info, tag: "Test", text: "message", meta: meta))
         target.send(Message(level: .warn, tag: "Test", text: "message", meta: meta))

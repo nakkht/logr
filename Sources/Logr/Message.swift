@@ -15,7 +15,7 @@
 // 
 
 /// Immutable struct encapsulating all log message data.
-public struct Message {
+public struct Message: Equatable {
     
     /// Log level of the log message.
     public let level: LogLevel

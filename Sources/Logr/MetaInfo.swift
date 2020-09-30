@@ -12,25 +12,31 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-// 
+//
+
+import Foundation
 
 /// Immutable struct for encapsulating meta information of the log message.
 public struct MetaInfo: Equatable {
     
-    /// Name of the file where log call happened.
-    public var file: String
+    /// Whole path to the file where log message was created.
+    public let file: String
     
     /// Name of the function where log call happened.
-    public var function: String
+    public let function: String
     
     /// Line number of the log call.
-    public var line: Int
+    public let line: Int
     
-    /// Property for transforming MetaInfo struct into text line.
+    /// Timestamp of when the  log message was created.
+    public let timeStamp: Date
+    
+    /// Computed property for transforming MetaInfo struct into text line.
     public var text: String {
         return "\(fileName) \(function) \(line)"
     }
     
+    /// Computed property for getting only file name from the `file` property.
     public var fileName: String {
         return String(file.split(separator: "/").last ?? "")
     }

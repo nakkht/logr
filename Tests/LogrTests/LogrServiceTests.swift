@@ -49,40 +49,18 @@ class LogrServiceTests: XCTestCase {
     func testAsyncLog() {
         service = LogrService(with: Config(targetMock))
         XCTAssertNotNil(LogrService.targets)
-        
+        let metaInfo = MetaInfo(file: #file, function: #function, line: #line, timeStamp: Date())
         let message = Message(level: .error,
                               tag: String(describing: self),
                               text: "error message",
-                              meta: MetaInfo(file: "file", function: "async type of function", line: 42))
+                              meta: metaInfo)
         let expectation = XCTestExpectation(description: "Async logging")
         targetMock.calledSendWith = {
-            
-            XCTAssertEqual(LogLevel.error, $0.level)
-            XCTAssertEqual(message.text, $0.text)
-            XCTAssertEqual(message.tag, $0.tag)
-            XCTAssertEqual("file", $0.meta.file)
-            XCTAssertEqual("async type of function", $0.meta.function)
-            XCTAssertEqual(42, $0.meta.line)
+            XCTAssertEqual(message, $0)
+            XCTAssertEqual(metaInfo, $0.meta)
             expectation.fulfill()
         }
         service.log(message)
         wait(for: [expectation], timeout: 1.0)
-    }
-    
-    func testLog() {
-        let message = Message(level: .error,
-                              tag: String(describing: self),
-                              text: "error message",
-                              meta:  MetaInfo(file: "file", function: "sync type of function", line: 42))
-        targetMock.calledSendWith = {
-            
-            XCTAssertEqual(LogLevel.error, $0.level)
-            XCTAssertEqual(message.tag, $0.tag)
-            XCTAssertEqual(message.text, $0.text)
-            XCTAssertEqual("file", $0.meta.file)
-            XCTAssertEqual("sync type of function", $0.meta.function)
-            XCTAssertEqual(42, $0.meta.line)
-        }
-        service.log(message)
     }
 }
