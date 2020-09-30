@@ -161,8 +161,9 @@ class FileTargetTests: XCTestCase {
         """
         targetConfig = FileTargetConfig(header: header)
         target = FileTarget(targetConfig)
+        XCTAssertTrue(target.fileManager.fileExists(atPath: target.logFileUrl.path))
         
-        XCTAssertFalse(target.shouldArchive)
+        target.sync()
         
         let logContent = try! String(contentsOf: target.logFileUrl, encoding: .utf8)
         XCTAssertEqual(header, logContent)
