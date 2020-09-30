@@ -9,8 +9,15 @@
     },
     {
       "file": "/Users/nakkht/dev/logr/Sources/Logr/Target/File/FileTarget.swift",
-      "line": 64,
+      "line": 61,
       "symbol": "FileTarget.formatted(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nakkht/dev/logr/Sources/Logr/Target/File/FileTarget.swift",
+      "line": 89,
+      "symbol": "FileTarget.sync()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -37,21 +44,21 @@
     },
     {
       "file": "/Users/nakkht/dev/logr/Sources/Logr/Target/File/FileTargetConfig.swift",
-      "line": 54,
-      "symbol": "FileTargetConfig.init(fileName:fileExtension:maxArchivedFilesCount:archiveFrequency:maxFileSizeInBytes:dateTimeFormat:level:style:dispatchQueue:header:)",
+      "line": 51,
+      "symbol": "FileTargetConfig.init(fileName:fileExtension:maxArchivedFilesCount:archiveFrequency:maxFileSizeInBytes:dateTimeFormat:level:style:header:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/nakkht/dev/logr/Sources/Logr/Target/File/FileTargetConfig.swift",
-      "line": 69,
+      "line": 65,
       "symbol": "FileTargetConfig.fullFileName",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/nakkht/dev/logr/Sources/Logr/Target/File/FileTargetConfig.swift",
-      "line": 73,
+      "line": 69,
       "symbol": "FileTargetConfig.archiveFileName",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"

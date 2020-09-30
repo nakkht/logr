@@ -143,6 +143,7 @@ class FileTargetTests: XCTestCase {
         (0..<lineCount).forEach {
             target.send(Message(level: .debug, tag: "Test", text: "message #\($0)", meta: meta))
         }
+        target.sync()
         let expectation = XCTestExpectation(description: "Writing \(lineCount) log lines")
         target.dispatchQueue.async {
             expectation.fulfill()
