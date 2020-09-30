@@ -24,7 +24,7 @@ class ConsoleTargetTests: XCTestCase {
     
     override func setUp() {
         target = ConsoleTarget()
-        XCTAssertEqual("com.neqsoft.logr", target.config.subsystem)
+        XCTAssertEqual("logr.subsystem", target.config.subsystem)
         XCTAssertEqual("ConsoleTarget", target.config.category)
         XCTAssertEqual(.debug, target.config.level)
         XCTAssertEqual(.minimal, target.config.style)

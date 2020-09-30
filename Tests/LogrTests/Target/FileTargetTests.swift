@@ -37,6 +37,7 @@ class FileTargetTests: XCTestCase {
         XCTAssertNotNil(target.config)
         XCTAssertTrue(target.doesLogFileExists)
         XCTAssertEqual(0, target.logFileSizeInBytes)
+        XCTAssertEqual(DispatchQueue.io, target.dispatchQueue)
         
         targetConfig = FileTargetConfig()
         

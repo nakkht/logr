@@ -28,7 +28,7 @@ open class FileTarget: Target {
     /// URL of  archive folder.
     public lazy var archiveUrl = baseLogDirectory.appendingPathComponent("Archive", isDirectory: true)
     
-    /// Config struct assigned during initialization
+    /// Config struct assigned during initialization.
     public let config: FileTargetConfig
     
     /// File handle of a current log file being written to.
@@ -38,12 +38,10 @@ open class FileTarget: Target {
     let dispatchQueue: DispatchQueue
     lazy var fileManager = FileManager.default
     
-    /**
-     Initializes FileTarget instance with provided FileTargetConfig struct. Prepares file for receiving and persisting log messages.
-     
-     - Parameters:
-     - config: struct encapsulating logging preferences. Defaults to struct instance with defaults values.
-     */
+    /// Initializes FileTarget instance with provided FileTargetConfig struct. Prepares file for receiving and persisting log messages.
+    /// - Parameters:
+    ///   - config: struct encapsulating logging preferences. Defaults to struct instance with defaults values.
+    ///   - dispatchQueue: dispatch queue to use for prossing log messages. Defaults to `DispatchQueue.io`
     public init(_ config: FileTargetConfig? = nil, dispatchQueue: DispatchQueue? = nil) {
         self.config = config ?? FileTargetConfig()
         self.dispatchQueue = dispatchQueue ?? DispatchQueue.io

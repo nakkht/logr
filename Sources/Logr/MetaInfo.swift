@@ -38,6 +38,6 @@ public struct MetaInfo: Equatable {
     
     /// Computed property for getting only file name from the `file` property.
     public var fileName: String {
-        return String(file.split(separator: "/").last ?? "")
+        return !file.contains("/") ? file : String(file.split(separator: "/").last?.split(separator: ".").first ?? "")
     }
 }

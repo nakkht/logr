@@ -28,27 +28,22 @@ public class LogrService {
         self.async = true
     }
     
-    /**
-    Initializes new intance of LogrSerice with provided configuration. Overrides any properties initialized with previous LogrService instance.
-    
-    - Parameters:
-       - config: struct encapsulating configuration properties used by LogrService
-    */
+    /// Initializes new intance of LogrService with provided configuration. Overrides previously set `targets` and `dispatchQueue` properties.
+    /// - Parameters:
+    ///   - config: struct encapsulating configuration properties used by LogrService.
+    ///   - dispatchQueue: queue to be used for handling incoming log messages and forwarding to  previously set targets.
     @discardableResult
-    public init(with config: Config) {
+    public init(with config: Config, dispatchQueue: DispatchQueue? = nil) {
         self.async = config.async
         LogrService.targets = config.targets
-        if let configDispatchQueue = config.dispatchQueue {
-            LogrService.dispatchQueue = configDispatchQueue
+        if let dispatchQueue = dispatchQueue {
+            LogrService.dispatchQueue = dispatchQueue
         }
     }
     
-    /**
-     Dispatches log messages to the targets based  on configuration: synchronously or asynchronously.
-     
-     - Parameters:
-        - message: struct encapsulating all log message data including meta information
-     */
+    /// Dispatches log messages to the targets based  on configuration: synchronously or asynchronously.
+    /// - Parameters:
+    ///     - message: struct encapsulating all log message data including meta information
     public func log(_ message: Message) {
         if async {
             LogrService.dispatchQueue.async { self.dispatchLog(message) }

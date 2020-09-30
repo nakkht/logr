@@ -35,12 +35,12 @@ public struct ConsoleTargetConfig {
      Initialzes configuration struct with provided values.
      
      - Parameters:
-     - substystem: title of OSLog subsystem. Helps to distinguish logs within Console logs. Defaults to: com.neqsoft.logr
+     - substystem: title of OSLog subsystem. Helps to distinguish logs within Console logs. Defaults to: logr.subsystem
      - category: title of OSLog category. Helps to distinguish logs within Console logs. Defaults to: ConsoleTarget
      - level: lowest log level which shall be logged
      - style: logging style. Defaults to: minimal style
      */
-    public init(subsystem: String = "com.neqsoft.logr", category: String = "ConsoleTarget",
+    public init(subsystem: String = "logr.subsystem", category: String = "ConsoleTarget",
                 level: LogLevel = .debug, style: Style = .minimal) {
         self.subsystem = subsystem
         self.category = category

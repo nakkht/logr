@@ -44,7 +44,7 @@ class MessageTests: XCTestCase {
     }
     
     func testMetaInfo() {
-        let file = ""
+        let file = #file
         let function = #function
         let line = #line
         let timeStamp = Date()
@@ -53,7 +53,7 @@ class MessageTests: XCTestCase {
         XCTAssertEqual(file, metaInfo.file)
         XCTAssertEqual(function, metaInfo.function)
         XCTAssertEqual(line, metaInfo.line)
-        XCTAssertEqual("", metaInfo.fileName)
+        XCTAssertEqual("MessageTests", metaInfo.fileName)
         XCTAssertEqual(timeStamp, metaInfo.timeStamp)
     }
 }

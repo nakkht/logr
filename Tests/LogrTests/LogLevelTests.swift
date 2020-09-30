@@ -21,9 +21,6 @@ class LogLevelTests: XCTestCase {
     
     var logLevel: LogLevel!
 
-    override func setUp() {
-    }
-
     override func tearDown() {
         logLevel = nil
     }

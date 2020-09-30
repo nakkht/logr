@@ -25,10 +25,10 @@ class LogrServiceTests: XCTestCase {
     var dispatchQueue: DispatchQueue!
     
     override func setUp() {
-        dispatchQueue = DispatchQueue(label: "com.neqsoft.test_dispatch")
+        dispatchQueue = DispatchQueue(label: "logr.test-dispatch")
         targetMock = TargetMock()
-        config = Config(async: false, dispatchQueue: dispatchQueue, targetMock)
-        service = LogrService(with: config)
+        config = Config(async: false, targetMock)
+        service = LogrService(with: config, dispatchQueue: dispatchQueue)
         XCTAssertEqual(dispatchQueue, LogrService.dispatchQueue)
         XCTAssertNotNil(LogrService.targets)
         XCTAssertEqual(config.targets?.count, LogrService.targets?.count)
