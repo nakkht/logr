@@ -8,13 +8,6 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/nakkht/dev/logr/Sources/Logr/Target/File/FileTarget.swift",
-      "line": 84,
-      "symbol": "FileTarget.sync()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/nakkht/dev/logr/Sources/Logr/Target/File/FileTargetConfig.swift",
       "line": 19,
       "symbol": "FileTargetConfig",

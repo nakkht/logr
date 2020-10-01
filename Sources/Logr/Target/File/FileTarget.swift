@@ -73,7 +73,8 @@ open class FileTarget: Target {
     }
     
     /// Forces archive process of the current log file regardless of the preconditions set in config files. Non-blocking. Thread-safe.
-    /// - Parameter completionHandler: the block to execute when archiving as completed
+    /// - Parameters:
+    ///   - completionHandler: the block to execute when archiving as completed
     public func forceArchive(_ completionHandler: @escaping (() -> Void)) {
         dispatchQueue.async {
             self.archive()
@@ -81,6 +82,7 @@ open class FileTarget: Target {
         }
     }
     
+    /// Ensures that any in-memory or previously submitted async log calls are written in persistence storage.
     public func sync() {
         dispatchQueue.sync {
             self.fileHandle?.synchronizeFile()
@@ -158,8 +160,8 @@ open class FileTarget: Target {
     
     var logFileAge: TimeSpan? {
         guard let creationDate = try? fileManager.attributesOfItem(atPath: logFileUrl.path)[.creationDate] as? Date,
-            let modificationDate = try? fileManager.attributesOfItem(atPath: logFileUrl.path)[.modificationDate] as? Date else {
-                return nil
+              let modificationDate = try? fileManager.attributesOfItem(atPath: logFileUrl.path)[.modificationDate] as? Date else {
+            return nil
         }
         let components = Calendar.current.dateComponents([.minute, .hour, .day, .weekOfYear, .month], from: creationDate, to: modificationDate)
         switch components {
