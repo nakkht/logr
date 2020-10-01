@@ -2,13 +2,18 @@
 
 All notable changes to logr project.
 
-## v0.9.0 - [2020-10-xx]
+## v0.9.0 - [2020-10-01]
 
 Added:
 * Timestamp to message meta info
+* Blocking sync call to ensure all messages are written into persistent storage
 
 Fixed
-* Auto archive based on archive file size or age 
+* Auto archive based on archive file size and/or time span
+
+Changed
+* DispatchQueue is now directly set via target initializer rather than associated config
+
 
 ## v0.8.0 - [2020-09-21]
 
