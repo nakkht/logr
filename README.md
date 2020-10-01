@@ -9,7 +9,7 @@ Simple logging library for iOS written in Swift
 
 ## Features
 
-- [x] Inferred tags
+- [x] Inferred log message tags
 - [x] Swift Package Manager/Carthage/CocoaPods integration
 - [x] Highly extensible
 - [x] Logging to multiple targets/destination at the same time
@@ -17,6 +17,7 @@ Simple logging library for iOS written in Swift
 - [x] File logging out of the box via FileTarget 
 - [x] Pure Swift 5
 - [x] Optional file header for each file
+- [x] Automatic file archive based on size or time span
 
 ## Integration
 
@@ -60,7 +61,7 @@ At the beginning of `func application(_ application: UIApplication, didFinishLau
 LogrService.init(with: Config(ConsoleTarget(), FileTarget()))
 ``` 
 
-For more serious configuration in production, it is recommended to ommit `ConsoleTarget`. The following snippet is suggested:
+For more serious configuration in production, it is recommended to ommit `ConsoleTarget`. For example:
 
 ```swift
 #if DEBUG
@@ -74,9 +75,26 @@ static let config = Config(targets: targets)
 LogrService.init(with: config)
 ```
 
+The set targets will be used across the whole application.
+
+To log messages, simply create `Logr` instance in class initializer and start logging. For example:
+
+```swift
+import Logr
+
+class ViewController: UIViewController {
+
+    private let logr = Logr()
+
+    func logDebug() {
+        logr.debug("debug message to be logged")
+    }
+}
+```
+
 ## Demo
 
-Demo project can be access by opening Demo.workspace in Demo subfolder.
+Demo project can be access by opening Demo.workspace in Demo sub-folder.
 
 ## Documentation
 

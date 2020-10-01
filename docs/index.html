@@ -103,7 +103,7 @@
 <h2 id='features' class='heading'>Features</h2>
 
 <ul>
-<li>[x] Inferred tags</li>
+<li>[x] Inferred log message tags</li>
 <li>[x] Swift Package Manager/Carthage/CocoaPods integration</li>
 <li>[x] Highly extensible</li>
 <li>[x] Logging to multiple targets/destination at the same time</li>
@@ -111,6 +111,7 @@
 <li>[x] File logging out of the box via FileTarget</li>
 <li>[x] Pure Swift 5</li>
 <li>[x] Optional file header for each file</li>
+<li>[x] Automatic file archive based on size or time span</li>
 </ul>
 <h2 id='integration' class='heading'>Integration</h2>
 <h3 id='swift-package-manager' class='heading'>Swift Package Manager</h3>
@@ -140,7 +141,7 @@
 <pre class="highlight swift"><code><span class="kt">LogrService</span><span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="kt">Config</span><span class="p">(</span><span class="kt">ConsoleTarget</span><span class="p">(),</span> <span class="kt">FileTarget</span><span class="p">()))</span>
 </code></pre>
 
-<p>For more serious configuration in production, it is recommended to ommit <code><a href="Classes/ConsoleTarget.html">ConsoleTarget</a></code>. The following snippet is suggested:</p>
+<p>For more serious configuration in production, it is recommended to ommit <code><a href="Classes/ConsoleTarget.html">ConsoleTarget</a></code>. For example:</p>
 <pre class="highlight swift"><code><span class="cp">#if DEBUG</span>
 <span class="kd">static</span> <span class="k">let</span> <span class="nv">targets</span><span class="p">:</span> <span class="p">[</span><span class="kt">Target</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kt">ConsoleTarget</span><span class="p">(),</span> <span class="kt">FileTarget</span><span class="p">()]</span>
 <span class="cp">#else</span>
@@ -151,9 +152,24 @@
 
 <span class="kt">LogrService</span><span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">config</span><span class="p">)</span>
 </code></pre>
+
+<p>The set targets will be used across the whole application.</p>
+
+<p>To log messages, simply create <code><a href="Classes/Logr.html">Logr</a></code> instance in class initializer and start logging. For example:</p>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">Logr</span>
+
+<span class="kd">class</span> <span class="kt">ViewController</span><span class="p">:</span> <span class="kt">UIViewController</span> <span class="p">{</span>
+
+    <span class="kd">private</span> <span class="k">let</span> <span class="nv">logr</span> <span class="o">=</span> <span class="kt">Logr</span><span class="p">()</span>
+
+    <span class="kd">func</span> <span class="nf">logDebug</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">logr</span><span class="o">.</span><span class="nf">debug</span><span class="p">(</span><span class="s">"debug message to be logged"</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
 <h2 id='demo' class='heading'>Demo</h2>
 
-<p>Demo project can be access by opening Demo.workspace in Demo subfolder.</p>
+<p>Demo project can be access by opening Demo.workspace in Demo sub-folder.</p>
 <h2 id='documentation' class='heading'>Documentation</h2>
 
 <ul>
