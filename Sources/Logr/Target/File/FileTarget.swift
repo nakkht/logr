@@ -116,8 +116,8 @@ open class FileTarget: Target {
     }
     
     func deleteObsoletFiles(at url: URL) {
-        guard let contents = try? fileManager.contentsOfDirectory(at: url, includingPropertiesForKeys: nil) else { return }
-        let filesForDeletion = contents.sorted {
+        guard let archvivedFiles = try? fileManager.contentsOfDirectory(at: url, includingPropertiesForKeys: nil) else { return }
+        let filesForDeletion = archvivedFiles.sorted {
             $0.path.compare($1.path, options: .numeric) == .orderedAscending
         }.dropFirst(Int(self.config.maxArchivedFilesCount))
         filesForDeletion.forEach {
@@ -126,8 +126,8 @@ open class FileTarget: Target {
     }
     
     func shiftArchivedFiles() {
-        guard let contents = try? fileManager.contentsOfDirectory(at: self.archiveUrl, includingPropertiesForKeys: nil) else { return }
-        let archivedFiles = contents.sorted {
+        guard let arcivedFiles = try? fileManager.contentsOfDirectory(at: self.archiveUrl, includingPropertiesForKeys: nil) else { return }
+        let archivedFiles = arcivedFiles.sorted {
             $0.path.compare($1.path, options: .numeric) == .orderedAscending
         }
         archivedFiles.enumerated().reversed().forEach { (offset: Int, url: URL) in

@@ -156,6 +156,49 @@ class FileTargetTests: XCTestCase {
         XCTAssertEqual(1, archivedFileCount)
     }
     
+    func testMultipleSizeBasedArchives() {
+        let maxFileSize: UInt64 = 1024
+        targetConfig = FileTargetConfig(maxFileSizeInBytes: maxFileSize, style: .verbose)
+        target = FileTarget(targetConfig)
+        
+        let lineCount = 40
+        let meta = MetaInfo(file: #file, function: #function, line: #line, timeStamp: Date())
+        (0..<lineCount).forEach {
+            target.send(Message(level: .debug, tag: "Test", text: "message #\($0)", meta: meta))
+        }
+        target.sync()
+        let expectation = XCTestExpectation(description: "Writing \(lineCount) log lines")
+        target.dispatchQueue.async {
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 120.0)
+        
+        let archivedFileCount = try! target.fileManager.contentsOfDirectory(atPath: target.archiveUrl.path).count
+        XCTAssertEqual(2, archivedFileCount)
+    }
+    
+    func testMaxArchivedFilesCount() {
+        let maxFileSize: UInt64 = 1024
+        let maxArchivedFilesCount: UInt16 = 7
+        targetConfig = FileTargetConfig(maxArchivedFilesCount: maxArchivedFilesCount, maxFileSizeInBytes: maxFileSize, style: .verbose)
+        target = FileTarget(targetConfig)
+        
+        let lineCount = 20 * 10
+        let meta = MetaInfo(file: #file, function: #function, line: #line, timeStamp: Date())
+        (0..<lineCount).forEach {
+            target.send(Message(level: .debug, tag: "Test", text: "message #\($0)", meta: meta))
+        }
+        target.sync()
+        let expectation = XCTestExpectation(description: "Writing \(lineCount) log lines")
+        target.dispatchQueue.async {
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 600.0)
+        
+        let archivedFileCount = try! target.fileManager.contentsOfDirectory(atPath: target.archiveUrl.path).count
+        XCTAssertEqual(7, archivedFileCount)
+    }
+    
     func testLogFileHeader() {
         let header = """
         ========= SYS INFO ==========
