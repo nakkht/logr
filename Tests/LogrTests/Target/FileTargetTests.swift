@@ -146,11 +146,6 @@ class FileTargetTests: XCTestCase {
             target.send(Message(level: .debug, tag: "Test", text: "message #\($0)", meta: meta))
         }
         target.sync()
-        let expectation = XCTestExpectation(description: "Writing \(lineCount) log lines")
-        target.dispatchQueue.async {
-            expectation.fulfill()
-        }
-        wait(for: [expectation], timeout: 60.0)
         
         let archivedFileCount = try! target.fileManager.contentsOfDirectory(atPath: target.archiveUrl.path).count
         XCTAssertEqual(1, archivedFileCount)
@@ -167,11 +162,6 @@ class FileTargetTests: XCTestCase {
             target.send(Message(level: .debug, tag: "Test", text: "message #\($0)", meta: meta))
         }
         target.sync()
-        let expectation = XCTestExpectation(description: "Writing \(lineCount) log lines")
-        target.dispatchQueue.async {
-            expectation.fulfill()
-        }
-        wait(for: [expectation], timeout: 120.0)
         
         let archivedFileCount = try! target.fileManager.contentsOfDirectory(atPath: target.archiveUrl.path).count
         XCTAssertEqual(2, archivedFileCount)
@@ -189,11 +179,6 @@ class FileTargetTests: XCTestCase {
             target.send(Message(level: .debug, tag: "Test", text: "message #\($0)", meta: meta))
         }
         target.sync()
-        let expectation = XCTestExpectation(description: "Writing \(lineCount) log lines")
-        target.dispatchQueue.async {
-            expectation.fulfill()
-        }
-        wait(for: [expectation], timeout: 600.0)
         
         let archivedFileCount = try! target.fileManager.contentsOfDirectory(atPath: target.archiveUrl.path).count
         XCTAssertEqual(7, archivedFileCount)
