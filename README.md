@@ -3,6 +3,7 @@
 [![build status](https://travis-ci.com/nakkht/logr.svg?branch=develop)](https://travis-ci.com/nakkht/logr)
 ![platforms](https://img.shields.io/badge/platforms-iOS%20%7C%20macOS%20%7C%20tvOS%20%7C%20watchOS-brightgreen)
 [![codecov](https://codecov.io/gh/nakkht/logr/branch/develop/graph/badge.svg)](https://codecov.io/gh/nakkht/logr)
+![code size](https://img.shields.io/github/languages/code-size/nakkht/logr?color=brightgreen)
 [![documentation](https://img.shields.io/badge/doc-reference-brightgreen)](https://nakkht.github.io/logr/)
 
 Simple logging library for iOS written in Swift
