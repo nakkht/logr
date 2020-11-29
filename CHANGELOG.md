@@ -4,7 +4,7 @@ All notable changes to logr project.
 
 ## v0.9.0 - [2020-10-01]
 
-Added:
+Added
 * Timestamp to message meta info
 * Blocking sync call to ensure all messages are written into persistent storage
 
