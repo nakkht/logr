@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F6FCC86322F0F4F0003D2AC4"
-               BuildableName = "LogrDemo.app"
-               BlueprintName = "LogrDemo"
-               ReferencedContainer = "container:LogrDemo.xcodeproj">
+               BuildableName = "LogrExample.app"
+               BlueprintName = "LogrExample"
+               ReferencedContainer = "container:LogrExample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -31,9 +31,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F6FCC86322F0F4F0003D2AC4"
-            BuildableName = "LogrDemo.app"
-            BlueprintName = "LogrDemo"
-            ReferencedContainer = "container:LogrDemo.xcodeproj">
+            BuildableName = "LogrExample.app"
+            BlueprintName = "LogrExample"
+            ReferencedContainer = "container:LogrExample.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <Testables>
@@ -54,9 +54,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F6FCC86322F0F4F0003D2AC4"
-            BuildableName = "LogrDemo.app"
-            BlueprintName = "LogrDemo"
-            ReferencedContainer = "container:LogrDemo.xcodeproj">
+            BuildableName = "LogrExample.app"
+            BlueprintName = "LogrExample"
+            ReferencedContainer = "container:LogrExample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -71,9 +71,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F6FCC86322F0F4F0003D2AC4"
-            BuildableName = "LogrDemo.app"
-            BlueprintName = "LogrDemo"
-            ReferencedContainer = "container:LogrDemo.xcodeproj">
+            BuildableName = "LogrExample.app"
+            BlueprintName = "LogrExample"
+            ReferencedContainer = "container:LogrExample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
