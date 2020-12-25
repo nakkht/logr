@@ -97,7 +97,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1030;
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = neqsoft;
 				TargetAttributes = {
 					F6FCC86322F0F4F0003D2AC4 = {
