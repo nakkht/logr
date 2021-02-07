@@ -2,6 +2,11 @@
 
 All notable changes to logr project.
 
+## v0.10.0 - [2021-xx-xx]
+
+Removed
+* CocoaPods/Carthage support
+
 ## v0.9.0 - [2020-10-01]
 
 Added
@@ -13,7 +18,6 @@ Fixed
 
 Changed
 * DispatchQueue is now directly set via target initializer rather than associated config
-
 
 ## v0.8.0 - [2020-09-21]
 
