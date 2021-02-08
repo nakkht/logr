@@ -1,4 +1,4 @@
-// swift-tools-version:5.1
+// swift-tools-version:5.0
 
 import PackageDescription
 
@@ -6,8 +6,8 @@ let package = Package(
     name: "Logr",
     platforms: [
         .macOS(.v10_14),
-        .iOS(.v9),
-        .tvOS(.v9),
+        .iOS(.v10),
+        .tvOS(.v10),
         .watchOS(.v3)
     ],
     products: [

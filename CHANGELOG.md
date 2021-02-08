@@ -7,6 +7,9 @@ All notable changes to logr project.
 Removed
 * CocoaPods/Carthage support
 
+Changed
+* Minimum iOS/tvOS version to 10
+
 ## v0.9.0 - [2020-10-01]
 
 Added
