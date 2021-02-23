@@ -3,7 +3,7 @@ language: swift
 
 branches:
   only:
-  - master
+  - main
   - develop
 
 env:
