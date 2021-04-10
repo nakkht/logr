@@ -44,9 +44,6 @@ jobs:
     - osx_image: xcode11.3
       env: DESTINATION='platform=OS X,arch=x86_64'
 
-before_script:
-  - brew install swiftlint
-
 script:
   - swiftlint
   - set -o pipefail && xcodebuild build -workspace $WORKSPACE -scheme $SCHEME -destination "${DESTINATION}" | xcpretty
