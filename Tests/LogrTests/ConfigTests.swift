@@ -18,12 +18,12 @@ import XCTest
 @testable import Logr
 
 class ConfigTests: XCTestCase {
-    
+
     var config: Config!
 
     override func setUp() {
         config = Config()
-        
+
         XCTAssertNil(config.targets)
         XCTAssertTrue(config.async)
     }
@@ -31,10 +31,10 @@ class ConfigTests: XCTestCase {
     override func tearDown() {
         config = nil
     }
-    
+
     func testAsyncSetup() {
         config = Config(async: false)
-        
+
         XCTAssertNil(config.targets)
         XCTAssertFalse(config.async)
     }
@@ -42,7 +42,7 @@ class ConfigTests: XCTestCase {
     func testTargetSetup() {
         let targets = Array(repeating: TargetMock(), count: 300)
         config = Config(targets: targets)
-        
+
         XCTAssertEqual(300, targets.count)
     }
 }

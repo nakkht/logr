@@ -18,9 +18,9 @@ import Foundation
 @testable import Logr
 
 class TargetMock: Target {
-    
+
     var calledSendWith: ((Message) -> Void)?
-    
+
     func send(_ message: Message) {
         calledSendWith?(message)
     }

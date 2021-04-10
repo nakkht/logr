@@ -18,19 +18,19 @@ import Foundation
 
 /// Immutable struct used to encapsulate consolet target configuration values.
 public struct ConsoleTargetConfig {
-    
+
     /// Subsystem name value assigned during initialization. Used for OSLog configuration.
     public let subsystem: String
-    
+
     /// Category name value assigned during initialization. Used for OSLog configuration.
     public let category: String
-    
+
     /// Minimum log levlel to be logged.
     public let level: LogLevel
-    
+
     /// Logging style value assigned during initialization.
     public let style: Style
-    
+
     /// Initialzes configuration struct with provided values.
     /// - Parameters:
     ///   - subsystem: title of OSLog subsystem. Helps to distinguish logs within Console logs. Defaults to: `logr.subsystem`

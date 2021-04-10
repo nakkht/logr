@@ -17,6 +17,6 @@
 import Foundation
 
 extension DispatchQueue {
-    
+
     static let io = DispatchQueue(label: "logr.io", qos: .background)
 }

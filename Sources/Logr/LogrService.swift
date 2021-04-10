@@ -18,16 +18,16 @@ import Foundation
 
 /// Main logging service used for dispatching messages to dedicated targets for further processing.
 public class LogrService {
-    
+
     static var dispatchQueue = DispatchQueue(label: "logr.service", qos: .background)
     static var targets: [Target]?
-    
+
     let async: Bool
-    
+
     init() {
         self.async = true
     }
-    
+
     /// Initializes new intance of LogrService with provided configuration. Overrides previously set `targets` and `dispatchQueue` properties.
     /// - Parameters:
     ///   - config: struct encapsulating configuration properties used by LogrService.
@@ -40,7 +40,7 @@ public class LogrService {
             LogrService.dispatchQueue = dispatchQueue
         }
     }
-    
+
     /// Dispatches log messages to the targets based  on configuration: synchronously or asynchronously.
     /// - Parameters:
     ///     - message: struct encapsulating all log message data including meta information
@@ -51,7 +51,7 @@ public class LogrService {
             LogrService.dispatchQueue.sync { self.dispatchLog(message) }
         }
     }
-    
+
     func dispatchLog(_ message: Message) {
         LogrService.targets?.forEach { $0.send(message) }
     }

@@ -2,7 +2,7 @@
 
 All notable changes to logr project.
 
-## v0.10.0 - [2021-xx-xx]
+## v0.10.0 - [2021-04-10]
 
 Removed
 * CocoaPods/Carthage support

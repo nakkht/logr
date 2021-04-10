@@ -19,57 +19,57 @@ import Logr
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
+
     var window: UIWindow?
     private lazy var logr = Logr(String(describing: AppDelegate.self))
-    
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         viewController.view = view
         window?.rootViewController = viewController
         window?.makeKeyAndVisible()
-        
+
         LogrService.init(with: Config(ConsoleTarget(ConsoleTargetConfig(style: .verbose)), FileTarget()))
         logr.info("Application did finish launch")
         return true
     }
-    
+
     func applicationDidBecomeActive(_ application: UIApplication) {
         logr.info("Application did become active")
     }
-    
+
     func applicationWillResignActive(_ application: UIApplication) {
         logr.info("Application will resign active")
     }
-    
+
     func applicationDidEnterBackground(_ application: UIApplication) {
         logr.info("Application did enter background")
     }
-    
+
     func applicationWillEnterForeground(_ application: UIApplication) {
         logr.info("Application will enter foreground")
     }
-    
+
     @objc func logDebug(sender: UIButton!) {
         logr.debug("Debug button touched")
     }
-    
+
     @objc func logInfo(sender: UIButton!) {
         logr.info("Info button touched")
     }
-    
+
     @objc func logWarn(sender: UIButton!) {
         logr.warn("Warn button touched")
     }
-    
+
     @objc func logError(sender: UIButton!) {
         logr.error("Error button touched")
     }
-    
+
     @objc func logCritical(sender: UIButton!) {
         logr.critical("Critical button touched")
     }
-    
+
     private lazy var debugButton: UIButton = {
         let button = UIButton()
         button.setTitle("Debug log", for: .normal)
@@ -100,8 +100,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         button.addTarget(self, action: #selector(logCritical), for: .touchUpInside)
         return button
     }()
-    
-    
+
     private lazy var viewController = UIViewController()
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [debugButton,

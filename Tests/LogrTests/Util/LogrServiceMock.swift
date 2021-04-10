@@ -18,13 +18,13 @@ import Foundation
 @testable import Logr
 
 class LogrServiceMock: LogrService {
-    
+
     var calledLogWith: (Message)?
-    
+
     public override func log(_ message: Message) {
         calledLogWith = (message)
     }
-    
+
     deinit {
         LogrService.targets = nil
     }

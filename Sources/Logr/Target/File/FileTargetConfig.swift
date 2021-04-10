@@ -17,37 +17,37 @@
 import Foundation
 
 public struct FileTargetConfig {
-    
+
     public static let defaultMaxFileSizeInBytes: UInt64 = 20 * 1024 * 1024
     public static let defaultDateTimeFormat = "y-MM-dd HH:mm:ss.SSS"
-    
+
     /// Log file extension. Defaults to `log`.
     public let fileExtension: String
-    
+
     /// Log file name. Defaults to `file`.
     public let fileName: String
-    
+
     /// Maximum number of archived files to keep. Defaults to 1.
     public let maxArchivedFilesCount: UInt16
-    
+
     /// Determines minimum time until log file should be archived.
     public let archiveFrequency: TimeSpan
-    
+
     /// Determines minimum file size until log file should be archived.
     public let maxFileSizeInBytes: UInt64
-    
+
     /// Minimum log levlel to be logged.
     public let level: LogLevel
-    
+
     /// Determines logging style used by the target.
     public let style: Style
-    
+
     /// Format to be used for log line timestamps.
     public let dateTimeFormat: String
-    
+
     /// Optional header to be addead as the first content to newly create log file.
     public let header: String?
-    
+
     public init(fileName: String? = nil, fileExtension: String? = nil, maxArchivedFilesCount: UInt16? = nil,
                 archiveFrequency: TimeSpan? = nil, maxFileSizeInBytes: UInt64? = nil, dateTimeFormat: String? = nil,
                 level: LogLevel? = nil, style: Style? = nil, header: String? = nil) {
@@ -61,11 +61,11 @@ public struct FileTargetConfig {
         self.style = style ?? .minimal
         self.header = header
     }
-    
+
     public var fullFileName: String {
         return "\(fileName).\(fileExtension)"
     }
-    
+
     public var archiveFileName: String {
         return "\(fileName).0.\(fileExtension)"
     }

@@ -16,16 +16,16 @@
 
 /// Immutable struct encapsulating all log message data.
 public struct Message: Equatable {
-    
+
     /// Log level of the log message.
     public let level: LogLevel
-    
+
     /// Tag associated with the message.
     public let tag: String
-    
+
     /// Actual provided log message.
     public let text: String
-    
+
     /// Meta information of the log message.
     public let meta: MetaInfo
 }

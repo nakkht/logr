@@ -18,13 +18,13 @@ import Foundation
 
 /// Proxy class used to pass log messages to underlying service.
 open class Logr {
-    
+
     /// LogrServiice instance assigned during initialization. Defaults to main LogrService instance.
     public let service: LogrService
-    
+
     /// Tag assinged during initialization. Used as a prefix for all log messages. Helps to categorize/group messages.
     public let tag: String
-    
+
     /// Initializes new instance of Logr.
     /// - Parameters:
     ///   - tag: prefix to be used for all messages logged through this Logr instance. If not provided, calling file name will be used as a tag.
@@ -33,7 +33,7 @@ open class Logr {
         self.tag = !tag.contains("/") ? tag : tag.components(separatedBy: "/").last?.components(separatedBy: ".").first ?? ""
         self.service = service ?? LogrService()
     }
-    
+
     /// Logs debug type of message to the service.
     /// - Parameters:
     ///   - message: message to be logged.
@@ -46,7 +46,7 @@ open class Logr {
                                  text: message,
                                  meta: MetaInfo(file: file, function: function, line: line, timeStamp: Date())))
     }
-    
+
     /// Logs info type of message to the service.
     /// - Parameters:
     ///   - message: message to be logged.
@@ -59,7 +59,7 @@ open class Logr {
                                  text: message,
                                  meta: MetaInfo(file: file, function: function, line: line, timeStamp: Date())))
     }
-    
+
     /// Logs warn type of message to the service.
     /// - Parameters:
     ///   - message: message to be logged.
@@ -72,7 +72,7 @@ open class Logr {
                                  text: message,
                                  meta: MetaInfo(file: file, function: function, line: line, timeStamp: Date())))
     }
-    
+
     /// Logs error type of message to the service.
     /// - Parameters:
     ///   - message: message to be logged.
@@ -85,7 +85,7 @@ open class Logr {
                                  text: message,
                                  meta: MetaInfo(file: file, function: function, line: line, timeStamp: Date())))
     }
-    
+
     /// Logs critical type of message to the service.
     /// - Parameters:
     ///   - message: message to be logged.

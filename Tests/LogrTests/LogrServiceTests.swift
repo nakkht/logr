@@ -18,17 +18,17 @@ import XCTest
 @testable import Logr
 
 class LogrServiceTests: XCTestCase {
-    
+
     var service: LogrService!
     var config: Config!
     var targetMock: TargetMock!
     var defaultDispatchQueue: DispatchQueue!
-    
+
     override func setUp() {
         targetMock = TargetMock()
         defaultDispatchQueue = LogrService.dispatchQueue
     }
-    
+
     override func tearDown() {
         targetMock = nil
         config = nil
@@ -36,14 +36,14 @@ class LogrServiceTests: XCTestCase {
         LogrService.dispatchQueue = defaultDispatchQueue
         LogrService.targets = nil
     }
-    
+
     func testDefaultValues() {
         service = LogrService()
         XCTAssertNil(LogrService.targets)
         XCTAssertEqual("logr.service", LogrService.dispatchQueue.label)
         XCTAssertTrue(service.async)
     }
-    
+
     func testDispatchQueue() {
         let dispatchQueue = DispatchQueue(label: "logr.test-dispatch")
         config = Config(async: false, targetMock)
@@ -52,7 +52,7 @@ class LogrServiceTests: XCTestCase {
         XCTAssertNotNil(LogrService.targets)
         XCTAssertEqual(config.targets?.count, LogrService.targets?.count)
     }
-    
+
     func testSyncLog() {
         service = LogrService(with: Config(async: false, targetMock))
         XCTAssertNotNil(LogrService.targets)
@@ -67,7 +67,7 @@ class LogrServiceTests: XCTestCase {
         }
         service.log(message)
     }
-    
+
     func testAsyncLog() {
         service = LogrService(with: Config(targetMock))
         XCTAssertNotNil(LogrService.targets)

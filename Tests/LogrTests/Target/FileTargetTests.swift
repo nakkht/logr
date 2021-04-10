@@ -18,10 +18,10 @@ import XCTest
 @testable import Logr
 
 class FileTargetTests: XCTestCase {
-    
+
     var target: FileTarget!
     var targetConfig: FileTargetConfig!
-    
+
     override func tearDown() {
         if let target = self.target {
             try? target.fileManager.removeItem(at: self.target.baseLogDirectory)
@@ -29,18 +29,18 @@ class FileTargetTests: XCTestCase {
         target = nil
         targetConfig = nil
     }
-    
+
     func testDefaultSetup() {
         target = FileTarget()
-        
+
         XCTAssertNotNil(target.fileHandle)
         XCTAssertNotNil(target.config)
         XCTAssertTrue(target.doesLogFileExists)
         XCTAssertEqual(0, target.logFileSizeInBytes)
         XCTAssertEqual(DispatchQueue.io, target.dispatchQueue)
-        
+
         targetConfig = FileTargetConfig()
-        
+
         XCTAssertEqual("log", targetConfig.fileExtension)
         XCTAssertEqual("file", targetConfig.fileName)
         XCTAssertEqual(TimeSpan.day, targetConfig.archiveFrequency)
@@ -53,7 +53,7 @@ class FileTargetTests: XCTestCase {
         XCTAssertEqual(2, targetConfig.maxArchivedFilesCount)
         XCTAssertNil(targetConfig.header)
     }
-    
+
     func testConfig() {
         let size = UInt64(100 * 1024 * 1024)
         let fileExtension = "longextension"
@@ -67,7 +67,7 @@ class FileTargetTests: XCTestCase {
         targetConfig = FileTargetConfig(fileName: fileName, fileExtension: fileExtension, maxArchivedFilesCount: 100, archiveFrequency: archiveFrequence,
                                         maxFileSizeInBytes: size, dateTimeFormat: dateFormat, level: .critical, style: .verbose,
                                         header: header)
-        
+
         XCTAssertEqual(fileExtension, targetConfig.fileExtension)
         XCTAssertEqual(fileName, targetConfig.fileName)
         XCTAssertEqual(size, targetConfig.maxFileSizeInBytes)
@@ -80,7 +80,7 @@ class FileTargetTests: XCTestCase {
         XCTAssertEqual(header, targetConfig.header)
         XCTAssertEqual(dateFormat, targetConfig.dateTimeFormat)
     }
-    
+
     func testManualArchive() {
         targetConfig = FileTargetConfig()
         target = FileTarget(targetConfig)
@@ -110,7 +110,7 @@ class FileTargetTests: XCTestCase {
             XCTAssertTrue(archivedLines[$0.element + 4].contains("Critical - Test: message #\($0.offset)"))
         }
     }
-    
+
     func testSerialDispatchQueue() {
         let dispatchQueue = DispatchQueue(label: "test.queue")
         targetConfig = FileTargetConfig()
@@ -135,7 +135,7 @@ class FileTargetTests: XCTestCase {
             XCTAssertTrue(logContent[$0.element + 4].contains("Critical - Test: message #\($0.offset)"))
         }
     }
-    
+
     func testSizeBasedArchive() {
         let maxFileSize: UInt64 = 1024
         targetConfig = FileTargetConfig(maxFileSizeInBytes: maxFileSize, style: .verbose)
@@ -146,44 +146,44 @@ class FileTargetTests: XCTestCase {
             target.send(Message(level: .debug, tag: "Test", text: "message #\($0)", meta: meta))
         }
         target.sync()
-        
+
         let archivedFileCount = try! target.fileManager.contentsOfDirectory(atPath: target.archiveUrl.path).count
         XCTAssertEqual(1, archivedFileCount)
     }
-    
+
     func testMultipleSizeBasedArchives() {
         let maxFileSize: UInt64 = 1024
         targetConfig = FileTargetConfig(maxFileSizeInBytes: maxFileSize, style: .verbose)
         target = FileTarget(targetConfig)
-        
+
         let lineCount = 40
         let meta = MetaInfo(file: #file, function: #function, line: #line, timeStamp: Date())
         (0..<lineCount).forEach {
             target.send(Message(level: .debug, tag: "Test", text: "message #\($0)", meta: meta))
         }
         target.sync()
-        
+
         let archivedFileCount = try! target.fileManager.contentsOfDirectory(atPath: target.archiveUrl.path).count
         XCTAssertEqual(2, archivedFileCount)
     }
-    
+
     func testMaxArchivedFilesCount() {
         let maxFileSize: UInt64 = 1024
         let maxArchivedFilesCount: UInt16 = 7
         targetConfig = FileTargetConfig(maxArchivedFilesCount: maxArchivedFilesCount, maxFileSizeInBytes: maxFileSize, style: .verbose)
         target = FileTarget(targetConfig)
-        
+
         let lineCount = 20 * 10
         let meta = MetaInfo(file: #file, function: #function, line: #line, timeStamp: Date())
         (0..<lineCount).forEach {
             target.send(Message(level: .debug, tag: "Test", text: "message #\($0)", meta: meta))
         }
         target.sync()
-        
+
         let archivedFileCount = try! target.fileManager.contentsOfDirectory(atPath: target.archiveUrl.path).count
         XCTAssertEqual(7, archivedFileCount)
     }
-    
+
     func testLogFileHeader() {
         let header = """
         ========= SYS INFO ==========
@@ -193,13 +193,13 @@ class FileTargetTests: XCTestCase {
         targetConfig = FileTargetConfig(header: header)
         target = FileTarget(targetConfig)
         XCTAssertTrue(target.fileManager.fileExists(atPath: target.logFileUrl.path))
-        
+
         target.sync()
-        
+
         let logContent = try! String(contentsOf: target.logFileUrl, encoding: .utf8)
         XCTAssertEqual(header, logContent)
     }
-    
+
     func testInfoMinimumLogLevel() {
         targetConfig = FileTargetConfig(level: .info)
         target = FileTarget(targetConfig)
@@ -209,9 +209,9 @@ class FileTargetTests: XCTestCase {
         target.send(Message(level: .warn, tag: "Test", text: "message", meta: meta))
         target.send(Message(level: .error, tag: "Test", text: "message", meta: meta))
         target.send(Message(level: .critical, tag: "Test", text: "message", meta: meta))
-        
+
         target.sync()
-        
+
         let logContent = try! String(contentsOf: target.logFileUrl, encoding: .utf8).components(separatedBy: .newlines).dropLast()
         XCTAssertEqual(4, logContent.count)
         XCTAssertTrue(logContent[0].contains("Info - Test: message"))
@@ -219,7 +219,7 @@ class FileTargetTests: XCTestCase {
         XCTAssertTrue(logContent[2].contains("Error - Test: message"))
         XCTAssertTrue(logContent[3].contains("Critical - Test: message"))
     }
-    
+
     func testWarnMinimumLogLevel() {
         targetConfig = FileTargetConfig(level: .warn)
         target = FileTarget(targetConfig)
@@ -229,16 +229,16 @@ class FileTargetTests: XCTestCase {
         target.send(Message(level: .warn, tag: "Test", text: "message", meta: meta))
         target.send(Message(level: .error, tag: "Test", text: "message", meta: meta))
         target.send(Message(level: .critical, tag: "Test", text: "message", meta: meta))
-        
+
         target.sync()
-        
+
         let logContent = try! String(contentsOf: target.logFileUrl, encoding: .utf8).components(separatedBy: .newlines).dropLast()
         XCTAssertEqual(3, logContent.count)
         XCTAssertTrue(logContent[0].contains("Warn - Test: message"))
         XCTAssertTrue(logContent[1].contains("Error - Test: message"))
         XCTAssertTrue(logContent[2].contains("Critical - Test: message"))
     }
-    
+
     func testErrorMinimumLogLevel() {
         targetConfig = FileTargetConfig(level: .error)
         target = FileTarget(targetConfig)
@@ -248,15 +248,15 @@ class FileTargetTests: XCTestCase {
         target.send(Message(level: .warn, tag: "Test", text: "message", meta: meta))
         target.send(Message(level: .error, tag: "Test", text: "message", meta: meta))
         target.send(Message(level: .critical, tag: "Test", text: "message", meta: meta))
-        
+
         target.sync()
-        
+
         let logContent = try! String(contentsOf: target.logFileUrl, encoding: .utf8).components(separatedBy: .newlines).dropLast()
         XCTAssertEqual(2, logContent.count)
         XCTAssertTrue(logContent[0].contains("Error - Test: message"))
         XCTAssertTrue(logContent[1].contains("Critical - Test: message"))
     }
-    
+
     func testCriticalMinimumLogLevel() {
         targetConfig = FileTargetConfig(level: .critical)
         target = FileTarget(targetConfig)
@@ -266,9 +266,9 @@ class FileTargetTests: XCTestCase {
         target.send(Message(level: .warn, tag: "Test", text: "message", meta: meta))
         target.send(Message(level: .error, tag: "Test", text: "message", meta: meta))
         target.send(Message(level: .critical, tag: "Test", text: "message", meta: meta))
-        
+
         target.sync()
-        
+
         let logContent = try! String(contentsOf: target.logFileUrl, encoding: .utf8).components(separatedBy: .newlines).dropLast()
         XCTAssertEqual(1, logContent.count)
         XCTAssertTrue(logContent[0].contains("Critical - Test: message"))

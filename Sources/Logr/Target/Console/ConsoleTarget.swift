@@ -19,19 +19,19 @@ import os.log
 
 /// Target class used for logging to unified logging system: i.e. console/Apple Log system facility.
 open class ConsoleTarget: Target {
-    
+
     @available(iOS 10.0, tvOS 10.0, macOS 10.12, *)
     lazy var osLog = OSLog(subsystem: self.config.subsystem, category: self.config.category)
-    
+
     /// Configuration struct assigned during initialization.
     public let config: ConsoleTargetConfig
-    
+
     /// Initializes ConsoleTarget instance with provided ConsoleTargetConfig struct.
     /// - Parameter config: struct encapsulating logging preferences. Defaults to struct instance with defaults values.
     public init(_ config: ConsoleTargetConfig? = nil) {
         self.config = config ?? ConsoleTargetConfig()
     }
-    
+
     open func send(_ message: Message) {
         guard message.level.rawValue >= self.config.level.rawValue else { return }
         if #available(iOS 10.0, tvOS 10.0, macOS 10.12, *) {
@@ -40,16 +40,16 @@ open class ConsoleTarget: Target {
             nsLog(message)
         }
     }
-    
+
     @available(iOS 10.0, tvOS 10.0, macOS 10.12, *)
     func osLog(_ message: Message) {
-        if(self.config.style == .verbose) {
+        if self.config.style == .verbose {
             os_log("%{public}@ %{public}@: %{public}@ %{public}@", log: osLog, type: OSLogType.from(message.level), message.meta.text, message.level.description, message.tag, message.text)
         } else {
             os_log("%{public}@: %{public}@ %{public}@", log: osLog, type: OSLogType.from(message.level), message.meta.text, message.level.description, message.tag, message.text)
         }
     }
-    
+
     func nsLog(_ message: Message) {
         let metaText = self.config.style == .verbose ? "\(message.meta.text) " : ""
         NSLog("%@", "\(metaText)\(message.level.description): \(message.tag) \(message.text)")
