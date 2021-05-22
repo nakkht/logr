@@ -47,7 +47,7 @@ jobs:
 script:
   - swiftlint --strict
   - set -o pipefail 
-  - xcodebuild build -workspace $WORKSPACE -scheme $SCHEME -destination "${DESTINATION}" | xcpretty
+  - xcodebuild test -workspace $WORKSPACE -scheme $SCHEME -destination "${DESTINATION}" | xcpretty
 
 after_success:
   - bash <(curl -s https://codecov.io/bash) -J 'Logr'
