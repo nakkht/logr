@@ -37,9 +37,9 @@ jobs:
     - osx_image: xcode12.2
       env: DESTINATION='platform=tvOS Simulator,name=Apple TV,OS=10.2'
         
-    - osx_image: xcode11.3
+    - osx_image: xcode12.5
       env: DESTINATION='platform=OS X,arch=x86_64'
-    - osx_image: xcode11.3
+    - osx_image: xcode11.6
       env: DESTINATION='platform=OS X,arch=x86_64'
     - osx_image: xcode11.3
       env: DESTINATION='platform=OS X,arch=x86_64'
