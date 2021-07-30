@@ -2,6 +2,11 @@
 
 All notable changes to logr project.
 
+## v0.10.1 - [2021-07-31]
+
+Changed
+* Minimal log style format
+
 ## v0.10.0 - [2021-04-10]
 
 Removed
