@@ -46,7 +46,7 @@ open class ConsoleTarget: Target {
         if self.config.style == .verbose {
             os_log("%{public}@ %{public}@: %{public}@ %{public}@", log: osLog, type: OSLogType.from(message.level), message.meta.text, message.level.description, message.tag, message.text)
         } else {
-            os_log("%{public}@: %{public}@ %{public}@", log: osLog, type: OSLogType.from(message.level), message.meta.text, message.level.description, message.tag, message.text)
+            os_log("%{public}@", type: OSLogType.from(message.level), message.text)
         }
     }
 

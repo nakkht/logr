@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = viewController
         window?.makeKeyAndVisible()
 
-        LogrService.init(with: Config(ConsoleTarget(ConsoleTargetConfig(style: .verbose)), FileTarget()))
+        LogrService.init(with: Config(ConsoleTarget(ConsoleTargetConfig(style: .minimal)), FileTarget()))
         logr.info("Application did finish launch")
         return true
     }
