@@ -28,7 +28,7 @@ Once Swift package set up, add the following to your `Package.swift`:
 
 ```
 dependencies: [
-  .package(url: "https://github.com/nakkht/logr.git", exact: "0.10.1")
+  .package(url: "https://github.com/nakkht/logr.git", exact: "0.11.0")
 ]
 ```
 
