@@ -9,48 +9,13 @@ on:
 env:
   LC_CTYPE: en_US.UTF-8
   LANG: en_US.UTF-8
-  WORKSPACE: .swiftpm/xcode/package.xcworkspace
-  SCHEME: Logr
-  
-jobs:
-  build-latest:
-    strategy:
-      matrix:
-        destination: 
-          - 'platform=iOS Simulator,name=iPhone 12,OS=14.4'
-          - 'platform=iOS Simulator,name=iPad Pro (12.9-inch) (4th generation),OS=14.4'
-          - 'platform=tvOS Simulator,name=Apple TV,OS=14.3'
-          - 'platform=OS X,arch=x86_64'
-    runs-on: macos-10.15
-    env:
-      DEVELOPER_DIR: /Applications/Xcode_12.4.app
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Lint
-        run: swiftlint --strict
-      - name: Cache build
-        uses: actions/cache@v2
-        with:
-          path: |
-            .spm
-          key: ${{ runner.os }}-cache
-      - name: Build
-        run: |
-          set -o pipefail
-          xcodebuild test -workspace $WORKSPACE -scheme $SCHEME -destination "${{ matrix.destination }}" | xcpretty
 
-  build-iOS-13:
-    strategy:
-      matrix:
-        destination: 
-          - 'platform=iOS Simulator,name=iPhone 11,OS=13.7'
-          - 'platform=iOS Simulator,name=iPad Pro (12.9-inch) (4th generation),OS=13.7'
-          - 'platform=tvOS Simulator,name=Apple TV,OS=13.4'
-          - 'platform=OS X,arch=x86_64'
-    runs-on: macos-10.15
-    env:
-      DEVELOPER_DIR: /Applications/Xcode_11.7.app
+jobs:
+  unit-test-latest:
+    name: Unit test macOS latest
+    runs-on: macos-11.15
+    env: 
+      DEVELOPER_DIR: /Applications/Xcode_12.5.app
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -60,9 +25,17 @@ jobs:
         uses: actions/cache@v2
         with:
           path: |
-            .spm
-          key: ${{ runner.os }}-cache
-      - name: Build
-        run: |
-          set -o pipefail
-          xcodebuild test -workspace $WORKSPACE -scheme $SCHEME -destination "${{ matrix.destination }}" | xcpretty
+            .build
+          key: ${{ runner.os }}-build-cache
+      - name: Test
+        run: swift test --enable-code-coverage -v 2>&1 | xcpretty
+      - name: Export code coverage
+        if: github.ref == 'refs/heads/develop'
+        run: xcrun llvm-cov export -format="lcov" .build/x86_64-apple-macosx/debug/LogrPackageTests.xctest/Contents/MacOS/LogrPackageTests -instr-profile=.build/x86_64-apple-macosx/debug/codecov/default.profdata > .build/logr-coverage.lcov
+      - name: Upload code coverage
+        if: github.ref == 'refs/heads/develop'
+        uses: codecov/codecov-action@v1
+        with:
+          file: .build/logr-coverage.lcov
+          fail_ci_if_error: true
+          verbose: true
