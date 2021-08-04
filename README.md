@@ -91,9 +91,9 @@ Demo project can be access by opening Demo.workspace in Demo sub-folder.
 * [Paulius Gudonis](https://pgu.dev)
 
 ## Licence
-This repository is under the **Apache v2.0** license. [Find it here](https://github.com/nakkht/logr/blob/master/LICENSE).
+This repository is under the **Apache v2.0** license. [Find it here](https://github.com/nakkht/logr/blob/main/LICENSE).
 
-    Copyright 2020 Paulius Gudonis
+    Copyright 2021 Paulius Gudonis
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
