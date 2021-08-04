@@ -1,0 +1,31 @@
+name: Build
+
+on:
+  push:
+    branches: [ master, develop ]
+  pull_request:
+    branches: [ master, develop ]
+
+env:
+  LC_CTYPE: en_US.UTF-8
+  LANG: en_US.UTF-8
+
+jobs:
+  build-latest:
+    name: Build macOS latest
+    runs-on: macos-latest
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_12.5.app
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Lint
+        run: swiftlint --strict
+      - name: Cache build
+        uses: actions/cache@v2
+        with:
+          path: |
+            .build
+          key: ${{ runner.os }}-build-cache
+      - name: Build
+        run: swift build -v
